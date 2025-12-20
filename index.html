@@ -3,51 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <title>Ivan Tran | Software Engineer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    img {
+      max-width: 150px;
+      border-radius: 50%;
+    }
+
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 300px;
+      transition: transform 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      font-size: 1.2em;
+    }
+
+    .project-card ul {
+      padding-left: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      margin-top: 10px;
+      margin-right: 10px;
+      font-size: 0.9em;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
 
   <h1>Ivan Tran</h1>
-  <img src="IMG_2451.jpg">
+  <img src="IMG_2451.jpg" alt="Ivan Tran">
 
   <h2>About Me</h2>
   <p>
     I previously studied Computer Science at RMIT University up to my third year.
     I enjoy problem-solving and turning ideas into working software through code.
+    I have hands-on experience building automated systems and consulting on warehouse management software solutions for real-world use.
     I am currently seeking junior software engineering or internship opportunities.
   </p>
 
   <h2>Projects</h2>
-  <ul>
-    <li> <strong>Vending Machine Project</strong><br>
-      <a href="https://github.com/IvanTran-2001/Adv-Prog-Tech-A2">Link</a>
-      Skills:<br>
-      <ul>
-        <li> C++ </li>
-        <li> Memory Usage </li>
-      </ul>
-    </li>
+  <div class="projects-container">
 
-    <li> <strong>Minecraft Village Generator</strong><br>
-      <a href="">Link</a>
-      Skills:<br>
+    <div class="project-card">
+      <h3>Vending Machine Project</h3>
+      <p>Automated vending machine simulation project.</p>
+      <p><strong>Skills:</strong></p>
       <ul>
-        <li> C++ </li>
-        <li> Java </li>
-        <li> API </li> 
-        <li> Python </li>
+        <li>C++</li>
+        <li>Memory Usage</li>
       </ul>
-    </li>
+      <a href="https://github.com/IvanTran-2001/Adv-Prog-Tech-A2" class="btn">GitHub</a>
+    </div>
 
-    <li> <strong>Website with Data</strong><br>
-      <a href="">Link</a>
-      Skills:<br>
+    <div class="project-card">
+      <h3>Minecraft Village Generator</h3>
+      <p>Generates Minecraft villages using algorithms and APIs.</p>
+      <p><strong>Skills:</strong></p>
       <ul>
-        <li> Java </li>
-        <li> SQL </li>
-        <li> Python </li> 
+        <li>C++</li>
+        <li>Java</li>
+        <li>Python</li>
+        <li>API Integration</li>
       </ul>
-    </li>
-  </ul>
+      <a href="#" class="btn">GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Website with Data</h3>
+      <p>Interactive website displaying dynamic data from databases.</p>
+      <p><strong>Skills:</strong></p>
+      <ul>
+        <li>Java</li>
+        <li>SQL</li>
+        <li>Python</li>
+      </ul>
+      <a href="#" class="btn">GitHub</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Warehousing Consultant</h3>
+      <p>Consulted on warehouse management software (WMS) improvements.</p>
+      <p><strong>Skills:</strong></p>
+      <ul>
+        <li>VBA</li>
+        <li>Automation</li>
+        <li>Systems Analysis</li>
+      </ul>
+      <a href="#" class="btn">Project Details</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Automated Program</h3>
+      <p>Built an automated system for operational efficiency.</p>
+      <p><strong>Skills:</strong></p>
+      <ul>
+        <li>VBA</li>
+        <li>Automation</li>
+      </ul>
+      <a href="#" class="btn">Project Details</a>
+    </div>
+
+  </div>
 
 </body>
 </html>
