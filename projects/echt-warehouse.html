@@ -111,26 +111,45 @@
       or a forklifter can simply do the computer work themselves </li>
   </ul>
 
-  <h2><strong>Thinking, Problem-Solving Process & story</strong></h2>
-  <p>
-    The big problem was the diffuclties of managing 3 different tables at once:
-    1: table used to check every and each pallete if an item/s was needed, 2: to confirm 
-    if items were collected and 3: every location of every customer items of the day. 
-    This will lead to human error, even below 99% is such a huge margin of error. 
-    1 fault can lead to massive delay especially on busy days
-    where space on the floor is being/needed to be taken up to open other space, and just missing an item means we
-    may have to open one space up to get an item which takes a long period of time.
+  <h2>Thinking, Problem-Solving Process & Story</h2>
+    <p>
+    The main challenge was managing three different tables simultaneously: 
+    1) checking if each pallet contained the required items, 
+    2) confirming whether items were collected, and 
+    3) tracking the location of every customer item for the day. 
+    This multi-table system was prone to human error, and even a single mistake could cause major delays during busy days.
+    </p>
 
-    So as I was doing my job at the warehouse, I was thinking of a solution and pitched it
-    to my boss which she immediately put me on a call with the wms company managing their system.
-    A few days later, wms developer and I developed a new SINGLE table capable of doing everything while
-    also being much simpler to utilize and speed up the process. There were a lot of variables columns combined, while also
-    excluding a lot of unecessary data clogging up the screen. I had to identify everything variable, highlight all important
-    
+    <p>
+    While working in the warehouse, I identified the inefficiency and proposed a solution to my supervisor, who immediately connected me with the WMS company managing their system. 
+    Together with a WMS developer, we designed a **single, consolidated table** capable of performing all three functions while simplifying the workflow and improving speed.
+    </p>
 
-  </p>
+    <p>
+    My approach included:
+    <ul>
+      <li>Identifying all relevant variables and understanding their meaning and dependencies.</li>
+      <li>Determining which data was essential and which could be excluded to reduce clutter.</li>
+      <li>Combining related variables where possible to simplify analysis.</li>
+      <li>Planning the solution under tight deadlines, communicating via phone calls, and sending PDFs when needed for clarity.</li>
+    </ul>
+    </p>
 
-  <h2>Consultant Notes (Raw Submission)</h2>
+    <p>
+    Initially, the new table improved speed significantly, allowing staff to instantly locate items and reducing the need for brute-force checks. However, a bug was detected: some items were missing because the table was **static**, updating only with warehouse input and not external orders. 
+    By analyzing patterns in missing items, I identified the root cause related to order dates and worked with the developer to implement a fix. After this, the system ran accurately and efficiently.
+    </p>
+
+    <p>
+    The final outcome:
+    <ul>
+      <li>Staff could process items faster and more accurately.</li>
+      <li>Forklifts no longer outpaced the computer system; one computer can now handle tasks for two forklifts, or a forklift operator can perform the computer tasks themselves.</li>
+      <li>The system reduced human error, improved operational efficiency, and simplified decision-making for management.</li>
+    </ul>
+    </p>
+
+  <h2>Consultant Notes (Raw)</h2>
   <p>The notes below show the technical communication I sent to the WMS company:</p>
     <iframe src="report.pdf"></iframe>
     <div style="text-align: center; margin-top: 20px;">
