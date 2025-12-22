@@ -9,15 +9,18 @@
       margin: 20px;
       line-height: 1.6;
       background-color: #f9f9f9;
+      color: #333;
     }
 
     h1, h2 {
-      color: #333;
+      color: #222;
     }
 
     img {
       max-width: 150px;
       border-radius: 50%;
+      display: block;
+      margin: 10px 0 20px 0;
     }
 
     .projects-container {
@@ -43,10 +46,16 @@
     .project-card h3 {
       margin-top: 0;
       font-size: 1.2em;
+      color: #007bff;
     }
 
     .project-card ul {
       padding-left: 20px;
+      margin-top: 5px;
+    }
+
+    .project-card p {
+      margin: 8px 0;
     }
 
     .btn {
@@ -57,7 +66,6 @@
       color: white;
       border-radius: 5px;
       margin-top: 10px;
-      margin-right: 10px;
       font-size: 0.9em;
     }
 
@@ -67,17 +75,17 @@
   </style>
 </head>
 <body>
-
-  <h1>Ivan Tran</h1>
-  <img src="IMG_2451.jpg" alt="Ivan Tran">
+  <div style="text-align: center; margin-top: 20px;">
+    <h1>Ivan Tran</h1>
+    <img src="IMG_2451.jpg" alt="Ivan Tran" style="display: block; margin: 0 auto;">
+  </div>
 
   <h2>About Me</h2>
   <p>
-    I previously studied Computer Science at RMIT University up to my third year.
-    I enjoy problem-solving and turning ideas into working software through code.
+    I studied Computer Science at RMIT University up to my third year.
+    I enjoy problem-solving and turning ideas into working software.
     I have hands-on experience building automated systems and consulting on warehouse 
-    management software solutions for real-world use. I am currently seeking junior software 
-    engineering or internship opportunities.
+    management software solutions. Currently seeking junior software engineering or internship opportunities.
   </p>
 
   <h2>Projects</h2>
@@ -85,23 +93,18 @@
 
     <div class="project-card">
       <h3>Vending Machine Project</h3>
-      <p>Automated vending machine simulation project.</p>
+      <p>Simulation of an automated vending machine system.</p>
       <p><strong>Skills:</strong></p>
       <ul>
-        <li>ADTs</li>
-        <li>Linked List</li>
-        <li>Pointers</li>
-        <li>Dynamic Memory Management</li>
-        <li>File Processing</li>
-        <li>Program State Management</li>
-        <li>Exception Handling</li>
+        <li>C++</li>
+        <li>Memory Management</li>
       </ul>
-      <a href="https://github.com/IvanTran-2001/Adv-Prog-Tech-A2" class="btn">GitHub</a>
+      <a href="projects/vendingmachine.html" class="btn">Project Details</a>
     </div>
 
     <div class="project-card">
       <h3>Minecraft Village Generator</h3>
-      <p>Generates Minecraft villages using algorithms and APIs.</p>
+      <p>Generates Minecraft villages programmatically using algorithms and APIs.</p>
       <p><strong>Skills:</strong></p>
       <ul>
         <li>C++</li>
@@ -109,7 +112,7 @@
         <li>Python</li>
         <li>API Integration</li>
       </ul>
-      <a href="#" class="btn">GitHub</a>
+      <a href="projects/minecraftvillage.html" class="btn">Project Details</a>
     </div>
 
     <div class="project-card">
@@ -121,47 +124,49 @@
         <li>SQL</li>
         <li>Python</li>
       </ul>
-      <a href="#" class="btn">GitHub</a>
+      <a href="projects/websitedata.html" class="btn">Project Details</a>
     </div>
 
     <div class="project-card">
       <h3>Warehousing Consultant</h3>
-      <p>Consulted on warehouse management software (WMS) improvements.</p>
+      <p>Consulted on WMS improvements, designed a single table system to increase efficiency and reduce errors.</p>
       <p><strong>Skills:</strong></p>
       <ul>
-        <li>SQL (observed and suggested improvements)</li>
-        <li>Problem-solving</li>
-        <li>Technical communication</li>
+        <li>SQL (assisted and reviewed database adjustments)</li>
+        <li>Data Analysis</li>
+        <li>Process Improvement</li>
+        <li>Technical Communication</li>
+        <li>Problem Solving and Ideas</li>
+        <li>Logistics & Warehouse Operations</li>
       </ul>
-      <a href="#" class="btn">Project Details</a>
+      <a href="projects/echt-warehouse.html" class="btn">Project Details</a>
     </div>
 
     <div class="project-card">
       <h3>Automated Program</h3>
-      <p>Built an automated system for operational efficiency.</p>
+      <p>Built an automated system to improve operational efficiency.</p>
       <p><strong>Skills:</strong></p>
       <ul>
         <li>VBA</li>
         <li>Automation</li>
       </ul>
-      <a href="" class="btn">Project Details</a>
+      <a href="projects/vbaautomated.html" class="btn">Project Details</a>
     </div>
 
     <div class="project-card">
-      <h3>LeetCode 100+ solved</h3>
-      <p>Solved 100+ algorithm and data structure problems independently, with multiple solutions for many problems optimized for performance.</p>
+      <h3>LeetCode Challenges</h3>
+      <p>Solved 100+ algorithm and data structure problems independently, optimizing multiple solutions for performance.</p>
       <p><strong>Highlights:</strong></p>
       <ul>
-        <li>Achieved top 5% speed across all solutions</li>
-        <li>100%+ self solved, no checking solutions</li>
-        <li>Practiced a wide range of topics: arrays, trees, graphs, dynamic programming, and more</li>
-        <li>Maintained a GitHub folder documenting all solutions</li>
+        <li>Top 5% speed across all solutions</li>
+        <li>100% self-solved</li>
+        <li>Topics: arrays, trees, graphs, dynamic programming, and more</li>
+        <li>GitHub folder documenting all solutions</li>
       </ul>
-      <a href="https://github.com/IvanTran-2001/LeetCode" class="btn">View GitHub</a>
+      <a href="https://github.com/IvanTran-2001/LeetCode" class="btn">GitHub</a>
     </div>
 
   </div>
 
 </body>
 </html>
-
