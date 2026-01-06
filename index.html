@@ -97,9 +97,24 @@
       background-color: #fff;
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-      padding: 28px;
+      padding: 0;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       border-top: 4px solid #667eea;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .project-card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-card-content {
+      padding: 28px;
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
     }
@@ -195,60 +210,69 @@
     <div class="projects-container">
 
       <div class="project-card">
-        <h3>Vending Machine Project</h3>
-        <p>
-          Advanced C++14 vending machine simulator featuring custom doubly-linked lists, 
-          command pattern architecture, comprehensive exception handling, and file persistence.
-        </p>
-        <p><strong>Key Features:</strong></p>
-        <ul>
-          <li>Custom singly/doubly linked list implementations from scratch</li>
-          <li>8 coin denominations with greedy change algorithm</li>
-          <li>Modular command pattern with 8 operation classes</li>
-          <li>Structured file I/O with validation (stock.dat, coins.dat)</li>
-          <li>16+ automated test suites with edge case coverage</li>
-          <li>Memory-safe with Valgrind verification</li>
-          <li>Dynamic list switching enhancement feature</li>
-          <li>Robust error handling with 4 exception types</li>
-        </ul>
-        <div class="button-group">
-          <a href="projects/vendingmachine.html" class="btn">Project Details</a>
-          <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="btn" target="_blank">GitHub</a>
+        <img src="projects/pictures/vendingmachine.png" alt="Vending Machine" class="project-card-image">
+        <div class="project-card-content">
+          <h3>Vending Machine Project</h3>
+          <p>
+            Advanced C++14 vending machine simulator featuring custom doubly-linked lists, 
+            command pattern architecture, comprehensive exception handling, and file persistence.
+          </p>
+          <p><strong>Key Features:</strong></p>
+          <ul>
+            <li>Custom singly/doubly linked list implementations from scratch</li>
+            <li>8 coin denominations with greedy change algorithm</li>
+            <li>Modular command pattern with 8 operation classes</li>
+            <li>Structured file I/O with validation (stock.dat, coins.dat)</li>
+            <li>16+ automated test suites with edge case coverage</li>
+            <li>Memory-safe with Valgrind verification</li>
+            <li>Dynamic list switching enhancement feature</li>
+            <li>Robust error handling with 4 exception types</li>
+          </ul>
+          <div class="button-group">
+            <a href="projects/vendingmachine.html" class="btn">Project Details</a>
+            <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="btn" target="_blank">GitHub</a>
+          </div>
         </div>
       </div>
 
       <div class="project-card">
-        <h3>QA Wolf Take-Home Assignment</h3>
-        <p>Hacker News Article Sort Validator - A Node.js web scraping tool that fetches and validates article chronological ordering using Playwright, with comprehensive error reporting and modular architecture.</p>
-        <p><strong>Skills:</strong></p>
-        <ul>
-          <li>Web Scraping with Playwright</li>
-          <li>Test Automation</li>
-          <li>Data Validation</li>
-          <li>Node.js & JavaScript</li>
-          <li>Modular Architecture</li>
-          <li>CLI Design</li>
-          <li>Unit Testing</li>
-        </ul>
-        <div class="button-group">
-          <a href="projects/QA-Wolf-Take-Home.html" class="btn">Project Details</a>
-          <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="btn" target="_blank">GitHub</a>
+        <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image">
+        <div class="project-card-content">
+          <h3>QA Wolf Take-Home Assignment</h3>
+          <p>Hacker News Article Sort Validator - A Node.js web scraping tool that fetches and validates article chronological ordering using Playwright, with comprehensive error reporting and modular architecture.</p>
+          <p><strong>Skills:</strong></p>
+          <ul>
+            <li>Web Scraping with Playwright</li>
+            <li>Test Automation</li>
+            <li>Data Validation</li>
+            <li>Node.js & JavaScript</li>
+            <li>Modular Architecture</li>
+            <li>CLI Design</li>
+            <li>Unit Testing</li>
+          </ul>
+          <div class="button-group">
+            <a href="projects/QA-Wolf-Take-Home.html" class="btn">Project Details</a>
+            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="btn" target="_blank">GitHub</a>
+          </div>
         </div>
       </div>
 
       <div class="project-card">
-        <h3>LeetCode Challenges</h3>
-        <p>Active problem solver on LeetCode with 187+ problems solved across multiple programming languages and difficulty levels.</p>
-        <p><strong>Statistics:</strong></p>
-        <ul>
-          <li>187+ problems solved (71.07% acceptance rate)</li>
-          <li>Top performer: Beats 82.25% in speed</li>
-          <li>Languages: Python (121 problems), MySQL (3 problems)</li>
-          <li>Difficulty: Easy (64), Medium (98), Hard (25)</li>
-          <li>Skills: Dynamic Programming, Backtracking, Hash Tables, Arrays, and more</li>
-        </ul>
-        <div class="button-group">
-          <a href="https://leetcode.com/u/C0XKIES/" class="btn" target="_blank">LeetCode Profile</a>
+        <img src="projects/pictures/leetcode.png" alt="LeetCode" class="project-card-image">
+        <div class="project-card-content">
+          <h3>LeetCode Challenges</h3>
+          <p>Active problem solver on LeetCode with 187+ problems solved across multiple programming languages and difficulty levels.</p>
+          <p><strong>Statistics:</strong></p>
+          <ul>
+            <li>187+ problems solved (71.07% acceptance rate)</li>
+            <li>Top performer: Beats 82.25% in speed</li>
+            <li>Languages: Python (121 problems), MySQL (3 problems)</li>
+            <li>Difficulty: Easy (64), Medium (98), Hard (25)</li>
+            <li>Skills: Dynamic Programming, Backtracking, Hash Tables, Arrays, and more</li>
+          </ul>
+          <div class="button-group">
+            <a href="https://leetcode.com/u/C0XKIES/" class="btn" target="_blank">LeetCode Profile</a>
+          </div>
         </div>
       </div>
 
