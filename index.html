@@ -421,7 +421,7 @@
     </div>
     <div style="margin-top: 30px;">
       <a href="resume.html" class="btn" target="_blank"><i class="fas fa-file-pdf"></i> View Resume</a>
-      <a href="javascript:window.print()" class="btn" onclick="window.open('resume.html', '_blank'); setTimeout(() => window.print(), 500);"><i class="fas fa-download"></i> Download PDF</a>
+      <a href="#" class="btn" onclick="downloadResume(event);"><i class="fas fa-download"></i> Download PDF</a>
     </div>
   </div>
 
@@ -563,6 +563,20 @@
       <p>&copy; 2026 Ivan Tran. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    function downloadResume(event) {
+      event.preventDefault();
+      const resumeWindow = window.open('resume.html', 'resume');
+      if (resumeWindow) {
+        resumeWindow.onload = function() {
+          setTimeout(() => {
+            resumeWindow.print();
+          }, 500);
+        };
+      }
+    }
+  </script>
 
 </body>
 </html>
