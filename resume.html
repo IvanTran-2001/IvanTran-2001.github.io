@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ivan Tran - Resume</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: #2c3e50;
+      line-height: 1.6;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #f5f5f5;
+    }
+
+    .resume-container {
+      background: white;
+      padding: 40px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 1.1em;
+      color: #667eea;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .contact-info {
+      font-size: 0.9em;
+      color: #555;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-info span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .contact-info a {
+      color: #667eea;
+      text-decoration: none;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: #667eea;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #667eea;
+      display: inline-block;
+    }
+
+    .entry {
+      margin-bottom: 20px;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 5px;
+      flex-wrap: wrap;
+    }
+
+    .entry-title {
+      font-weight: 700;
+      color: #2c3e50;
+      font-size: 1.05em;
+    }
+
+    .entry-subtitle {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    .entry-date {
+      color: #999;
+      font-size: 0.9em;
+    }
+
+    .entry-description {
+      color: #555;
+      margin-top: 8px;
+      line-height: 1.7;
+    }
+
+    .entry-description ul {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .entry-description li {
+      margin-bottom: 6px;
+      color: #666;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .skill-category {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 6px;
+      border-left: 4px solid #667eea;
+    }
+
+    .skill-category h4 {
+      color: #667eea;
+      margin-bottom: 10px;
+      font-size: 0.95em;
+    }
+
+    .skill-category p {
+      color: #555;
+      font-size: 0.9em;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .resume-container {
+        padding: 20px;
+      }
+
+      .header h1 {
+        font-size: 1.8em;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .entry-header {
+        flex-direction: column;
+      }
+
+      .entry-date {
+        margin-top: 5px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .resume-container {
+        box-shadow: none;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <div class="header">
+      <h1>Ivan Tran</h1>
+      <p>Software Engineer</p>
+      <div class="contact-info">
+        <span><i class="fas fa-envelope"></i> <a href="mailto:mystoganx2001@gmail.com">mystoganx2001@gmail.com</a></span>
+        <span><i class="fas fa-phone"></i> 0405 266 660</span>
+        <span><i class="fas fa-map-marker-alt"></i> Melbourne, Australia</span>
+        <span><i class="fab fa-github"></i> <a href="https://github.com/IvanTran-2001" target="_blank">github.com/IvanTran-2001</a></span>
+        <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank">LinkedIn</a></span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Professional Summary</h2>
+      <p>Software developer with hands-on experience building scalable, modular systems across C++, JavaScript, and Python. Proficient in clean architecture, test automation, data structures, and design patterns. Demonstrated ability to solve complex problems, optimize systems, and deliver production-ready code with comprehensive documentation and testing.</p>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Languages</h4>
+          <p>C++14, JavaScript, Python, SQL, VBA</p>
+        </div>
+        <div class="skill-category">
+          <h4>Frameworks & Tools</h4>
+          <p>Node.js, Playwright, Git, Make, Valgrind</p>
+        </div>
+        <div class="skill-category">
+          <h4>Core Competencies</h4>
+          <p>Data Structures, Design Patterns, Test Automation, Web Scraping, System Architecture</p>
+        </div>
+        <div class="skill-category">
+          <h4>Methodologies</h4>
+          <p>Clean Code, Test-Driven Development, Modular Design, Memory Safety</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Professional Experience</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Vending Machine Simulator Project</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-subtitle">Advanced C++14 System Design & Implementation</div>
+        <div class="entry-description">
+          <p>Designed and developed a comprehensive vending machine simulator demonstrating advanced software engineering principles and clean architecture.</p>
+          <ul>
+            <li>Implemented custom singly/doubly linked list data structures from scratch with full encapsulation</li>
+            <li>Applied Command Pattern with 8+ operation classes for modular, extensible design</li>
+            <li>Engineered greedy algorithm for 8-coin denomination change optimization</li>
+            <li>Developed robust exception handling with 4 custom exception types</li>
+            <li>Created structured file I/O system with validation (stock.dat, coins.dat persistence)</li>
+            <li>Built 16+ automated test suites with comprehensive edge case coverage</li>
+            <li>Verified memory safety using Valgrind with zero leaks/errors</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">QA Wolf Take-Home Assignment</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-subtitle">Test Automation & Web Scraping with Playwright</div>
+        <div class="entry-description">
+          <p>Developed a Node.js web scraping and validation tool for Hacker News article sorting verification with modular architecture and comprehensive error reporting.</p>
+          <ul>
+            <li>Engineered web scraping system using Playwright for cross-browser testing</li>
+            <li>Implemented data validation logic with detailed error reporting and logging</li>
+            <li>Designed modular CLI interface with flexible argument parsing</li>
+            <li>Created unit tests with Jest for validator and result modules</li>
+            <li>Applied clean code principles with separation of concerns and reusable components</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Warehouse Management System Consulting</span>
+          <span class="entry-date">2024</span>
+        </div>
+        <div class="entry-subtitle">Process Improvement & Database Optimization</div>
+        <div class="entry-description">
+          <p>Analyzed and optimized warehouse operations by designing a single-table database solution that increased efficiency and reduced operational errors.</p>
+          <ul>
+            <li>Analyzed existing warehouse workflows and identified inefficiencies</li>
+            <li>Designed optimized database schema reducing operational complexity</li>
+            <li>Implemented SQL improvements with data integrity validation</li>
+            <li>Documented solutions with clear technical specifications</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Algorithmic Problem Solving</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">LeetCode Algorithm Challenges</span>
+          <span class="entry-date">Ongoing</span>
+        </div>
+        <div class="entry-description">
+          <p><span class="highlight">187+ problems solved</span> across multiple difficulty levels and programming paradigms.</p>
+          <ul>
+            <li><span class="highlight">71.07% acceptance rate</span> on attempts</li>
+            <li><span class="highlight">Top 82.25% in speed</span> - optimized solution efficiency</li>
+            <li>Mastered core domains: Dynamic Programming, Backtracking, Hash Tables, Graphs, Trees, Arrays</li>
+            <li>Languages: Python (121 problems), MySQL (3 problems)</li>
+            <li>Difficulty distribution: Easy (64), Medium (98), Hard (25)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Core Competencies</h2>
+      <ul style="column-count: 2; margin-left: 20px;">
+        <li>Object-Oriented Programming (OOP)</li>
+        <li>Data Structures & Algorithms</li>
+        <li>Design Patterns (Command, Factory, etc.)</li>
+        <li>Clean Code & Best Practices</li>
+        <li>Test Automation & QA</li>
+        <li>System Architecture & Design</li>
+        <li>Memory Management & Optimization</li>
+        <li>Git Version Control</li>
+        <li>Documentation & Technical Writing</li>
+        <li>Problem Solving & Debugging</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Portfolio</h2>
+      <p>View detailed project information, source code, and live demonstrations at: <a href="https://ivantran-2001.github.io/" style="color: #667eea; text-decoration: none;">https://ivantran-2001.github.io/</a></p>
+    </div>
+  </div>
+</body>
+</html>
