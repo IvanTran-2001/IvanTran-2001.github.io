@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QA Wolf Take-Home Assignment | Ivan Tran</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .project-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #007bff;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a.btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 8px 15px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      margin-top: 15px;
+      margin-right: 10px;
+    }
+
+    a.btn:hover {
+      background-color: #0056b3;
+    }
+
+    pre {
+      background-color: #f1f1f1;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 14px;
+    }
+
+    .tech-stack {
+      background-color: #f0f8ff;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+    }
+
+    .tech-stack strong {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🐺 QA Wolf Take-Home Assignment</h1>
+  <p>Quality Assurance & Test Automation with Playwright</p>
+</header>
+
+<div class="project-container">
+
+  <h2>Project Overview</h2>
+  <p>
+    This project involved developing a <strong>Hacker News Article Sort Validator</strong> 
+    using <strong>Node.js and Microsoft's Playwright framework</strong>. The assignment required building 
+    a web scraping tool to fetch the newest articles from Hacker News and validate their chronological ordering, 
+    demonstrating proficiency in <strong>test automation, data validation, and quality assurance principles</strong>.
+  </p>
+
+  <h3>Assignment Scope & Requirements</h3>
+  
+  <ul>
+    <li>Fetch exactly the first 100 articles from <strong>Hacker News/newest</strong> using Playwright.</li>
+    <li>Validate that articles are sorted from <strong>newest to oldest</strong> based on their timestamps.</li>
+    <li>Report any ordering inconsistencies with detailed error information.</li>
+    <li>Handle edge cases including invalid timestamps, pagination navigation, and error pages.</li>
+    <li>Provide configurable output options for flexibility (number of articles, titles to display, verbose mode).</li>
+    <li>Implement robust error handling and logging throughout the application.</li>
+  </ul>
+
+  <h3>Key Objectives & Skills Demonstrated</h3>
+  <ul>
+    <li><strong>Web Scraping with Playwright:</strong> Navigated multi-page content, extracted dynamic data, and handled browser interactions.</li>
+    <li><strong>Test Automation & Validation:</strong> Implemented validation logic to detect and report sorting errors with precision.</li>
+    <li><strong>Data Processing & Timestamp Handling:</strong> Parsed ISO timestamp strings and compared them for chronological order.</li>
+    <li><strong>Modular Code Architecture:</strong> Organized code into separate, reusable modules (CLI parser, validator, logger, result handler).</li>
+    <li><strong>Error Handling & Edge Cases:</strong> Gracefully handled pagination, invalid data, network issues, and error pages.</li>
+    <li><strong>Command-Line Interface Design:</strong> Built a user-friendly CLI with optional flags, default values, and help documentation.</li>
+    <li><strong>Testing & Quality Assurance:</strong> Created comprehensive unit tests using Playwright's test framework to validate all components.</li>
+    <li><strong>Attention to Detail:</strong> Implemented detailed logging, verbose output modes, and test-error injection for validation.</li>
+  </ul>
+
+  <div class="tech-stack">
+    <strong>Technology Stack:</strong>
+    <ul style="margin: 10px 0; padding-left: 20px;">
+      <li>Node.js - Runtime environment</li>
+      <li>Playwright - Browser automation and web scraping</li>
+      <li>JavaScript (ES6+) - Implementation language</li>
+      <li>@playwright/test - Testing framework</li>
+    </ul>
+  </div>
+
+  <h2>Implementation Highlights</h2>
+  
+  <h3>Modular Architecture</h3>
+  <p>The solution is structured into focused modules:</p>
+  <ul>
+    <li><strong>index.js</strong> - Main orchestrator that coordinates scraping, validation, and output.</li>
+    <li><strong>cli.js</strong> - Parses command-line arguments and provides help documentation.</li>
+    <li><strong>validator.js</strong> - Core validation logic for timestamp parsing and error detection.</li>
+    <li><strong>result.js</strong> - Result class that encapsulates article data and provides analysis methods.</li>
+    <li><strong>logger.js</strong> - Singleton logger for collecting and reporting warnings.</li>
+    <li><strong>debug.js</strong> - Test error injection utilities for validation testing.</li>
+  </ul>
+
+  <h3>Key Features</h3>
+  <ul>
+    <li><strong>Pagination Handling:</strong> Automatically navigates through Hacker News pages until target article count is reached.</li>
+    <li><strong>Timestamp Validation:</strong> Parses ISO format timestamps and identifies invalid or malformed entries.</li>
+    <li><strong>Error Reporting:</strong> Provides detailed error information with article indices and comparison data.</li>
+    <li><strong>Flexible Output:</strong> Supports displaying article titles, verbose error details, and execution timing.</li>
+    <li><strong>Test Mode:</strong> Includes intentional error injection for validating the sorting algorithm.</li>
+  </ul>
+
+  <h2>Usage Examples</h2>
+  
+  <pre>
+# Basic usage - fetch and validate 100 articles
+node index.js
+
+# Show first 5 article titles with validation
+node index.js 100 5
+
+# Verbose mode with detailed error reporting
+node index.js 100 5 --verbose
+
+# Test mode with intentional sorting errors
+node index.js 100 0 --test-error
+
+# Display help information
+node index.js --help
+  </pre>
+
+  <h2>Personal Contributions</h2>
+  <p>
+    As the sole developer of this assignment, I was responsible for:
+  </p>
+  <ul>
+    <li>Architecting the overall solution and module structure.</li>
+    <li>Implementing web scraping logic with Playwright, including pagination and dynamic content extraction.</li>
+    <li>Developing the timestamp parsing and validation algorithm to detect sorting errors.</li>
+    <li>Designing the CLI interface with argument parsing and flag handling.</li>
+    <li>Creating comprehensive logging and error reporting mechanisms.</li>
+    <li>Writing unit tests to validate all components and edge cases.</li>
+    <li>Implementing test-error injection for validating the validation logic itself.</li>
+  </ul>
+
+  <h2>Testing & Quality Assurance</h2>
+  <p>
+    The project includes comprehensive test coverage:
+  </p>
+  <ul>
+    <li><strong>CLI Parser Tests:</strong> Validates argument parsing, default values, and flag handling.</li>
+    <li><strong>Validator Tests:</strong> Tests timestamp parsing and error detection with various edge cases.</li>
+    <li><strong>Result Tests:</strong> Verifies the Result class methods and error reporting.</li>
+    <li><strong>Integration Tests:</strong> End-to-end validation of the entire workflow.</li>
+    <li><strong>Test-Error Tests:</strong> Ensures error injection works correctly for validation testing.</li>
+  </ul>
+
+  <p>
+    All tests are run using Playwright's testing framework with the command: <code>npx playwright test</code>
+  </p>
+
+  <h2>Video Walkthrough</h2>
+  <p>
+    Watch a complete demonstration of the project, including the motivation for joining QA Wolf 
+    and a live walkthrough of the code and successful execution:
+  </p>
+  
+  <iframe 
+    src="https://www.loom.com/embed/d3b55a224db6491ab0369a05233862a7" 
+    frameborder="0" 
+    allowfullscreen
+    style="width: 100%; height: 500px; border-radius: 8px; margin: 20px 0;">
+  </iframe>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="../index.html" class="btn">Home</a>
+    </div>
+</div>
+
+</body>
+</html>
