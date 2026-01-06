@@ -250,6 +250,50 @@
       max-width: 1400px;
       margin: 0 auto;
     }
+
+    footer {
+      background-color: #fff;
+      margin-top: 80px;
+      padding: 40px 20px;
+      border-top: 3px solid #667eea;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #555;
+      font-size: 0.95em;
+    }
+
+    .footer-item a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .footer-item a:hover {
+      color: #764ba2;
+    }
+
+    .footer-item i {
+      color: #667eea;
+      font-size: 1.2em;
+      width: 20px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -370,6 +414,23 @@
       
     </div>
   </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:mystoganx2001@gmail.com">mystoganx2001@gmail.com</a>
+      </div>
+      <div class="footer-item">
+        <i class="fas fa-phone"></i>
+        <span>0405 266 660</span>
+      </div>
+      <div class="footer-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Melbourne, Australia</span>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
