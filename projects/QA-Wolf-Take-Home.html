@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>QA Wolf Take-Home Assignment | Ivan Tran</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -109,6 +110,16 @@
     a.btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    }
+
+    a.btn.github-btn {
+      padding: 12px;
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
     }
 
     .tech-stack {
@@ -305,7 +316,9 @@ node index.js --help
 
     <div class="button-group">
       <a href="../index.html" class="btn">Home</a>
-      <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="btn" target="_blank">View on GitHub</a>
+      <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="btn github-btn" target="_blank" title="View on GitHub">
+        <i class="fab fa-github"></i>
+      </a>
     </div>
 </div>
 

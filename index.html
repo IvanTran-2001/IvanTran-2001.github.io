@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Ivan Tran | Software Engineer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -73,27 +74,52 @@
 
     .social-links {
       display: flex;
-      gap: 12px;
+      gap: 20px;
       justify-content: center;
       margin-top: 25px;
     }
 
     .social-links a {
-      display: inline-block;
-      padding: 12px 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.95em;
+      border-radius: 50%;
+      font-size: 1.5em;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      position: relative;
     }
 
     .social-links a:hover {
-      transform: translateY(-3px);
+      transform: translateY(-5px);
       box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    }
+
+    .social-links a::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(44, 62, 80, 0.9);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      font-weight: 600;
+    }
+
+    .social-links a:hover::after {
+      opacity: 1;
     }
 
     img {
@@ -232,8 +258,12 @@
       Software developer with hands-on experience building scalable, modular systems across C++, JavaScript, and Python. I focus on clean architecture, test automation, and code quality. Currently seeking junior software engineering opportunities.
     </p>
     <div class="social-links">
-      <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/IvanTran-2001" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" data-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/IvanTran-2001" target="_blank" data-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
     </div>
   </div>
 
