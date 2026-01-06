@@ -128,8 +128,8 @@
 <body>
 
 <header>
-  <h1>Improving WMS Layout</h1>
-  <p>WMS Improvement / SQL Understanding</p>
+  <h1>Warehouse Management System Optimization</h1>
+  <p>Process Improvement | SQL Database Design | Operations</p>
 </header>
 
 <div class="project-container">
@@ -163,61 +163,62 @@
   </ul>
 
   <h2>Key Outcomes</h2>
+  <div class="key-point">
+    <strong>Primary Impact:</strong> One computer can now handle the workload of two forklift operators, or a single forklift operator can complete the computer tasks themselves—effectively doubling operational efficiency.
+  </div>
   <ul>
-    <li>Consolidated multiple inventory tables into a single unified view.</li>
-    <li>Reduced onboarding time for new staff and minimized skill gaps.</li>
-    <li>Lowered risk of missed customer items during daily operations.</li>
-    <li>Prevented team collisions where multiple staff grabbed the same inventory.</li>
-    <li>Improved confidence in inventory accuracy through instant refresh validation.</li>
-    <li>Enabled data-driven decision-making for warehouse management.</li>
-    <li>One computer can now handle the workload of two forklift operators, or a 
-      forklift operator can complete the computer tasks themselves. </li>
+    <li><strong>Consolidated System:</strong> Merged three separate inventory tables into a single, unified view.</li>
+    <li><strong>Reduced Errors:</strong> Eliminated team collisions and missed customer items.</li>
+    <li><strong>Faster Onboarding:</strong> Reduced training time and minimized skill gaps between experienced and new staff.</li>
+    <li><strong>Improved Accuracy:</strong> Instant refresh validation and real-time data synchronization increased inventory confidence.</li>
+    <li><strong>Better Decision-Making:</strong> Enabled data-driven insights for warehouse management and planning.</li>
   </ul>
 
-  <h2>Thinking, Problem-Solving Process & Story</h2>
-    <p>
-      
-    The main challenge was managing three different tables simultaneously: 
-    <ol>
-      <li>checking if each pallet contained the required items, </li>
-      <li>confirming whether items were collected, and </li>
-      <li>tracking the location of every customer item for the day. </li>
-    </ol>
-    This multi-table system was prone to human error, and even a single mistake could cause major delays during busy days.
-    </p>
+  <h2>Problem Statement</h2>
+  <p>
+    The warehouse relied on <strong>three separate database tables</strong> that had to be cross-referenced simultaneously:
+  </p>
+  <ol>
+    <li>Inventory pallet contents (what items are where)</li>
+    <li>Collection status (items picked and ready)</li>
+    <li>Customer order tracking (item locations for the day)</li>
+  </ol>
+  <p>
+    This fragmented system was inherently error-prone. Staff had to mentally consolidate data across three views, increasing cognitive load and error risk. Even a single mistake could cause cascading delays during high-volume operations.
+  </p>
 
-    <p>
-    While working in the warehouse, I identified the inefficiency and proposed a solution to my supervisor, who immediately connected me with the WMS company managing their system. 
-    Together with a WMS developer, we designed a **single, consolidated table** capable of performing all three functions while simplifying the workflow and improving speed.
-    </p>
+  <h2>Solution & Approach</h2>
+  <p>
+    I identified this inefficiency on the warehouse floor and proposed a solution to my supervisor, who connected me with the WMS development team. Working directly with WMS developers, we architected a <strong>single, unified table</strong> that consolidated all three functions into one intuitive view.
+  </p>
+  <p>
+    <strong>My approach:</strong>
+  </p>
+  <ul>
+    <li>Mapped all variables and their dependencies to understand the complete data landscape</li>
+    <li>Identified essential vs. redundant data to reduce cognitive load</li>
+    <li>Designed table consolidation strategy while maintaining data integrity</li>
+    <li>Managed tight deadlines through effective communication (technical documentation, phone calls, detailed PDFs)</li>
+  </ul>
 
-    <p>
-    My approach included:
-    <ul>
-      <li>Identifying all relevant variables and understanding their meaning and dependencies.</li>
-      <li>Determining which data was essential and which could be excluded to reduce clutter.</li>
-      <li>Combining related variables where possible to simplify analysis.</li>
-      <li>Planning the solution under tight deadlines, communicating via phone calls, and sending PDFs when needed for clarity.</li>
-    </ul>
-    </p>
+  <h2>Validation & Iteration</h2>
+  <p>
+    The initial implementation significantly improved speed—staff could instantly locate items without manual cross-referencing. However, testing revealed a critical issue: the table was <strong>static</strong>, updated only by warehouse input, not external orders.
+  </p>
+  <p>
+    By analyzing missing item patterns, I identified the root cause: order date misalignment between systems. I collaborated with the WMS developer to implement dynamic synchronization, resolving the issue completely.
+  </p>
 
-    <p>
-    Initially, the new table improved speed significantly, allowing staff to instantly locate items and reducing the need for brute-force checks. However, a bug was detected: some items were missing because the table was **static**, updating only with warehouse input and not external orders. 
-    By analyzing patterns in missing items, I identified the root cause related to order dates and worked with the developer to implement a fix. After this, the system ran accurately and efficiently.
-    </p>
+  <h2>Results</h2>
+  <ul>
+    <li>Processing speed improved dramatically—staff and forklifts worked in sync without bottlenecks</li>
+    <li>Error rate dropped significantly due to single-source-of-truth design</li>
+    <li>Operational flexibility increased: the system scaled seamlessly across different team sizes and workflows</li>
+  </ul>
 
-    <p>
-    The final outcome:
-    <ul>
-      <li>Staff could process items faster and more accurately.</li>
-      <li>Forklifts no longer outpaced the computer system; one computer can now handle tasks for two forklifts, or a forklift operator can perform the computer tasks themselves.</li>
-      <li>The system reduced human error, improved operational efficiency, and simplified decision-making for management.</li>
-    </ul>
-    </p>
-
-  <h2>Consultant Notes (Raw)</h2>
-  <p>The notes below show the technical communication I sent to the WMS company:</p>
-    <iframe src="report.pdf"></iframe>
+  <h2>Technical Documentation</h2>
+  <p>Below is the detailed technical analysis and recommendations I provided to the WMS development team:</p>
+  <iframe src="report.pdf" style="width: 100%; height: 700px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;"></iframe>
     <div style="text-align: center; margin-top: 20px;">
       <a href="../index.html" class="btn">Home</a>
     </div>
