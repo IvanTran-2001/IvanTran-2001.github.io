@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vending Machine Simulator - Advanced C++14 project featuring custom linked lists, command pattern, and comprehensive system design.">
+  <meta name="keywords" content="C++, Vending Machine, Data Structures, Design Patterns, System Design">
   <title>Vending Machine | Ivan Tran</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -174,7 +177,51 @@
       justify-content: center;
       margin-top: 30px;
     }
-  </style>
+
+    @media (max-width: 768px) {
+      .project-container {
+        padding: 25px 15px;
+      }
+
+      header h1 {
+        font-size: 1.8em;
+      }
+
+      a.btn {
+        padding: 14px 20px;
+        font-size: 1em;
+        flex: 1;
+        min-width: 140px;
+        text-align: center;
+      }
+
+      a.btn.github-btn {
+        flex: none;
+        min-width: auto;
+        width: 52px;
+        height: 52px;
+        padding: 0;
+      }
+
+      .button-group {
+        gap: 10px;
+      }
+
+      iframe {
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      a.btn {
+        padding: 12px 16px;
+        font-size: 0.95em;
+      }
+
+      .button-group {
+        gap: 8px;
+      }
+    }
 </head>
 <body>
 
