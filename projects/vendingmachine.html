@@ -200,15 +200,16 @@
 
   <h2>Key Objectives & Skills Demonstrated</h2>
   <ul>
-    <li><strong>Abstract Data Types (ADTs):</strong> Design and implementation of singly, doubly, and 2D linked lists from scratch.</li>
-    <li><strong>Dynamic Memory Management:</strong> Manual memory allocation, deallocation, and pointer manipulation with zero leaks.</li>
-    <li><strong>File Processing:</strong> Loading and saving inventory and coin data using structured file formats with validation.</li>
-    <li><strong>Program State Management:</strong> Tracking vending machine states and transaction flows for correct operation.</li>
-    <li><strong>Exception Handling & Validation:</strong> Comprehensive input validation and graceful error handling.</li>
-    <li><strong>Testing & Debugging:</strong> Creating test cases and verifying memory safety using Valgrind.</li>
-    <li><strong>Design Patterns:</strong> Implementing the Command pattern for menu operations to enhance modularity.</li>
-    <li><strong>Teamwork and Collaboration:</strong> Effective group work using Git for version control.</li>
-    <li><strong>Code Quality:</strong> Clean, maintainable code with proper documentation and style.</li>
+    <li><strong>Abstract Data Types (ADTs):</strong> Design and implementation of singly, doubly, and linked lists from scratch without STL, including node management and pointer operations.</li>
+    <li><strong>Dynamic Memory Management:</strong> Manual allocation/deallocation with proper use of new/delete, dynamic cast for type conversion, and zero memory leaks verified by Valgrind.</li>
+    <li><strong>Object-Oriented Design:</strong> Abstract base classes, inheritance hierarchies, virtual methods, and encapsulation principles applied throughout.</li>
+    <li><strong>Design Patterns:</strong> Command pattern implementation with polymorphic command objects, strategy pattern for linked list switching.</li>
+    <li><strong>Exception Handling:</strong> Throws and catches for std::runtime_error, std::length_error, std::invalid_argument, and std::domain_error with meaningful error messages.</li>
+    <li><strong>File Processing:</strong> Parsing structured data formats (stock.dat, coins.dat) with comprehensive validation and error recovery.</li>
+    <li><strong>State Management:</strong> Tracking vending machine states (normal, purchasing, admin) and enforcing valid state transitions.</li>
+    <li><strong>Algorithm Implementation:</strong> Change calculation algorithm, binary search patterns, case-insensitive string comparison utilities.</li>
+    <li><strong>Testing & Debugging:</strong> 16+ test suites covering normal cases, edge cases, malformed input, and memory verification with Valgrind.</li>
+    <li><strong>Code Quality:</strong> Clean, maintainable code with proper documentation, meaningful variable names, and modular architecture.</li>
   </ul>
 
   <h2>Implementation Highlights</h2>
@@ -217,29 +218,33 @@
   <p>Built from scratch without using STL containers:</p>
   <ul>
     <li><strong>LinkedListSingle:</strong> Singly-linked list for managing inventory items with insertion, deletion, and traversal.</li>
-    <li><strong>LinkedListDouble:</strong> Doubly-linked list for efficient bidirectional navigation and operations.</li>
-    <li><strong>2D Linked List:</strong> Custom structure for managing products and their properties across multiple dimensions.</li>
-    <li>Comprehensive Node class with proper encapsulation and memory management.</li>
+    <li><strong>LinkedListDouble:</strong> Doubly-linked list with bidirectional node traversal using prev/next pointers, enabling reverse display and efficient navigation.</li>
+    <li><strong>Abstract LinkedList Base Class:</strong> Defines interface with virtual methods for printLL, findItem, saveLL, resetStock, remove, addLL, convertToStock, and deleteLL.</li>
+    <li><strong>Node Class:</strong> Encapsulates product data including stock ID, name, description, price (dollars/cents), and on-hand quantity. NodeD extends this with prev pointer for doubly-linked lists.</li>
+    <li>Comprehensive memory management with proper allocation/deallocation verified via Valgrind.</li>
   </ul>
 
   <h3>Core Features</h3>
   <ul>
-    <li><strong>Product Management:</strong> Display inventory, add items, remove stock, and track availability in real-time.</li>
-    <li><strong>Transaction Processing:</strong> Handle purchases with change calculation, insufficient funds detection, and out-of-stock management.</li>
-    <li><strong>Coin System:</strong> Track coin denominations, calculate change, display coin counts, and reset coin reserves.</li>
-    <li><strong>File Persistence:</strong> Load initial stock and coin data from files, save changes after transactions.</li>
-    <li><strong>Administrative Functions:</strong> Reset coins, restock items, view detailed inventory, abort transactions.</li>
-    <li><strong>Error Handling:</strong> Comprehensive validation preventing invalid states and corrupt data.</li>
+    <li><strong>Product Management:</strong> Display inventory in ascending/descending order, add items, remove stock, and track availability in real-time.</li>
+    <li><strong>Transaction Processing:</strong> Handle purchases with exact change calculation, insufficient funds detection, out-of-stock management, and abort capabilities.</li>
+    <li><strong>Coin System:</strong> Manage 8 coin denominations (5¢, 10¢, 25¢, $1, $2, $5, $10), calculate change using greedy algorithm, display coin counts, and reset coin reserves.</li>
+    <li><strong>File Persistence:</strong> Load and save structured stock.dat and coins.dat files with comprehensive validation of format, data types, and constraints.</li>
+    <li><strong>Administrative Functions:</strong> Reset coins to defaults, restock all items, display inventory in reverse (doubly-linked list feature), abort transactions.</li>
+    <li><strong>Error Handling:</strong> Exception-based validation using std::runtime_error, std::length_error, std::invalid_argument, and std::domain_error for robust error management.</li>
+    <li><strong>Dynamic List Switching:</strong> Toggle enhancement feature that switches between LinkedListSingle and LinkedListDouble at runtime.</li>
   </ul>
 
   <h3>Architecture</h3>
   <p>The system follows a modular design with clear separation of concerns:</p>
   <ul>
-    <li><strong>VendingMachine:</strong> Main system orchestrator managing state and operations.</li>
-    <li><strong>LinkedList Classes:</strong> Reusable data structure implementations.</li>
-    <li><strong>Menu:</strong> User interface and command processing.</li>
-    <li><strong>Command Pattern:</strong> Encapsulating operations as command objects for flexibility.</li>
-    <li><strong>Helper/Coin Classes:</strong> Utility functions and coin denomination management.</li>
+    <li><strong>VendingMachine (Core Orchestrator):</strong> Main system managing state transitions, inventory, coin system, and menu command dispatch.</li>
+    <li><strong>LinkedList Classes:</strong> Abstract base class with LinkedListSingle and LinkedListDouble implementations providing reusable ADTs.</li>
+    <li><strong>Command Pattern:</strong> Eight command classes (Abort, DisplayItem, PurchaseItem, Save, AddItem, RemoveItem, DisplayCoins, ResetCoins) encapsulate operations as objects for flexibility and extensibility.</li>
+    <li><strong>Menu:</strong> User interface layer handling command selection and user interaction.</li>
+    <li><strong>Coin Class:</strong> Manages coin denominations with static methods for change calculation (getChange), file I/O (saveCoinFile), and coin updates.</li>
+    <li><strong>Helper Utility:</strong> Static validation functions for stock format, coin values, string operations, and input reading.</li>
+    <li><strong>Node & Price Classes:</strong> Data structures for product information and currency representation.</li>
   </ul>
 
   <h2>Personal Contributions</h2>
@@ -259,14 +264,18 @@
 
   <h2>Testing & Quality Assurance</h2>
   <p>
-    The project includes extensive testing to ensure reliability and correctness:
+    The project includes extensive automated testing to ensure reliability and correctness:
   </p>
   <ul>
-    <li><strong>Functional Tests:</strong> Test cases for all user workflows (purchases, restocking, coin management).</li>
-    <li><strong>Edge Case Testing:</strong> Malformed files, invalid input, boundary conditions, and error states.</li>
-    <li><strong>Memory Safety:</strong> Valgrind verification ensuring zero memory leaks and proper pointer usage.</li>
-    <li><strong>Integration Testing:</strong> Verifying all components work together correctly.</li>
-    <li><strong>Test Suites:</strong> Multiple test directories with input/output pairs for automated validation.</li>
+    <li><strong>Test Coverage:</strong> 16+ comprehensive test suites covering all major features and edge cases.</li>
+    <li><strong>Functional Tests:</strong> All user workflows including purchases, restocking, coin management, and transaction handling.</li>
+    <li><strong>Purchase Tests:</strong> Exact change transactions, purchases with change due, out-of-stock detection, insufficient funds, and invalid item selection.</li>
+    <li><strong>Administrative Tests:</strong> Coin reset, stock replenishment, inventory display (forward and reverse), item addition/removal.</li>
+    <li><strong>Edge Case Testing:</strong> Malformed files, invalid delimiters, negative values, empty input, boundary conditions.</li>
+    <li><strong>Memory Safety:</strong> Valgrind verification ensuring zero memory leaks and proper pointer usage across all operations.</li>
+    <li><strong>File Validation:</strong> Stock and coin file integrity checks with corrupted file handling.</li>
+    <li><strong>State Validation:</strong> Verifying file updates after transactions and correct coin/stock changes.</li>
+    <li><strong>Integration Testing:</strong> All components working together through complete transaction workflows.</li>
   </ul>
 
   <h2>Challenges & Solutions</h2>
