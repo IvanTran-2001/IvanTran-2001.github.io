@@ -111,6 +111,23 @@
       box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
     }
 
+    .tech-stack {
+      background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f5 100%);
+      padding: 25px;
+      border-radius: 10px;
+      margin: 25px 0;
+      border-left: 5px solid #667eea;
+    }
+
+    .tech-stack strong {
+      color: #667eea;
+      font-size: 1.1em;
+    }
+
+    .tech-stack ul {
+      margin-top: 12px;
+    }
+
     iframe {
       width: 100%;
       height: 500px;
@@ -130,70 +147,146 @@
       margin: 20px 0;
       border: 1px solid #34495e;
     }
+
+    .section-card {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 15px 0;
+      border-left: 4px solid #667eea;
+    }
   </style>
 </head>
 <body>
 
 <header>
   <h1>Vending Machine</h1>
-  <p>Heavy C++ Programming</p>
+  <p>Advanced C++ Programming & Data Structures</p>
 </header>
 
 <div class="project-container">
 
   <h2>Project Overview</h2>
   <p>
-    This project involved developing a <strong>C++ front-end simulation of a vending machine</strong> 
+    This project involved developing a <strong>fully-functional C++ vending machine simulator</strong> 
     for a fictional pastry company. The primary focus was on implementing 
     <strong>robust programming techniques, clean code, and dynamic memory management</strong> 
-    while following modern C++14 standards.
+    while following modern C++14 standards. The system simulates real-world vending operations with comprehensive state management, file persistence, and error handling.
   </p>
 
-  <h3>Scope & Constraints</h3>
+  <h3>Project Scope & Requirements</h3>
   
   <ul>
-    <li>The program simulates a <strong>functional vending machine</strong>, supporting 
-      product display, purchases, stock management, coin handling, and administrator operations.</li>
-    <li>All input and file data (stock, coins) are validated for correctness 
-      and edge cases, including malformed files, invalid delimiters, negative values, and empty input.</li>
-    <li>Dynamic memory is carefully managed, with proper allocation and deallocation for all operations to ensure memory safety, verified with Valgrind.</li>
-    <li>Operates entirely in a console environment with persistent storage via structured files, replicating realistic vending machine workflows.</li>
-    <li>Designed to be modular and extensible, allowing future enhancements (e.g., new products, additional menu options) without affecting existing functionality.</li>
+    <li>Implement a <strong>fully functional vending machine</strong> supporting product display, purchases, stock management, coin handling, and administrator operations.</li>
+    <li>Validate all input and file data (stock, coins) for correctness, handling malformed files, invalid delimiters, negative values, and empty input.</li>
+    <li>Manage dynamic memory with proper allocation and deallocation, verified with Valgrind for memory safety.</li>
+    <li>Operate entirely in a console environment with persistent storage via structured files.</li>
+    <li>Design modular and extensible architecture allowing future enhancements without breaking existing functionality.</li>
+    <li>Build custom data structures (singly/doubly linked lists, 2D lists) from scratch rather than using STL containers.</li>
+    <li>Pass comprehensive test suites validating all features and edge cases.</li>
   </ul>
 
-  <h3>Key Objectives & Skills Demonstrated</h3>
+  <div class="tech-stack">
+    <strong>Technology Stack:</strong>
+    <ul style="margin: 10px 0; padding-left: 20px;">
+      <li>C++14 - Programming language</li>
+      <li>Custom Linked Lists - Core data structures (ADTs)</li>
+      <li>File I/O - Persistent data storage</li>
+      <li>Standard C++ Library - Memory management, utilities</li>
+      <li>Make - Build automation</li>
+      <li>Valgrind - Memory leak detection</li>
+    </ul>
+  </div>
+
+  <h2>Key Objectives & Skills Demonstrated</h2>
   <ul>
-    <li><strong>Core C++ Concepts:</strong> Implementation of Abstract Data Types (ADTs), linked lists (singly, doubly, and 2D), pointers, and dynamic memory management.</li>
-    <li><strong>File Processing:</strong> Loading and saving inventory and coins using structured file formats.</li>
-    <li><strong>Program State Management:</strong> Tracking vending machine and transaction states for correct operation.</li>
-    <li><strong>Exception Handling & Validation:</strong> Handling invalid input and ensuring program stability.</li>
-    <li><strong>Testing & Debugging:</strong> Creation of test cases and verification of memory safety using Valgrind.</li>
-    <li><strong>C++14 and STL Usage:</strong> Leveraging modern language features and standard library utilities for efficiency.</li>
-    <li><strong>Design Patterns:</strong> Implementing the Command pattern for menu operations to enhance modularity and scalability.</li>
-    <li><strong>Teamwork and Collaboration:</strong> Working effectively in a group environment using Git for version control and project coordination.</li>
+    <li><strong>Abstract Data Types (ADTs):</strong> Design and implementation of singly, doubly, and 2D linked lists from scratch.</li>
+    <li><strong>Dynamic Memory Management:</strong> Manual memory allocation, deallocation, and pointer manipulation with zero leaks.</li>
+    <li><strong>File Processing:</strong> Loading and saving inventory and coin data using structured file formats with validation.</li>
+    <li><strong>Program State Management:</strong> Tracking vending machine states and transaction flows for correct operation.</li>
+    <li><strong>Exception Handling & Validation:</strong> Comprehensive input validation and graceful error handling.</li>
+    <li><strong>Testing & Debugging:</strong> Creating test cases and verifying memory safety using Valgrind.</li>
+    <li><strong>Design Patterns:</strong> Implementing the Command pattern for menu operations to enhance modularity.</li>
+    <li><strong>Teamwork and Collaboration:</strong> Effective group work using Git for version control.</li>
+    <li><strong>Code Quality:</strong> Clean, maintainable code with proper documentation and style.</li>
   </ul>
 
-  <p>
-    The project was built <strong>entirely from scratch</strong>, emphasizing modular design, proper coding style, 
-    and adherence to software engineering principles, resulting in a fully functional and maintainable vending machine simulation.
-  </p>
+  <h2>Implementation Highlights</h2>
+
+  <h3>Custom Data Structures</h3>
+  <p>Built from scratch without using STL containers:</p>
+  <ul>
+    <li><strong>LinkedListSingle:</strong> Singly-linked list for managing inventory items with insertion, deletion, and traversal.</li>
+    <li><strong>LinkedListDouble:</strong> Doubly-linked list for efficient bidirectional navigation and operations.</li>
+    <li><strong>2D Linked List:</strong> Custom structure for managing products and their properties across multiple dimensions.</li>
+    <li>Comprehensive Node class with proper encapsulation and memory management.</li>
+  </ul>
+
+  <h3>Core Features</h3>
+  <ul>
+    <li><strong>Product Management:</strong> Display inventory, add items, remove stock, and track availability in real-time.</li>
+    <li><strong>Transaction Processing:</strong> Handle purchases with change calculation, insufficient funds detection, and out-of-stock management.</li>
+    <li><strong>Coin System:</strong> Track coin denominations, calculate change, display coin counts, and reset coin reserves.</li>
+    <li><strong>File Persistence:</strong> Load initial stock and coin data from files, save changes after transactions.</li>
+    <li><strong>Administrative Functions:</strong> Reset coins, restock items, view detailed inventory, abort transactions.</li>
+    <li><strong>Error Handling:</strong> Comprehensive validation preventing invalid states and corrupt data.</li>
+  </ul>
+
+  <h3>Architecture</h3>
+  <p>The system follows a modular design with clear separation of concerns:</p>
+  <ul>
+    <li><strong>VendingMachine:</strong> Main system orchestrator managing state and operations.</li>
+    <li><strong>LinkedList Classes:</strong> Reusable data structure implementations.</li>
+    <li><strong>Menu:</strong> User interface and command processing.</li>
+    <li><strong>Command Pattern:</strong> Encapsulating operations as command objects for flexibility.</li>
+    <li><strong>Helper/Coin Classes:</strong> Utility functions and coin denomination management.</li>
+  </ul>
 
   <h2>Personal Contributions</h2>
   <p>
     As a key member of the development team, I was responsible for:
   </p>
   <ul>
+    <li>Architecting the overall system design and module structure.</li>
     <li>Implementing the core vending machine logic and transaction handling.</li>
-    <li>Designing and implementing custom linked list data structures for inventory management.</li>
-    <li>Developing the file processing module to handle inventory and coin data persistence.</li>
-    <li>Creating robust error handling and validation mechanisms to ensure program stability.</li>
-    <li>Writing comprehensive test cases and debugging code using Valgrind for memory safety.</li>
+    <li>Designing and implementing custom linked list data structures from scratch.</li>
+    <li>Developing the file processing module for data persistence and validation.</li>
+    <li>Creating robust error handling and validation mechanisms.</li>
+    <li>Writing and running comprehensive test cases to validate functionality.</li>
+    <li>Debugging and optimizing code using Valgrind for memory safety.</li>
     <li>Collaborating with team members to integrate all components into a cohesive system.</li>
   </ul>
 
+  <h2>Testing & Quality Assurance</h2>
+  <p>
+    The project includes extensive testing to ensure reliability and correctness:
+  </p>
+  <ul>
+    <li><strong>Functional Tests:</strong> Test cases for all user workflows (purchases, restocking, coin management).</li>
+    <li><strong>Edge Case Testing:</strong> Malformed files, invalid input, boundary conditions, and error states.</li>
+    <li><strong>Memory Safety:</strong> Valgrind verification ensuring zero memory leaks and proper pointer usage.</li>
+    <li><strong>Integration Testing:</strong> Verifying all components work together correctly.</li>
+    <li><strong>Test Suites:</strong> Multiple test directories with input/output pairs for automated validation.</li>
+  </ul>
 
+  <h2>Challenges & Solutions</h2>
+  <div class="section-card">
+    <strong>Challenge:</strong> Managing complex state transitions in a vending machine with multiple concurrent operations (coin insertion, product selection, change calculation).<br><br>
+    <strong>Solution:</strong> Implemented a robust state machine pattern that clearly defines valid state transitions and prevents invalid operations, ensuring program stability even under edge cases.
+  </div>
 
-    <div style="text-align: center; margin-top: 20px;">
+  <div class="section-card">
+    <strong>Challenge:</strong> Implementing custom linked lists without using STL, requiring manual memory management and pointer manipulation.<br><br>
+    <strong>Solution:</strong> Designed careful allocation/deallocation strategies with thorough testing to achieve zero memory leaks, verified with Valgrind.
+  </div>
+
+  <div class="section-card">
+    <strong>Challenge:</strong> Validating complex file formats with multiple delimiters and data types, handling malformed input gracefully.<br><br>
+    <strong>Solution:</strong> Built comprehensive validation logic that checks file structure, data types, and constraints before loading, providing meaningful error messages.
+  </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="https://github.com/IvanTran-2001/Adv-Prog-Tech-A2" class="btn" target="_blank">View on GitHub</a>
       <a href="../index.html" class="btn">Home</a>
     </div>
 </div>
