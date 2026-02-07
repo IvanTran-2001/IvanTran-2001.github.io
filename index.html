@@ -8,6 +8,7 @@
   <meta name="author" content="Ivan Tran">
   <title>Ivan Tran | Software Engineer</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
     * {
       margin: 0;
@@ -16,44 +17,133 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      color: #2c3e50;
-      line-height: 1.7;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f23 0%, #1a1a4d 50%, #2d1b69 100%);
+      color: #e0e0e0;
+      line-height: 1.8;
       min-height: 100vh;
-      padding: 40px 20px;
+      overflow-x: hidden;
     }
 
-    .header-section {
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+      padding: 100px 20px;
       text-align: center;
-      margin-bottom: 60px;
-      animation: slideDown 0.6s ease-out;
+      position: relative;
+      overflow: hidden;
     }
 
-    h1 {
-      font-size: 3em;
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 4em;
       margin-bottom: 15px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      font-weight: 700;
+      font-weight: 800;
+      animation: slideDown 0.8s ease-out;
     }
 
-    h2 {
+    .hero .title-sub {
+      font-size: 1.5em;
+      color: #aaa;
+      margin-bottom: 10px;
+      animation: fadeIn 1s ease-out 0.2s backwards;
+    }
+
+    .hero-description {
+      font-size: 1.1em;
+      color: #bbb;
+      margin: 25px 0 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+      animation: fadeIn 1s ease-out 0.4s backwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease-out 0.6s backwards;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+    }
+
+    .cta-secondary {
+      background: transparent;
+      border: 2px solid #667eea;
       color: #667eea;
-      font-size: 2em;
-      margin-top: 50px;
-      margin-bottom: 30px;
-      padding-bottom: 15px;
-      border-bottom: 3px solid #667eea;
-      display: inline-block;
+    }
+
+    .cta-secondary:hover {
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateY(-5px);
     }
 
     @keyframes slideDown {
       from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-30px);
       }
       to {
         opacity: 1;
@@ -61,26 +151,104 @@
       }
     }
 
-    .about-section {
-      max-width: 900px;
-      margin: 0 auto 60px;
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
-    .about-section p {
-      font-size: 1.1em;
-      color: #555;
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    .section-title {
+      font-size: 2.5em;
+      margin-bottom: 50px;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    }
+
+    /* About Section */
+    .about-section {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+      border: 1px solid rgba(102, 126, 234, 0.1);
+      border-radius: 15px;
+      padding: 60px;
+      backdrop-filter: blur(10px);
+      margin-bottom: 80px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-image {
+      text-align: center;
+    }
+
+    .about-image img {
+      width: 250px;
+      height: 250px;
+      border-radius: 15px;
+      border: 3px solid rgba(102, 126, 234, 0.3);
+      object-fit: cover;
+      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .about-image img:hover {
+      transform: translateY(-10px);
+      border-color: rgba(102, 126, 234, 0.8);
+      box-shadow: 0 30px 60px rgba(102, 126, 234, 0.3);
+    }
+
+    .about-text h2 {
+      font-size: 2em;
       margin-bottom: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+
+    .about-text p {
+      color: #ccc;
+      margin-bottom: 20px;
+      line-height: 1.9;
+      font-size: 1.05em;
     }
 
     .social-links {
       display: flex;
-      gap: 20px;
-      justify-content: center;
-      margin-top: 25px;
+      gap: 15px;
+      margin: 30px 0;
     }
 
     .social-links a {
@@ -89,197 +257,237 @@
       justify-content: center;
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+      border: 2px solid rgba(102, 126, 234, 0.5);
+      color: #667eea;
       text-decoration: none;
       border-radius: 50%;
-      font-size: 1.5em;
+      font-size: 1.3em;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-      position: relative;
     }
 
     .social-links a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
-    }
-
-    .social-links a::after {
-      content: attr(data-label);
-      position: absolute;
-      bottom: -35px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(44, 62, 80, 0.9);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 0.85em;
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      font-weight: 600;
+      border-color: transparent;
+      transform: translateY(-5px) rotate(5deg);
     }
 
-    .social-links a:hover::after {
-      opacity: 1;
-    }
-
-    .about-section img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto 25px;
-      border: 5px solid white;
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-      object-fit: cover;
-    }
-
-    .projects-container {
+    .resume-buttons {
       display: flex;
-      flex-direction: column;
-      gap: 30px;
+      gap: 12px;
       margin-top: 30px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 80px;
+    }
+
+    .skill-card {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      padding: 30px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(102, 126, 234, 0.5);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+    }
+
+    .skill-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .skill-card h4 {
+      color: #667eea;
+      margin-bottom: 12px;
+      font-size: 1.15em;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill-card p {
+      color: #aaa;
+      font-size: 0.95em;
+      line-height: 1.7;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
     }
 
     .project-card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-      padding: 0;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border-top: 4px solid #667eea;
-      display: flex;
-      flex-direction: row;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      border-radius: 12px;
       overflow: hidden;
-      gap: 0;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card-image {
-      width: 300px;
-      min-width: 300px;
-      height: 300px;
+      width: 100%;
+      height: 200px;
       object-fit: cover;
       display: block;
-      border-radius: 0;
-      margin: 0;
-      padding: 0;
     }
 
     .project-card-content {
-      padding: 28px;
-      flex-grow: 1;
+      padding: 30px;
+      flex: 1;
       display: flex;
       flex-direction: column;
     }
 
     .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.25);
-      border-top-color: #764ba2;
+      transform: translateY(-12px);
+      border-color: rgba(102, 126, 234, 0.5);
+      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
     }
 
     .project-card h3 {
-      margin-top: 0;
+      color: #667eea;
       margin-bottom: 12px;
       font-size: 1.3em;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .project-card p {
-      margin: 10px 0;
-      color: #555;
+      color: #bbb;
+      margin-bottom: 15px;
+      flex-grow: 1;
+      line-height: 1.7;
       font-size: 0.95em;
     }
 
-    .project-card strong {
-      color: #667eea;
-      font-weight: 600;
-    }
-
     .project-card ul {
-      padding-left: 22px;
-      margin-top: 10px;
+      list-style: none;
+      margin: 15px 0;
       flex-grow: 1;
     }
 
     .project-card li {
+      color: #aaa;
       margin-bottom: 8px;
-      color: #666;
+      padding-left: 20px;
+      position: relative;
       font-size: 0.9em;
     }
 
-    .button-group {
+    .project-card li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    .project-buttons {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       margin-top: 20px;
     }
 
-    .btn {
-      display: inline-block;
+    .project-btn {
+      flex: 1;
+      min-width: 120px;
+      padding: 10px 16px;
+      background: transparent;
+      border: 2px solid rgba(102, 126, 234, 0.5);
+      color: #667eea;
       text-decoration: none;
-      padding: 10px 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      border-radius: 8px;
+      border-radius: 6px;
       font-weight: 600;
-      font-size: 0.9em;
+      font-size: 0.85em;
+      text-align: center;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-      border: none;
       cursor: pointer;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    .project-btn:hover {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: #667eea;
+      transform: translateY(-2px);
     }
 
-    .about-section h2 {
-      margin-top: 0;
-      margin-bottom: 20px;
-      border-bottom: none;
-      font-size: 1.8em;
-    }
-
-    .projects-wrapper {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
+    /* Footer */
     footer {
-      background-color: #fff;
-      margin-top: 80px;
-      padding: 40px 20px;
-      border-top: 3px solid #667eea;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+      border-top: 1px solid rgba(102, 126, 234, 0.2);
+      padding: 60px 20px;
       text-align: center;
     }
 
     .footer-content {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       gap: 30px;
       justify-content: center;
       flex-wrap: wrap;
       align-items: center;
+      margin-bottom: 30px;
     }
 
     .footer-item {
       display: flex;
       align-items: center;
       gap: 10px;
-      color: #555;
+      color: #aaa;
       font-size: 0.95em;
     }
 
@@ -301,93 +509,69 @@
       text-align: center;
     }
 
-    .skills-section {
-      max-width: 1400px;
-      margin: 0 auto 60px;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .skill-card {
-      background-color: #fff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-      border-left: 4px solid #667eea;
-      transition: all 0.3s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
-      border-left-color: #764ba2;
-    }
-
-    .skill-card h4 {
-      color: #667eea;
-      margin-bottom: 12px;
-      font-size: 1.1em;
-    }
-
-    .skill-card p {
-      color: #666;
-      font-size: 0.95em;
-      line-height: 1.6;
-    }
-
     .footer-copyright {
       text-align: center;
-      padding-top: 20px;
-      border-top: 1px solid #eee;
-      color: #999;
+      padding-top: 30px;
+      border-top: 1px solid rgba(102, 126, 234, 0.1);
+      color: #777;
       font-size: 0.85em;
-      margin-top: 20px;
     }
 
+    /* Responsive */
     @media (max-width: 768px) {
-      h1 {
+      .hero h1 {
+        font-size: 2.5em;
+      }
+
+      .hero .title-sub {
+        font-size: 1.2em;
+      }
+
+      .hero-description {
+        font-size: 1em;
+      }
+
+      .section-title {
         font-size: 2em;
       }
 
-      h2 {
-        font-size: 1.5em;
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
       }
 
-      .btn {
-        padding: 12px 18px;
-        font-size: 0.95em;
-        display: block;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
+      .about-image img {
+        width: 200px;
+        height: 200px;
       }
 
       .about-section {
-        padding: 25px 15px;
+        padding: 40px;
       }
 
-      .project-card {
+      .container {
+        padding: 60px 20px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
+      .resume-buttons {
         flex-direction: column;
       }
 
-      .project-card-image {
+      .btn {
         width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        min-width: unset;
-      }
-
-      .project-card-content {
-        padding: 20px;
-      }
-
-      .skill-card {
-        padding: 20px;
+        justify-content: center;
       }
 
       .footer-content {
@@ -397,193 +581,281 @@
     }
 
     @media (max-width: 480px) {
-      h1 {
+      .hero h1 {
+        font-size: 2em;
+      }
+
+      .section-title {
         font-size: 1.6em;
       }
 
-      .btn {
-        padding: 11px 14px;
-        font-size: 0.9em;
+      .about-section {
+        padding: 25px;
       }
 
-      .about-section {
-        padding: 15px 10px;
+      .project-card-content {
+        padding: 20px;
+      }
+
+      .skill-card {
+        padding: 20px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="header-section">
-    <h1>Ivan Tran</h1>
-    <p style="font-size: 1.1em; color: #666; font-weight: 500;">Software Engineer</p>
-  </div>
-
-  <div class="about-section">
-    <img src="IMG_2451.jpg" alt="Ivan Tran">
-    <h2>About Me</h2>
-    <p>
-      Passionate software developer with a strong foundation in C++, JavaScript, and Python through personal and academic projects. I've built diverse applications ranging from low-level data structure implementations to full-stack web applications, with a focus on clean architecture, modular design, and test automation. Currently seeking junior software engineering opportunities to launch my professional development career.
-    </p>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" data-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://github.com/IvanTran-2001" target="_blank" data-label="GitHub">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div style="margin-top: 30px;">
-      <a href="resume.html" class="btn" target="_blank"><i class="fas fa-file-pdf"></i> View Resume</a>
-      <a href="#" class="btn" onclick="downloadResume(event);"><i class="fas fa-download"></i> Download PDF</a>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="animate__animated animate__slideInDown">Ivan Tran</h1>
+      <p class="title-sub">Software Engineer & Full-Stack Developer</p>
+      <p class="hero-description">
+        Passionate software developer crafting elegant solutions. Specialized in full-stack web development, 
+        system design, and clean architecture. Building projects that combine technical excellence with user experience.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="cta-btn cta-primary">
+          <i class="fas fa-folder-open"></i> View Projects
+        </a>
+        <a href="#contact" class="cta-btn cta-secondary">
+          <i class="fas fa-envelope"></i> Get In Touch
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="skills-section">
-    <h2>Skills</h2>
+  <!-- About Section -->
+  <div class="container" id="about">
+    <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
+    <div class="about-section">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="IMG_2451.jpg" alt="Ivan Tran">
+        </div>
+        <div class="about-text">
+          <h2>Hi, I'm Ivan</h2>
+          <p>
+            I'm a passionate software developer with a strong foundation in C++, JavaScript, and Python. 
+            Through personal and academic projects, I've developed expertise in building everything from low-level 
+            data structure implementations to full-stack web applications.
+          </p>
+          <p>
+            My focus is on writing clean, maintainable code with a keen eye on system architecture and user experience. 
+            I'm particularly interested in secure authentication systems, database optimization, and responsive design. 
+            With 187+ LeetCode problems solved and multiple portfolio projects, I'm ready to bring my technical skills 
+            to a professional environment.
+          </p>
+          <p>
+            Currently based in Melbourne, Australia, seeking junior software engineering opportunities to launch 
+            my professional development career.
+          </p>
+          
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/IvanTran-2001" target="_blank" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+
+          <div class="resume-buttons">
+            <a href="resume.html" class="btn" target="_blank">
+              <i class="fas fa-file-pdf"></i> View Resume
+            </a>
+            <a href="#" class="btn" onclick="downloadResume(event);">
+              <i class="fas fa-download"></i> Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="container" id="skills">
+    <h2 class="section-title"><i class="fas fa-code"></i> Skills & Expertise</h2>
     <div class="skills-grid">
       <div class="skill-card">
-        <h4><i class="fas fa-code"></i> Languages</h4>
-        <p>C++14, Java, JavaScript, Python, SQL, VBA, LC4</p>
+        <h4><i class="fas fa-code"></i> Programming Languages</h4>
+        <p><strong>Primary:</strong> C++14, JavaScript, Python<br><strong>Additional:</strong> Java, SQL, VBA, LC4</p>
       </div>
       <div class="skill-card">
-        <h4><i class="fas fa-tools"></i> Tools & Frameworks</h4>
-        <p>Node.js, React, Express.js, MongoDB, Playwright, TailwindCSS, Git, Make, Valgrind</p>
+        <h4><i class="fas fa-tools"></i> Frontend Technologies</h4>
+        <p><strong>React 18, TailwindCSS, DaisyUI, Vite, Responsive Design</strong></p>
+      </div>
+      <div class="skill-card">
+        <h4><i class="fas fa-server"></i> Backend & Databases</h4>
+        <p><strong>Node.js, Express.js, MongoDB, Mongoose, RESTful APIs</strong></p>
+      </div>
+      <div class="skill-card">
+        <h4><i class="fas fa-lock"></i> Security & Authentication</h4>
+        <p><strong>JWT, bcrypt, Rate Limiting, CORS, Input Validation</strong></p>
       </div>
       <div class="skill-card">
         <h4><i class="fas fa-project-diagram"></i> Core Competencies</h4>
-        <p>Data Structures, Design Patterns, Test Automation, Clean Code, System Architecture</p>
+        <p><strong>Data Structures, Design Patterns, Clean Architecture, System Design</strong></p>
       </div>
       <div class="skill-card">
-        <h4><i class="fas fa-cogs"></i> Specializations</h4>
-        <p>Web Scraping, Memory Safety, Algorithm Optimization, Modular Design</p>
+        <h4><i class="fas fa-rocket"></i> Specializations</h4>
+        <p><strong>Full-Stack Development, Test Automation, Web Scraping, Memory Safety</strong></p>
       </div>
     </div>
   </div>
 
-  <div class="projects-wrapper">
-    <h2>Projects</h2>
-    <div class="projects-container">
+  <!-- Projects Section -->
+  <div class="container" id="projects">
+    <h2 class="section-title"><i class="fas fa-briefcase"></i> Featured Projects</h2>
+    <div class="projects-grid">
 
+      <!-- MERN Thinkboard -->
       <div class="project-card">
         <img src="projects/pictures/mernThinkboard.png" alt="MERN Thinkboard" class="project-card-image">
         <div class="project-card-content">
-          <h3>MERN Thinkboard</h3>
-          <p>
-            Full-stack authenticated note-taking application built with the MERN stack. 
-            Secure, responsive, and feature-rich with JWT authentication, MongoDB persistence, 
-            and real-time updates powered by React and TailwindCSS.
-          </p>
-          <p><strong>Key Features:</strong></p>
+          <h3>📝 MERN Thinkboard</h3>
+          <p>Full-stack note-taking application with JWT authentication, MongoDB, and responsive design.</p>
           <ul>
             <li>JWT Authentication with 7-day token expiration</li>
-            <li>User-specific notes with privacy isolation</li>
+            <li>User-specific data isolation and privacy</li>
             <li>Protected routes (frontend & backend)</li>
-            <li>Real-time search and sort functionality</li>
-            <li>Rate limiting with Upstash Redis</li>
-            <li>Responsive design with TailwindCSS & DaisyUI</li>
-            <li>RESTful API with full CRUD operations</li>
+            <li>Real-time search and sorting</li>
+            <li>Rate limiting with Redis</li>
             <li>Deployed on Render with MongoDB Atlas</li>
           </ul>
-          <div class="button-group">
-            <a href="projects/mern-thinkboard.html" class="btn">Project Details</a>
-            <a href="https://mern-thinkboard-qsrl.onrender.com" class="btn" target="_blank">Live Demo</a>
-            <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="btn" target="_blank">GitHub</a>
+          <div class="project-buttons">
+            <a href="projects/mern-thinkboard.html" class="project-btn">Details</a>
+            <a href="https://mern-thinkboard-qsrl.onrender.com" class="project-btn" target="_blank">Live Demo</a>
+            <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="project-btn" target="_blank">GitHub</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card">
-        <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image">
-        <div class="project-card-content">
-          <h3>QA Wolf Take-Home Assignment</h3>
-          <p>Hacker News Article Sort Validator - A Node.js web scraping tool that fetches and validates article chronological ordering using Playwright, with comprehensive error reporting and modular architecture.</p>
-          <p><strong>Skills:</strong></p>
-          <ul>
-            <li>Web Scraping with Playwright</li>
-            <li>Test Automation</li>
-            <li>Data Validation</li>
-            <li>Node.js & JavaScript</li>
-            <li>Modular Architecture</li>
-            <li>CLI Design</li>
-            <li>Unit Testing</li>
-          </ul>
-          <div class="button-group">
-            <a href="projects/QA-Wolf-Take-Home.html" class="btn">Project Details</a>
-            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="btn" target="_blank">GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="projects/pictures/leetcode.png" alt="LeetCode" class="project-card-image">
-        <div class="project-card-content">
-          <h3>LeetCode Challenges</h3>
-          <p>Active problem solver on LeetCode with 187+ problems solved across multiple programming languages and difficulty levels.</p>
-          <p><strong>Statistics:</strong></p>
-          <ul>
-            <li>187+ problems solved (71.07% acceptance rate)</li>
-            <li>Top performer: Beats 82.25% in speed</li>
-            <li>Languages: Python (121 problems), MySQL (3 problems)</li>
-            <li>Difficulty: Easy (64), Medium (98), Hard (25)</li>
-            <li>Skills: Dynamic Programming, Backtracking, Hash Tables, Arrays, and more</li>
-          </ul>
-          <div class="button-group">
-            <a href="https://leetcode.com/u/C0XKIES/" class="btn" target="_blank">LeetCode Profile</a>
-            <a href="https://github.com/IvanTran-2001" class="btn" target="_blank">GitHub</a>
-          </div>
-        </div>
-      </div>
-
+      <!-- Vending Machine -->
       <div class="project-card">
         <img src="projects/pictures/vendingmachine.png" alt="Vending Machine" class="project-card-image">
         <div class="project-card-content">
-          <h3>Vending Machine Project</h3>
-          <p>
-            Advanced C++14 vending machine simulator featuring custom doubly-linked lists, 
-            command pattern architecture, comprehensive exception handling, and file persistence.
-          </p>
-          <p><strong>Key Features:</strong></p>
+          <h3>🏪 Vending Machine Simulator</h3>
+          <p>Advanced C++14 system design featuring custom data structures and command pattern architecture.</p>
           <ul>
-            <li>Custom singly/doubly linked list implementations from scratch</li>
-            <li>8 coin denominations with greedy change algorithm</li>
-            <li>Modular command pattern with 8 operation classes</li>
-            <li>Structured file I/O with validation (stock.dat, coins.dat)</li>
-            <li>16+ automated test suites with edge case coverage</li>
-            <li>Memory-safe with Valgrind verification</li>
-            <li>Dynamic list switching enhancement feature</li>
-            <li>Robust error handling with 4 exception types</li>
+            <li>Custom linked list implementations</li>
+            <li>Command pattern with 8+ operations</li>
+            <li>Greedy change algorithm</li>
+            <li>16+ automated test suites</li>
+            <li>Exception handling & memory safety</li>
+            <li>File persistence (stock.dat, coins.dat)</li>
           </ul>
-          <div class="button-group">
-            <a href="projects/vendingmachine.html" class="btn">Project Details</a>
-            <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="btn" target="_blank">GitHub</a>
+          <div class="project-buttons">
+            <a href="projects/vendingmachine.html" class="project-btn">Details</a>
+            <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="project-btn" target="_blank">GitHub</a>
           </div>
         </div>
       </div>
 
+      <!-- QA Wolf -->
       <div class="project-card">
-        <img src="projects/pictures/warehouse-echt.png" alt="Warehouse Management System" class="project-card-image">
+        <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image">
         <div class="project-card-content">
-          <h3>Warehousing Consultant</h3>
-          <p>Consulted on WMS improvements, designed a single table system to increase efficiency and reduce errors.</p>
-          <p><strong>Skills:</strong></p>
+          <h3>🧪 QA Wolf Assignment</h3>
+          <p>Web scraping and test automation tool for Hacker News article validation using Playwright.</p>
           <ul>
-            <li>SQL (assisted and reviewed database adjustments)</li>
-            <li>Data Analysis</li>
-            <li>Process Improvement</li>
-            <li>Technical Communication</li>
-            <li>Problem Solving and Ideas</li>
-            <li>Logistics & Warehouse Operations</li>
+            <li>Playwright web scraping framework</li>
+            <li>Comprehensive data validation logic</li>
+            <li>Detailed error reporting & logging</li>
+            <li>Modular CLI architecture</li>
+            <li>Edge case handling</li>
+            <li>Unit testing with coverage</li>
           </ul>
-          <div class="button-group">
-            <a href="projects/echt-warehouse.html" class="btn">Project Details</a>
+          <div class="project-buttons">
+            <a href="projects/QA-Wolf-Take-Home.html" class="project-btn">Details</a>
+            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="project-btn" target="_blank">GitHub</a>
           </div>
         </div>
       </div>
 
-      
+      <!-- LeetCode -->
+      <div class="project-card">
+        <img src="projects/pictures/leetcode.png" alt="LeetCode" class="project-card-image">
+        <div class="project-card-content">
+          <h3>📊 LeetCode Challenges</h3>
+          <p>Active problem solver with 187+ challenges completed across difficulty levels in multiple languages.</p>
+          <ul>
+            <li>187+ problems solved</li>
+            <li>71.07% acceptance rate</li>
+            <li>Beats 82.25% in speed</li>
+            <li>Easy (64), Medium (98), Hard (25)</li>
+            <li>Multiple languages: Python, MySQL</li>
+            <li>Topics: DP, Backtracking, Arrays, etc.</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="https://leetcode.com/u/C0XKIES/" class="project-btn" target="_blank">Profile</a>
+            <a href="https://github.com/IvanTran-2001" class="project-btn" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warehouse -->
+      <div class="project-card">
+        <img src="projects/pictures/warehouse-echt.png" alt="Warehouse" class="project-card-image">
+        <div class="project-card-content">
+          <h3>🏭 Warehouse Consulting</h3>
+          <p>Process improvement project optimizing warehouse management system with database design.</p>
+          <ul>
+            <li>SQL database optimization</li>
+            <li>Process improvement analysis</li>
+            <li>System redesign & efficiency gains</li>
+            <li>Reduced operational errors</li>
+            <li>Technical communication</li>
+            <li>Data analysis and reporting</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="projects/echt-warehouse.html" class="project-btn">Details</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add remaining projects -->
+      <div class="project-card">
+        <img src="projects/pictures/minecraftvillage.png" alt="Minecraft Village" class="project-card-image">
+        <div class="project-card-content">
+          <h3>🎮 Minecraft Village Project</h3>
+          <p>Creative programming project showcasing 3D visualization and game development concepts.</p>
+          <ul>
+            <li>3D visualization and rendering</li>
+            <li>Game mechanics implementation</li>
+            <li>Creative problem solving</li>
+            <li>System architecture</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="projects/minecraftvillage.html" class="project-btn">Details</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
+  <!-- Contact Section -->
+  <div class="container" id="contact">
+    <h2 class="section-title"><i class="fas fa-envelope"></i> Let's Connect</h2>
+    <div class="about-section" style="text-align: center;">
+      <p style="font-size: 1.1em; color: #ccc; margin-bottom: 25px;">
+        I'm actively seeking junior software engineering opportunities. Feel free to reach out!
+      </p>
+      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+        <a href="mailto:mystoganx2001@gmail.com" class="btn">
+          <i class="fas fa-envelope"></i> Email Me
+        </a>
+        <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" class="btn">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/IvanTran-2001" target="_blank" class="btn">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-item">
@@ -616,7 +888,20 @@
         };
       }
     }
-  </script>
 
+    // Smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
