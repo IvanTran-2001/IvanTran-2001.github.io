@@ -139,16 +139,12 @@
 
     .projects-container {
       display: flex;
-      flex-direction: row;
-      overflow-x: auto;
-      overflow-y: hidden;
+      flex-direction: column;
       gap: 30px;
       margin-top: 30px;
-      max-width: 1400px;
+      max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
-      padding-bottom: 15px;
-      scroll-behavior: smooth;
     }
 
     .project-card {
@@ -159,16 +155,15 @@
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       border-top: 4px solid #667eea;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       overflow: hidden;
-      flex-shrink: 0;
-      width: 380px;
-      min-width: 380px;
+      gap: 0;
     }
 
     .project-card-image {
-      width: 100%;
-      aspect-ratio: 16 / 7;
+      width: 300px;
+      min-width: 300px;
+      height: 300px;
       object-fit: cover;
       display: block;
       border-radius: 0;
@@ -374,6 +369,17 @@
 
       .about-section {
         padding: 25px 15px;
+      }
+
+      .project-card {
+        flex-direction: column;
+      }
+
+      .project-card-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        min-width: unset;
       }
 
       .project-card-content {
