@@ -17,8 +17,8 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f0f23 0%, #1a1a4d 50%, #2d1b69 100%);
-      color: #e0e0e0;
+      background: #1a1a2e;
+      color: #e8e8e8;
       line-height: 1.8;
       min-height: 100vh;
       padding: 0;
@@ -27,9 +27,8 @@
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+      background: transparent;
+      border-bottom: 1px solid rgba(74, 124, 158, 0.2);
       padding: 80px 20px;
       text-align: center;
       position: relative;
@@ -43,7 +42,7 @@
       right: -10%;
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(74, 124, 158, 0.05) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -58,7 +57,7 @@
     .back-link {
       display: inline-block;
       margin-bottom: 30px;
-      color: #667eea;
+      color: #4a7c9e;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
@@ -66,17 +65,14 @@
     }
 
     .back-link:hover {
-      color: #764ba2;
+      color: #5a9ec8;
       transform: translateX(-5px);
     }
 
     .hero h1 {
       font-size: 3.5em;
       margin-bottom: 15px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #4a7c9e;
       font-weight: 800;
       animation: slideDown 0.8s ease-out;
     }
@@ -98,20 +94,19 @@
     }
 
     .badge {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-      border: 1px solid rgba(102, 126, 234, 0.5);
-      color: #667eea;
+      background: #252a3a;
+      border: 1px solid rgba(74, 124, 158, 0.3);
+      color: #4a7c9e;
       padding: 8px 16px;
       border-radius: 20px;
       font-size: 0.9em;
       font-weight: 600;
-      backdrop-filter: blur(5px);
       transition: all 0.3s ease;
     }
 
     .badge:hover {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
-      border-color: rgba(102, 126, 234, 0.8);
+      background: #2d3249;
+      border-color: rgba(74, 124, 158, 0.6);
       transform: translateY(-3px);
     }
 
@@ -138,25 +133,25 @@
     }
 
     .cta-primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #4a7c9e;
       color: white;
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 4px 12px rgba(74, 124, 158, 0.3);
     }
 
     .cta-primary:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(74, 124, 158, 0.4);
     }
 
     .cta-secondary {
       background: transparent;
-      border: 2px solid #667eea;
-      color: #667eea;
+      border: 2px solid #4a7c9e;
+      color: #4a7c9e;
     }
 
     .cta-secondary:hover {
-      background: rgba(102, 126, 234, 0.1);
-      transform: translateY(-5px);
+      background: rgba(74, 124, 158, 0.1);
+      transform: translateY(-3px);
     }
 
     @keyframes slideDown {
@@ -190,21 +185,17 @@
       font-size: 2.2em;
       margin-bottom: 40px;
       text-align: center;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #4a7c9e;
       font-weight: 700;
     }
 
     /* Tech Stack Section */
     .tech-section {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-      border: 1px solid rgba(102, 126, 234, 0.1);
+      background: #252a3a;
+      border: 1px solid rgba(74, 124, 158, 0.1);
       border-radius: 15px;
       padding: 50px 30px;
       margin-bottom: 60px;
-      backdrop-filter: blur(10px);
     }
 
     .tech-grid {
@@ -215,31 +206,30 @@
     }
 
     .tech-card {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-      border: 1px solid rgba(102, 126, 234, 0.3);
+      background: #2d3249;
+      border: 1px solid rgba(74, 124, 158, 0.2);
       padding: 25px;
       border-radius: 12px;
       text-align: center;
       transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
       cursor: pointer;
     }
 
     .tech-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(102, 126, 234, 0.8);
-      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+      transform: translateY(-8px);
+      border-color: rgba(74, 124, 158, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .tech-card h4 {
-      color: #667eea;
+      color: #4a7c9e;
       margin-bottom: 10px;
       font-size: 1.2em;
       font-weight: 700;
     }
 
     .tech-card p {
-      color: #aaa;
+      color: #c4c4c4;
       font-size: 0.9em;
       line-height: 1.5;
     }
@@ -251,27 +241,27 @@
     }
 
     .tech-category {
-      background: rgba(20, 20, 40, 0.5);
-      border-left: 4px solid #667eea;
+      background: #252a3a;
+      border-left: 4px solid #4a7c9e;
       padding: 20px;
       border-radius: 8px;
       transition: all 0.3s ease;
     }
 
     .tech-category:hover {
-      border-left-color: #764ba2;
-      background: rgba(20, 20, 40, 0.7);
+      border-left-color: #5a9ec8;
+      background: #2d3249;
     }
 
     .tech-category h5 {
-      color: #667eea;
+      color: #4a7c9e;
       margin-bottom: 12px;
       font-size: 1.05em;
       font-weight: 700;
     }
 
     .tech-category p {
-      color: #bbb;
+      color: #d4d4d4;
       font-size: 0.95em;
     }
 
@@ -284,12 +274,11 @@
     }
 
     .feature-card {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-      border: 1px solid rgba(102, 126, 234, 0.2);
+      background: #252a3a;
+      border: 1px solid rgba(74, 124, 158, 0.1);
       padding: 30px;
       border-radius: 12px;
       transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
       position: relative;
       overflow: hidden;
     }
@@ -301,7 +290,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      background: #4a7c9e;
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s ease;
@@ -309,8 +298,8 @@
 
     .feature-card:hover {
       transform: translateY(-8px);
-      border-color: rgba(102, 126, 234, 0.5);
-      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+      border-color: rgba(74, 124, 158, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     }
 
     .feature-card:hover::before {
@@ -320,41 +309,40 @@
     .feature-icon {
       font-size: 2.5em;
       margin-bottom: 15px;
-      color: #667eea;
+      color: #4a7c9e;
     }
 
     .feature-card h3 {
-      color: #fff;
+      color: #e8e8e8;
       margin-bottom: 12px;
       font-size: 1.2em;
       font-weight: 700;
     }
 
     .feature-card p {
-      color: #aaa;
+      color: #c4c4c4;
       font-size: 0.95em;
       line-height: 1.6;
     }
 
     /* Content Sections */
     .content-section {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-      border: 1px solid rgba(102, 126, 234, 0.1);
+      background: #252a3a;
+      border: 1px solid rgba(74, 124, 158, 0.1);
       border-radius: 12px;
       padding: 35px;
       margin-bottom: 40px;
-      backdrop-filter: blur(5px);
     }
 
     .content-section h3 {
-      color: #667eea;
+      color: #4a7c9e;
       margin-bottom: 20px;
       font-size: 1.5em;
       font-weight: 700;
     }
 
     .content-section p {
-      color: #ccc;
+      color: #d4d4d4;
       margin-bottom: 15px;
       line-height: 1.8;
     }
@@ -365,13 +353,13 @@
     }
 
     .content-section li {
-      color: #bbb;
+      color: #d4d4d4;
       margin-bottom: 10px;
       line-height: 1.6;
     }
 
     .content-section strong {
-      color: #667eea;
+      color: #5a9ec8;
       font-weight: 600;
     }
 
@@ -385,7 +373,7 @@
     }
 
     .highlight {
-      color: #667eea;
+      color: #4a7c9e;
       font-weight: 600;
     }
 

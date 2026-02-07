@@ -18,8 +18,8 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f0f23 0%, #1a1a4d 50%, #2d1b69 100%);
-      color: #e0e0e0;
+      background: #1a1a2e;
+      color: #e8e8e8;
       line-height: 1.8;
       min-height: 100vh;
       overflow-x: hidden;
@@ -27,9 +27,8 @@
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+      background: transparent;
+      border-bottom: 1px solid rgba(74, 124, 158, 0.2);
       padding: 100px 20px;
       text-align: center;
       position: relative;
@@ -43,7 +42,7 @@
       right: -10%;
       width: 500px;
       height: 500px;
-      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(74, 124, 158, 0.05) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -55,7 +54,7 @@
       left: -10%;
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, rgba(118, 75, 162, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(74, 124, 158, 0.05) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -70,10 +69,7 @@
     .hero h1 {
       font-size: 4em;
       margin-bottom: 15px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #4a7c9e;
       font-weight: 800;
       animation: slideDown 0.8s ease-out;
     }
@@ -119,25 +115,25 @@
     }
 
     .cta-primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #4a7c9e;
       color: white;
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 4px 12px rgba(74, 124, 158, 0.3);
     }
 
     .cta-primary:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(74, 124, 158, 0.4);
     }
 
     .cta-secondary {
       background: transparent;
-      border: 2px solid #667eea;
-      color: #667eea;
+      border: 2px solid #4a7c9e;
+      color: #4a7c9e;
     }
 
     .cta-secondary:hover {
-      background: rgba(102, 126, 234, 0.1);
-      transform: translateY(-5px);
+      background: rgba(74, 124, 158, 0.1);
+      transform: translateY(-3px);
     }
 
     @keyframes slideDown {
@@ -171,10 +167,7 @@
       font-size: 2.5em;
       margin-bottom: 50px;
       text-align: center;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #4a7c9e;
       font-weight: 800;
       position: relative;
       padding-bottom: 20px;
@@ -188,16 +181,15 @@
       transform: translateX(-50%);
       width: 60px;
       height: 3px;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      background: #4a7c9e;
     }
 
     /* About Section */
     .about-section {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-      border: 1px solid rgba(102, 126, 234, 0.1);
+      background: #252a3a;
+      border: 1px solid rgba(74, 124, 158, 0.1);
       border-radius: 15px;
       padding: 60px;
-      backdrop-filter: blur(10px);
       margin-bottom: 80px;
     }
 
@@ -216,30 +208,27 @@
       width: 250px;
       height: 250px;
       border-radius: 15px;
-      border: 3px solid rgba(102, 126, 234, 0.3);
+      border: 3px solid rgba(74, 124, 158, 0.2);
       object-fit: cover;
-      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       transition: all 0.3s ease;
     }
 
     .about-image img:hover {
-      transform: translateY(-10px);
-      border-color: rgba(102, 126, 234, 0.8);
-      box-shadow: 0 30px 60px rgba(102, 126, 234, 0.3);
+      transform: translateY(-5px);
+      border-color: rgba(74, 124, 158, 0.5);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     }
 
     .about-text h2 {
       font-size: 2em;
       margin-bottom: 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #4a7c9e;
       font-weight: 700;
     }
 
     .about-text p {
-      color: #ccc;
+      color: #d4d4d4;
       margin-bottom: 20px;
       line-height: 1.9;
       font-size: 1.05em;
@@ -344,7 +333,7 @@
     }
 
     .skill-card h4 {
-      color: #667eea;
+      color: #4a7c9e;
       margin-bottom: 12px;
       font-size: 1.15em;
       font-weight: 700;
@@ -354,7 +343,7 @@
     }
 
     .skill-card p {
-      color: #aaa;
+      color: #c4c4c4;
       font-size: 0.95em;
       line-height: 1.7;
     }
@@ -368,12 +357,11 @@
     }
 
     .project-card {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
-      border: 1px solid rgba(102, 126, 234, 0.2);
+      background: #252a3a;
+      border: 1px solid rgba(74, 124, 158, 0.1);
       border-radius: 12px;
       overflow: hidden;
       transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
       display: flex;
       flex-direction: column;
     }
@@ -393,20 +381,20 @@
     }
 
     .project-card:hover {
-      transform: translateY(-12px);
-      border-color: rgba(102, 126, 234, 0.5);
-      box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
+      transform: translateY(-8px);
+      border-color: rgba(74, 124, 158, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     }
 
     .project-card h3 {
-      color: #667eea;
+      color: #5a9ec8;
       margin-bottom: 12px;
       font-size: 1.3em;
       font-weight: 700;
     }
 
     .project-card p {
-      color: #bbb;
+      color: #d4d4d4;
       margin-bottom: 15px;
       flex-grow: 1;
       line-height: 1.7;
@@ -420,7 +408,7 @@
     }
 
     .project-card li {
-      color: #aaa;
+      color: #b8b8b8;
       margin-bottom: 8px;
       padding-left: 20px;
       position: relative;
@@ -431,7 +419,7 @@
       content: '▸';
       position: absolute;
       left: 0;
-      color: #667eea;
+      color: #4a7c9e;
       font-weight: bold;
     }
 
@@ -447,8 +435,8 @@
       min-width: 120px;
       padding: 10px 16px;
       background: transparent;
-      border: 2px solid rgba(102, 126, 234, 0.5);
-      color: #667eea;
+      border: 2px solid rgba(74, 124, 158, 0.4);
+      color: #4a7c9e;
       text-decoration: none;
       border-radius: 6px;
       font-weight: 600;
@@ -459,15 +447,15 @@
     }
 
     .project-btn:hover {
-      background: rgba(102, 126, 234, 0.1);
-      border-color: #667eea;
+      background: rgba(74, 124, 158, 0.1);
+      border-color: #4a7c9e;
       transform: translateY(-2px);
     }
 
     /* Footer */
     footer {
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-      border-top: 1px solid rgba(102, 126, 234, 0.2);
+      background: #252a3a;
+      border-top: 1px solid rgba(74, 124, 158, 0.1);
       padding: 60px 20px;
       text-align: center;
     }
@@ -487,23 +475,23 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      color: #aaa;
+      color: #b8b8b8;
       font-size: 0.95em;
     }
 
     .footer-item a {
-      color: #667eea;
+      color: #4a7c9e;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease;
     }
 
     .footer-item a:hover {
-      color: #764ba2;
+      color: #5a9ec8;
     }
 
     .footer-item i {
-      color: #667eea;
+      color: #4a7c9e;
       font-size: 1.2em;
       width: 20px;
       text-align: center;
@@ -512,8 +500,8 @@
     .footer-copyright {
       text-align: center;
       padding-top: 30px;
-      border-top: 1px solid rgba(102, 126, 234, 0.1);
-      color: #777;
+      border-top: 1px solid rgba(74, 124, 158, 0.1);
+      color: #909090;
       font-size: 0.85em;
     }
 
@@ -708,11 +696,32 @@
     <h2 class="section-title"><i class="fas fa-briefcase"></i> Featured Projects</h2>
     <div class="projects-grid">
 
+      <!-- QA Wolf -->
+      <div class="project-card">
+        <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image">
+        <div class="project-card-content">
+          <h3>🧪 QA WOLF Testing</h3>
+          <p>Web scraping and test automation tool for Hacker News article validation using Playwright.</p>
+          <ul>
+            <li>Playwright web scraping framework</li>
+            <li>Comprehensive data validation logic</li>
+            <li>Detailed error reporting & logging</li>
+            <li>Modular CLI architecture</li>
+            <li>Edge case handling</li>
+            <li>Unit testing with coverage</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="projects/QA-Wolf-Take-Home.html" class="project-btn">Details</a>
+            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="project-btn" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+
       <!-- MERN Thinkboard -->
       <div class="project-card">
         <img src="projects/pictures/mernThinkboard.png" alt="MERN Thinkboard" class="project-card-image">
         <div class="project-card-content">
-          <h3>📝 MERN Thinkboard</h3>
+          <h3>📝 FULL STACK MERN Thinkboard</h3>
           <p>Full-stack note-taking application with JWT authentication, MongoDB, and responsive design.</p>
           <ul>
             <li>JWT Authentication with 7-day token expiration</li>
@@ -726,48 +735,6 @@
             <a href="projects/mern-thinkboard.html" class="project-btn">Details</a>
             <a href="https://mern-thinkboard-qsrl.onrender.com" class="project-btn" target="_blank">Live Demo</a>
             <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="project-btn" target="_blank">GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Vending Machine -->
-      <div class="project-card">
-        <img src="projects/pictures/vendingmachine.png" alt="Vending Machine" class="project-card-image">
-        <div class="project-card-content">
-          <h3>🏪 Vending Machine Simulator</h3>
-          <p>Advanced C++14 system design featuring custom data structures and command pattern architecture.</p>
-          <ul>
-            <li>Custom linked list implementations</li>
-            <li>Command pattern with 8+ operations</li>
-            <li>Greedy change algorithm</li>
-            <li>16+ automated test suites</li>
-            <li>Exception handling & memory safety</li>
-            <li>File persistence (stock.dat, coins.dat)</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/vendingmachine.html" class="project-btn">Details</a>
-            <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="project-btn" target="_blank">GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- QA Wolf -->
-      <div class="project-card">
-        <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image">
-        <div class="project-card-content">
-          <h3>🧪 QA Wolf Assignment</h3>
-          <p>Web scraping and test automation tool for Hacker News article validation using Playwright.</p>
-          <ul>
-            <li>Playwright web scraping framework</li>
-            <li>Comprehensive data validation logic</li>
-            <li>Detailed error reporting & logging</li>
-            <li>Modular CLI architecture</li>
-            <li>Edge case handling</li>
-            <li>Unit testing with coverage</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/QA-Wolf-Take-Home.html" class="project-btn">Details</a>
-            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="project-btn" target="_blank">GitHub</a>
           </div>
         </div>
       </div>
