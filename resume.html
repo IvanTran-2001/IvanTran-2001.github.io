@@ -6,8 +6,8 @@
   <meta name="description" content="Ivan Tran Resume - Software Engineer with C++, JavaScript, Python expertise. Academic and technical projects in system design, test automation, and algorithms.">
   <meta name="keywords" content="Resume, Software Engineer, C++, JavaScript, Python, System Design, Test Automation">
   <meta name="author" content="Ivan Tran">
-  <title>Ivan Tran - Resume</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Ivan Tran - Resume</title>
   <style>
     * {
       margin: 0;
@@ -16,45 +16,44 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      color: #2c3e50;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #000000;
       line-height: 1.6;
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 40px 20px;
-      background: #f5f5f5;
+      background: #ffffff;
     }
 
     .resume-container {
       background: white;
       padding: 40px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
     }
 
     .header {
       text-align: center;
       margin-bottom: 30px;
-      border-bottom: 3px solid #667eea;
+      border-bottom: 2px solid #000000;
       padding-bottom: 20px;
     }
 
     .header h1 {
       font-size: 2.5em;
-      color: #2c3e50;
+      color: #000000;
       margin-bottom: 5px;
+      font-weight: 700;
     }
 
     .header p {
       font-size: 1.1em;
-      color: #667eea;
+      color: #333333;
       font-weight: 600;
       margin-bottom: 10px;
     }
 
     .contact-info {
       font-size: 0.9em;
-      color: #555;
+      color: #333333;
       display: flex;
       gap: 20px;
       justify-content: center;
@@ -68,8 +67,13 @@
     }
 
     .contact-info a {
-      color: #667eea;
+      color: #000000;
       text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
     }
 
     .section {
@@ -77,13 +81,12 @@
     }
 
     .section-title {
-      font-size: 1.3em;
+      font-size: 1.2em;
       font-weight: 700;
-      color: #667eea;
+      color: #000000;
       margin-bottom: 15px;
       padding-bottom: 8px;
-      border-bottom: 2px solid #667eea;
-      display: inline-block;
+      border-bottom: 2px solid #000000;
     }
 
     .entry {
@@ -100,24 +103,26 @@
 
     .entry-title {
       font-weight: 700;
-      color: #2c3e50;
+      color: #000000;
       font-size: 1.05em;
     }
 
     .entry-subtitle {
-      color: #667eea;
+      color: #333333;
       font-weight: 600;
+      font-size: 0.95em;
     }
 
     .entry-date {
-      color: #999;
+      color: #333333;
       font-size: 0.9em;
     }
 
     .entry-description {
-      color: #555;
+      color: #333333;
       margin-top: 8px;
-      line-height: 1.7;
+      line-height: 1.6;
+      font-size: 0.95em;
     }
 
     .entry-description ul {
@@ -127,7 +132,7 @@
 
     .entry-description li {
       margin-bottom: 6px;
-      color: #666;
+      color: #333333;
     }
 
     .skills-grid {
@@ -138,27 +143,26 @@
     }
 
     .skill-category {
-      background: #f8f9fa;
+      border: 1px solid #000000;
       padding: 15px;
-      border-radius: 6px;
-      border-left: 4px solid #667eea;
     }
 
     .skill-category h4 {
-      color: #667eea;
+      color: #000000;
       margin-bottom: 10px;
       font-size: 0.95em;
+      font-weight: 700;
     }
 
     .skill-category p {
-      color: #555;
+      color: #333333;
       font-size: 0.9em;
       line-height: 1.6;
     }
 
     .highlight {
-      color: #667eea;
-      font-weight: 600;
+      color: #000000;
+      font-weight: 700;
     }
 
     @media (max-width: 768px) {
@@ -191,7 +195,6 @@
       }
 
       .resume-container {
-        box-shadow: none;
         padding: 0;
       }
     }
@@ -203,11 +206,11 @@
       <h1>Ivan Tran</h1>
       <p>Software Engineer</p>
       <div class="contact-info">
-        <span><i class="fas fa-envelope"></i> <a href="mailto:mystoganx2001@gmail.com">mystoganx2001@gmail.com</a></span>
-        <span><i class="fas fa-phone"></i> 0405 266 660</span>
-        <span><i class="fas fa-map-marker-alt"></i> Melbourne, Australia</span>
-        <span><i class="fab fa-github"></i> <a href="https://github.com/IvanTran-2001" target="_blank">github.com/IvanTran-2001</a></span>
-        <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank">LinkedIn</a></span>
+        <span>mystoganx2001@gmail.com</span>
+        <span>0405 266 660</span>
+        <span>Melbourne, Australia</span>
+        <span><a href="https://github.com/IvanTran-2001" target="_blank">github.com/IvanTran-2001</a></span>
+        <span><a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank">LinkedIn</a></span>
       </div>
     </div>
 
@@ -270,7 +273,7 @@
             <li>Implemented IP-based and user-based rate limiting using Upstash Redis for security</li>
             <li>Styled responsive UI with TailwindCSS and DaisyUI for desktop and mobile devices</li>
             <li>Deployed application on Render with MongoDB Atlas for production-ready hosting</li>
-            <li>Live Demo: <a href="https://mern-thinkboard-qsrl.onrender.com" style="color: #667eea;">https://mern-thinkboard-qsrl.onrender.com</a></li>
+            <li>Live Demo: <a href="https://mern-thinkboard-qsrl.onrender.com" style="color: #000000; text-decoration: underline;">https://mern-thinkboard-qsrl.onrender.com</a></li>
           </ul>
         </div>
       </div>
@@ -370,7 +373,7 @@
 
     <div class="section">
       <h2 class="section-title">Portfolio</h2>
-      <p>View detailed project information, source code, and live demonstrations at: <a href="https://ivantran-2001.github.io/" style="color: #667eea; text-decoration: none;">https://ivantran-2001.github.io/</a></p>
+      <p>View detailed project information, source code, and live demonstrations at: <a href="https://ivantran-2001.github.io/" style="color: #000000; text-decoration: underline;">https://ivantran-2001.github.io/</a></p>
     </div>
   </div>
 </body>
