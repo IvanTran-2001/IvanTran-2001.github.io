@@ -1,0 +1,18 @@
+Dear Hiring Team,
+
+I am applying for the Junior Full Stack Developer or Intern role at pay.com.au. I am drawn to your mission of simplifying payment processing for Australian businesses. Building secure, reliable payment infrastructure that businesses depend on daily requires careful engineering and attention to detail, which aligns with how I approach software development.
+
+I have been developing my full stack capabilities through hands on projects. I built a notes application using MongoDB, Express, React, and Node.js, implementing secure user authentication with password encryption and JWT tokens, structured APIs with validation, and a well designed database schema. Currently, I am working on an e-commerce project that involves payment workflows, shopping cart functionality, and order management, which is directly relevant to the payment processing domain.
+
+I progressed to the final stage of QA Wolf's hiring process, where I was evaluated on TypeScript and Playwright testing. This experience strengthened my ability to write reliable, well-tested code and work effectively under time constraints. I understand that in payment systems, reliability and security are non-negotiable, and thorough testing is essential.
+
+Additionally, I worked as a consultant for a warehouse management system company, where I improved data tables to make them clearer and more usable for staff. This taught me the importance of building interfaces that help users complete critical tasks efficiently and without confusion.
+
+I have also solved 187+ problems on LeetCode, which has strengthened my problem solving skills and understanding of algorithms and data structures. These skills are important for handling complex payment logic and optimization challenges.
+
+I am eager to contribute to a team building payment infrastructure that Australian businesses rely on. I am ready to learn quickly, write clean and tested code, and grow as a full-stack developer in the fintech space.
+
+Thank you for considering my application.
+
+Kind regards,
+Ivan
