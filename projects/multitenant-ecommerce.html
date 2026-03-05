@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Multitenant E-Commerce Platform - Next.js, PayloadCMS, MongoDB, Stripe Connect, tRPC. Multi-tenant subdomain routing, admin panel, and type-safe API. Built by Ivan Tran.">
-  <meta name="keywords" content="Next.js, PayloadCMS, MongoDB, Stripe, tRPC, TypeScript, Multi-tenant, E-Commerce, Subdomain Routing, shadcn/ui, Tailwind">
+  <meta name="description" content="Multitenant E-Commerce Platform - Next.js, PayloadCMS, MongoDB, tRPC, TypeScript. Multi-tenant subdomain routing, admin panel, and type-safe API. Built by Ivan Tran.">
+  <meta name="keywords" content="Next.js, PayloadCMS, MongoDB, tRPC, TypeScript, Multi-tenant, E-Commerce, Subdomain Routing, shadcn/ui, Tailwind">
   <meta name="author" content="Ivan Tran">
   <title>Multitenant E-Commerce | Ivan Tran</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -391,12 +391,12 @@
     <h1>🏪 Multitenant E-Commerce</h1>
     <div class="screenshots-grid">
       <div class="screenshot-item">
-        <img src="pictures/multitenant-ecommerce2.png" alt="Funroad storefront with category filters">
-        <p>Main storefront — category nav, price & tag filters</p>
-      </div>
-      <div class="screenshot-item">
         <img src="pictures/multitenant-ecommerce1.png" alt="Tenant seller dashboard">
         <p>Tenant dashboard — curated product listings</p>
+      </div>
+      <div class="screenshot-item">
+        <img src="pictures/multitenant-ecommerce2.png" alt="Funroad storefront with category filters">
+        <p>Main storefront — category nav, price &amp; tag filters</p>
       </div>
     </div>
     <p class="hero-subtitle">Multi-Tenant SaaS E-Commerce Platform</p>
@@ -422,7 +422,7 @@
 
     <!-- Learning Note -->
     <div class="learning-note">
-      <p><strong>Learning Project:</strong> Built by following a structured tutorial to explore advanced Next.js patterns, multi-tenant architecture, and headless CMS integration. The focus was understanding how production-grade SaaS platforms are structured.</p>
+      <p><strong>Learning Project — In Progress:</strong> Built by following a structured tutorial to explore advanced Next.js patterns, multi-tenant architecture, and headless CMS integration. The focus was understanding how production-grade SaaS platforms are structured.</p>
     </div>
 
     <!-- Overview -->
@@ -638,10 +638,32 @@
       </div>
     </div>
 
+    <!-- Development Workflow -->
+    <h2 class="section-title"><i class="fas fa-code-branch"></i> Development Workflow</h2>
+    <div class="content-section">
+      <h3>Feature Branching</h3>
+      <p>
+        Each feature, fix, or logical unit of work was developed on its own dedicated branch, keeping <code>main</code> stable throughout development. This mirrors standard team workflows where changes are isolated until they're reviewed and ready to merge.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h3>Pull Requests & Code Review with CodeRabbit</h3>
+      <p>
+        Every feature branch was merged via a pull request rather than pushed directly to <code>main</code>. <strong>CodeRabbit</strong> was integrated as an automated AI code reviewer on each PR — it generated descriptive summaries of the changes, flagged potential bugs, highlighted code quality issues, and suggested improvements before the code was merged. This enforced a review step on every change and built the habit of treating each PR as a documented unit of work.
+      </p>
+      <ul>
+        <li><strong>Automated summaries:</strong> CodeRabbit produced a plain-English walkthrough of every PR — what changed, why, and what to watch out for</li>
+        <li><strong>Inline feedback:</strong> Issues were raised as review comments on specific lines, matching the experience of a human peer review</li>
+        <li><strong>Error detection:</strong> Caught logic issues, missing edge cases, and code smells before they landed on <code>main</code></li>
+        <li><strong>Clean commit history:</strong> Merging via PRs kept the Git history readable and each change traceable to a purpose</li>
+      </ul>
+    </div>
+
     <!-- CTA -->
     <div class="footer-cta">
       <h2>Explore the Source Code</h2>
-      <p>Browse the repository to see the full implementation of multi-tenant routing, PayloadCMS config, tRPC routers, and Stripe Connect integration.</p>
+      <p>Browse the repository to see the full implementation of multi-tenant routing, PayloadCMS config, and tRPC routers.</p>
       <div class="button-group">
         <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="btn" target="_blank">
           <i class="fab fa-github"></i> GitHub Repository
