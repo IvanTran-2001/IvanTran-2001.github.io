@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MERN Thinkboard - Full-stack note-taking application with JWT authentication, MongoDB, React, and Node.js. Secure, responsive, and feature-rich.">
+  <meta name="keywords" content="MERN, React, Node.js, MongoDB, Full-Stack, JWT Authentication, REST API">
+  <title>MERN Thinkboard | Ivan Tran</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      color: #000000;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Override all remaining colored elements */
+    *, *::before, *::after {
+      border-color: #000000 !important;
+      background: transparent !important;
+    }
+
+    body, .hero, .container, .content-section, .tech-section, .footer-cta {
+      background: #ffffff !important;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, li, span, div, a {
+      color: #000000 !important;
+    }
+
+    .badge, .tech-card, .feature-card, .stat-card, .tech-category {
+      border: 1px solid #000000 !important;
+      background: #ffffff !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      border-bottom: 2px solid #000000;
+      padding: 40px 0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #000000;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9em;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #000000;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1em;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      background: #ffffff;
+      border: 1px solid #000000;
+      color: #000000;
+      padding: 6px 12px;
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 10px 20px;
+      font-size: 0.9em;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid #000000;
+      color: #000000;
+      background: #ffffff;
+    }
+
+    .cta-btn:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .section-title {
+      font-size: 1.5em;
+      margin: 40px 0 20px 0;
+      color: #000000;
+      font-weight: 700;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 10px;
+    }
+
+    /* Tech Stack Section */
+    .tech-section {
+      border: 1px solid #000000;
+      padding: 30px 20px;
+      margin-bottom: 40px;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .tech-card {
+      border: 1px solid #000000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .tech-card h4 {
+      color: #000000;
+      margin-bottom: 8px;
+      font-size: 1em;
+      font-weight: 700;
+    }
+
+    .tech-card p {
+      color: #333333;
+      font-size: 0.85em;
+      line-height: 1.5;
+    }
+
+    .tech-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .tech-category {
+      border: 1px solid #000000;
+      padding: 15px;
+    }
+
+    .tech-category:hover {
+      border-left-color: #5a9ec8;
+      background: #2d3249;
+    }
+
+    .tech-category h5 {
+      color: #4a7c9e;
+      margin-bottom: 12px;
+      font-size: 1.05em;
+      font-weight: 700;
+    }
+
+    .tech-category p {
+      color: #d4d4d4;
+      font-size: 0.95em;
+    }
+
+    /* Features Section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card {
+      background: #252a3a;
+      border: 1px solid rgba(74, 124, 158, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #4a7c9e;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(74, 124, 158, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-icon {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+      color: #4a7c9e;
+    }
+
+    .feature-card h3 {
+      color: #e8e8e8;
+      margin-bottom: 12px;
+      font-size: 1.2em;
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      color: #c4c4c4;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    /* Content Sections */
+    .content-section {
+      background: #252a3a;
+      border: 1px solid rgba(74, 124, 158, 0.1);
+      border-radius: 12px;
+      padding: 35px;
+      margin-bottom: 40px;
+    }
+
+    .content-section h3 {
+      color: #4a7c9e;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      font-weight: 700;
+    }
+
+    .content-section p {
+      color: #d4d4d4;
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .content-section ul {
+      padding-left: 25px;
+      margin-bottom: 15px;
+    }
+
+    .content-section li {
+      color: #d4d4d4;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .content-section strong {
+      color: #5a9ec8;
+      font-weight: 600;
+    }
+
+    code {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: #90ee90;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .highlight {
+      color: #4a7c9e;
+      font-weight: 600;
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .stat-number {
+      font-size: 2.5em;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      color: #aaa;
+      font-size: 0.95em;
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+      border: 1px solid rgba(102, 126, 234, 0.3);
+      border-radius: 15px;
+      padding: 50px 30px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      margin-bottom: 40px;
+    }
+
+    .footer-cta h2 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+
+    .footer-cta p {
+      color: #aaa;
+      margin-bottom: 30px;
+      font-size: 1.1em;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95em;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #667eea;
+      color: #667eea;
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(102, 126, 234, 0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2em;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1em;
+      }
+
+      .section-title {
+        font-size: 1.8em;
+      }
+
+      .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 50px 20px;
+      }
+
+      .container {
+        padding: 40px 20px;
+      }
+
+      .cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <a href="../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+      <h1 class="animate__animated animate__slideInDown">📝 MERN Thinkboard</h1>
+      <p class="hero-subtitle">Full-Stack Authenticated Note-Taking Application</p>
+      
+      <div class="hero-badges">
+        <span class="badge"><i class="fas fa-code"></i> Full-Stack</span>
+        <span class="badge"><i class="fas fa-lock"></i> Secure</span>
+        <span class="badge"><i class="fas fa-mobile-alt"></i> Responsive</span>
+        <span class="badge"><i class="fas fa-rocket"></i> Production-Ready</span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="https://mern-thinkboard-qsrl.onrender.com" class="cta-btn cta-primary" target="_blank">
+          <i class="fas fa-globe"></i> Live Demo
+        </a>
+        <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="cta-btn cta-secondary" target="_blank">
+          <i class="fab fa-github"></i> View Code
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Overview Section -->
+    <div class="content-section">
+      <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
+      <p>
+        MERN Thinkboard is a <strong>full-stack, production-ready</strong> note-taking application showcasing modern web development practices. Built with the MERN stack (MongoDB, Express, React, Node.js), it demonstrates expertise in:
+      </p>
+      <ul>
+        <li><strong>Backend Architecture:</strong> RESTful API with Express, JWT authentication, middleware pipeline</li>
+        <li><strong>Database Design:</strong> MongoDB with optimized queries and Strategic indexing</li>
+        <li><strong>Frontend Development:</strong> React hooks, state management, protected routes</li>
+        <li><strong>Security:</strong> JWT tokens, bcrypt hashing, rate limiting, input validation</li>
+        <li><strong>DevOps:</strong> Cloud deployment with MongoDB Atlas and Render</li>
+      </ul>
+    </div>
+
+    <!-- Tech Stack Section -->
+    <h2 class="section-title"><i class="fas fa-layer-group"></i> Technology Stack</h2>
+    <div class="tech-section">
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h4>MongoDB</h4>
+          <p>NoSQL document database for flexible, scalable data persistence</p>
+        </div>
+        <div class="tech-card">
+          <h4>Express.js</h4>
+          <p>Lightweight backend framework for building RESTful APIs</p>
+        </div>
+        <div class="tech-card">
+          <h4>React 18</h4>
+          <p>Modern UI library with hooks and component-based architecture</p>
+        </div>
+        <div class="tech-card">
+          <h4>Node.js</h4>
+          <p>JavaScript runtime for server-side execution</p>
+        </div>
+        <div class="tech-card">
+          <h4>TailwindCSS</h4>
+          <p>Utility-first CSS framework for rapid responsive design</p>
+        </div>
+        <div class="tech-card">
+          <h4>JWT Auth</h4>
+          <p>Stateless authentication with 7-day token expiration</p>
+        </div>
+        <div class="tech-card">
+          <h4>Upstash Redis</h4>
+          <p>Cloud-hosted Redis service for rate limiting and caching</p>
+        </div>
+        <div class="tech-card">
+          <h4>DaisyUI</h4>
+          <p>Pre-built component library on TailwindCSS</p>
+        </div>
+      </div>
+
+      <div class="tech-categories">
+        <div class="tech-category">
+          <h5><i class="fas fa-database"></i> Database & ODM</h5>
+          <p><strong>MongoDB Atlas</strong> - Cloud database hosting<br><strong>Mongoose</strong> - Schema validation & modeling</p>
+        </div>
+        <div class="tech-category">
+          <h5><i class="fas fa-lock"></i> Security & Authentication</h5>
+          <p><strong>jsonwebtoken</strong> - JWT generation & verification<br><strong>bcrypt</strong> - Password hashing with salt rounds</p>
+        </div>
+        <div class="tech-category">
+          <h5><i class="fas fa-network-wired"></i> HTTP & API</h5>
+          <p><strong>Axios</strong> - HTTP client with interceptors<br><strong>CORS</strong> - Cross-origin resource sharing</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <h2 class="section-title"><i class="fas fa-star"></i> Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-lock"></i></div>
+        <h3>JWT Authentication</h3>
+        <p>Secure user authentication with JSON Web Tokens featuring 7-day expiration and stateless verified access.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-user"></i></div>
+        <h3>User Accounts</h3>
+        <p>Registration, login, and account management with industry-standard bcrypt password hashing.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Protected Routes</h3>
+        <p>Frontend and backend route protection ensuring only authenticated users access their personal data.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-search"></i></div>
+        <h3>Smart Search & Sort</h3>
+        <p>Real-time search by title/content and sort by date or alphabetically for intuitive note management.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-network-wired"></i></div>
+        <h3>RESTful API</h3>
+        <p>Full CRUD functionality with semantic HTTP methods, proper status codes, and consistent JSON responses.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-bell"></i></div>
+        <h3>Toast Notifications</h3>
+        <p>Real-time user feedback with elegant toast notifications for actions, errors, and system messages.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+        <h3>Rate Limiting</h3>
+        <p>IP-based auth protection and user-based API protection using Upstash Redis for security and fairness.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+        <h3>Responsive Design</h3>
+        <p>Seamless experience across desktop, tablet, and mobile devices using modern CSS grid and flexbox.</p>
+      </div>
+    </div>
+
+    <!-- Statistics -->
+    <h2 class="section-title"><i class="fas fa-chart-line"></i> Project Metrics</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">1,200+</div>
+        <div class="stat-label">Lines of Frontend Code</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">800+</div>
+        <div class="stat-label">Lines of Backend Code</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8+</div>
+        <div class="stat-label">RESTful API Endpoints</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Days Token Expiration</div>
+      </div>
+    </div>
+
+    <!-- Architecture -->
+    <h2 class="section-title"><i class="fas fa-sitemap"></i> Architecture & Patterns</h2>
+    <div class="content-section">
+      <p>The application follows industry best practices and modern architectural patterns:</p>
+      <ul>
+        <li><strong>MVC Pattern:</strong> Clean separation between Controllers, Routes, Models, and Middleware for maintainability</li>
+        <li><strong>RESTful API Design:</strong> Semantic HTTP methods (GET, POST, PUT, DELETE) with proper status codes</li>
+        <li><strong>Middleware Pipeline:</strong> Authentication and rate limiting middleware for protected routes</li>
+        <li><strong>Axios Interceptors:</strong> Automatic JWT token injection in request headers without code duplication</li>
+        <li><strong>Route Guards:</strong> Frontend GuestRoute and ProtectedRoute components for route access control</li>
+        <li><strong>Schema Validation:</strong> Mongoose schemas enforce data integrity at database level</li>
+        <li><strong>Error Handling:</strong> Centralized error handling with meaningful, user-friendly error messages</li>
+        <li><strong>Environment Configuration:</strong> Secure environment variable management for production deployment</li>
+      </ul>
+    </div>
+
+    <!-- Security -->
+    <h2 class="section-title"><i class="fas fa-shield-alt"></i> Security Features</h2>
+    <div class="content-section">
+      <ul>
+        <li><strong>JWT Authentication:</strong> Stateless authentication with 7-day token expiration for enhanced security</li>
+        <li><strong>Password Hashing:</strong> bcrypt with configurable salt rounds for secure password storage</li>
+        <li><strong>Protected Routes:</strong> Both frontend and backend protected from unauthorized access</li>
+        <li><strong>Rate Limiting:</strong> Prevents brute-force attacks on authentication endpoints using Upstash Redis</li>
+        <li><strong>Input Validation:</strong> Email, password, and username format validation on client and server</li>
+        <li><strong>CORS Configuration:</strong> Prevents unauthorized cross-origin requests from external domains</li>
+        <li><strong>Environment Variables:</strong> Sensitive data like API keys and database URIs never exposed in version control</li>
+      </ul>
+    </div>
+
+    <!-- Performance -->
+    <h2 class="section-title"><i class="fas fa-rocket"></i> Performance Optimizations</h2>
+    <div class="content-section">
+      <ul>
+        <li><strong>MongoDB Indexing:</strong> Database queries optimized with strategic indexing on frequently queried fields</li>
+        <li><strong>Vite Build Optimization:</strong> Lightning-fast development and production builds with code splitting</li>
+        <li><strong>Component Lazy Loading:</strong> React components loaded on demand to reduce initial bundle size</li>
+        <li><strong>API Response Caching:</strong> Redis integration for caching frequently accessed data</li>
+        <li><strong>Efficient State Management:</strong> React hooks for minimal re-renders and optimal performance</li>
+      </ul>
+    </div>
+
+    <!-- Skills Demonstrated -->
+    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Skills Demonstrated</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Full-Stack Development</h3>
+        <p>End-to-end application design and implementation from database to user interface.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Frontend Development</h3>
+        <p>React, modern CSS frameworks, responsive design, component architecture.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Backend Development</h3>
+        <p>Node.js, REST API design, middleware architecture, request handling.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Database Design</h3>
+        <p>MongoDB schema design, indexing strategies, query optimization.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Security Best Practices</h3>
+        <p>JWT authentication, password hashing, rate limiting, data validation.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Cloud Deployment</h3>
+        <p>Docker containerization and cloud deployment on Render with MongoDB Atlas.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Version Control</h3>
+        <p>Git workflow, GitHub collaboration, branching strategies, commit best practices.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Problem Solving</h3>
+        <p>Complex application architecture, edge case handling, debugging and optimization.</p>
+      </div>
+    </div>
+
+    <!-- Implementation Details -->
+    <h2 class="section-title"><i class="fas fa-code"></i> Implementation Highlights</h2>
+    
+    <div class="content-section">
+      <h3>Authentication Flow</h3>
+      <p>
+        Users register or login through dedicated authentication endpoints. Upon successful authentication, the server generates a JWT token with a 7-day expiration and sends it back to the client. The client stores this token and includes it in all subsequent requests via Axios interceptors. The backend middleware validates the token before allowing access to protected routes, ensuring only authorized users can access resources.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h3>Data Privacy & Isolation</h3>
+      <p>
+        Each user's notes are completely isolated from other users through user-specific database queries. When a note is created, updated, or deleted, the backend verifies that the requesting user owns that note before performing the operation. This prevents unauthorized data access and ensures complete data privacy even if the database is compromised.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h3>Rate Limiting Strategy</h3>
+      <p>
+        A dual-layer rate limiting approach protects both authentication and general API endpoints. IP-based rate limiting prevents brute-force attacks on login/register endpoints, while user-based rate limiting protects general API endpoints from abuse. This leverages Upstash Redis, a cloud-hosted Redis service, eliminating the need to manage your own Redis infrastructure.
+      </p>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="footer-cta">
+      <h2>Ready to See It in Action?</h2>
+      <p>Check out the live demo or explore the source code on GitHub</p>
+      <div class="button-group">
+        <a href="https://mern-thinkboard-qsrl.onrender.com" class="btn" target="_blank">
+          <i class="fas fa-globe"></i> Live Demo
+        </a>
+        <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="btn" target="_blank">
+          <i class="fab fa-github"></i> GitHub Repository
+        </a>
+        <a href="../index.html#projects" class="btn btn-secondary">
+          <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
