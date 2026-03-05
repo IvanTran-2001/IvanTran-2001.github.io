@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Warehouse Management System Consulting - Database optimization and process improvement project.">
+  <meta name="keywords" content="Warehouse Management, SQL, Database Design, Process Improvement, Consulting">
+  <title>Warehouse Automation System | Ivan Tran</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    *, *::before, *::after { border-color: #000000 !important; background: transparent !important; }
+    body, .hero, .container, .content-section, .tech-section, .footer-cta { background: #ffffff !important; }
+    h1, h2, h3, h4, h5, h6, p, li, span, div, a { color: #000000 !important; }
+    .badge, .tech-card, .feature-card, .stat-card, .tech-category { border: 1px solid #000000 !important; background: #ffffff !important; }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a2e;
+      color: #e8e8e8;
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #4a7c9e;
+      font-weight: 800;
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #aaa;
+      font-weight: 500;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #252a3a;
+      padding: 45px;
+      border-radius: 15px;
+      border: 1px solid rgba(74, 124, 158, 0.1);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      color: #4a7c9e;
+      font-size: 1.8em;
+      margin-top: 35px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #4a7c9e;
+      display: inline-block;
+    }
+
+    h3 {
+      color: #5a9ec8;
+      font-size: 1.3em;
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: #d4d4d4;
+    }
+
+    ul {
+      padding-left: 25px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: #c4c4c4;
+    }
+
+    ol {
+      padding-left: 25px;
+      margin: 15px 0;
+    }
+
+    a.btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 24px;
+      background: #4a7c9e;
+      color: white;
+      border-radius: 8px;
+      margin-top: 15px;
+      margin-right: 10px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(74, 124, 158, 0.3);
+    }
+
+    a.btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(74, 124, 158, 0.4);
+    }
+
+    a.btn.github-btn {
+      padding: 12px;
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+    }
+
+    .key-point {
+      background: #2d3249;
+      padding: 18px;
+      border-radius: 10px;
+      margin: 15px 0;
+      border-left: 4px solid #4a7c9e;
+    }
+
+    @media (max-width: 768px) {
+      .project-container {
+        padding: 25px 15px;
+      }
+
+      header h1 {
+        font-size: 1.8em;
+      }
+
+      a.btn {
+        padding: 14px 20px;
+        font-size: 1em;
+        flex: 1;
+        min-width: 140px;
+        text-align: center;
+      }
+
+      a.btn.github-btn {
+        flex: none;
+        min-width: auto;
+        width: 52px;
+        height: 52px;
+        padding: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      a.btn {
+        padding: 12px 16px;
+        font-size: 0.95em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Warehouse Management System Optimization</h1>
+  <p>Process Improvement | SQL Database Design | Operations</p>
+</header>
+
+<div class="project-container">
+
+  <div style="text-align: center; margin-bottom: 40px;">
+    <img src="pictures/warehouse-echt.png" alt="Warehouse Management System" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+  </div>
+
+  <h2>Project Overview</h2>
+  <p>
+    This project involved improving an existing automated database and table system to enhance
+    Warehouse Management System (WMS) workflows. The goal was to reduce operational complexity,
+    minimize human error, and bridge the gap between experienced and new warehouse staff by
+    consolidating multiple inventory tables into a single, intuitive view.
+  </p>
+
+  <h2>My Role & Contributions</h2>
+  <ul>
+    <li>Communicated system improvement ideas to a third-party WMS company.</li>
+    <li>Tested newly implemented tables and reported bugs and edge cases.</li>
+    <li>Collaborated with WMS developers on restructuring inventory tables and SQL-based changes.</li>
+    <li>Trained staff on how to use the new table effectively, including workflow tips and best practices.</li>
+    <li>Applying my SQL Knowledge and experience</li>
+
+  </ul>
+
+  <h2>Technologies & Skills Used</h2>
+  <ul>
+    <li>SQL (assisted and reviewed database adjustments)</li>
+    <li>Data Analysis</li>
+    <li>Process Improvement</li>
+    <li>Technical Communication</li>
+    <li>Problem Solving and Ideas</li>
+    <li>Logistics & Warehouse Operations</li>
+  </ul>
+
+  <h2>Key Outcomes</h2>
+  <div class="key-point">
+    <strong>Primary Impact:</strong> One computer can now handle the workload of two forklift operators, or a single forklift operator can complete the computer tasks themselves—effectively doubling operational efficiency.
+  </div>
+  <ul>
+    <li><strong>Consolidated System:</strong> Merged three separate inventory tables into a single, unified view.</li>
+    <li><strong>Reduced Errors:</strong> Eliminated team collisions and missed customer items.</li>
+    <li><strong>Faster Onboarding:</strong> Reduced training time and minimized skill gaps between experienced and new staff.</li>
+    <li><strong>Improved Accuracy:</strong> Instant refresh validation and real-time data synchronization increased inventory confidence.</li>
+    <li><strong>Better Decision-Making:</strong> Enabled data-driven insights for warehouse management and planning.</li>
+  </ul>
+
+  <h2>Problem Statement</h2>
+  <p>
+    The warehouse relied on <strong>three separate database tables</strong> that had to be cross-referenced simultaneously:
+  </p>
+  <ol>
+    <li>Inventory pallet contents (what items are where)</li>
+    <li>Collection status (items picked and ready)</li>
+    <li>Customer order tracking (item locations for the day)</li>
+  </ol>
+  <p>
+    This fragmented system was inherently error-prone. Staff had to mentally consolidate data across three views, increasing cognitive load and error risk. Even a single mistake could cause cascading delays during high-volume operations.
+  </p>
+
+  <h2>Solution & Approach</h2>
+  <p>
+    I identified this inefficiency on the warehouse floor and proposed a solution to my supervisor, who connected me with the WMS development team. Working directly with WMS developers, we architected a <strong>single, unified table</strong> that consolidated all three functions into one intuitive view.
+  </p>
+  <p>
+    <strong>My approach:</strong>
+  </p>
+  <ul>
+    <li>Mapped all variables and their dependencies to understand the complete data landscape</li>
+    <li>Identified essential vs. redundant data to reduce cognitive load</li>
+    <li>Designed table consolidation strategy while maintaining data integrity</li>
+    <li>Managed tight deadlines through effective communication (technical documentation, phone calls, detailed PDFs)</li>
+  </ul>
+
+  <h2>Validation & Iteration</h2>
+  <p>
+    The initial implementation significantly improved speed—staff could instantly locate items without manual cross-referencing. However, testing revealed a critical issue: the table was <strong>static</strong>, updated only by warehouse input, not external orders.
+  </p>
+  <p>
+    By analyzing missing item patterns, I identified the root cause: order date misalignment between systems. I collaborated with the WMS developer to implement dynamic synchronization, resolving the issue completely.
+  </p>
+
+  <h2>Results</h2>
+  <ul>
+    <li>Processing speed improved dramatically—staff and forklifts worked in sync without bottlenecks</li>
+    <li>Error rate dropped significantly due to single-source-of-truth design</li>
+    <li>Operational flexibility increased: the system scaled seamlessly across different team sizes and workflows</li>
+  </ul>
+
+  <h2>Technical Documentation</h2>
+  <p>Below is the detailed technical analysis and recommendations I provided to the WMS development team:</p>
+  <iframe src="report.pdf" style="width: 100%; height: 700px; border: 1px solid #ddd; border-radius: 8px; margin: 20px 0;"></iframe>
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="../index.html#projects" class="btn">Home</a>
+    </div>
+</div>
+
+</body>
+</html>
