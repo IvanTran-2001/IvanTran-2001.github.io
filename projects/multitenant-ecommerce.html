@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Multitenant E-Commerce Platform - Next.js, PayloadCMS, MongoDB, tRPC, TypeScript. Multi-tenant subdomain routing, admin panel, and type-safe API. Built by Ivan Tran.">
-  <meta name="keywords" content="Next.js, PayloadCMS, MongoDB, tRPC, TypeScript, Multi-tenant, E-Commerce, Subdomain Routing, shadcn/ui, Tailwind">
+  <meta name="description" content="Multitenant E-Commerce Platform - Next.js, PayloadCMS, MongoDB, tRPC, TypeScript. Multi-tenant data isolation, role-based access control, and type-safe API. Built by Ivan Tran.">
+  <meta name="keywords" content="Next.js, PayloadCMS, MongoDB, tRPC, TypeScript, Multi-tenant, E-Commerce, Role-Based Access Control, shadcn/ui, Tailwind">
   <meta name="author" content="Ivan Tran">
   <title>Multitenant E-Commerce | Ivan Tran</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -422,20 +422,20 @@
 
     <!-- Learning Note -->
     <div class="learning-note">
-      <p><strong>Learning Project — In Progress:</strong> Built by following a structured tutorial to explore advanced Next.js patterns, multi-tenant architecture, and headless CMS integration. The focus was understanding how production-grade SaaS platforms are structured.</p>
+      <p><strong>Learning Project (In Progress):</strong> Built by following a structured tutorial to explore advanced Next.js patterns, multi-tenant architecture, and headless CMS integration. The focus was understanding how production-grade SaaS platforms are structured.</p>
     </div>
 
     <!-- Overview -->
     <div class="content-section">
       <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
       <p>
-        A multi-tenant e-commerce SaaS platform where each seller gets their own subdomain-isolated storefront. Powered by <strong>PayloadCMS</strong> as the headless CMS and admin backend, <strong>Next.js 16</strong> for server-rendered storefronts, and <strong>tRPC</strong> for end-to-end type-safe data access.
+        A multi-tenant e-commerce SaaS platform where each seller's data and products are isolated through role-based access control. Powered by <strong>PayloadCMS</strong> as the headless CMS and admin backend, <strong>Next.js 16</strong> for server-rendered storefronts, and <strong>tRPC</strong> for end-to-end type-safe data access.
       </p>
       <ul>
-        <li><strong>Multi-Tenancy:</strong> Each tenant operates on their own subdomain (e.g. <code>store.funroad.com</code>), with isolated products and settings managed through role-based access</li>
+        <li><strong>Multi-Tenancy:</strong> Each tenant's products and settings are isolated through PayloadCMS role-based access control, with tenant admins scoped to their own data and super-admins having global access</li>
         <li><strong>CMS-Driven Backend:</strong> PayloadCMS provides a full admin panel for content, product, and user management with built-in multi-tenant plugin support</li>
-        <li><strong>Type-Safe API Layer:</strong> tRPC connects Next.js frontend to backend procedures fully end-to-end typed — no REST guesswork</li>
-        <li><strong>Secure Auth:</strong> httpOnly cookie-based auth set server-side — the JWT never touches <code>localStorage</code>, preventing token theft via XSS</li>
+        <li><strong>Type-Safe API Layer:</strong> tRPC connects Next.js frontend to backend procedures fully end-to-end typed, with no REST guesswork</li>
+        <li><strong>Secure Auth:</strong> httpOnly cookie-based auth set server-side; the JWT never touches <code>localStorage</code>, preventing token theft via XSS</li>
         <li><strong>Product Discovery:</strong> Hierarchical category nav, tag filtering, price range, and infinite scroll product listings with server-side prefetching</li>
         <li><strong>Product Library:</strong> Authenticated users can save and revisit purchased products from their personal library</li>
       </ul>
@@ -447,7 +447,7 @@
       <div class="tech-grid">
         <div class="tech-card">
           <h4>Next.js 16</h4>
-          <p>App Router, server components, and subdomain-based routing</p>
+          <p>App Router, server components, and middleware-based routing</p>
         </div>
         <div class="tech-card">
           <h4>PayloadCMS</h4>
@@ -504,33 +504,33 @@
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-globe"></i></div>
-        <h3>Subdomain-Based Multi-Tenancy</h3>
-        <p>Each tenant store runs on a unique subdomain. Next.js middleware resolves the subdomain at the edge and scopes all data queries to that tenant automatically.</p>
+        <h3>Role-Based Multi-Tenancy</h3>
+        <p>Each tenant's data is isolated at the database level via PayloadCMS access control hooks. Tenant admins can only view and manage their own products and settings; super-admins have unrestricted access across all tenants.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-user-shield"></i></div>
         <h3>Role-Based Access Control</h3>
-        <p>Super-admins have global access across all tenants. Tenant admins can only manage their own store's products and settings — enforced at the CMS level.</p>
+        <p>Super-admins have global access across all tenants. Tenant admins can only manage their own store's products and settings, enforced at the CMS level.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-lock"></i></div>
         <h3>Secure Cookie-Based Auth</h3>
-        <p>Payload's built-in auth writes the JWT into an <strong>httpOnly cookie</strong> server-side — never exposed to JavaScript, protecting against XSS token theft. Session state is refreshed client-side via TanStack Query invalidation.</p>
+        <p>Payload's built-in auth writes the JWT into an <strong>httpOnly cookie</strong> server-side, never exposed to JavaScript, protecting against XSS token theft. Session state is refreshed client-side via TanStack Query invalidation.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-scroll"></i></div>
         <h3>Infinite Scroll</h3>
-        <p>Product listings use TanStack Query's <code>useInfiniteQuery</code> with server-side prefetching — the first page is rendered on the server and subsequent pages load seamlessly as the user scrolls.</p>
+        <p>Product listings use TanStack Query's <code>useInfiniteQuery</code> with server-side prefetching; the first page is rendered on the server and subsequent pages load seamlessly as the user scrolls.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-code"></i></div>
         <h3>tRPC Type-Safe API</h3>
-        <p>All data-fetching between the Next.js app and backend goes through tRPC routers — providing compile-time type checking and eliminating runtime type mismatches.</p>
+        <p>All data-fetching between the Next.js app and backend goes through tRPC routers, providing compile-time type checking and eliminating runtime type mismatches.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-tags"></i></div>
         <h3>Hierarchical Categories & Tags</h3>
-        <p>Categories support parent/subcategory nesting — a category can reference itself as a parent and auto-populates its children. Combined with flat tags, this powers a rich multi-level nav and filter UI.</p>
+        <p>Categories support parent/subcategory nesting; a category can reference itself as a parent and auto-populates its children. Combined with flat tags, this powers a rich multi-level nav and filter UI.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-filter"></i></div>
@@ -540,47 +540,47 @@
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-th-large"></i></div>
         <h3>PayloadCMS Admin Panel</h3>
-        <p>Fully featured admin interface auto-generated by Payload — manage products, tenants, users, media, and refund policies without building a separate dashboard.</p>
+        <p>Fully featured admin interface auto-generated by Payload for managing products, tenants, users, media, and refund policies without building a separate dashboard.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-book"></i></div>
         <h3>Product Library</h3>
-        <p>Authenticated users have a personal product library where they can access and revisit their purchased products — persisted in the database and protected behind auth.</p>
+        <p>Authenticated users have a personal product library where they can access and revisit their purchased products, persisted in the database and protected behind auth.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-pen-nib"></i></div>
         <h3>Rich Text Descriptions</h3>
-        <p>Product descriptions use Payload's <strong>Lexical</strong> rich text editor — sellers can format content with headings, lists, and inline styles, stored as structured JSON.</p>
+        <p>Product descriptions use Payload's <strong>Lexical</strong> rich text editor. Sellers can format content with headings, lists, and inline styles, stored as structured JSON.</p>
       </div>
     </div>
 
     <!-- Architecture -->
     <h2 class="section-title"><i class="fas fa-sitemap"></i> Architecture</h2>
     <div class="content-section">
-      <h3>Multi-Tenant Subdomain Routing</h3>
+      <h3>Tenant Data Isolation</h3>
       <p>
-        Next.js middleware intercepts every incoming request and reads the subdomain from the host header. The subdomain slug is matched against the <code>tenants</code> collection in PayloadCMS, and all downstream data queries (products, categories, etc.) are automatically scoped to that tenant. This means a single deployed application serves any number of stores without separate deployments.
+        The <code>multiTenantPlugin</code> attaches a tenant relationship to the products collection. When a tenant admin logs in, PayloadCMS access control hooks filter all queries to only return records belonging to their tenant. Super-admins bypass these restrictions and can manage any tenant's data. This is configured declaratively, with no manual access control logic needed per collection.
       </p>
     </div>
 
     <div class="content-section">
       <h3>PayloadCMS + Multi-Tenant Plugin</h3>
       <p>
-        PayloadCMS's <code>multiTenantPlugin</code> attaches a tenant relationship to specified collections (products in this case). Access control hooks ensure that a logged-in tenant admin can only read and write records belonging to their own tenant, while super-admins bypass these restrictions. This is configured declaratively — no manual access control logic needed per collection.
+        PayloadCMS's <code>multiTenantPlugin</code> attaches a tenant relationship to specified collections (products in this case). Access control hooks ensure that a logged-in tenant admin can only read and write records belonging to their own tenant, while super-admins bypass these restrictions. This is configured declaratively, with no manual access control logic needed per collection.
       </p>
     </div>
 
     <div class="content-section">
       <h3>Authentication Flow</h3>
       <p>
-        The user submits credentials via the sign-in form. The tRPC <code>login</code> mutation calls Payload's local auth API server-side, which validates credentials and returns a JWT. That token is written into an <strong>httpOnly cookie</strong> — the browser sends it automatically on every request, but JavaScript cannot read it, preventing XSS-based token theft. On the client, <code>queryClient.invalidateQueries</code> refreshes the session state after login or logout.
+        The user submits credentials via the sign-in form. The tRPC <code>login</code> mutation calls Payload's local auth API server-side, which validates credentials and returns a JWT. That token is written into an <strong>httpOnly cookie</strong>; the browser sends it automatically on every request, but JavaScript cannot read it, preventing XSS-based token theft. On the client, <code>queryClient.invalidateQueries</code> refreshes the session state after login or logout.
       </p>
     </div>
 
     <div class="content-section">
       <h3>tRPC + TanStack Query Data Layer</h3>
       <p>
-        The frontend communicates with PayloadCMS through tRPC routers (<code>products</code>, <code>categories</code>, <code>tenants</code>). Each procedure is typed end-to-end using Payload's auto-generated TypeScript types. <strong>TanStack Query 5</strong> handles caching, background refetching, and infinite scroll via <code>useInfiniteQuery</code> — the first page is server-prefetched for fast initial load, with subsequent pages fetched on demand.
+        The frontend communicates with PayloadCMS through tRPC routers (<code>products</code>, <code>categories</code>, <code>tenants</code>). Each procedure is typed end-to-end using Payload's auto-generated TypeScript types. <strong>TanStack Query 5</strong> handles caching, background refetching, and infinite scroll via <code>useInfiniteQuery</code>; the first page is server-prefetched for fast initial load, with subsequent pages fetched on demand.
       </p>
     </div>
 
@@ -610,7 +610,7 @@
     <div class="features-grid">
       <div class="feature-card">
         <h3>Multi-Tenant Patterns</h3>
-        <p>How to design a single codebase that isolates data and routing per tenant using subdomain resolution and scoped database queries.</p>
+        <p>How to design a single codebase that isolates data per tenant using scoped database queries and declarative access control.</p>
       </div>
       <div class="feature-card">
         <h3>Headless CMS Architecture</h3>
@@ -618,23 +618,23 @@
       </div>
       <div class="feature-card">
         <h3>End-to-End Type Safety</h3>
-        <p>Using tRPC alongside Payload's auto-generated TypeScript types to ensure frontend and backend are always in sync at compile time — no manual type maintenance.</p>
+        <p>Using tRPC alongside Payload's auto-generated TypeScript types to ensure frontend and backend are always in sync at compile time, with no manual type maintenance.</p>
       </div>
       <div class="feature-card">
         <h3>Schema Validation with Zod</h3>
-        <p>React Hook Form + Zod handles all form state and input validation — schemas are defined once and shared between the form and the tRPC input validators.</p>
+        <p>React Hook Form + Zod handles all form state and input validation. Schemas are defined once and shared between the form and the tRPC input validators.</p>
       </div>
       <div class="feature-card">
         <h3>Next.js App Router</h3>
-        <p>Leveraging server components, route groups, and middleware for complex routing logic like subdomain-based tenant resolution and server-side data prefetching.</p>
+        <p>Leveraging server components, route groups, and middleware for routing logic and server-side data prefetching.</p>
       </div>
       <div class="feature-card">
         <h3>Access Control at Scale</h3>
-        <p>Declarative role-based access in PayloadCMS — separating super-admin and tenant-scoped permissions without duplicating logic across collections.</p>
+        <p>Declarative role-based access in PayloadCMS, separating super-admin and tenant-scoped permissions without duplicating logic across collections.</p>
       </div>
       <div class="feature-card">
         <h3>Bun Runtime</h3>
-        <p>Used Bun as the JavaScript runtime and package manager — significantly faster installs and dev server startup compared to Node.js/npm.</p>
+        <p>Used Bun as the JavaScript runtime and package manager, which provides significantly faster installs and dev server startup compared to Node.js/npm.</p>
       </div>
     </div>
 
@@ -650,10 +650,10 @@
     <div class="content-section">
       <h3>Pull Requests & Code Review with CodeRabbit</h3>
       <p>
-        Every feature branch was merged via a pull request rather than pushed directly to <code>main</code>. <strong>CodeRabbit</strong> was integrated as an automated AI code reviewer on each PR — it generated descriptive summaries of the changes, flagged potential bugs, highlighted code quality issues, and suggested improvements before the code was merged. This enforced a review step on every change and built the habit of treating each PR as a documented unit of work.
+        Every feature branch was merged via a pull request rather than pushed directly to <code>main</code>. <strong>CodeRabbit</strong> was integrated as an automated AI code reviewer on each PR. It generated descriptive summaries of the changes, flagged potential bugs, highlighted code quality issues, and suggested improvements before the code was merged. This enforced a review step on every change and built the habit of treating each PR as a documented unit of work.
       </p>
       <ul>
-        <li><strong>Automated summaries:</strong> CodeRabbit produced a plain-English walkthrough of every PR — what changed, why, and what to watch out for</li>
+        <li><strong>Automated summaries:</strong> CodeRabbit produced a plain-English walkthrough of every PR covering what changed, why, and what to watch out for</li>
         <li><strong>Inline feedback:</strong> Issues were raised as review comments on specific lines, matching the experience of a human peer review</li>
         <li><strong>Error detection:</strong> Caught logic issues, missing edge cases, and code smells before they landed on <code>main</code></li>
         <li><strong>Clean commit history:</strong> Merging via PRs kept the Git history readable and each change traceable to a purpose</li>
