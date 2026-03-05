@@ -338,6 +338,27 @@
       color: #ffffff !important;
     }
 
+    /* Screenshots */
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0 20px 0;
+    }
+
+    .screenshot-item img {
+      width: 100%;
+      border: 1px solid #000000;
+      display: block;
+    }
+
+    .screenshot-item p {
+      font-size: 0.78em;
+      color: #555555;
+      text-align: center;
+      margin-top: 6px;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero h1 {
@@ -355,6 +376,10 @@
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .screenshots-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -364,16 +389,25 @@
   <div class="hero">
     <a href="../index.html#projects" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
     <h1>🏪 Multitenant E-Commerce</h1>
-    <img src="../projects/pictures/multitenant-ecommerce.png" alt="Multitenant E-Commerce Platform" style="max-width:100%;border:1px solid #000;margin:20px 0;display:block;margin-left:auto;margin-right:auto;">
-    <p class="hero-subtitle">Multi-Tenant SaaS Platform with Subdomain Routing & Stripe Connect</p>
+    <div class="screenshots-grid">
+      <div class="screenshot-item">
+        <img src="pictures/multitenant-ecommerce2.png" alt="Funroad storefront with category filters">
+        <p>Main storefront — category nav, price & tag filters</p>
+      </div>
+      <div class="screenshot-item">
+        <img src="pictures/multitenant-ecommerce1.png" alt="Tenant seller dashboard">
+        <p>Tenant dashboard — curated product listings</p>
+      </div>
+    </div>
+    <p class="hero-subtitle">Multi-Tenant SaaS E-Commerce Platform</p>
 
     <div class="hero-badges">
-      <span class="badge">Next.js 15</span>
+      <span class="badge">Next.js 16</span>
       <span class="badge">PayloadCMS</span>
       <span class="badge">TypeScript</span>
       <span class="badge">Multi-Tenant</span>
-      <span class="badge">Stripe Connect</span>
       <span class="badge">tRPC</span>
+      <span class="badge">Bun</span>
     </div>
 
     <div class="hero-cta">
@@ -395,14 +429,15 @@
     <div class="content-section">
       <h3><i class="fas fa-info-circle"></i> Project Overview</h3>
       <p>
-        A multi-tenant e-commerce SaaS platform where each seller gets their own subdomain-isolated storefront. The platform is powered by <strong>PayloadCMS</strong> as the headless CMS and admin backend, <strong>Next.js</strong> for server-rendered storefronts, and <strong>Stripe Connect</strong> for multi-party payment processing.
+        A multi-tenant e-commerce SaaS platform where each seller gets their own subdomain-isolated storefront. Powered by <strong>PayloadCMS</strong> as the headless CMS and admin backend, <strong>Next.js 16</strong> for server-rendered storefronts, and <strong>tRPC</strong> for end-to-end type-safe data access.
       </p>
       <ul>
         <li><strong>Multi-Tenancy:</strong> Each tenant operates on their own subdomain (e.g. <code>store.funroad.com</code>), with isolated products and settings managed through role-based access</li>
         <li><strong>CMS-Driven Backend:</strong> PayloadCMS provides a full admin panel for content, product, and user management with built-in multi-tenant plugin support</li>
         <li><strong>Type-Safe API Layer:</strong> tRPC connects Next.js frontend to backend procedures fully end-to-end typed — no REST guesswork</li>
-        <li><strong>Payment Infrastructure:</strong> Stripe Connect allows individual tenants to onboard and receive payments directly into their own Stripe accounts</li>
-        <li><strong>Product Discovery:</strong> Category and tag-based filtering with pagination for efficient product browsing across stores</li>
+        <li><strong>Secure Auth:</strong> httpOnly cookie-based auth set server-side — the JWT never touches <code>localStorage</code>, preventing token theft via XSS</li>
+        <li><strong>Product Discovery:</strong> Hierarchical category nav, tag filtering, price range, and infinite scroll product listings with server-side prefetching</li>
+        <li><strong>Product Library:</strong> Authenticated users can save and revisit purchased products from their personal library</li>
       </ul>
     </div>
 
@@ -411,7 +446,7 @@
     <div class="tech-section">
       <div class="tech-grid">
         <div class="tech-card">
-          <h4>Next.js 15</h4>
+          <h4>Next.js 16</h4>
           <p>App Router, server components, and subdomain-based routing</p>
         </div>
         <div class="tech-card">
@@ -431,8 +466,8 @@
           <p>End-to-end type-safe API without code generation or REST boilerplate</p>
         </div>
         <div class="tech-card">
-          <h4>Stripe Connect</h4>
-          <p>Multi-party payments — tenants receive funds in their own accounts</p>
+          <h4>React Hook Form + Zod</h4>
+          <p>Form state management and schema-based validation with full TypeScript inference</p>
         </div>
         <div class="tech-card">
           <h4>Tailwind CSS</h4>
@@ -441,6 +476,10 @@
         <div class="tech-card">
           <h4>shadcn/ui</h4>
           <p>Accessible, unstyled component primitives built on Radix UI</p>
+        </div>
+        <div class="tech-card">
+          <h4>Bun</h4>
+          <p>Fast JavaScript runtime and package manager replacing Node.js/npm</p>
         </div>
       </div>
 
@@ -455,7 +494,7 @@
         </div>
         <div class="tech-category">
           <h5><i class="fas fa-network-wired"></i> API Layer</h5>
-          <p><strong>tRPC</strong> — Type-safe server/client procedures<br><strong>React Query</strong> — Caching and async state management</p>
+          <p><strong>tRPC 11</strong> — Type-safe server/client procedures<br><strong>TanStack Query 5</strong> — Caching, infinite scroll & async state</p>
         </div>
       </div>
     </div>
@@ -475,13 +514,13 @@
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-lock"></i></div>
-        <h3>PayloadCMS Authentication</h3>
-        <p>Full authentication flow using Payload's built-in JWT-based auth — registration, login, session management, and protected collection access.</p>
+        <h3>Secure Cookie-Based Auth</h3>
+        <p>Payload's built-in auth writes the JWT into an <strong>httpOnly cookie</strong> server-side — never exposed to JavaScript, protecting against XSS token theft. Session state is refreshed client-side via TanStack Query invalidation.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
-        <h3>Stripe Connect</h3>
-        <p>Tenants connect their Stripe accounts to receive payments directly. The platform handles onboarding status and prevents product creation until Stripe details are submitted.</p>
+        <div class="feature-icon"><i class="fas fa-scroll"></i></div>
+        <h3>Infinite Scroll</h3>
+        <p>Product listings use TanStack Query's <code>useInfiniteQuery</code> with server-side prefetching — the first page is rendered on the server and subsequent pages load seamlessly as the user scrolls.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-code"></i></div>
@@ -490,8 +529,8 @@
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-tags"></i></div>
-        <h3>Categories & Tags</h3>
-        <p>Products are organised with category and tag relationships in PayloadCMS, enabling multi-faceted filtering on the storefront.</p>
+        <h3>Hierarchical Categories & Tags</h3>
+        <p>Categories support parent/subcategory nesting — a category can reference itself as a parent and auto-populates its children. Combined with flat tags, this powers a rich multi-level nav and filter UI.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon"><i class="fas fa-filter"></i></div>
@@ -502,6 +541,16 @@
         <div class="feature-icon"><i class="fas fa-th-large"></i></div>
         <h3>PayloadCMS Admin Panel</h3>
         <p>Fully featured admin interface auto-generated by Payload — manage products, tenants, users, media, and refund policies without building a separate dashboard.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-book"></i></div>
+        <h3>Product Library</h3>
+        <p>Authenticated users have a personal product library where they can access and revisit their purchased products — persisted in the database and protected behind auth.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-pen-nib"></i></div>
+        <h3>Rich Text Descriptions</h3>
+        <p>Product descriptions use Payload's <strong>Lexical</strong> rich text editor — sellers can format content with headings, lists, and inline styles, stored as structured JSON.</p>
       </div>
     </div>
 
@@ -522,16 +571,16 @@
     </div>
 
     <div class="content-section">
-      <h3>Stripe Connect Onboarding Flow</h3>
+      <h3>Authentication Flow</h3>
       <p>
-        When a tenant is created, a Stripe Connect account is provisioned and the <code>stripeAccountId</code> is stored on the tenant record. The <code>stripeDetailsSubmitted</code> flag is flipped once Stripe confirms the onboarding is complete. Product creation is blocked in PayloadCMS if this flag is false, ensuring no tenant can list products before they can receive payments.
+        The user submits credentials via the sign-in form. The tRPC <code>login</code> mutation calls Payload's local auth API server-side, which validates credentials and returns a JWT. That token is written into an <strong>httpOnly cookie</strong> — the browser sends it automatically on every request, but JavaScript cannot read it, preventing XSS-based token theft. On the client, <code>queryClient.invalidateQueries</code> refreshes the session state after login or logout.
       </p>
     </div>
 
     <div class="content-section">
-      <h3>tRPC Data Layer</h3>
+      <h3>tRPC + TanStack Query Data Layer</h3>
       <p>
-        The frontend communicates with PayloadCMS data through tRPC routers (e.g. <code>products</code>, <code>categories</code>, <code>tenants</code>). Each router procedure is typed end-to-end using Payload's auto-generated TypeScript types, so the frontend always knows exactly what shape of data to expect. React Query handles caching, refetching, and loading states transparently.
+        The frontend communicates with PayloadCMS through tRPC routers (<code>products</code>, <code>categories</code>, <code>tenants</code>). Each procedure is typed end-to-end using Payload's auto-generated TypeScript types. <strong>TanStack Query 5</strong> handles caching, background refetching, and infinite scroll via <code>useInfiniteQuery</code> — the first page is server-prefetched for fast initial load, with subsequent pages fetched on demand.
       </p>
     </div>
 
@@ -569,19 +618,23 @@
       </div>
       <div class="feature-card">
         <h3>End-to-End Type Safety</h3>
-        <p>Using tRPC alongside Payload's generated types to ensure frontend and backend are always in sync at compile time.</p>
+        <p>Using tRPC alongside Payload's auto-generated TypeScript types to ensure frontend and backend are always in sync at compile time — no manual type maintenance.</p>
       </div>
       <div class="feature-card">
-        <h3>Payment Platform Integration</h3>
-        <p>How Stripe Connect differs from standard Stripe — managing connected accounts, onboarding flows, and platform-level payment routing.</p>
+        <h3>Schema Validation with Zod</h3>
+        <p>React Hook Form + Zod handles all form state and input validation — schemas are defined once and shared between the form and the tRPC input validators.</p>
       </div>
       <div class="feature-card">
         <h3>Next.js App Router</h3>
-        <p>Leveraging server components, route groups, and middleware for complex routing logic like subdomain-based tenant resolution.</p>
+        <p>Leveraging server components, route groups, and middleware for complex routing logic like subdomain-based tenant resolution and server-side data prefetching.</p>
       </div>
       <div class="feature-card">
         <h3>Access Control at Scale</h3>
-        <p>Declarative role-based access in PayloadCMS — separating super-admin and tenant-scoped permissions without duplicating logic.</p>
+        <p>Declarative role-based access in PayloadCMS — separating super-admin and tenant-scoped permissions without duplicating logic across collections.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Bun Runtime</h3>
+        <p>Used Bun as the JavaScript runtime and package manager — significantly faster installs and dev server startup compared to Node.js/npm.</p>
       </div>
     </div>
 
