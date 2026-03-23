@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FriendChise - Multi-tenant operations management platform for franchise businesses. Task scheduling, timetable templates, RBAC, and team coordination.">
+  <meta name="keywords" content="Next.js, TypeScript, Prisma, PostgreSQL, Multi-tenant, RBAC, SaaS, Franchise Management">
+  <title>FriendChise | Ivan Tran</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff;
+      color: #000000;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Override all remaining colored elements */
+    *, *::before, *::after {
+      border-color: #000000 !important;
+      background: transparent !important;
+    }
+
+    body, .hero, .container, .content-section, .tech-section, .footer-cta {
+      background: #ffffff !important;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, li, span, div, a {
+      color: #000000 !important;
+    }
+
+    .badge, .tech-card, .feature-card, .stat-card, .tech-category, .persona-card {
+      border: 1px solid #000000 !important;
+      background: #ffffff !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      border-bottom: 2px solid #000000;
+      padding: 40px 0;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #000000;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9em;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #000000;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1em;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      background: #ffffff;
+      border: 1px solid #000000;
+      color: #000000;
+      padding: 6px 12px;
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+
+    .badge.wip {
+      background: #fff3cd !important;
+      color: #856404 !important;
+      border-color: #856404 !important;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 10px 20px;
+      font-size: 0.9em;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid #000000;
+      color: #000000;
+      background: #ffffff;
+    }
+
+    .cta-btn:hover {
+      background: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .section-title {
+      font-size: 1.5em;
+      margin: 40px 0 20px 0;
+      color: #000000;
+      font-weight: 700;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 10px;
+    }
+
+    /* Tech Stack Section */
+    .tech-section {
+      border: 1px solid #000000;
+      padding: 30px 20px;
+      margin-bottom: 40px;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .tech-card {
+      border: 1px solid #000000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .tech-card h4 {
+      color: #000000;
+      margin-bottom: 8px;
+      font-size: 1em;
+      font-weight: 700;
+    }
+
+    .tech-card p {
+      color: #333333;
+      font-size: 0.85em;
+      line-height: 1.5;
+    }
+
+    .tech-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .tech-category {
+      border: 1px solid #000000;
+      padding: 15px;
+    }
+
+    .tech-category h5 {
+      color: #000000;
+      margin-bottom: 12px;
+      font-size: 1.05em;
+      font-weight: 700;
+    }
+
+    .tech-category p {
+      color: #333333;
+      font-size: 0.95em;
+    }
+
+    /* Features Section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .feature-card {
+      border: 1px solid #000000;
+      padding: 25px;
+    }
+
+    .feature-card h3 {
+      color: #000000;
+      margin-bottom: 12px;
+      font-size: 1.1em;
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      color: #333333;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    /* Content Sections */
+    .content-section {
+      border: 1px solid #000000;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    .content-section h3 {
+      color: #000000;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+      font-weight: 700;
+    }
+
+    .content-section p {
+      color: #333333;
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .content-section ul {
+      padding-left: 25px;
+      margin-bottom: 15px;
+    }
+
+    .content-section li {
+      color: #333333;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .content-section strong {
+      color: #000000;
+      font-weight: 600;
+    }
+
+    code {
+      background: #f4f4f4 !important;
+      padding: 3px 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+      border: 1px solid #ddd !important;
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      border: 1px solid #000000;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #000000;
+    }
+
+    .stat-label {
+      color: #333333;
+      font-size: 0.9em;
+    }
+
+    /* Personas */
+    .personas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .persona-card {
+      border: 1px solid #000000;
+      padding: 20px;
+    }
+
+    .persona-card h4 {
+      font-size: 1.1em;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .persona-card .role {
+      font-size: 0.85em;
+      color: #666 !important;
+      margin-bottom: 10px;
+    }
+
+    .persona-card p {
+      font-size: 0.9em;
+      color: #333333;
+    }
+
+    /* Permission Table */
+    .permission-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      font-size: 0.9em;
+    }
+
+    .permission-table th,
+    .permission-table td {
+      border: 1px solid #000000;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .permission-table th {
+      background: #f4f4f4 !important;
+      font-weight: 700;
+    }
+
+    .permission-table td:not(:first-child) {
+      text-align: center;
+    }
+
+    /* Footer CTA */
+    .footer-cta {
+      border: 2px solid #000000;
+      padding: 40px 30px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .footer-cta h2 {
+      color: #000000;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+    }
+
+    .footer-cta p {
+      color: #333333;
+      margin-bottom: 25px;
+      font-size: 1em;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Roadmap */
+    .roadmap-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .roadmap-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee !important;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .roadmap-list li:last-child {
+      border-bottom: none !important;
+    }
+
+    .status-done {
+      color: #28a745 !important;
+    }
+
+    .status-wip {
+      color: #ffc107 !important;
+    }
+
+    .status-todo {
+      color: #6c757d !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2em;
+      }
+
+      .hero-subtitle {
+        font-size: 1em;
+      }
+
+      .section-title {
+        font-size: 1.3em;
+      }
+
+      .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 30px 15px;
+      }
+
+      .container {
+        padding: 30px 0;
+      }
+
+      .cta-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .permission-table {
+        font-size: 0.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <a href="../index.html#projects" class="back-link">← Back to Portfolio</a>
+      <h1>🏪 FriendChise</h1>
+      <p class="hero-subtitle">Multi-Tenant Operations Management Platform for Franchise Businesses</p>
+      
+      <div class="hero-badges">
+        <span class="badge">Full-Stack</span>
+        <span class="badge">Multi-Tenant</span>
+        <span class="badge">RBAC</span>
+        <span class="badge">SaaS</span>
+        <span class="badge wip">Work in Progress</span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="https://github.com/IvanTran-2001/management-app" class="cta-btn" target="_blank">
+          View Code
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Overview Section -->
+    <div class="content-section">
+      <h3>Project Overview</h3>
+      <p>
+        <strong>FriendChise</strong> is a multi-tenant operations management platform designed for franchise businesses. It handles task scheduling, timetable templates, role-based access control, and team coordination across multiple branches.
+      </p>
+      <p>
+        <strong>The Problem:</strong> Small-to-medium franchise operations (food chains, cleaning services, retail) rely on group chats, spreadsheets, and verbal instructions to manage recurring tasks. There's no single system where an owner can define what needs to happen, a manager can schedule who does it, and a worker can see their daily checklist — all with proper access control.
+      </p>
+      <p>
+        <strong>The Solution:</strong> A web app where franchise owners define task libraries and timetable templates at the franchise level, managers apply those templates to generate weekly schedules for their branch, and workers check off tasks from a daily view. Everything is scoped by organization with role-based permissions.
+      </p>
+    </div>
+
+    <!-- Tech Stack Section -->
+    <h2 class="section-title">Technology Stack</h2>
+    <div class="tech-section">
+      <div class="tech-grid">
+        <div class="tech-card">
+          <h4>Next.js 16</h4>
+          <p>App Router with RSC, TypeScript, and server actions</p>
+        </div>
+        <div class="tech-card">
+          <h4>PostgreSQL</h4>
+          <p>Relational database hosted on Supabase</p>
+        </div>
+        <div class="tech-card">
+          <h4>Prisma</h4>
+          <p>Type-safe ORM with schema migrations</p>
+        </div>
+        <div class="tech-card">
+          <h4>Auth.js v5</h4>
+          <p>Google OAuth with JWT sessions</p>
+        </div>
+        <div class="tech-card">
+          <h4>Tailwind CSS v4</h4>
+          <p>Utility-first styling with shadcn/ui</p>
+        </div>
+        <div class="tech-card">
+          <h4>Zod</h4>
+          <p>Runtime schema validation</p>
+        </div>
+        <div class="tech-card">
+          <h4>pnpm</h4>
+          <p>Fast, disk-efficient package manager</p>
+        </div>
+        <div class="tech-card">
+          <h4>CodeRabbit</h4>
+          <p>AI-powered code review on PRs</p>
+        </div>
+      </div>
+
+      <div class="tech-categories">
+        <div class="tech-category">
+          <h5>Authentication & Security</h5>
+          <p><strong>Auth.js v5</strong> — OAuth with JWT strategy<br><strong>Edge middleware</strong> — Route protection without DB access</p>
+        </div>
+        <div class="tech-category">
+          <h5>Architecture Patterns</h5>
+          <p><strong>Service Layer</strong> — Shared logic between API routes and Server Actions<br><strong>Discriminated Unions</strong> — Type-safe error handling</p>
+        </div>
+        <div class="tech-category">
+          <h5>Development Workflow</h5>
+          <p><strong>Feature branching</strong> — PRs to main<br><strong>CodeRabbit</strong> — Automated code review</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Personas -->
+    <h2 class="section-title">User Personas</h2>
+    <div class="personas-grid">
+      <div class="persona-card">
+        <h4>Janet — Franchise Owner</h4>
+        <p class="role">Age 45 · Owns 3 bubble tea stores</p>
+        <p>Wants to define SOPs once and apply them everywhere. Needs visibility into task completion rates across all branches without calling each manager.</p>
+      </div>
+      <div class="persona-card">
+        <h4>Rico — Branch Manager</h4>
+        <p class="role">Age 32 · Manages one store</p>
+        <p>Currently uses WhatsApp to assign tasks. Wants to apply weekly templates, tweak schedules when staff call in sick, and see what's done vs overdue.</p>
+      </div>
+      <div class="persona-card">
+        <h4>Alice — Worker</h4>
+        <p class="role">Age 21 · Part-time barista</p>
+        <p>Wants a simple "today's tasks" checklist. Doesn't need the full calendar or admin settings — just wants to know what to do and check it off.</p>
+      </div>
+      <div class="persona-card">
+        <h4>Sam — Multi-Unit Manager</h4>
+        <p class="role">Age 38 · Oversees 2 of 3 stores</p>
+        <p>Needs to monitor task completion across assigned branches, step in to reassign tasks when needed, but shouldn't access other stores.</p>
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <h2 class="section-title">Key Features (MoSCoW Prioritized)</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Multi-Tenant Organizations</h3>
+        <p>Create/join organizations. Each org is a completely separate data silo with isolated users, tasks, and schedules.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Role-Based Access Control</h3>
+        <p>Owner, Manager, Worker roles with granular permissions. Each role has specific capabilities defined by OrgPermission enums.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Task Library</h3>
+        <p>Create reusable task templates with title, duration, description, and eligible roles. Tasks can be assigned to schedules.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Timetable Templates</h3>
+        <p>Define repeating weekly patterns using relative days (Day 1–7). Drag/drop task placement in the template editor.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Materialised Scheduling</h3>
+        <p>Apply a template to generate real TaskInstance rows with absolute dates. Each instance can be independently edited.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Timetable View</h3>
+        <p>Calendar (week/day) and simple (list) modes. Status indicators, week navigation, and overlap detection.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Task Instance Management</h3>
+        <p>Assign members, update status (TODO → IN_PROGRESS → DONE/SKIPPED). Full audit trail of who completed what.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Member Management</h3>
+        <p>Invite by email, assign roles, remove members. Org-scoped permissions control who can manage members.</p>
+      </div>
+    </div>
+
+    <!-- Permission Matrix -->
+    <h2 class="section-title">Permission Matrix (RBAC)</h2>
+    <div class="content-section">
+      <table class="permission-table">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Owner</th>
+            <th>Manager</th>
+            <th>Worker</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Create/delete organization</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td>Manage members (invite/remove/change role)</td>
+            <td>✅</td>
+            <td>❌</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td>Create/edit/delete task templates</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td>Create/edit timetable templates</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td>Apply template to week (materialise)</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td>Edit materialised instances (reassign)</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td>View timetable (full week)</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>❌</td>
+          </tr>
+          <tr>
+            <td>View own daily tasks</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅</td>
+          </tr>
+          <tr>
+            <td>Update task status</td>
+            <td>✅</td>
+            <td>✅</td>
+            <td>✅ (own)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Permission enum values: <code>ORG_MANAGE</code>, <code>TASK_CREATE</code>, <code>TASK_DELETE</code>, <code>TASK_ASSIGN</code>, <code>TASKINSTANCE_COMPLETE</code>, <code>TIMETABLE_MANAGE</code></p>
+    </div>
+
+    <!-- Architecture -->
+    <h2 class="section-title">Architecture & Design Decisions</h2>
+    
+    <div class="content-section">
+      <h3>Materialised Scheduling vs Virtual Projection</h3>
+      <p>
+        <strong>Chose: Materialised scheduling.</strong> When a template is applied to a week, real TaskInstance rows are generated with absolute dates. This allows each instance to be independently edited (reassign a specific task, change status, adjust time) without a complex exception layer. Virtual projection can't support per-instance overrides. The storage cost is minimal — a few hundred rows per week per org.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h3>Auth Config Split for Edge Runtime</h3>
+      <p>
+        Next.js middleware runs on the Edge runtime, which cannot import Node.js modules like <code>@prisma/client</code>. Auth.js config is split into two files:
+      </p>
+      <ul>
+        <li><strong>auth.config.ts</strong> — Edge-compatible config (no Prisma). Used by middleware for fast auth checks.</li>
+        <li><strong>auth.ts</strong> — Full config with Prisma adapter and JWT session callback. Used by API routes and server components.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h3>Service Layer Pattern</h3>
+      <p>
+        Both Server Actions (for web UI) and API Routes (for external/mobile clients) are thin wrappers that handle auth and input validation, then delegate to <code>lib/services/</code>. The service layer holds all business logic and is shared between both paths. Server Actions additionally call <code>revalidatePath</code> to invalidate the Next.js cache.
+      </p>
+    </div>
+
+    <div class="content-section">
+      <h3>Discriminated Union Result Types</h3>
+      <p>
+        Authorization helpers (<code>requireUser</code>, <code>requireOrgMember</code>, <code>requireOrgPermission</code>) return <code>{ ok: true, user, membership }</code> or <code>{ ok: false, response: NextResponse(401|403) }</code>. Routes can early-return with <code>if (!authz.ok) return authz.response</code> — clean, consistent, no exceptions for control flow.
+      </p>
+    </div>
+
+    <!-- Data Model -->
+    <h2 class="section-title">Data Model</h2>
+    <div class="content-section">
+      <p>Key models in the PostgreSQL schema:</p>
+      <ul>
+        <li><strong>Organization</strong> — Top-level tenant. Owns all other resources.</li>
+        <li><strong>User / Account / Session</strong> — Auth.js managed. OAuth account linking.</li>
+        <li><strong>Membership</strong> — Join table: User ↔ Organization, with optional Role.</li>
+        <li><strong>Role / RolePermission</strong> — Org-scoped roles with permission sets.</li>
+        <li><strong>Task</strong> — Reusable task template (title, duration, description, peopleRequired).</li>
+        <li><strong>TaskEligibility</strong> — Links Task to eligible Roles.</li>
+        <li><strong>TimetableTemplate</strong> — Named cycle profile with cycleDays count.</li>
+        <li><strong>TaskInstance</strong> — Dual-purpose: template placements (relative dayOffset) OR materialised entries (absolute scheduledStartAt).</li>
+        <li><strong>TaskInstanceAssignee</strong> — Many-to-many: TaskInstance ↔ Membership.</li>
+      </ul>
+    </div>
+
+    <!-- API Routes -->
+    <h2 class="section-title">REST API Endpoints</h2>
+    <div class="content-section">
+      <ul>
+        <li><strong>POST /api/orgs</strong> — Create org (auto-creates Owner/Member roles)</li>
+        <li><strong>GET/POST/DELETE /api/orgs/[orgId]/memberships</strong> — Manage members</li>
+        <li><strong>GET/POST/DELETE /api/orgs/[orgId]/tasks</strong> — Task templates</li>
+        <li><strong>GET/POST /api/orgs/[orgId]/task-instances</strong> — Task instances with filters</li>
+        <li><strong>GET/POST/DELETE .../task-instances/[id]/assignees</strong> — Assignee management</li>
+        <li><strong>PATCH .../task-instances/[id]/status</strong> — Update status</li>
+      </ul>
+    </div>
+
+    <!-- Statistics -->
+    <h2 class="section-title">Project Metrics</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">12+</div>
+        <div class="stat-label">Prisma Models</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8+</div>
+        <div class="stat-label">API Endpoints</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Permission Types</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">User Roles</div>
+      </div>
+    </div>
+
+    <!-- Roadmap -->
+    <h2 class="section-title">Roadmap & Progress</h2>
+    <div class="content-section">
+      <ul class="roadmap-list">
+        <li><span class="status-done">✓</span> Service layer & REST API</li>
+        <li><span class="status-done">✓</span> Task management (CRUD, eligibility)</li>
+        <li><span class="status-done">✓</span> Member management (invite, roles)</li>
+        <li><span class="status-done">✓</span> Google OAuth authentication</li>
+        <li><span class="status-done">✓</span> Timetable view (calendar + simple modes)</li>
+        <li><span class="status-wip">◐</span> Timetable template editor (drag/drop)</li>
+        <li><span class="status-todo">○</span> Template materialisation (apply to week)</li>
+        <li><span class="status-todo">○</span> Worker "Today" view</li>
+        <li><span class="status-todo">○</span> Completion stats dashboard</li>
+        <li><span class="status-todo">○</span> Fair rotation algorithm</li>
+        <li><span class="status-todo">○</span> Recipes / SOP attachments</li>
+        <li><span class="status-todo">○</span> Notifications</li>
+      </ul>
+    </div>
+
+    <!-- Skills Demonstrated -->
+    <h2 class="section-title">Skills Demonstrated</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Product Thinking</h3>
+        <p>User personas, MoSCoW prioritization, information architecture. Started with a real problem, not a tutorial.</p>
+      </div>
+      <div class="feature-card">
+        <h3>System Design</h3>
+        <p>Multi-tenant architecture, RBAC system, two-layer timetable design. Documented tradeoffs and reasoning.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Full-Stack TypeScript</h3>
+        <p>Next.js App Router, RSC + client components, Server Actions, API routes. End-to-end type safety.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Database Design</h3>
+        <p>Relational schema with Prisma, multi-tenant data isolation, complex relationships (many-to-many with metadata).</p>
+      </div>
+      <div class="feature-card">
+        <h3>Authentication & Security</h3>
+        <p>OAuth with JWT sessions, Edge runtime compatibility, org-scoped permission checks on every route.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Engineering Practices</h3>
+        <p>Service layer pattern, discriminated union error handling, feature branching with PR reviews, AI code review integration.</p>
+      </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="footer-cta">
+      <h2>Interested in the code?</h2>
+      <p>Check out the repository for full implementation details, Prisma schema, and API documentation.</p>
+      <div class="button-group">
+        <a href="https://github.com/IvanTran-2001/management-app" class="cta-btn" target="_blank">
+          View on GitHub
+        </a>
+        <a href="../index.html#projects" class="cta-btn">
+          Back to Portfolio
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
