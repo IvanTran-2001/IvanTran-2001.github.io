@@ -587,7 +587,7 @@
         <div class="stat-label">User Flows</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">14</div>
+        <div class="stat-number">19</div>
         <div class="stat-label">Prisma Models</div>
       </div>
       <div class="stat-card">
@@ -679,6 +679,10 @@
         <li><strong>RBAC Route Guards</strong> &mdash; server-side permission checks on all sensitive routes and server actions</li>
         <li><strong>Organization Settings</strong> &mdash; name, address, operating days, open/close times, timezone</li>
         <li><strong>Responsive Design</strong> &mdash; mobile sidebar, collapsible navigation, touch-friendly interactions</li>
+        <li><strong>Drag-and-Drop Template Editor</strong> &mdash; visual schedule builder over org operating hours with task assignment</li>
+        <li><strong>Franchise Cloning</strong> &mdash; joining a franchise auto-clones all roles, tasks, and timetable settings from the parent org</li>
+        <li><strong>Dynamic Breadcrumbs</strong> &mdash; async server component resolves dynamic route IDs to human-readable names via Prisma</li>
+        <li><strong>Role Security</strong> &mdash; three-layer owner role guard plus cross-tenant task ID validation in transactions</li>
       </ul>
     </div>
     </details>
@@ -689,15 +693,15 @@
     <div class="tech-section">
       <div class="tech-grid">
         <div class="tech-card">
-          <h4>Next.js 16</h4>
-          <p>App Router with RSC, TypeScript, Server Actions</p>
+          <h4>Next.js 16.1.6</h4>
+          <p>App Router with React 19, TypeScript, Server Actions</p>
         </div>
         <div class="tech-card">
           <h4>PostgreSQL</h4>
           <p>Relational database hosted on Supabase</p>
         </div>
         <div class="tech-card">
-          <h4>Prisma</h4>
+          <h4>Prisma v7</h4>
           <p>Type-safe ORM with schema migrations</p>
         </div>
         <div class="tech-card">
@@ -706,10 +710,10 @@
         </div>
         <div class="tech-card">
           <h4>Tailwind CSS v4</h4>
-          <p>Utility-first styling with shadcn/ui</p>
+          <p>Utility-first styling with shadcn/ui + Radix UI</p>
         </div>
         <div class="tech-card">
-          <h4>Zod</h4>
+          <h4>Zod v4</h4>
           <p>Runtime schema validation</p>
         </div>
         <div class="tech-card">
@@ -723,6 +727,10 @@
         <div class="tech-card">
           <h4>Vercel</h4>
           <p>Production deployment with auto-deploy on push</p>
+        </div>
+        <div class="tech-card">
+          <h4>Sonner</h4>
+          <p>Toast notification system</p>
         </div>
       </div>
 
@@ -760,7 +768,7 @@
     <div class="content-section">
       <h3>Database Schema</h3>
       <p>
-        14 Prisma models across PostgreSQL (Supabase) covering users, organizations, memberships, roles, permissions, tasks, timetable entries, templates, template entries, notifications, and franchise relationships.
+        19 Prisma models across PostgreSQL (Supabase) covering users, organizations, memberships, roles, permissions, tasks, timetable entries, templates, template entries, notifications, and franchise relationships.
       </p>
       <p>
         <a href="https://dbdiagram.io/d/FriendChise-69c4cbff78c6c4bc7a6fd6e9" target="_blank" style="font-weight: 600; text-decoration: underline;">View Database Diagram &rarr;</a>
