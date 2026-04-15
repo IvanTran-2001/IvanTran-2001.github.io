@@ -527,7 +527,7 @@
     <div class="hero-content">
       <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
       <h1>FriendChise</h1>
-      <p class="hero-subtitle">A multi-tenant task management platform for franchise businesses with timetable scheduling, reusable templates, an invite system, and role-based access control. Deployed and live.</p>
+      <p class="hero-subtitle">Inspired by real inefficiencies observed at Walker's Donuts — a multi-tenant task management platform for franchise and multi-location businesses that need consistency. Restaurants, cafés, retail chains, and service franchises use timetable scheduling, reusable templates, and role-based access control to maintain operational standards. Future roadmap includes a knowledge-sharing hub. Deployed and live on Vercel.</p>
 
       <div class="hero-badges">
         <span class="badge">Full-Stack</span>
@@ -540,6 +540,8 @@
       <div class="hero-cta">
         <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer">View Code</a>
         <a href="https://friend-chise.vercel.app" class="cta-btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
+        <a href="https://www.figma.com/design/C2d8pW561eJxJfjL3PmbmI/FriendChise?node-id=10-291&t=HRkbaI53bDENuwXC-1" class="cta-btn" target="_blank" rel="noopener noreferrer">Figma</a>
+        <a href="https://dbdiagram.io/d/FriendChise-69c4cbff78c6c4bc7a6fd6e9" class="cta-btn" target="_blank" rel="noopener noreferrer">DB Schema</a>
       </div>
     </div>
   </div>
@@ -570,7 +572,7 @@
         <div class="stat-label">Prisma Models</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">7</div>
+        <div class="stat-number">6</div>
         <div class="stat-label">Permission Types</div>
       </div>
     </div>
@@ -615,8 +617,28 @@
         A web app where franchise owners define task libraries and timetable templates at the franchise level, managers apply those templates to generate weekly schedules for their branch, and workers view their assigned tasks on any device.
       </p>
       <p>
-        Everything is scoped by organization with role-based permissions. Parent brands define defaults; child franchisees inherit and customize. An invite system with accept/decline flow handles onboarding, and a notification panel keeps everyone informed.
+        Everything is scoped by organization with role-based permissions. Parent brands define defaults; child franchisees inherit and customize. An invite system with accept/decline flow handles onboarding, and a notification panel keeps everyone informed. Future versions will add a knowledge-sharing hub where franchise communities can document procedures, share tips, and improve methods through comments and upvotes.
       </p>
+    </div>
+
+    <!-- What's Live in V1 -->
+    <h2 class="section-title">What's Live in V1</h2>
+    <div class="content-section">
+      <p>These features are deployed and functional at <a href="https://friend-chise.vercel.app" target="_blank" style="font-weight:600; text-decoration:underline;">friend-chise.vercel.app</a>:</p>
+      <ul>
+        <li><strong>Google OAuth Sign-In</strong> &mdash; Auth.js v5 with JWT sessions and httpOnly cookies</li>
+        <li><strong>Create Organization</strong> &mdash; multi-tenant org creation with owner role auto-assigned</li>
+        <li><strong>Role &amp; Permission System</strong> &mdash; custom roles with 6 permission types, two defaults (Owner, Default Member)</li>
+        <li><strong>Task Library</strong> &mdash; CRUD for tasks with name, duration, start time, color, and role eligibility</li>
+        <li><strong>Timetable</strong> &mdash; weekly/daily calendar views with role filtering, status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE), and entry management</li>
+        <li><strong>Timetable Templates</strong> &mdash; create reusable weekly schedules and apply them to any date range with frozen task snapshots</li>
+        <li><strong>Member Management</strong> &mdash; invite by email, accept/decline flow, role assignment, member profile editing</li>
+        <li><strong>Notification System</strong> &mdash; invite notifications with seen/unread tracking and notification panel</li>
+        <li><strong>Franchise System</strong> &mdash; generate franchise tokens, link child orgs to parent brands, transfer ownership</li>
+        <li><strong>RBAC Route Guards</strong> &mdash; server-side permission checks on all sensitive routes and server actions</li>
+        <li><strong>Organization Settings</strong> &mdash; name, address, operating days, open/close times, timezone</li>
+        <li><strong>Responsive Design</strong> &mdash; mobile sidebar, collapsible navigation, touch-friendly interactions</li>
+      </ul>
     </div>
 
     <!-- Tech Stack -->
@@ -677,6 +699,29 @@
       </div>
     </div>
 
+    </div>
+
+    <!-- Design & Architecture -->
+    <h2 class="section-title">Design &amp; Architecture</h2>
+    <div class="content-section">
+      <h3>UI Wireframes</h3>
+      <p>
+        Component layouts and page structures were designed in Figma before implementation. Wireframes cover the timetable views, task management, member management, settings panels, and mobile responsive layouts.
+      </p>
+      <p>
+        <a href="https://www.figma.com/design/C2d8pW561eJxJfjL3PmbmI/FriendChise?node-id=10-291&t=HRkbaI53bDENuwXC-1" target="_blank" style="font-weight: 600; text-decoration: underline;">View Figma Wireframes &rarr;</a>
+      </p>
+    </div>
+    <div class="content-section">
+      <h3>Database Schema</h3>
+      <p>
+        14 Prisma models across PostgreSQL (Supabase) covering users, organizations, memberships, roles, permissions, tasks, timetable entries, templates, template entries, notifications, and franchise relationships.
+      </p>
+      <p>
+        <a href="https://dbdiagram.io/d/FriendChise-69c4cbff78c6c4bc7a6fd6e9" target="_blank" style="font-weight: 600; text-decoration: underline;">View Database Diagram &rarr;</a>
+      </p>
+    </div>
+
     <!-- User Personas (7) -->
     <h2 class="section-title">User Personas</h2>
     <div class="personas-grid">
@@ -690,7 +735,7 @@
         <h4>Nina &mdash; The New Franchisee</h4>
         <p class="role">Age 29 &middot; First-time Owner &middot; Just hired 8 workers</p>
         <p>Invested her savings into her first franchise. No food industry experience. Overwhelmed &mdash; flipping through 50+ paper recipes, doesn't know what tasks to prioritize. Terrified of failing before she even starts.</p>
-        <p class="goals"><strong>How FriendChise helps:</strong> Inherits Frank's default tasks automatically. Watches video tutorials on each task. Auto-generated cycle structures her entire week.</p>
+        <p class="goals"><strong>How FriendChise helps:</strong> Inherits Frank's default tasks automatically. Watches video tutorials on each task. Timetable templates structure her entire week from day one.</p>
       </div>
       <div class="persona-card">
         <h4>Derek &mdash; The Struggling Franchisee</h4>
@@ -708,13 +753,13 @@
         <h4>Marcus &mdash; The New Worker</h4>
         <p class="role">Age 22 &middot; First job &middot; Hired at Nina's location</p>
         <p>Showed up on day one and nobody told him what to do. Eager to learn but feels lost and anxious. Cleaned the ice cream machine 4 times this week while others never touched it.</p>
-        <p class="goals"><strong>How FriendChise helps:</strong> Sees daily tasks clearly on his phone. Eased into tasks gradually by the smart cycle. Clicks any task for step-by-step instructions and videos.</p>
+        <p class="goals"><strong>How FriendChise helps:</strong> Sees daily tasks clearly on his phone with role-based visibility. Clicks any task for step-by-step instructions and videos.</p>
       </div>
       <div class="persona-card">
         <h4>Jay &mdash; The Shift Lead</h4>
         <p class="role">Age 27 &middot; 3 years experience &middot; Derek's location</p>
         <p>Knows every task inside out, trains most new hires, and is the go-to person when things go wrong. Stretched thin &mdash; basically running the floor while expected to teach everyone. Manually creates the schedule and it's never fair enough.</p>
-        <p class="goals"><strong>How FriendChise helps:</strong> Auto-generated cycle takes pressure off manual scheduling. New workers self-learn through task videos. His tips live on even when he's not on shift.</p>
+        <p class="goals"><strong>How FriendChise helps:</strong> Timetable templates take pressure off manual scheduling. New workers self-learn through task videos. His tips live on even when he's not on shift.</p>
       </div>
       <div class="persona-card">
         <h4>Rico &mdash; The Field Auditor</h4>
@@ -824,41 +869,49 @@
     <div class="features-grid">
       <div class="feature-card">
         <span class="priority-label priority-must">MUST</span>
+        <span class="priority-label" style="background:#fff3cd !important;color:#856404 !important;border-color:#856404 !important;">PLANNED</span>
         <h3>Smart Task Cycle Generator</h3>
         <p>Auto-distributes tasks evenly across workers. Supports multi-person tasks, customizable per location. 4 workers + 1 task every 2 days = 8-day cycle where everyone does it once. Scales across many tasks with different frequencies and qualifications.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-must">MUST</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V1</span>
         <h3>Role &amp; Permission System</h3>
         <p>Custom ranks with assignable permissions. Two defaults: Worker and Owner. Management role holders can assign permissions to others. Each role represents specific actions.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-must">MUST</span>
+        <span class="priority-label" style="background:#fff3cd !important;color:#856404 !important;border-color:#856404 !important;">PLANNED</span>
         <h3>Parent &rarr; Child Task Inheritance</h3>
         <p>Franchisor defines default tasks all franchisees inherit. Franchisees can add their own local tasks on top. Like OOP abstraction &mdash; inherited but customizable.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-must">MUST</span>
+        <span class="priority-label" style="background:#fff3cd !important;color:#856404 !important;border-color:#856404 !important;">PLANNED</span>
         <h3>Task-Linked Forum</h3>
         <p>Every task and recipe is also a forum topic. Click a task to see posts, videos, and tips from other franchisees. Comments and upvotes/downvotes surface the best methods.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-must">MUST</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V1</span>
         <h3>Worker Daily/Weekly Timetable</h3>
         <p>Assigned tasks visible on any device. Filter the overall mixed timetable to "My Tasks Today." Calendar (week/day) and simple list modes.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-must">MUST</span>
+        <span class="priority-label" style="background:#fff3cd !important;color:#856404 !important;border-color:#856404 !important;">PLANNED</span>
         <h3>Recipe Database</h3>
         <p>Searchable, role-based access. Some recipes locked to specific roles (e.g., only chefs see secret recipes). Each recipe is also a forum post.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-must">MUST</span>
+        <span class="priority-label" style="background:#fff3cd !important;color:#856404 !important;border-color:#856404 !important;">PLANNED</span>
         <h3>Cycle Customization</h3>
         <p>Exclude/add tasks based on equipment (no oven = no baking). Adjust frequency within franchisor-set min/max bounds. Anyone with management permission can modify.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-must">MUST</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V1</span>
         <h3>Task Check-Off &amp; Tracking</h3>
         <p>Workers press "Done" to mark completion. Status flow: TODO &rarr; IN_PROGRESS &rarr; DONE / SKIPPED. Trust-based for v1.</p>
       </div>
@@ -868,21 +921,25 @@
     <div class="features-grid">
       <div class="feature-card">
         <span class="priority-label priority-should">SHOULD</span>
+        <span class="priority-label" style="background:#fff3cd !important;color:#856404 !important;border-color:#856404 !important;">PLANNED</span>
         <h3>Video/Media Attachments</h3>
         <p>On tasks and posts. Workers might self-learn by watching videos. New workers can prep at home. Saves money on teaching and time.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-should">SHOULD</span>
+        <span class="priority-label" style="background:#fff3cd !important;color:#856404 !important;border-color:#856404 !important;">PLANNED</span>
         <h3>Upvote/Downvote System</h3>
         <p>On posts and comments. Best methods naturally rise to the top. The community reinforces quality without top-down enforcement.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-should">SHOULD</span>
+        <span class="priority-label" style="background:#fff3cd !important;color:#856404 !important;border-color:#856404 !important;">PLANNED</span>
         <h3>Franchisee Performance Dashboard</h3>
         <p>Task completion rates, cycle data, activity metrics. For franchisor and auditor roles. Lets Rico-type auditors see real problems before site visits.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-should">SHOULD</span>
+        <span class="priority-label" style="background:#fff3cd !important;color:#856404 !important;border-color:#856404 !important;">PLANNED</span>
         <h3>New Worker Gradual Onboarding</h3>
         <p>Cycle algorithm eases new workers into tasks slowly. They learn each task at a steady pace instead of being overwhelmed on day one.</p>
       </div>
@@ -892,21 +949,25 @@
     <div class="features-grid">
       <div class="feature-card">
         <span class="priority-label priority-nice">NICE</span>
+        <span class="priority-label" style="background:#e2e3e5 !important;color:#383d41 !important;border-color:#383d41 !important;">CONSIDERATION</span>
         <h3>Demographic-Based Recommendations</h3>
         <p>Grab data on demographics of each franchisee area. If your area has average age 50, recommend posts from successful franchisees with similar demographics. Like Netflix but for franchise knowledge.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-nice">NICE</span>
+        <span class="priority-label" style="background:#e2e3e5 !important;color:#383d41 !important;border-color:#383d41 !important;">CONSIDERATION</span>
         <h3>AI Safety Flagging</h3>
         <p>Auto-detect posts with potential legal, health, or safety violations. Example: "Cut veggies and meat on the same board" &rarr; flag as cross-contamination risk.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-nice">NICE</span>
+        <span class="priority-label" style="background:#e2e3e5 !important;color:#383d41 !important;border-color:#383d41 !important;">CONSIDERATION</span>
         <h3>Shareable Cycle Profiles</h3>
         <p>Succeeding franchisees share their entire cycle setup for others to learn from. Seasonal chaining &mdash; multiple cycles combined for different seasons.</p>
       </div>
       <div class="feature-card">
         <span class="priority-label priority-nice">NICE</span>
+        <span class="priority-label" style="background:#e2e3e5 !important;color:#383d41 !important;border-color:#383d41 !important;">CONSIDERATION</span>
         <h3>Reward/Recognition System</h3>
         <p>Monthly best post, top contributor badges. Incentivize sharing. Create opportunities for franchisees to create new recipes.</p>
       </div>
@@ -916,7 +977,7 @@
     <h2 class="section-title">User Flows (9 Total)</h2>
 
     <div class="flow-card">
-      <h4>1. New Franchisee Onboarding (Nina)</h4>
+      <h4>1. New Franchisee Onboarding (Nina) — <span style="font-size:0.8em;font-weight:600;border:1px solid #155724;padding:1px 6px;color:#155724 !important;">Partially Live</span></h4>
       <ol>
         <li>Signs up / gets invited by franchisor</li>
         <li>Creates franchise location profile (name, address, size, equipment)</li>
@@ -929,7 +990,7 @@
     </div>
 
     <div class="flow-card">
-      <h4>2. Worker Daily Routine (Marcus)</h4>
+      <h4>2. Worker Daily Routine (Marcus) — <span style="font-size:0.8em;font-weight:600;border:1px solid #155724;padding:1px 6px;color:#155724 !important;">Live</span></h4>
       <ol>
         <li>Opens app &rarr; sees full timetable (all workers, all tasks)</li>
         <li>Filters to "My Tasks Today"</li>
@@ -939,7 +1000,7 @@
     </div>
 
     <div class="flow-card">
-      <h4>3. Recipe Search (Any Worker)</h4>
+      <h4>3. Recipe Search (Any Worker) — <span style="font-size:0.8em;font-weight:600;border:1px solid #856404;padding:1px 6px;color:#856404 !important;">Planned</span></h4>
       <ol>
         <li>Goes to Recipe section or uses search bar</li>
         <li>Results filtered by role permission (only sees recipes their role allows)</li>
@@ -949,7 +1010,7 @@
     </div>
 
     <div class="flow-card">
-      <h4>4. Cycle Generation &amp; Adjustment (Jay)</h4>
+      <h4>4. Cycle Generation &amp; Adjustment (Jay) — <span style="font-size:0.8em;font-weight:600;border:1px solid #856404;padding:1px 6px;color:#856404 !important;">Planned</span></h4>
       <ol>
         <li>Opens Cycle Manager &rarr; sees current active tasks for the location</li>
         <li>Chooses: Auto-generate (system calculates optimal cycle based on workers, frequency, multi-person requirements, gradual onboarding) OR Manual setup</li>
@@ -959,7 +1020,7 @@
     </div>
 
     <div class="flow-card">
-      <h4>5. Forum Interaction (Any Member)</h4>
+      <h4>5. Forum Interaction (Any Member) — <span style="font-size:0.8em;font-weight:600;border:1px solid #856404;padding:1px 6px;color:#856404 !important;">Planned</span></h4>
       <ol>
         <li>Accesses forum via: clicking a task &rarr; "View Posts", clicking a recipe, or going to General Forum directly</li>
         <li>Browses/searches posts &rarr; reads, upvotes/downvotes, watches attached video, comments</li>
@@ -968,7 +1029,7 @@
     </div>
 
     <div class="flow-card">
-      <h4>6. Franchisor Overview (Frank)</h4>
+      <h4>6. Franchisor Overview (Frank) — <span style="font-size:0.8em;font-weight:600;border:1px solid #856404;padding:1px 6px;color:#856404 !important;">Planned</span></h4>
       <ol>
         <li>Opens Franchisor Dashboard &rarr; sees overview of all franchise locations</li>
         <li>Performance metrics, which locations thriving vs struggling, recent forum activity</li>
@@ -978,7 +1039,7 @@
     </div>
 
     <div class="flow-card">
-      <h4>7. Struggling Franchisee Seeking Help (Derek)</h4>
+      <h4>7. Struggling Franchisee Seeking Help (Derek) — <span style="font-size:0.8em;font-weight:600;border:1px solid #856404;padding:1px 6px;color:#856404 !important;">Planned</span></h4>
       <ol>
         <li>Notices low performance metrics &rarr; goes to Forum</li>
         <li>Searches for a specific problem (e.g., "workers taking too long on prep")</li>
@@ -988,7 +1049,7 @@
     </div>
 
     <div class="flow-card">
-      <h4>8. Field Audit (Rico)</h4>
+      <h4>8. Field Audit (Rico) — <span style="font-size:0.8em;font-weight:600;border:1px solid #856404;padding:1px 6px;color:#856404 !important;">Planned</span></h4>
       <ol>
         <li>Sees franchisor-level overview &rarr; identifies struggling locations remotely (low completion rates, inactive forum)</li>
         <li>Reviews specific location data: task setup, cycle config, worker completion rates, forum engagement</li>
@@ -998,7 +1059,7 @@
     </div>
 
     <div class="flow-card">
-      <h4>9. Role &amp; Permission Setup (Owner)</h4>
+      <h4>9. Role &amp; Permission Setup (Owner) — <span style="font-size:0.8em;font-weight:600;border:1px solid #155724;padding:1px 6px;color:#155724 !important;">Live</span></h4>
       <ol>
         <li>Goes to Team Management &rarr; sees default ranks: Worker, Owner</li>
         <li>Creates custom ranks (e.g., "Head Baker", "Shift Lead", "Trainee")</li>
@@ -1329,7 +1390,8 @@
       <h2>Interested in the code?</h2>
       <p>Check out the repository for full implementation details, Prisma schema, and API documentation.</p>
       <div class="button-group">
-        <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer">View Code</a>
+        <a href="https://friend-chise.vercel.app" class="cta-btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
         <a href="../index.html#projects" class="cta-btn">Back to Portfolio</a>
       </div>
     </div>
