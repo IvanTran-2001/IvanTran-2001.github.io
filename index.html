@@ -7,6 +7,9 @@
   <meta name="keywords" content="Software Engineer, Full-Stack Developer, Full-Stack Engineer, MERN Stack, JavaScript, TypeScript, React, Next.js, Node.js, Express.js, Prisma, PostgreSQL, MongoDB, tRPC, PayloadCMS, Python, SQL, REST API, Test Automation, Playwright, Jest, Melbourne, Australia, Web Developer, Backend Developer, Frontend Developer, Git, Agile, OOP, Data Structures, Algorithms">
   <meta name="author" content="Ivan Tran">
   <title>Ivan Tran | Full-Stack Software Engineer | Melbourne</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,13 +18,107 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #ffffff;
       color: #000000;
       line-height: 1.6;
       max-width: 900px;
       margin: 0 auto;
       padding: 40px 20px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 2px solid #000000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 56px;
+      max-width: 100%;
+      margin: -40px -20px 40px -20px;
+    }
+
+    .navbar-name {
+      font-size: 1em;
+      font-weight: 700;
+      color: #000000;
+      text-decoration: none;
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex: 2;
+      justify-content: center;
+    }
+
+    .navbar-links a {
+      color: #000000;
+      text-decoration: none;
+      font-size: 0.85em;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+    }
+
+    .navbar-links a:hover {
+      opacity: 0.5;
+    }
+
+    .navbar-socials {
+      display: flex;
+      gap: 12px;
+      flex: 1;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .navbar-socials a {
+      color: #000000;
+      text-decoration: none;
+      font-size: 0.85em;
+      font-weight: 600;
+      border: 1.5px solid #000000;
+      padding: 4px 12px;
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .navbar-socials a:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 16px;
+        gap: 8px;
+        margin: -40px -20px 30px -20px;
+      }
+
+      .navbar-links {
+        order: 3;
+        flex: 0 0 100%;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-bottom: 6px;
+      }
+
+      .navbar-socials {
+        flex: 0;
+      }
     }
 
     /* Hero Section */
@@ -69,6 +166,7 @@
       border: 2px solid #000000;
       color: #000000;
       background: #ffffff;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
     .cta-btn:hover {
@@ -132,6 +230,7 @@
       text-decoration: none;
       font-size: 0.9em;
       font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
     .social-links a:hover {
@@ -153,6 +252,7 @@
       font-weight: 600;
       font-size: 0.9em;
       border: 2px solid #000000;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
     .btn:hover {
@@ -171,6 +271,12 @@
     .skill-card {
       border: 1px solid #000000;
       padding: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 4px 4px 0 #000000;
     }
 
     .skill-card h4 {
@@ -269,6 +375,7 @@
       font-weight: 600;
       font-size: 0.8em;
       text-align: center;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
     .project-btn:hover {
@@ -312,6 +419,104 @@
       border-top: 1px solid #000000;
       color: #333333;
       font-size: 0.85em;
+    }
+
+    /* Contact Form */
+    .contact-form-wrapper {
+      border: 2px solid #000000;
+      padding: 40px;
+      margin: 20px 0 40px 0;
+      max-width: 640px;
+    }
+
+    .contact-form-wrapper h3 {
+      font-size: 1.3em;
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: #000000;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9em;
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #cccccc;
+      font-family: inherit;
+      font-size: 0.9em;
+      color: #000000;
+      background: #fafafa;
+      outline: none;
+      transition: border-color 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #000000;
+      background: #ffffff;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #aaaaaa;
+    }
+
+    .form-group textarea {
+      height: 130px;
+      resize: vertical;
+    }
+
+    .contact-submit {
+      width: 100%;
+      padding: 14px;
+      background: #000000;
+      color: #ffffff;
+      border: 2px solid #000000;
+      font-family: inherit;
+      font-size: 0.95em;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .contact-submit:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .form-success {
+      display: none;
+      padding: 14px;
+      border: 1.5px solid #000000;
+      font-size: 0.9em;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    /* Scroll Animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Responsive */
@@ -367,6 +572,21 @@
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-name">IVAN TRAN</a>
+    <ul class="navbar-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="navbar-socials">
+      <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/IvanTran-2001" target="_blank">GitHub</a>
+    </div>
+  </nav>
+
   <!-- Hero Section -->
   <div class="hero">
     <h1>IVAN TRAN</h1>
@@ -628,15 +848,31 @@
   <!-- Contact Section -->
   <div id="contact">
     <h2 class="section-title">LET'S CONNECT</h2>
-    <div style="text-align: center; padding: 20px 0;">
-      <p style="font-size: 0.95em; color: #333; margin-bottom: 20px;">
-        Open to full-stack engineer roles — on-site (Melbourne), hybrid, and remote.
-      </p>
-      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-        <a href="mailto:mystoganx2001@gmail.com" class="btn">Email Me</a>
-        <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" class="btn">LinkedIn</a>
-        <a href="https://github.com/IvanTran-2001" target="_blank" class="btn">GitHub</a>
-      </div>
+    <p style="font-size: 0.95em; color: #333; margin-bottom: 24px;">
+      Open to full-stack engineer roles — on-site (Melbourne), hybrid, and remote.
+    </p>
+    <div class="contact-form-wrapper">
+      <h3>Send Me a Message</h3>
+      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <div class="form-group">
+          <label for="cf-name">Full Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="What's your full name?" required>
+        </div>
+        <div class="form-group">
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" placeholder="email@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="cf-subject">Subject</label>
+          <input type="text" id="cf-subject" name="subject" placeholder="What's your topic?">
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" placeholder="Enter your message" required></textarea>
+        </div>
+        <button type="submit" class="contact-submit">Send</button>
+        <div class="form-success" id="form-success">Message sent — I'll get back to you soon.</div>
+      </form>
     </div>
   </div>
 
@@ -683,6 +919,52 @@
           });
         }
       });
+    });
+
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const btn = contactForm.querySelector('.contact-submit');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        try {
+          const res = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            contactForm.reset();
+            document.getElementById('form-success').style.display = 'block';
+            btn.textContent = 'Sent';
+          } else {
+            btn.textContent = 'Send';
+            btn.disabled = false;
+            alert('Something went wrong. Please email me directly at mystoganx2001@gmail.com');
+          }
+        } catch {
+          btn.textContent = 'Send';
+          btn.disabled = false;
+          alert('Something went wrong. Please email me directly at mystoganx2001@gmail.com');
+        }
+      });
+    }
+
+    // Scroll-in animations
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          scrollObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section-title, .skill-card, .project-card, .about-content').forEach(el => {
+      el.classList.add('animate-on-scroll');
+      scrollObserver.observe(el);
     });
   </script>
 </body>
