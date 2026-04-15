@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FriendChise — A task management and knowledge-sharing platform for franchise businesses that auto-optimizes task rotations and connects franchisees to community-driven best practices.">
+  <meta name="description" content="FriendChise — A multi-tenant task management SaaS for franchise businesses with timetable scheduling, templates, invite system, and role-based access control.">
   <meta name="keywords" content="Next.js, TypeScript, Prisma, PostgreSQL, Multi-tenant, RBAC, SaaS, Franchise Management, Case Study">
   <title>FriendChise | Ivan Tran</title>
   <style>
@@ -527,18 +527,19 @@
     <div class="hero-content">
       <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
       <h1>FriendChise</h1>
-      <p class="hero-subtitle">A task management and knowledge-sharing platform for franchise businesses that auto-optimizes task rotations and connects franchisees to community-driven best practices.</p>
+      <p class="hero-subtitle">A multi-tenant task management platform for franchise businesses with timetable scheduling, reusable templates, an invite system, and role-based access control. Deployed and live.</p>
 
       <div class="hero-badges">
         <span class="badge">Full-Stack</span>
         <span class="badge">Multi-Tenant</span>
         <span class="badge">RBAC</span>
         <span class="badge">SaaS</span>
-        <span class="badge wip">Work in Progress</span>
+        <span class="badge">V1 — Live</span>
       </div>
 
       <div class="hero-cta">
-        <a href="https://github.com/IvanTran-2001/management-app" class="cta-btn" target="_blank" rel="noopener noreferrer">View Code</a>
+        <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer">View Code</a>
+        <a href="https://friend-chise.vercel.app" class="cta-btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
       </div>
     </div>
   </div>
@@ -565,7 +566,7 @@
         <div class="stat-label">User Flows</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">12+</div>
+        <div class="stat-number">14</div>
         <div class="stat-label">Prisma Models</div>
       </div>
       <div class="stat-card">
@@ -611,10 +612,10 @@
     <h2 class="section-title">The Solution</h2>
     <div class="content-section">
       <p>
-        A web app where franchise owners define task libraries and timetable templates at the franchise level, managers apply those templates to generate weekly schedules for their branch, and workers check off tasks from a daily view. A built-in forum turns every task and recipe into a knowledge-sharing thread where franchisees learn from each other &mdash; not just top-down instructions.
+        A web app where franchise owners define task libraries and timetable templates at the franchise level, managers apply those templates to generate weekly schedules for their branch, and workers view their assigned tasks on any device.
       </p>
       <p>
-        Everything is scoped by organization with role-based permissions. Parent brands define defaults; child franchisees inherit and customize. The smart cycle algorithm auto-distributes tasks fairly across workers based on frequency constraints, qualification requirements, and team size.
+        Everything is scoped by organization with role-based permissions. Parent brands define defaults; child franchisees inherit and customize. An invite system with accept/decline flow handles onboarding, and a notification panel keeps everyone informed.
       </p>
     </div>
 
@@ -653,6 +654,10 @@
         <div class="tech-card">
           <h4>CodeRabbit</h4>
           <p>AI-powered code review on PRs</p>
+        </div>
+        <div class="tech-card">
+          <h4>Vercel</h4>
+          <p>Production deployment with auto-deploy on push</p>
         </div>
       </div>
 
@@ -1210,7 +1215,7 @@
       </div>
       <div class="feature-card">
         <h3>Database Design</h3>
-        <p>12+ Prisma models with multi-tenant data isolation. Complex relationships (many-to-many with metadata). Dual-purpose table design with clear refactor path.</p>
+        <p>14 Prisma models with multi-tenant data isolation. Complex relationships (many-to-many with metadata). Dual-purpose table design with clear refactor path.</p>
       </div>
       <div class="feature-card">
         <h3>Authentication &amp; Security</h3>
@@ -1241,12 +1246,90 @@
       </table>
     </div>
 
+    <!-- Testing -->
+    <h2 class="section-title" id="testing">Testing &amp; Quality Assurance</h2>
+
+    <div class="content-section">
+      <h3>Smoke Test Report — V1</h3>
+      <p>
+        A structured smoke test was conducted across 87 individual test cases covering all major features,
+        RBAC permissions, mobile responsiveness, and edge cases. Each test was documented with pass/fail/partial
+        status and detailed notes.
+      </p>
+
+      <div class="stats-grid" style="margin-top: 20px;">
+        <div class="stat-card">
+          <div class="stat-number">87</div>
+          <div class="stat-label">Total Tests</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">45</div>
+          <div class="stat-label">Passed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Partial</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">34</div>
+          <div class="stat-label">Failed</div>
+        </div>
+      </div>
+
+      <h4 class="subsection-title">Testing Categories</h4>
+      <table class="generic-table">
+        <thead>
+          <tr><th>Category</th><th>Pass</th><th>Partial</th><th>Fail</th><th>Total</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Global Issues</td><td>0</td><td>0</td><td>3</td><td>3</td></tr>
+          <tr><td>Auth (Sign In)</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
+          <tr><td>Create Org</td><td>2</td><td>1</td><td>2</td><td>5</td></tr>
+          <tr><td>Org Settings</td><td>4</td><td>0</td><td>1</td><td>5</td></tr>
+          <tr><td>Roles</td><td>6</td><td>0</td><td>1</td><td>7</td></tr>
+          <tr><td>Tasks</td><td>2</td><td>2</td><td>4</td><td>8</td></tr>
+          <tr><td>Templates</td><td>1</td><td>1</td><td>6</td><td>8</td></tr>
+          <tr><td>Apply Template</td><td>4</td><td>0</td><td>1</td><td>5</td></tr>
+          <tr><td>Timetable</td><td>4</td><td>2</td><td>3</td><td>9</td></tr>
+          <tr><td>Invite Member</td><td>2</td><td>1</td><td>0</td><td>3</td></tr>
+          <tr><td>Accept Invite</td><td>5</td><td>0</td><td>0</td><td>5</td></tr>
+          <tr><td>RBAC (Permissions)</td><td>6</td><td>0</td><td>2</td><td>8</td></tr>
+          <tr><td>Franchise</td><td>3</td><td>0</td><td>1</td><td>4</td></tr>
+          <tr><td>Decline Invite</td><td>3</td><td>0</td><td>0</td><td>3</td></tr>
+          <tr><td>Memberships</td><td>0</td><td>0</td><td>3</td><td>3</td></tr>
+          <tr><td>Navbar</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+          <tr><td>Notifications</td><td>0</td><td>0</td><td>3</td><td>3</td></tr>
+          <tr><td>Mobile (iPhone)</td><td>0</td><td>1</td><td>3</td><td>4</td></tr>
+        </tbody>
+      </table>
+
+      <h4 class="subsection-title">Priority Breakdown</h4>
+      <ul>
+        <li><strong>8 Critical</strong> — Security and core feature issues (RBAC gaps, permission guards, missing notifications)</li>
+        <li><strong>14 Medium</strong> — Functional issues with workarounds (view mode persistence, redirect behavior, missing warnings)</li>
+        <li><strong>12 Low</strong> — Cosmetic and UX polish (mobile layout, input styling, button placement)</li>
+      </ul>
+
+      <h4 class="subsection-title">Testing Methodology</h4>
+      <ul>
+        <li><strong>Manual smoke testing</strong> — end-to-end walkthrough of all 14 major features</li>
+        <li><strong>RBAC automation script</strong> — automated route-level permission testing across 15 sensitive URLs</li>
+        <li><strong>Cross-device testing</strong> — desktop and iPhone</li>
+        <li><strong>Two-account testing</strong> — owner account vs default member account to verify permission boundaries</li>
+      </ul>
+
+      <p>
+        Full test report and individual bug issues are tracked on
+        <a href="https://github.com/IvanTran-2001/FriendChise" target="_blank" style="font-weight: 600;">GitHub</a>.
+      </p>
+    </div>
+
     <!-- Footer CTA -->
     <div class="footer-cta">
       <h2>Interested in the code?</h2>
       <p>Check out the repository for full implementation details, Prisma schema, and API documentation.</p>
       <div class="button-group">
-        <a href="https://github.com/IvanTran-2001/management-app" class="cta-btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer">View on GitHub</a>
         <a href="../index.html#projects" class="cta-btn">Back to Portfolio</a>
       </div>
     </div>
