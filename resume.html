@@ -216,7 +216,7 @@
 
     <div class="section">
       <h2 class="section-title">Professional Summary</h2>
-      <p>Self-taught full-stack engineer with a portfolio of personal and academic projects spanning JavaScript, TypeScript, the MERN stack, Next.js, Prisma, and PostgreSQL. Applies clean code principles, feature branch workflows with pull request reviews, and AI-assisted code review via CodeRabbit. Completed nearly 200 algorithmic challenges on LeetCode with a 71% acceptance rate. HackerRank certified in JavaScript Basic and Frontend Developer (React). Open to full-stack engineer roles in Melbourne or remote.</p>
+      <p>Full-stack engineer who identified operational inefficiencies while working at a franchise business and built a deployed SaaS platform to address them. FriendChise targets franchise and multi-location businesses — restaurants, cafés, retail chains — that rely on repetitive task execution and need consistency across locations. Built with Next.js, TypeScript, Prisma, and PostgreSQL. Completed 2 years of Computer Science coursework at RMIT covering software engineering, data structures, and algorithms. 200+ LeetCode problems solved (71% acceptance rate, top 17% runtime globally). HackerRank certified in JavaScript and Frontend Development (React).</p>
     </div>
 
     <div class="section">
@@ -227,7 +227,7 @@
           <span class="entry-date">2021 - 2025 (Part-Time)</span>
         </div>
         <div class="entry-description" style="margin-top: 8px;">
-          <p>Completed 2 years of coursework covering software engineering, data structures, algorithms, and system design before transitioning to self-directed, project-based development.</p>
+          <p>Completed 2 years of coursework covering software engineering, data structures, algorithms, and system design.</p>
         </div>
       </div>
     </div>
@@ -245,11 +245,11 @@
         </div>
         <div class="skill-category">
           <h4>Backend & CMS</h4>
-          <p>Node.js, Express.js, PayloadCMS 3, tRPC 11, TanStack Query 5, Lexical (rich text), REST API, MongoDB, Mongoose</p>
+          <p>Node.js, Express.js, Prisma, PostgreSQL, Supabase, PayloadCMS 3, tRPC 11, TanStack Query 5, Lexical (rich text), REST API, MongoDB, Mongoose</p>
         </div>
         <div class="skill-category">
           <h4>Tools & Runtime</h4>
-          <p>Bun, Git, GitHub, Playwright, Jest, Valgrind, MongoDB Atlas, Make</p>
+          <p>Bun, Git, GitHub, Vercel, Playwright, Jest, Valgrind, MongoDB Atlas, Make</p>
         </div>
         <div class="skill-category">
           <h4>Development Practices</h4>
@@ -267,20 +267,22 @@
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">FriendChise – Franchise Management SaaS <span style="font-size:0.8em;font-weight:600;border:1px solid #000;padding:1px 6px;">In Progress</span></span>
+          <span class="entry-title">FriendChise – Franchise Management SaaS <span style="font-size:0.8em;font-weight:600;border:1px solid #000;padding:1px 6px;">V1 — Live</span></span>
           <span class="entry-date">March 2026 – Present</span>
         </div>
-        <div class="entry-subtitle">Full-Stack SaaS Platform — Next.js 16, TypeScript, Prisma, PostgreSQL, Auth.js v5, Multi-tenant RBAC</div>
+        <div class="entry-subtitle">Full-Stack SaaS Platform — Next.js 16, TypeScript, Prisma, PostgreSQL, Auth.js v5, Vercel</div>
         <div class="entry-description">
-          <p>A task management and knowledge-sharing platform for franchise businesses. Franchise owners define task libraries and timetable templates; managers apply them to generate weekly schedules; workers check off tasks from a daily view. A built-in forum turns tasks and recipes into community knowledge threads.</p>
+          <p>Inspired by real inefficiencies observed at Walker's Donuts — a multi-tenant franchise management platform for businesses that rely on repetitive task execution and need consistency across locations. Restaurants, cafés, retail chains, and cleaning franchises use timetable templates to schedule work, assign tasks by role, and maintain operational standards. Future roadmap includes a knowledge-sharing hub where franchise communities can document procedures, share tips, and improve methods through comments and upvotes. Deployed and live on Vercel.</p>
           <ul>
-            <li>Designed a multi-tenant RBAC system scoping data by organisation — franchisor, franchisee, manager, and worker permission types with 7 distinct permission levels</li>
-            <li>Implemented a smart cycle algorithm that auto-distributes tasks across workers based on frequency constraints and qualification requirements</li>
-            <li>Integrated <strong>Auth.js v5</strong> with Google OAuth, JWT sessions, and httpOnly cookies; route protection via Edge middleware without database access</li>
-            <li>Modelled 12+ Prisma schemas against a PostgreSQL database hosted on Supabase, covering users, organisations, tasks, schedules, and forum posts</li>
-            <li>Applied a Service Layer pattern for logic shared between API routes and Server Actions; discriminated unions for type-safe error handling</li>
-            <li>Feature branch Git workflow with CodeRabbit AI review on every pull request</li>
-            <li>GitHub: <a href="https://github.com/IvanTran-2001/management-app" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/management-app</a></li>
+            <li>Inspired by real inefficiencies observed at Walker's Donuts &mdash; built for franchise and multi-location businesses that need operational consistency</li>
+            <li>Architected multi-tenant RBAC with franchise hierarchy &mdash; 14 Prisma models, 6 permission types, organization-scoped data isolation on PostgreSQL (Supabase)</li>
+            <li>Timetable system with weekly/daily views, role-based task filtering, and status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE)</li>
+            <li>Template engine for reusable weekly schedules &mdash; create once, apply to any date range with frozen task snapshots</li>
+            <li>Invite system with accept/decline flow, seen/unread tracking, and real-time notification panel</li>
+            <li>Conducted structured V1 smoke test &mdash; 87 test cases across 18 categories with automated RBAC route testing</li>
+            <li>Auth.js v5 with Google OAuth, JWT sessions, httpOnly cookies; route protection via Edge middleware</li>
+            <li>Service Layer architecture with discriminated unions for type-safe error handling; CodeRabbit AI review on every PR</li>
+            <li>Live: <a href="https://friend-chise.vercel.app" style="color:#000;text-decoration:underline;">friend-chise.vercel.app</a> | GitHub: <a href="https://github.com/IvanTran-2001/FriendChise" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/FriendChise</a></li>
           </ul>
         </div>
       </div>
@@ -393,7 +395,7 @@
           <span class="entry-date">Ongoing</span>
         </div>
         <div class="entry-description">
-          <p><span class="highlight">Approaching 200 problems solved</span> across different difficulty levels.</p>
+          <p><span class="highlight">200+ problems solved</span> across different difficulty levels.</p>
           <ul>
             <li><span class="highlight">71% acceptance rate</span></li>
             <li><span class="highlight">Top 17% runtime performance globally</span>, demonstrating consistent focus on time-complexity optimisation</li>
