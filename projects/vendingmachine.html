@@ -6,401 +6,313 @@
   <meta name="description" content="Vending Machine Simulator - Advanced C++14 project featuring custom linked lists, command pattern, and comprehensive system design.">
   <meta name="keywords" content="C++, Vending Machine, Data Structures, Design Patterns, System Design">
   <title>Vending Machine | Ivan Tran</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* ── Base ── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #ffffff; color: #000000; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 40px 20px; }
     *, *::before, *::after { border-color: #000000 !important; background: transparent !important; }
     body, .hero, .container, .content-section, .tech-section, .footer-cta, .navbar { background: #ffffff !important; }
     h1, h2, h3, h4, h5, h6, p, li, span, div, a { color: #000000 !important; }
-    .badge, .tech-card, .feature-card, .stat-card, .tech-category { border: 1px solid #000000 !important; background: #ffffff !important; }
-    
-    body {
-      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #1a1a2e;
-      color: #e8e8e8;
-      line-height: 1.7;
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 50px;
-      animation: slideDown 0.6s ease-out;
-    }
-
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #4a7c9e;
-      font-weight: 800;
-    }
-
-    header p {
-      font-size: 1.1em;
-      color: #aaa;
-      font-weight: 500;
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .project-container {
-      max-width: 900px;
-      margin: 0 auto;
-      background-color: #252a3a;
-      padding: 45px;
-      border-radius: 15px;
-      border: 1px solid rgba(74, 124, 158, 0.1);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    h2 {
-      color: #4a7c9e;
-      font-size: 1.8em;
-      margin-top: 35px;
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 3px solid #4a7c9e;
-      display: inline-block;
-    }
-
-    h3 {
-      color: #5a9ec8;
-      font-size: 1.3em;
-      margin-top: 25px;
-      margin-bottom: 15px;
-    }
-
-    p {
-      margin-bottom: 16px;
-      color: #d4d4d4;
-    }
-
-    ul {
-      padding-left: 25px;
-      margin-bottom: 16px;
-    }
-
-    li {
-      margin-bottom: 10px;
-      color: #c4c4c4;
-    }
-
-    a.btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 12px 24px;
-      background: #4a7c9e;
-      color: white;
-      border-radius: 8px;
-      margin-top: 15px;
-      margin-right: 10px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(74, 124, 158, 0.3);
-    }
-
-    a.btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(74, 124, 158, 0.4);
-    }
-
-    a.btn.github-btn {
-      padding: 12px;
-      width: 48px;
-      height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2em;
-    }
-
-    .tech-stack {
-      background: #2d3249;
-      padding: 25px;
-      border-radius: 10px;
-      margin: 25px 0;
-      border-left: 5px solid #4a7c9e;
-    }
-
-    .tech-stack strong {
-      color: #4a7c9e;
-      font-size: 1.1em;
-    }
-
-    .tech-stack ul {
-      margin-top: 12px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 500px;
-      border-radius: 10px;
-      border: 1px solid rgba(74, 124, 158, 0.1);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      margin: 20px 0;
-    }
-
-    pre {
-      background-color: #1a1f2e;
-      color: #a8d8ea;
-      padding: 20px;
-      border-radius: 10px;
-      overflow-x: auto;
-      font-size: 14px;
-      margin: 20px 0;
-      border: 1px solid rgba(74, 124, 158, 0.2);
-    }
-
-    .section-card {
-      background: #2d3249;
-      padding: 20px;
-      border-radius: 10px;
-      margin: 15px 0;
-      border-left: 4px solid #4a7c9e;
-    }
-
-    .button-group {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 30px;
-    }
-
+    .badge, .tech-card, .feature-card, .stat-card, .tech-category, .challenge-card { border: 1px solid #000000 !important; background: #ffffff !important; }
+    /* ── Hero ── */
+    .hero { border-bottom: 2px solid #000000; padding: 40px 0; text-align: center; margin-bottom: 40px; }
+    .back-link { display: inline-block; margin-bottom: 20px; color: #000000; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+    .back-link:hover { text-decoration: underline; }
+    .hero h1 { font-size: 2.5em; margin-bottom: 10px; font-weight: 700; }
+    .hero-subtitle { font-size: 1.05em; color: #333333; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .badge { background: #ffffff; border: 1px solid #000000; padding: 6px 12px; font-size: 0.85em; font-weight: 600; }
+    .hero-cta { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; font-size: 0.9em; font-weight: 700; text-decoration: none; border: 2px solid #000000; color: #000000; background: #ffffff; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; letter-spacing: 0.02em; }
+    .cta-btn:hover { background: #000000 !important; color: #ffffff !important; }
+    .cta-btn.primary { background: #000000 !important; color: #ffffff !important; }
+    /* ── Layout ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 0; }
+    /* ── Content Sections ── */
+    .content-section { border: 1px solid #000000; padding: 30px; margin-bottom: 30px; }
+    .content-section h3 { margin-bottom: 15px; font-size: 1.3em; font-weight: 700; }
+    .content-section p { color: #333333; margin-bottom: 15px; line-height: 1.8; }
+    .content-section ul { padding-left: 25px; margin-bottom: 15px; }
+    .content-section ol { padding-left: 25px; margin-bottom: 15px; }
+    .content-section li { color: #333333; margin-bottom: 10px; line-height: 1.6; overflow-wrap: break-word; word-break: break-word; }
+    .content-section strong { color: #000000; font-weight: 600; }
+    /* ── Tech Section ── */
+    .tech-section { border: 1px solid #000000; padding: 30px 20px; margin-bottom: 40px; }
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 30px; }
+    .tech-card { border: 1px solid #000000; padding: 20px; text-align: center; }
+    .tech-card h4 { margin-bottom: 8px; font-size: 1em; font-weight: 700; }
+    .tech-card p { color: #333333; font-size: 0.85em; line-height: 1.5; }
+    /* ── Features ── */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 40px; }
+    .feature-card { border: 1px solid #000000; padding: 25px; }
+    .feature-card h3 { margin-bottom: 12px; font-size: 1.1em; font-weight: 700; }
+    .feature-card p { color: #333333; font-size: 0.95em; line-height: 1.6; }
+    /* ── Challenge Cards ── */
+    .challenge-card { border: 1px solid #000000; padding: 22px; margin-bottom: 20px; }
+    .challenge-card .challenge-label { font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .challenge-card p { color: #333333; font-size: 0.95em; line-height: 1.6; margin: 0; }
+    /* ── Stats ── */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; margin-bottom: 40px; }
+    .stat-card { border: 1px solid #000000; padding: 25px; text-align: center; }
+    .stat-number { font-size: 2em; font-weight: 700; margin-bottom: 10px; }
+    .stat-label { color: #333333; font-size: 0.85em; }
+    /* ── Footer CTA ── */
+    .footer-cta { border: 2px solid #000000; padding: 40px 30px; text-align: center; margin-bottom: 40px; }
+    .footer-cta h2 { margin-bottom: 15px; font-size: 1.8em; }
+    .footer-cta p { color: #333333; margin-bottom: 25px; font-size: 1em; }
+    .button-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; font-weight: 600; font-size: 0.95em; text-decoration: none; border: 2px solid #000000; color: #000000; background: #ffffff; cursor: pointer; }
+    .btn:hover { background: #000000 !important; color: #ffffff !important; }
+    /* ── Collapsible ── */
+    details.collapsible-section { border: none; margin-bottom: 0; }
+    details.collapsible-section > summary { font-size: 1.5em; margin: 50px 0 20px 0; font-weight: 700; border-bottom: 2px solid #000000; padding-bottom: 10px; cursor: pointer; list-style: revert; }
+    details.collapsible-section > summary:hover { background: transparent !important; }
+    /* ── TOC ── */
+    .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; margin-top: 8px; }
+    .toc-link { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 1.5px solid #000000; text-decoration: none; color: #000000; font-weight: 600; font-size: 0.88em; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; line-height: 1.35; }
+    .toc-link:hover { background: #000000 !important; color: #ffffff !important; }
+    .toc-link i { margin-top: 3px; flex-shrink: 0; width: 16px; text-align: center; }
+    .toc-sub { font-size: 0.78em; font-weight: 400; opacity: 0.65; display: block; margin-top: 2px; line-height: 1.2; }
+    /* ── Responsive ── */
     @media (max-width: 768px) {
-      .project-container {
-        padding: 25px 15px;
-      }
-
-      header h1 {
-        font-size: 1.8em;
-      }
-
-      a.btn {
-        padding: 14px 20px;
-        font-size: 1em;
-        flex: 1;
-        min-width: 140px;
-        text-align: center;
-      }
-
-      a.btn.github-btn {
-        flex: none;
-        min-width: auto;
-        width: 52px;
-        height: 52px;
-        padding: 0;
-      }
-
-      .button-group {
-        gap: 10px;
-      }
-
-      iframe {
-        height: 400px;
-      }
+      .hero h1 { font-size: 2em; }
+      .hero-subtitle { font-size: 1em; }
+      .tech-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+      .features-grid { grid-template-columns: 1fr; }
+      .hero { padding: 30px 0; }
+      .container { padding: 30px 0; }
+      .cta-btn { width: 100%; text-align: center; }
+      .hero-cta { flex-direction: column; align-items: stretch; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .content-section { padding: 20px 16px; }
+      .content-section li { word-break: break-word; overflow-wrap: break-word; }
+      .tech-section { padding: 20px 16px; }
+      .footer-cta { padding: 24px 16px; }
+      details.collapsible-section > summary { font-size: 1.15em; padding-bottom: 8px; }
+      .button-group { flex-direction: column; align-items: stretch; }
     }
-
-    @media (max-width: 480px) {
-      a.btn {
-        padding: 12px 16px;
-        font-size: 0.95em;
-      }
-
-      .button-group {
-        gap: 8px;
-      }
-    }
-
   </style>
 </head>
 <body>
-
   <!-- Navbar -->
   <nav class="navbar">
     <a href="../index.html" class="navbar-name">IVAN TRAN</a>
     <ul class="navbar-links">
-      <li><a href="../index.html#about"><i class="fas fa-user"></i> About</a></li>
-      <li><a href="../index.html#skills"><i class="fas fa-code"></i> Skills</a></li>
-      <li><a href="../index.html#projects"><i class="fas fa-folder-open"></i> Projects</a></li>
-      <li><a href="../index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
+      <li><a href="#data-structures"><i class="fas fa-project-diagram"></i> Data Structures</a></li>
+      <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+      <li><a href="#testing"><i class="fas fa-vial"></i> Testing</a></li>
     </ul>
     <div class="navbar-socials">
       <a href="https://github.com/IvanTran-2001/vending-machine-simulator" target="_blank"><i class="fab fa-github"></i> GitHub</a>
     </div>
   </nav>
 
-<header>
-  <h1>Vending Machine</h1>
-  <p>Advanced C++ Programming & Data Structures</p>
-</header>
-
-<div class="project-container">
-
-  <div style="text-align: center; margin-bottom: 40px;">
-    <img src="pictures/vendingmachine.png" alt="Vending Machine Project" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-  </div>
-
-  <h2>Project Overview</h2>
-  <p>
-    This project involved developing a <strong>fully-functional C++ vending machine simulator</strong> 
-    for a fictional pastry company. The primary focus was on implementing 
-    <strong>robust programming techniques, clean code, and dynamic memory management</strong> 
-    while following modern C++14 standards. The system simulates real-world vending operations with comprehensive state management, file persistence, and error handling.
-  </p>
-
-  <h3>Project Scope & Requirements</h3>
-  
-  <ul>
-    <li>Implement a <strong>fully functional vending machine</strong> supporting product display, purchases, stock management, coin handling, and administrator operations.</li>
-    <li>Validate all input and file data (stock, coins) for correctness, handling malformed files, invalid delimiters, negative values, and empty input.</li>
-    <li>Manage dynamic memory with proper allocation and deallocation, verified with Valgrind for memory safety.</li>
-    <li>Operate entirely in a console environment with persistent storage via structured files.</li>
-    <li>Design modular and extensible architecture allowing future enhancements without breaking existing functionality.</li>
-    <li>Build custom data structures (singly/doubly linked lists, 2D lists) from scratch rather than using STL containers.</li>
-    <li>Pass comprehensive test suites validating all features and edge cases.</li>
-  </ul>
-
-  <div class="tech-stack">
-    <strong>Technology Stack:</strong>
-    <ul style="margin: 10px 0; padding-left: 20px;">
-      <li>C++14 - Programming language</li>
-      <li>Custom Linked Lists - Core data structures (ADTs)</li>
-      <li>File I/O - Persistent data storage</li>
-      <li>Standard C++ Library - Memory management, utilities</li>
-      <li>Make - Build automation</li>
-      <li>Valgrind - Memory leak detection</li>
-    </ul>
-  </div>
-
-  <h2>Key Objectives & Skills Demonstrated</h2>
-  <ul>
-    <li><strong>Abstract Data Types (ADTs):</strong> Design and implementation of singly, doubly, and linked lists from scratch without STL, including node management and pointer operations.</li>
-    <li><strong>Dynamic Memory Management:</strong> Manual allocation/deallocation with proper use of new/delete, dynamic cast for type conversion, and zero memory leaks verified by Valgrind.</li>
-    <li><strong>Object-Oriented Design:</strong> Abstract base classes, inheritance hierarchies, virtual methods, and encapsulation principles applied throughout.</li>
-    <li><strong>Design Patterns:</strong> Command pattern implementation with polymorphic command objects, strategy pattern for linked list switching.</li>
-    <li><strong>Exception Handling:</strong> Throws and catches for std::runtime_error, std::length_error, std::invalid_argument, and std::domain_error with meaningful error messages.</li>
-    <li><strong>File Processing:</strong> Parsing structured data formats (stock.dat, coins.dat) with comprehensive validation and error recovery.</li>
-    <li><strong>State Management:</strong> Tracking vending machine states (normal, purchasing, admin) and enforcing valid state transitions.</li>
-    <li><strong>Algorithm Implementation:</strong> Change calculation algorithm, binary search patterns, case-insensitive string comparison utilities.</li>
-    <li><strong>Testing & Debugging:</strong> 16+ test suites covering normal cases, edge cases, malformed input, and memory verification with Valgrind.</li>
-    <li><strong>Code Quality:</strong> Clean, maintainable code with proper documentation, meaningful variable names, and modular architecture.</li>
-  </ul>
-
-  <h2>Implementation Highlights</h2>
-
-  <h3>Custom Data Structures</h3>
-  <p>Built from scratch without using STL containers:</p>
-  <ul>
-    <li><strong>LinkedListSingle:</strong> Singly-linked list for managing inventory items with insertion, deletion, and traversal.</li>
-    <li><strong>LinkedListDouble:</strong> Doubly-linked list with bidirectional node traversal using prev/next pointers, enabling reverse display and efficient navigation.</li>
-    <li><strong>Abstract LinkedList Base Class:</strong> Defines interface with virtual methods for printLL, findItem, saveLL, resetStock, remove, addLL, convertToStock, and deleteLL.</li>
-    <li><strong>Node Class:</strong> Encapsulates product data including stock ID, name, description, price (dollars/cents), and on-hand quantity. NodeD extends this with prev pointer for doubly-linked lists.</li>
-    <li>Comprehensive memory management with proper allocation/deallocation verified via Valgrind.</li>
-  </ul>
-
-  <h3>Core Features</h3>
-  <ul>
-    <li><strong>Product Management:</strong> Display inventory in ascending/descending order, add items, remove stock, and track availability in real-time.</li>
-    <li><strong>Transaction Processing:</strong> Handle purchases with exact change calculation, insufficient funds detection, out-of-stock management, and abort capabilities.</li>
-    <li><strong>Coin System:</strong> Manage 8 coin denominations (5¢, 10¢, 25¢, $1, $2, $5, $10), calculate change using greedy algorithm, display coin counts, and reset coin reserves.</li>
-    <li><strong>File Persistence:</strong> Load and save structured stock.dat and coins.dat files with comprehensive validation of format, data types, and constraints.</li>
-    <li><strong>Administrative Functions:</strong> Reset coins to defaults, restock all items, display inventory in reverse (doubly-linked list feature), abort transactions.</li>
-    <li><strong>Error Handling:</strong> Exception-based validation using std::runtime_error, std::length_error, std::invalid_argument, and std::domain_error for robust error management.</li>
-    <li><strong>Dynamic List Switching:</strong> Toggle enhancement feature that switches between LinkedListSingle and LinkedListDouble at runtime.</li>
-  </ul>
-
-  <h3>Architecture</h3>
-  <p>The system follows a modular design with clear separation of concerns:</p>
-  <ul>
-    <li><strong>VendingMachine (Core Orchestrator):</strong> Main system managing state transitions, inventory, coin system, and menu command dispatch.</li>
-    <li><strong>LinkedList Classes:</strong> Abstract base class with LinkedListSingle and LinkedListDouble implementations providing reusable ADTs.</li>
-    <li><strong>Command Pattern:</strong> Eight command classes (Abort, DisplayItem, PurchaseItem, Save, AddItem, RemoveItem, DisplayCoins, ResetCoins) encapsulate operations as objects for flexibility and extensibility.</li>
-    <li><strong>Menu:</strong> User interface layer handling command selection and user interaction.</li>
-    <li><strong>Coin Class:</strong> Manages coin denominations with static methods for change calculation (getChange), file I/O (saveCoinFile), and coin updates.</li>
-    <li><strong>Helper Utility:</strong> Static validation functions for stock format, coin values, string operations, and input reading.</li>
-    <li><strong>Node & Price Classes:</strong> Data structures for product information and currency representation.</li>
-  </ul>
-
-  <h2>Personal Contributions</h2>
-  <p>
-    As a key member of the development team, I was responsible for:
-  </p>
-  <ul>
-    <li>Architecting the overall system design and module structure.</li>
-    <li>Implementing the core vending machine logic and transaction handling.</li>
-    <li>Designing and implementing custom linked list data structures from scratch.</li>
-    <li>Developing the file processing module for data persistence and validation.</li>
-    <li>Creating robust error handling and validation mechanisms.</li>
-    <li>Writing and running comprehensive test cases to validate functionality.</li>
-    <li>Debugging and optimizing code using Valgrind for memory safety.</li>
-    <li>Collaborating with team members to integrate all components into a cohesive system.</li>
-  </ul>
-
-  <h2>Testing & Quality Assurance</h2>
-  <p>
-    The project includes extensive automated testing to ensure reliability and correctness:
-  </p>
-  <ul>
-    <li><strong>Test Coverage:</strong> 16+ comprehensive test suites covering all major features and edge cases.</li>
-    <li><strong>Functional Tests:</strong> All user workflows including purchases, restocking, coin management, and transaction handling.</li>
-    <li><strong>Purchase Tests:</strong> Exact change transactions, purchases with change due, out-of-stock detection, insufficient funds, and invalid item selection.</li>
-    <li><strong>Administrative Tests:</strong> Coin reset, stock replenishment, inventory display (forward and reverse), item addition/removal.</li>
-    <li><strong>Edge Case Testing:</strong> Malformed files, invalid delimiters, negative values, empty input, boundary conditions.</li>
-    <li><strong>Memory Safety:</strong> Valgrind verification ensuring zero memory leaks and proper pointer usage across all operations.</li>
-    <li><strong>File Validation:</strong> Stock and coin file integrity checks with corrupted file handling.</li>
-    <li><strong>State Validation:</strong> Verifying file updates after transactions and correct coin/stock changes.</li>
-    <li><strong>Integration Testing:</strong> All components working together through complete transaction workflows.</li>
-  </ul>
-
-  <h2>Challenges & Solutions</h2>
-  <div class="section-card">
-    <strong>Challenge:</strong> Managing complex state transitions in a vending machine with multiple concurrent operations (coin insertion, product selection, change calculation).<br><br>
-    <strong>Solution:</strong> Implemented a robust state machine pattern that clearly defines valid state transitions and prevents invalid operations, ensuring program stability even under edge cases.
-  </div>
-
-  <div class="section-card">
-    <strong>Challenge:</strong> Implementing custom linked lists without using STL, requiring manual memory management and pointer manipulation.<br><br>
-    <strong>Solution:</strong> Designed careful allocation/deallocation strategies with thorough testing to achieve zero memory leaks, verified with Valgrind.
-  </div>
-
-  <div class="section-card">
-    <strong>Challenge:</strong> Validating complex file formats with multiple delimiters and data types, handling malformed input gracefully.<br><br>
-    <strong>Solution:</strong> Built comprehensive validation logic that checks file structure, data types, and constraints before loading, providing meaningful error messages.
-  </div>
-
-    <div class="button-group">
-      <a href="../index.html#projects" class="btn">Home</a>
-      <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="btn github-btn" target="_blank" title="View on GitHub">
-        <i class="fab fa-github"></i>
-      </a>
+  <!-- Hero -->
+  <div class="hero">
+    <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
+    <h1>🧃 Vending Machine Simulator</h1>
+    <p class="hero-subtitle">Advanced C++14 project featuring custom-built linked lists, the command pattern, dynamic memory management, and comprehensive test coverage — verified with Valgrind.</p>
+    <div class="hero-badges">
+      <span class="badge">C++14</span>
+      <span class="badge">Custom ADTs</span>
+      <span class="badge">Command Pattern</span>
+      <span class="badge">Valgrind Verified</span>
     </div>
-</div>
+    <div class="hero-cta">
+      <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="cta-btn primary" target="_blank"><i class="fab fa-github"></i> View Code</a>
+    </div>
+  </div>
 
-  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:30px;right:30px;width:45px;height:45px;border:2px solid #000;background:#fff !important;color:#000;font-size:1.3em;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:1000;font-weight:700;">&uarr;</button>
+  <!-- Main Content -->
+  <div class="container">
+
+    <!-- Project image -->
+    <div style="margin-bottom: 40px;">
+      <img src="pictures/vendingmachine.png" alt="Vending Machine Project" style="width:100%;height:auto;display:block;border:1px solid #000;">
+    </div>
+
+    <!-- TOC -->
+    <div class="content-section" id="jump">
+      <h3>Jump to Section</h3>
+      <div class="toc-grid">
+        <a href="#overview" class="toc-link"><i class="fas fa-info-circle"></i><span>Project Overview</span></a>
+        <a href="#data-structures" class="toc-link"><i class="fas fa-project-diagram"></i><span>Custom Data Structures<span class="toc-sub">Linked lists from scratch</span></span></a>
+        <a href="#features" class="toc-link"><i class="fas fa-star"></i><span>Core Features</span></a>
+        <a href="#architecture" class="toc-link"><i class="fas fa-sitemap"></i><span>Architecture</span></a>
+        <a href="#testing" class="toc-link"><i class="fas fa-vial"></i><span>Testing &amp; QA<span class="toc-sub">16+ test suites, Valgrind</span></span></a>
+        <a href="#challenges" class="toc-link"><i class="fas fa-exclamation-triangle"></i><span>Challenges &amp; Solutions</span></a>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">16+</div><div class="stat-label">Test Suites</div></div>
+      <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Command Classes</div></div>
+      <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Coin Denominations</div></div>
+      <div class="stat-card"><div class="stat-number">0</div><div class="stat-label">Memory Leaks (Valgrind)</div></div>
+    </div>
+
+    <!-- Overview -->
+    <details open class="collapsible-section" id="overview">
+      <summary><i class="fas fa-info-circle"></i> Project Overview</summary>
+      <div class="content-section" style="margin-top: 20px;">
+        <p>A <strong>fully-functional C++ vending machine simulator</strong> built for a fictional pastry company. The primary focus was implementing <strong>robust programming techniques, clean code, and dynamic memory management</strong> while following modern C++14 standards.</p>
+        <ul>
+          <li>Implement a <strong>fully functional vending machine</strong> supporting product display, purchases, stock management, coin handling, and administrator operations</li>
+          <li>Validate all input and file data (stock, coins) for correctness, handling malformed files and invalid input</li>
+          <li>Manage dynamic memory with proper allocation/deallocation, verified with Valgrind</li>
+          <li>Operate entirely in a console environment with persistent storage via structured files</li>
+          <li>Build custom data structures (singly/doubly linked lists) from scratch — no STL containers</li>
+          <li>Pass comprehensive test suites validating all features and edge cases</li>
+        </ul>
+      </div>
+      <div class="tech-section" style="margin-top: 0;">
+        <div class="tech-grid">
+          <div class="tech-card"><h4>C++14</h4><p>Core programming language following modern standards</p></div>
+          <div class="tech-card"><h4>Custom Linked Lists</h4><p>Singly and doubly linked lists built from scratch</p></div>
+          <div class="tech-card"><h4>File I/O</h4><p>Persistent data storage via structured files</p></div>
+          <div class="tech-card"><h4>Make</h4><p>Build automation</p></div>
+          <div class="tech-card"><h4>Valgrind</h4><p>Memory leak detection and pointer verification</p></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Custom Data Structures -->
+    <details open class="collapsible-section" id="data-structures">
+      <summary><i class="fas fa-project-diagram"></i> Custom Data Structures</summary>
+      <div class="content-section" style="margin-top: 20px;">
+        <h3>Built from Scratch Without STL</h3>
+        <ul>
+          <li><strong>LinkedListSingle:</strong> Singly-linked list for managing inventory items with insertion, deletion, and traversal</li>
+          <li><strong>LinkedListDouble:</strong> Doubly-linked list with bidirectional node traversal using prev/next pointers, enabling reverse display and efficient navigation</li>
+          <li><strong>Abstract LinkedList Base Class:</strong> Defines interface with virtual methods for printLL, findItem, saveLL, resetStock, remove, addLL, convertToStock, and deleteLL</li>
+          <li><strong>Node Class:</strong> Encapsulates product data including stock ID, name, description, price (dollars/cents), and on-hand quantity. NodeD extends this with a prev pointer for doubly-linked lists</li>
+          <li>Comprehensive memory management with proper allocation/deallocation verified via Valgrind — zero memory leaks</li>
+        </ul>
+      </div>
+      <div class="content-section">
+        <h3>Key OOP Skills Demonstrated</h3>
+        <ul>
+          <li><strong>Abstract Data Types (ADTs):</strong> Design and implementation of singly, doubly, and linked lists without STL, including node management and pointer operations</li>
+          <li><strong>Dynamic Memory Management:</strong> Manual allocation/deallocation with proper use of new/delete, dynamic cast for type conversion</li>
+          <li><strong>Object-Oriented Design:</strong> Abstract base classes, inheritance hierarchies, virtual methods, and encapsulation throughout</li>
+          <li><strong>Design Patterns:</strong> Command pattern with polymorphic command objects; strategy pattern for linked list switching</li>
+          <li><strong>Exception Handling:</strong> Throws and catches for std::runtime_error, std::length_error, std::invalid_argument, and std::domain_error</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Core Features -->
+    <details class="collapsible-section" id="features">
+      <summary><i class="fas fa-star"></i> Core Features</summary>
+      <div class="features-grid" style="margin-top: 20px;">
+        <div class="feature-card"><h3><i class="fas fa-box"></i> Product Management</h3><p>Display inventory in ascending/descending order, add items, remove stock, and track availability in real-time.</p></div>
+        <div class="feature-card"><h3><i class="fas fa-shopping-cart"></i> Transaction Processing</h3><p>Handle purchases with exact change calculation, insufficient funds detection, out-of-stock management, and abort capabilities.</p></div>
+        <div class="feature-card"><h3><i class="fas fa-coins"></i> Coin System</h3><p>Manage 8 coin denominations (5¢ – $10), calculate change using a greedy algorithm, display coin counts, and reset coin reserves.</p></div>
+        <div class="feature-card"><h3><i class="fas fa-save"></i> File Persistence</h3><p>Load and save structured stock.dat and coins.dat files with comprehensive validation of format, data types, and constraints.</p></div>
+        <div class="feature-card"><h3><i class="fas fa-user-shield"></i> Admin Functions</h3><p>Reset coins, restock all items, display inventory in reverse (doubly-linked list feature), and abort transactions.</p></div>
+        <div class="feature-card"><h3><i class="fas fa-exchange-alt"></i> Dynamic List Switching</h3><p>Toggle enhancement that switches between LinkedListSingle and LinkedListDouble at runtime.</p></div>
+      </div>
+    </details>
+
+    <!-- Architecture -->
+    <details class="collapsible-section" id="architecture">
+      <summary><i class="fas fa-sitemap"></i> Architecture</summary>
+      <div class="content-section" style="margin-top: 20px;">
+        <ul>
+          <li><strong>VendingMachine (Core Orchestrator):</strong> Main system managing state transitions, inventory, coin system, and menu command dispatch</li>
+          <li><strong>LinkedList Classes:</strong> Abstract base class with LinkedListSingle and LinkedListDouble implementations providing reusable ADTs</li>
+          <li><strong>Command Pattern:</strong> Eight command classes (Abort, DisplayItem, PurchaseItem, Save, AddItem, RemoveItem, DisplayCoins, ResetCoins) encapsulate operations as objects</li>
+          <li><strong>Menu:</strong> User interface layer handling command selection and user interaction</li>
+          <li><strong>Coin Class:</strong> Manages coin denominations with static methods for change calculation (getChange), file I/O (saveCoinFile), and coin updates</li>
+          <li><strong>Helper Utility:</strong> Static validation functions for stock format, coin values, string operations, and input reading</li>
+          <li><strong>Node &amp; Price Classes:</strong> Data structures for product information and currency representation</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Testing -->
+    <details class="collapsible-section" id="testing">
+      <summary><i class="fas fa-vial"></i> Testing &amp; Quality Assurance</summary>
+      <div class="content-section" style="margin-top: 20px;">
+        <ul>
+          <li><strong>Test Coverage:</strong> 16+ comprehensive test suites covering all major features and edge cases</li>
+          <li><strong>Functional Tests:</strong> All user workflows including purchases, restocking, coin management, and transaction handling</li>
+          <li><strong>Purchase Tests:</strong> Exact change, purchases with change due, out-of-stock detection, insufficient funds, and invalid item selection</li>
+          <li><strong>Administrative Tests:</strong> Coin reset, stock replenishment, inventory display (forward and reverse), item addition/removal</li>
+          <li><strong>Edge Case Testing:</strong> Malformed files, invalid delimiters, negative values, empty input, boundary conditions</li>
+          <li><strong>Memory Safety:</strong> Valgrind verification — zero memory leaks and proper pointer usage across all operations</li>
+          <li><strong>File Validation:</strong> Stock and coin file integrity checks with corrupted file handling</li>
+          <li><strong>Integration Testing:</strong> All components working together through complete transaction workflows</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- Challenges -->
+    <details class="collapsible-section" id="challenges">
+      <summary><i class="fas fa-exclamation-triangle"></i> Challenges &amp; Solutions</summary>
+      <div style="margin-top: 20px;">
+        <div class="challenge-card">
+          <div class="challenge-label">Challenge</div>
+          <p>Managing complex state transitions in a vending machine with multiple concurrent operations (coin insertion, product selection, change calculation).</p>
+          <div class="challenge-label" style="margin-top: 12px;">Solution</div>
+          <p>Implemented a robust state machine pattern that clearly defines valid state transitions and prevents invalid operations, ensuring stability even under edge cases.</p>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-label">Challenge</div>
+          <p>Implementing custom linked lists without STL, requiring manual memory management and pointer manipulation.</p>
+          <div class="challenge-label" style="margin-top: 12px;">Solution</div>
+          <p>Designed careful allocation/deallocation strategies with thorough testing to achieve zero memory leaks, verified with Valgrind.</p>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-label">Challenge</div>
+          <p>Validating complex file formats with multiple delimiters and data types, handling malformed input gracefully.</p>
+          <div class="challenge-label" style="margin-top: 12px;">Solution</div>
+          <p>Built comprehensive validation logic that checks file structure, data types, and constraints before loading, providing meaningful error messages.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- Footer CTA -->
+    <div class="footer-cta">
+      <h2>View the Source Code</h2>
+      <p>Explore the full implementation including custom data structures, command classes, and test suites.</p>
+      <div class="button-group">
+        <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="cta-btn primary" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+        <a href="../index.html#projects" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+      </div>
+    </div>
+
+  </div>
+
+  <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})" style="position:fixed;bottom:30px;right:30px;width:45px;height:45px;border:2px solid #000;background:#fff !important;color:#000;font-size:1.4em;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:1000;font-weight:700;">&#9776;</button>
   <script>
     const btn = document.getElementById('back-to-top');
     window.addEventListener('scroll', function() { btn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
+    function openSectionByHash(hash) {
+      if (!hash) return;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      const details = target.closest('details');
+      if (details) details.open = true;
+      requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+    }
+    openSectionByHash(window.location.hash);
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        var hash = this.getAttribute('href');
+        if (!hash || hash === '#') return;
+        e.preventDefault();
+        openSectionByHash(hash);
+        history.pushState(null, '', hash);
+      });
+    });
   </script>
-
 </body>
 </html>
