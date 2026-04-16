@@ -74,6 +74,11 @@
   color: #ffffff !important;
 }
 
+/* Offset anchor targets so the sticky navbar doesn't cover them */
+[id] {
+  scroll-margin-top: 70px;
+}
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
