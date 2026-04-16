@@ -6,6 +6,9 @@
   <meta name="description" content="FriendChise — A multi-tenant task management SaaS for franchise businesses with timetable scheduling, templates, invite system, and role-based access control.">
   <meta name="keywords" content="Next.js, TypeScript, Prisma, PostgreSQL, Multi-tenant, RBAC, SaaS, Franchise Management, Case Study">
   <title>FriendChise | Ivan Tran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,7 +17,7 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #ffffff;
       color: #000000;
       line-height: 1.6;
@@ -28,7 +31,7 @@
       background: transparent !important;
     }
 
-    body, .hero, .container, .content-section, .tech-section, .footer-cta {
+    body, .hero, .container, .content-section, .tech-section, .footer-cta, .navbar {
       background: #ffffff !important;
     }
 
@@ -39,6 +42,94 @@
     .badge, .tech-card, .feature-card, .stat-card, .tech-category, .persona-card, .story-card, .flow-card {
       border: 1px solid #000000 !important;
       background: #ffffff !important;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffff;
+      border-bottom: 2px solid #000000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      height: 56px;
+      max-width: 100%;
+      margin: -40px -20px 0 -20px;
+    }
+
+    .navbar-name {
+      font-size: 1em;
+      font-weight: 700;
+      color: #000000;
+      text-decoration: none;
+      white-space: nowrap;
+      flex: 1;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      flex: 2;
+      justify-content: center;
+    }
+
+    .navbar-links a {
+      color: #000000;
+      text-decoration: none;
+      font-size: 0.85em;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+    }
+
+    .navbar-links a:hover { opacity: 0.5; }
+
+    .navbar-socials {
+      display: flex;
+      gap: 12px;
+      flex: 1;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .navbar-socials a {
+      color: #000000;
+      text-decoration: none;
+      font-size: 0.85em;
+      font-weight: 600;
+      border: 1.5px solid #000000;
+      padding: 4px 12px;
+      transition: background 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .navbar-socials a:hover {
+      background: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px 16px;
+        gap: 8px;
+        margin: -40px -20px 0 -20px;
+      }
+      .navbar-links {
+        order: 3;
+        flex: 0 0 100%;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-bottom: 6px;
+      }
+      .navbar-socials { flex: 0; }
     }
 
     /* Hero */
@@ -532,20 +623,57 @@
       .tech-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
       .features-grid { grid-template-columns: 1fr; }
       .personas-grid { grid-template-columns: 1fr; }
-      .hero { padding: 30px 15px; }
+      .hero { padding: 30px 0; }
       .container { padding: 30px 0; }
       .cta-btn { width: 100%; text-align: center; }
-      .permission-table, .generic-table { font-size: 0.8em; }
+      .hero-cta { flex-direction: column; align-items: stretch; }
+      .permission-table, .generic-table { font-size: 0.78em; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .content-section { padding: 20px 16px; }
+      .tech-section { padding: 20px 16px; }
+      .footer-cta { padding: 24px 16px; }
+      .flow-card { padding: 15px; }
+
+      /* Wrap wide tables on small screens */
+      .permission-table, .generic-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      details.collapsible-section > summary {
+        font-size: 1.15em;
+        padding-bottom: 8px;
+      }
+
+      .button-group { flex-direction: column; align-items: stretch; }
+      .button-group .cta-btn { text-align: center; }
     }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-name">IVAN TRAN</a>
+    <ul class="navbar-links">
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#solution">Solution</a></li>
+      <li><a href="#tech">Tech Stack</a></li>
+      <li><a href="#testing">Testing</a></li>
+    </ul>
+    <div class="navbar-socials">
+      <a href="https://github.com/IvanTran-2001/FriendChise" target="_blank">GitHub</a>
+      <a href="https://friend-chise.vercel.app" target="_blank">Live</a>
+    </div>
+  </nav>
+
   <!-- Hero Section -->
   <div class="hero">
     <div class="hero-content">
       <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
-      <h1><img src="pictures/Logo.png" alt="FriendChise" style="max-height:160px;"></h1>
+      <h1 style="line-height:0; font-size:0; margin-bottom:20px;">
+        <img src="pictures/Logo.png" alt="FriendChise" style="width:100%; height:260px; object-fit:cover; object-position:center; display:block;">
+      </h1>
       <p class="hero-subtitle">Inspired by real inefficiencies observed at Walker's Donuts — a multi-tenant task management platform for franchise and multi-location businesses that need consistency. Restaurants, cafés, retail chains, and service franchises use timetable scheduling, reusable templates, and role-based access control to maintain operational standards. Future roadmap includes a knowledge-sharing hub. Deployed and live on Vercel.</p>
 
       <div class="hero-badges">
@@ -597,8 +725,8 @@
     </div>
 
     <!-- Table of Contents -->
-    <div class="content-section">
-      <h3>Table of Contents</h3>
+    <div class="content-section" id="jump">
+      <h3>Jump to Section</h3>
       <ol>
         <li><a href="#whats-live" style="color:#000;font-weight:600;">What's Live in V1</a></li>
         <li><a href="#problem" style="color:#000;font-weight:600;">The Problem</a></li>
@@ -615,7 +743,7 @@
     </div>
 
     <!-- The Problem -->
-    <details open class="collapsible-section">
+    <details class="collapsible-section">
     <summary id="problem">The Problem</summary>
     <div class="content-section">
       <h3>Why This Exists</h3>
@@ -650,7 +778,7 @@
     </details>
 
     <!-- Project Overview -->
-    <details open class="collapsible-section">
+    <details class="collapsible-section">
     <summary id="solution">The Solution</summary>
     <div class="content-section">
       <p>
@@ -753,7 +881,7 @@
     </details>
 
     <!-- Design & Architecture -->
-    <details open class="collapsible-section">
+    <details class="collapsible-section">
     <summary id="design">Design &amp; Architecture</summary>
     <div class="content-section">
       <h3>UI Wireframes</h3>
@@ -776,7 +904,7 @@
     </details>
 
     <!-- User Personas (7) -->
-    <details open class="collapsible-section">
+    <details class="collapsible-section">
     <summary id="personas">User Personas</summary>
     <div class="personas-grid">
       <div class="persona-card">
@@ -825,7 +953,7 @@
     </details>
 
     <!-- User Stories -->
-    <details open class="collapsible-section">
+    <details class="collapsible-section">
     <summary id="stories">User Stories (34 Total)</summary>
 
     <details>
@@ -920,7 +1048,7 @@
     </details>
 
     <!-- Key Features (MoSCoW) -->
-    <details open class="collapsible-section">
+    <details class="collapsible-section">
     <summary id="features">Key Features (MoSCoW Prioritized)</summary>
 
     <h3 class="subsection-title">Must Have (14)</h3>
@@ -1033,7 +1161,7 @@
     </details>
 
     <!-- User Flows -->
-    <details open class="collapsible-section">
+    <details class="collapsible-section">
     <summary id="flows">User Flows (9 Total)</summary>
 
     <div class="flow-card">
@@ -1130,7 +1258,8 @@
     </details>
 
     <!-- Multi-Tenant Architecture -->
-    <h2 class="section-title">Multi-Tenant Architecture</h2>
+    <details class="collapsible-section">
+    <summary id="multi-tenant">Multi-Tenant Architecture</summary>
     <div class="content-section">
       <h3>Hierarchical Model</h3>
       <p>
@@ -1160,9 +1289,11 @@
       <h3>Invite Link System (Planned)</h3>
       <p>Brand owner generates a <strong>one-time token link</strong> that expires in minutes and can only be used once. New franchisee pastes the token when creating their org &rarr; system validates &rarr; creates child org with parent reference &rarr; adds creator as Owner.</p>
     </div>
+    </details>
 
     <!-- Timetable System -->
-    <h2 class="section-title">Timetable System Design</h2>
+    <details class="collapsible-section">
+    <summary id="timetable">Timetable System Design</summary>
     <div class="content-section">
       <h3>Two-Layer Architecture</h3>
       <p><strong>Layer 1 &mdash; Template / Cycle Profile (pattern definition):</strong> A named cycle profile (e.g., "Standard Week" with 7 days). Task placements stored as <code>TaskInstance</code> rows with relative <code>dayOffset</code> and <code>startTimeMin</code>. No real dates &mdash; purely positional.</p>
@@ -1203,9 +1334,11 @@
       </table>
       <p>Franchisees can <strong>shorten</strong> the frequency but cannot exceed the max set by the franchisor. The cycle algorithm uses these constraints along with worker count and task qualifications to generate fair schedules.</p>
     </div>
+    </details>
 
     <!-- Permission Matrix -->
-    <h2 class="section-title">Permission Matrix (RBAC)</h2>
+    <details class="collapsible-section">
+    <summary id="permission-matrix">Permission Matrix (RBAC)</summary>
     <div class="content-section">
       <table class="permission-table">
         <thead>
@@ -1231,9 +1364,11 @@
       </table>
       <p>Permission enum values: <code>ORG_MANAGE</code>, <code>ROLE_MANAGE</code>, <code>TASK_CREATE</code>, <code>TASK_UPDATE</code>, <code>TASK_DELETE</code>, <code>TASK_ASSIGN</code>, <code>TASKINSTANCE_COMPLETE</code></p>
     </div>
+    </details>
 
     <!-- Architecture Decisions -->
-    <h2 class="section-title">Architecture &amp; Design Decisions</h2>
+    <details class="collapsible-section">
+    <summary id="architecture">Architecture &amp; Design Decisions</summary>
 
     <div class="content-section">
       <h3>Materialised Scheduling vs Virtual Projection</h3>
@@ -1264,9 +1399,11 @@
       <h3>Shared Tasks with Single Forum Thread</h3>
       <p>Tasks are NOT copied into child orgs. Each canonical task has one shared forum thread that all brand-network franchisees can comment under. Avoids data duplication, centralizes community knowledge, and updates propagate automatically.</p>
     </div>
+    </details>
 
     <!-- Data Model -->
-    <h2 class="section-title">Data Model</h2>
+    <details class="collapsible-section">
+    <summary id="data-model">Data Model</summary>
     <div class="content-section">
       <p>Key models in the PostgreSQL schema:</p>
       <ul>
@@ -1281,9 +1418,11 @@
         <li><strong>TaskInstanceAssignee</strong> &mdash; Many-to-many: TaskInstance &harr; Membership.</li>
       </ul>
     </div>
+    </details>
 
     <!-- API Routes -->
-    <h2 class="section-title">REST API Endpoints</h2>
+    <details class="collapsible-section">
+    <summary id="api-routes">REST API Endpoints</summary>
     <div class="content-section">
       <ul>
         <li><strong>POST /api/orgs</strong> &mdash; Create org (auto-creates Owner/Member roles with permissions)</li>
@@ -1294,9 +1433,11 @@
         <li><strong>PATCH .../task-instances/[id]/status</strong> &mdash; Update status (TASKINSTANCE_COMPLETE)</li>
       </ul>
     </div>
+    </details>
 
     <!-- Roadmap -->
-    <h2 class="section-title">Roadmap &amp; Progress</h2>
+    <details class="collapsible-section">
+    <summary id="roadmap">Roadmap &amp; Progress</summary>
     <div class="content-section">
       <ul class="roadmap-list">
         <li><span class="status-done">&#10003;</span> Service layer &amp; REST API</li>
@@ -1319,6 +1460,7 @@
         <li><span class="status-todo">&#9675;</span> Mobile app</li>
       </ul>
     </div>
+    </details>
 
     <!-- Skills Demonstrated -->
     <details open class="collapsible-section">
@@ -1462,7 +1604,7 @@
     </div>
   </div>
 
-  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="
+  <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})" style="
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -1471,14 +1613,14 @@
     border: 2px solid #000000;
     background: #ffffff !important;
     color: #000000;
-    font-size: 1.3em;
+    font-size: 1.4em;
     cursor: pointer;
     display: none;
     align-items: center;
     justify-content: center;
     z-index: 1000;
     font-weight: 700;
-  ">&uarr;</button>
+  ">&#9776;</button>
 
   <script>
     const btn = document.getElementById('back-to-top');
