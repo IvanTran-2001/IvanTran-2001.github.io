@@ -33,4 +33,14 @@
       navbar.classList.remove('navbar--hidden');
     }
   });
+
+  // Always reset collapsible sections to closed on page show (handles bfcache restore)
+  window.addEventListener('pageshow', function () {
+    document.querySelectorAll('details').forEach(function (d) {
+      d.removeAttribute('open');
+    });
+    if (typeof openSectionByHash === 'function' && window.location.hash) {
+      openSectionByHash(window.location.hash);
+    }
+  });
 })();
