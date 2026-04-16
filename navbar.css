@@ -15,8 +15,8 @@
   justify-content: space-between;
   padding: 0 20px;
   height: 56px;
-  max-width: 100%;
   margin: -40px -20px 0 -20px;
+  box-sizing: content-box;
 }
 
 .navbar-name {
