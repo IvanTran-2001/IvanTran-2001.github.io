@@ -39,9 +39,9 @@
 .navbar-links a {
   color: #000000;
   text-decoration: none;
-  font-size: 0.85em;
+  font-size: 0.78em;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   transition: opacity 0.2s ease;
 }
