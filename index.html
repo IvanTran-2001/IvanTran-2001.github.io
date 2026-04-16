@@ -295,6 +295,23 @@
       color: #ffffff;
     }
 
+    /* Project status badges */
+    .proj-badge {
+      font-size: 0.68em;
+      font-weight: 700;
+      padding: 2px 8px;
+      border: 1px solid;
+      vertical-align: middle;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+    .badge-live     { background: #d4edda; color: #155724; border-color: #155724; }
+    .badge-wip      { background: #fff3cd; color: #856404; border-color: #856404; }
+    .badge-finalist { background: #f8d7da; color: #721c24; border-color: #721c24; }
+    .badge-grade    { background: #fff8e1; color: #7b5800; border-color: #c8900a; }
+    .badge-ongoing  { background: #d1ecf1; color: #0c5460; border-color: #0c5460; }
+    .badge-industry { background: #ede0f5; color: #5a2d82; border-color: #7b3fa0; }
+
     /* Footer */
     footer {
       border-top: 2px solid #000000;
@@ -610,7 +627,7 @@
       <div class="project-card">
         <img src="projects/pictures/Logo.png" alt="FriendChise" class="project-card-image">
         <div class="project-card-content">
-          <h3>FriendChise <span style="font-size:0.75em;font-weight:600;border:1px solid #000;padding:2px 7px;">V1 — Live</span></h3>
+          <h3>FriendChise <span class="proj-badge badge-live">V1 — Live</span></h3>
           <p>A multi-tenant task management SaaS for franchise businesses with timetable scheduling, templates, and role-based access control.</p>
           <ul>
             <li>Multi-tenant RBAC with franchise hierarchy — owner, manager, and member permission scopes</li>
@@ -633,7 +650,7 @@
       <div class="project-card">
         <img src="projects/pictures/multitenant-ecommerce1.png" alt="Multitenant E-Commerce" class="project-card-image">
         <div class="project-card-content">
-          <h3>Multitenant E-Commerce <span style="font-size:0.75em;font-weight:600;border:1px solid #000;padding:2px 7px;">In Progress</span></h3>
+          <h3>Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></h3>
           <p>A multi-tenant SaaS e-commerce platform where each seller's data and products are isolated through role-based access control.</p>
           <ul>
             <li>PayloadCMS multi-tenant plugin with tenant-scoped data isolation</li>
@@ -654,7 +671,7 @@
       <div class="project-card">
         <img src="projects/pictures/mernThinkboard.png" alt="MERN Thinkboard" class="project-card-image">
         <div class="project-card-content">
-          <h3>MERN Thinkboard</h3>
+          <h3>MERN Thinkboard <span class="proj-badge badge-live">Live</span></h3>
           <p>A full-stack note-taking application with secure user authentication and authorisation.</p>
           <ul>
             <li>JWT authentication with 7-day token expiry</li>
@@ -677,7 +694,7 @@
       <div class="project-card">
         <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image">
         <div class="project-card-content">
-          <h3>QA Wolf Testing</h3>
+          <h3>QA Wolf Testing <span class="proj-badge badge-finalist">Final Stage</span></h3>
           <p>Automation tool validating article sort order on Hacker News using Playwright-driven web scraping.</p>
           <ul>
             <li>Cross-browser scraping with Playwright</li>
@@ -699,7 +716,7 @@
       <div class="project-card">
         <img src="projects/pictures/vendingmachine.png" alt="Vending Machine" class="project-card-image">
         <div class="project-card-content">
-          <h3>Vending Machine Simulator</h3>
+          <h3>Vending Machine Simulator <span class="proj-badge badge-grade">100% Grade</span></h3>
           <p>C++ systems project demonstrating custom data structure implementation, memory management, and design patterns.</p>
           <ul>
             <li>Implemented custom singly linked list without STL containers</li>
@@ -720,7 +737,7 @@
       <div class="project-card">
         <img src="projects/pictures/leetcode.png" alt="LeetCode" class="project-card-image">
         <div class="project-card-content">
-          <h3>Competitive Programming & Certifications</h3>
+          <h3>Competitive Programming & Certifications <span class="proj-badge badge-ongoing">Ongoing</span></h3>
           <p>Ongoing algorithmic problem solving with a focus on time and space complexity optimisation.</p>
           <ul>
             <li><strong>LeetCode:</strong> 200+ problems — Easy (68), Medium (100), Hard (25)</li>
@@ -741,7 +758,7 @@
       <div class="project-card">
         <img src="projects/pictures/warehouse-echt.png" alt="Warehouse" class="project-card-image">
         <div class="project-card-content">
-          <h3>Warehouse Consulting</h3>
+          <h3>Warehouse Consulting <span class="proj-badge badge-industry">Real-World</span></h3>
           <p>Database redesign and optimisation consulting engagement for a warehouse management system.</p>
           <ul>
             <li>Optimised SQL queries and indexing strategies for improved performance</li>
