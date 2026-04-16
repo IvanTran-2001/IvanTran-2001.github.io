@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../navbar.css">
   <style>
     * {
       margin: 0;
@@ -42,94 +43,6 @@
     .badge, .tech-card, .feature-card, .stat-card, .tech-category, .persona-card, .story-card, .flow-card {
       border: 1px solid #000000 !important;
       background: #ffffff !important;
-    }
-
-    /* Navbar */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #ffffff;
-      border-bottom: 2px solid #000000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      height: 56px;
-      max-width: 100%;
-      margin: -40px -20px 0 -20px;
-    }
-
-    .navbar-name {
-      font-size: 1em;
-      font-weight: 700;
-      color: #000000;
-      text-decoration: none;
-      white-space: nowrap;
-      flex: 1;
-    }
-
-    .navbar-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      flex: 2;
-      justify-content: center;
-    }
-
-    .navbar-links a {
-      color: #000000;
-      text-decoration: none;
-      font-size: 0.85em;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: opacity 0.2s ease;
-    }
-
-    .navbar-links a:hover { opacity: 0.5; }
-
-    .navbar-socials {
-      display: flex;
-      gap: 12px;
-      flex: 1;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .navbar-socials a {
-      color: #000000;
-      text-decoration: none;
-      font-size: 0.85em;
-      font-weight: 600;
-      border: 1.5px solid #000000;
-      padding: 4px 12px;
-      transition: background 0.2s ease, color 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .navbar-socials a:hover {
-      background: #000000 !important;
-      color: #ffffff !important;
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        flex-wrap: wrap;
-        height: auto;
-        padding: 10px 16px;
-        gap: 8px;
-        margin: -40px -20px 0 -20px;
-      }
-      .navbar-links {
-        order: 3;
-        flex: 0 0 100%;
-        gap: 14px;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding-bottom: 6px;
-      }
-      .navbar-socials { flex: 0; }
     }
 
     /* Hero */
@@ -259,6 +172,8 @@
       color: #333333;
       margin-bottom: 10px;
       line-height: 1.6;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
 
     .content-section strong {
@@ -1630,6 +1545,24 @@
       } else {
         btn.style.display = 'none';
       }
+    });
+
+    function openSectionByHash(hash) {
+      if (!hash) return;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      const details = target.closest('details');
+      if (details) details.open = true;
+    }
+
+    // Open on page load if navigated with a hash
+    openSectionByHash(window.location.hash);
+
+    // Open when clicking anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        openSectionByHash(this.getAttribute('href'));
+      });
     });
   </script>
 </body>
