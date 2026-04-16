@@ -102,4 +102,9 @@
     flex: none;
     justify-content: center;
   }
+
+  /* Taller stacked nav on mobile needs more offset */
+  [id] {
+    scroll-margin-top: 140px;
+  }
 }
