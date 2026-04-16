@@ -149,6 +149,7 @@
       border: 1px solid #000000;
       padding: 30px;
       margin-bottom: 30px;
+      overflow: hidden;
     }
 
     .content-section h3 {
@@ -545,6 +546,8 @@
       .permission-table, .generic-table { font-size: 0.78em; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .content-section { padding: 20px 16px; }
+      .content-section ol { padding-left: 18px; }
+      .content-section li { word-break: break-word; overflow-wrap: break-word; }
       .tech-section { padding: 20px 16px; }
       .footer-cta { padding: 24px 16px; }
       .flow-card { padding: 15px; }
@@ -1553,15 +1556,23 @@
       if (!target) return;
       const details = target.closest('details');
       if (details) details.open = true;
+      // Wait one frame for layout to update after details opens, then scroll
+      requestAnimationFrame(function() {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     }
 
     // Open on page load if navigated with a hash
     openSectionByHash(window.location.hash);
 
-    // Open when clicking anchor links
+    // Open when clicking anchor links — prevent native scroll, do it manually after details opens
     document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-      link.addEventListener('click', function() {
-        openSectionByHash(this.getAttribute('href'));
+      link.addEventListener('click', function(e) {
+        var hash = this.getAttribute('href');
+        if (!hash || hash === '#') return;
+        e.preventDefault();
+        openSectionByHash(hash);
+        history.pushState(null, '', hash);
       });
     });
   </script>
