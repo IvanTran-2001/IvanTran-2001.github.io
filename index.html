@@ -351,11 +351,67 @@
     }
 
     /* Contact Form */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 24px;
+      margin: 20px 0 40px 0;
+      align-items: start;
+    }
+
     .contact-form-wrapper {
       border: 2px solid #000000;
       padding: 40px;
-      margin: 20px 0 40px 0;
-      max-width: 640px;
+    }
+
+    .contact-sidebar {
+      border: 2px solid #000000;
+      padding: 28px;
+    }
+
+    .contact-sidebar h4 {
+      font-size: 1em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #000000;
+      padding-bottom: 10px;
+    }
+
+    .contact-social-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1.5px solid #000000;
+      text-decoration: none;
+      color: #000000;
+      font-weight: 600;
+      font-size: 0.9em;
+      margin-bottom: 12px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .contact-social-link:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-social-link:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .contact-social-link i {
+      font-size: 1.2em;
+      width: 20px;
+      text-align: center;
+    }
+
+    .contact-social-desc {
+      display: block;
+      font-size: 0.75em;
+      font-weight: 400;
+      opacity: 0.6;
+      margin-top: 2px;
     }
 
     .contact-form-wrapper h3 {
@@ -506,6 +562,10 @@
         gap: 10px;
       }
 
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
       .contact-form-wrapper {
         padding: 24px 16px;
       }
@@ -549,8 +609,8 @@
       <a href="https://github.com/IvanTran-2001" target="_blank" style="color: #000000; text-decoration: none; font-weight: 600;">Portfolio/Github</a>
     </p>
     <div class="hero-cta">
-      <a href="#projects" class="cta-btn">View Projects</a>
-      <a href="#contact" class="cta-btn">Get In Touch</a>
+      <a href="#projects" class="cta-btn"><i class="fas fa-folder-open"></i> View Projects</a>
+      <a href="#contact" class="cta-btn"><i class="fas fa-envelope"></i> Get In Touch</a>
     </div>
   </div>
 
@@ -574,8 +634,8 @@
           </p>
           
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/IvanTran-2001" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/IvanTran-2001" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           </div>
 
           <div class="resume-buttons">
@@ -801,7 +861,8 @@
     <p style="font-size: 0.95em; color: #333; margin-bottom: 24px;">
       Open to full-stack engineer roles — on-site (Melbourne), hybrid, and remote.
     </p>
-    <div class="contact-form-wrapper">
+    <div class="contact-layout">
+      <div class="contact-form-wrapper">
       <h3>Send Me a Message</h3>
       <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
         <div class="form-group">
@@ -823,6 +884,22 @@
         <button type="submit" class="contact-submit">Send</button>
         <div class="form-success" id="form-success">Message sent — I'll get back to you soon.</div>
       </form>
+      </div>
+      <div class="contact-sidebar">
+        <h4>Find Me Online</h4>
+        <a href="https://github.com/IvanTran-2001" target="_blank" class="contact-social-link">
+          <i class="fab fa-github"></i>
+          <span>GitHub<span class="contact-social-desc">IvanTran-2001</span></span>
+        </a>
+        <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" class="contact-social-link">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn<span class="contact-social-desc">ivan-tran-76164017a</span></span>
+        </a>
+        <a href="mailto:mystoganx2001@gmail.com" class="contact-social-link">
+          <i class="fas fa-envelope"></i>
+          <span>Email<span class="contact-social-desc">mystoganx2001@gmail.com</span></span>
+        </a>
+      </div>
     </div>
   </div>
 

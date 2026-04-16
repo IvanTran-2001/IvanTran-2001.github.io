@@ -17,6 +17,11 @@
   height: 56px;
   margin: -40px -20px 0 -20px;
   box-sizing: content-box;
+  transition: transform 0.3s ease;
+}
+
+.navbar--hidden {
+  transform: translateY(-100%);
 }
 
 .navbar-name {
@@ -30,7 +35,7 @@
 
 .navbar-links {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   list-style: none;
   flex: 2;
   justify-content: center;
@@ -39,11 +44,12 @@
 .navbar-links a {
   color: #000000;
   text-decoration: none;
-  font-size: 0.78em;
+  font-size: 0.75em;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   transition: opacity 0.2s ease;
+  white-space: nowrap;
 }
 
 .navbar-links a:hover {
@@ -94,8 +100,16 @@
   .navbar-links {
     flex: none;
     gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+  }
+
+  .navbar-links::-webkit-scrollbar {
+    display: none;
   }
 
   .navbar-socials {
