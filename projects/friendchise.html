@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -112,15 +113,30 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 20px;
+      padding: 11px 22px;
       font-size: 0.9em;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
       border: 2px solid #000000;
       color: #000000;
       background: #ffffff;
       cursor: pointer;
       transition: background 0.2s ease, color 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .cta-btn:hover {
+      background: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    .cta-btn.primary {
+      background: #000000 !important;
+      color: #ffffff !important;
+    }
+
+    .cta-btn.primary:hover {
+      background: #333333 !important;
     }
 
     .cta-btn:hover {
@@ -650,8 +666,8 @@
       </div>
 
       <div class="hero-cta">
+        <a href="https://friend-chise.vercel.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
         <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
-        <a href="https://friend-chise.vercel.app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
         <a href="https://www.figma.com/design/C2d8pW561eJxJfjL3PmbmI/FriendChise?node-id=10-291&t=HRkbaI53bDENuwXC-1" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler"></i> Figma Design</a>
         <a href="https://dbdiagram.io/d/FriendChise-69c4cbff78c6c4bc7a6fd6e9" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-database"></i> DB Schema</a>
       </div>
@@ -1552,7 +1568,7 @@
 
       <p>
         Full test report and individual bug issues are tracked on
-        <a href="https://github.com/IvanTran-2001/FriendChise" target="_blank" style="font-weight: 600;">GitHub</a>.
+        <a href="https://github.com/IvanTran-2001/FriendChise" target="_blank" style="font-weight:700; text-decoration:underline;"><i class="fab fa-github"></i> GitHub</a>.
       </p>
     </div>
     </details>
