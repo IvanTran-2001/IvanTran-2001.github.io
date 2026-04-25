@@ -656,14 +656,15 @@
       <h1 style="line-height:0; font-size:0; margin-bottom:20px;">
         <img src="pictures/Logo.png" alt="FriendChise" style="width:100%; height:260px; object-fit:cover; object-position:center; display:block;">
       </h1>
-      <p class="hero-subtitle">Inspired by real inefficiencies observed at Walker's Donuts — a multi-tenant task management platform for franchise and multi-location businesses that need consistency. Restaurants, cafés, retail chains, and service franchises use timetable scheduling, reusable templates, and role-based access control to maintain operational standards. Future roadmap includes a knowledge-sharing hub. Deployed and live on Vercel.</p>
+      <p class="hero-subtitle">Currently in production pilot at a Walker's Doughnuts franchise on an isolated Supabase instance. A multi-tenant task management platform for franchise and multi-location businesses that need consistent execution, knowledge sharing, and role-based access across many sites.</p>
 
       <div class="hero-badges">
         <span class="badge">Full-Stack</span>
         <span class="badge">Multi-Tenant</span>
         <span class="badge">RBAC</span>
         <span class="badge">SaaS</span>
-        <span class="badge">V1 — Live</span>
+        <span class="badge">V1 &mdash; Live</span>
+        <span class="badge">In Pilot at Walker's Donuts</span>
       </div>
 
       <div class="hero-cta">
@@ -683,6 +684,8 @@
       <h3>Jump to Section</h3>
       <div class="toc-grid">
         <a href="#whats-live" class="toc-link"><i class="fas fa-check-circle"></i><span>What's Live in V1</span></a>
+        <a href="#why-infrastructure" class="toc-link"><i class="fas fa-shield-halved"></i><span>Why V1 Is Heavy<span class="toc-sub">infrastructure-first rationale</span></span></a>
+        <a href="#v2-vision" class="toc-link"><i class="fas fa-rocket"></i><span>V2 Vision<span class="toc-sub">tools, posts, comments</span></span></a>
         <a href="#problem" class="toc-link"><i class="fas fa-exclamation-circle"></i><span>The Problem</span></a>
         <a href="#solution" class="toc-link"><i class="fas fa-lightbulb"></i><span>The Solution</span></a>
         <a href="#design" class="toc-link"><i class="fas fa-pencil-ruler"></i><span>Design &amp; Architecture<span class="toc-sub">Figma + DB Schema</span></span></a>
@@ -721,6 +724,10 @@
       <div class="stat-card">
         <div class="stat-number">6</div>
         <div class="stat-label">Permission Types</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Real-World Pilot</div>
       </div>
     </div>
 
@@ -794,7 +801,47 @@
         <li><strong>Franchise Cloning</strong> &mdash; joining a franchise auto-clones all roles, tasks, and timetable settings from the parent org</li>
         <li><strong>Dynamic Breadcrumbs</strong> &mdash; async server component resolves dynamic route IDs to human-readable names via Prisma</li>
         <li><strong>Role Security</strong> &mdash; three-layer owner role guard plus cross-tenant task ID validation in transactions</li>
+        <li><strong>Production / Demo Data Isolation</strong> &mdash; the public demo and the Walker's pilot run on separate Supabase databases, OAuth clients, and auth secrets</li>
       </ul>
+    </div>
+    </details>
+
+    <!-- Why V1 Is Infrastructure-Heavy -->
+    <details class="collapsible-section">
+    <summary id="why-infrastructure">Why V1 Is Infrastructure-Heavy</summary>
+    <div class="content-section">
+      <p>
+        The app is being trialled at a real franchise from V1 &mdash; which meant multi-tenant isolation, RBAC, and franchise hierarchy had to ship before any worker-facing features. Tasks contain proprietary recipes that only certain roles should see. Permissions couldn't be bolted on later; they had to exist before the first real worker ever logged in.
+      </p>
+      <p>
+        V1 looks like an &ldquo;admin panel&rdquo; because the worker-facing flow is intentionally V2 territory. Shipping the platform first &mdash; with the full permission model, franchise hierarchy, and invite system in place &mdash; lets V2 focus purely on product, not plumbing. The infrastructure cost is paid once; every V2 feature builds on top of it for free.
+      </p>
+      <p>
+        V1.5 (next milestone) adds rate limiting and security hardening before V2 work begins. No worker-facing features ship to a real shop without those guardrails in place.
+      </p>
+    </div>
+    </details>
+
+    <!-- What's Coming in V2 -->
+    <details class="collapsible-section">
+    <summary id="v2-vision">What's Coming in V2</summary>
+    <div class="content-section">
+      <p>V2 is the actual product the platform was built to enable. V1 made it safe for a real shop. V2 is what makes it useful for every worker in that shop.</p>
+
+      <h3>Tasks Become Rich, Composable Work Units</h3>
+      <p>Each task gets tabs &mdash; configurable per task &mdash; and pluggable &ldquo;tools&rdquo;: calculators, recipes, media, and more. Workers click a task and see exactly what they need, in the order that makes sense for that job.</p>
+
+      <h3>The Conversion Tool &mdash; First V2 Feature to Ship</h3>
+      <p>You're making custard for 200 doughnuts. The tool tells you: 5L milk, 10L thick cream, 1.25L custard powder. Edit one number, everything scales. This is the first pluggable tool and the clearest demonstration of what &ldquo;task as work unit&rdquo; actually means.</p>
+
+      <h3>More V2 Changes</h3>
+      <ul>
+        <li><strong>Task detail page becomes orderable</strong> &mdash; item cards, recipe steps, embedded images and videos. Workers can see a clear visual breakdown without digging through text.</li>
+        <li><strong>Task types</strong> &mdash; the schema gains a <code>kind</code> field (recipe, chore, daily task, etc.) so the UI can render each type appropriately instead of treating every task the same way.</li>
+        <li><strong>Posts and comments layer</strong> &mdash; announcements and trending tasks become a feed. Comments on tasks and posts have up/down votes. The franchisor can flag posts as &ldquo;official&rdquo; or &ldquo;urgent&rdquo; to surface critical procedures above the noise.</li>
+      </ul>
+
+      <p><em>V1 made the platform safe for a real shop. V2 is what the platform was built to enable.</em></p>
     </div>
     </details>
 
@@ -1501,7 +1548,7 @@
     <div class="content-section">
       <h3>Smoke Test Report — V1</h3>
       <p>
-        A structured smoke test was conducted across 87 individual test cases covering all major features,
+        A structured smoke test was conducted across 87 individual test cases (now 468 unit tests + Playwright E2E in CI) covering all major features,
         RBAC permissions, mobile responsiveness, and edge cases. Each test was documented with pass/fail/partial
         status and detailed notes.
       </p>
