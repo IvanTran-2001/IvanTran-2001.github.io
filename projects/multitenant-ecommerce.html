@@ -3,107 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Multitenant E-Commerce Platform - Next.js, PayloadCMS, MongoDB, tRPC, TypeScript. Multi-tenant data isolation, role-based access control, and type-safe API. Built by Ivan Tran.">
-  <meta name="keywords" content="Next.js, PayloadCMS, MongoDB, tRPC, TypeScript, Multi-tenant, E-Commerce, Role-Based Access Control, shadcn/ui, Tailwind">
+  <meta name="description" content="Multitenant E-Commerce Platform — Next.js 16, PayloadCMS, MongoDB, tRPC, TypeScript with role-based tenant isolation.">
+  <meta name="keywords" content="Next.js, PayloadCMS, MongoDB, tRPC, TypeScript, Multi-tenant, E-Commerce, RBAC">
   <meta name="author" content="Ivan Tran">
   <title>Multitenant E-Commerce | Ivan Tran</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="friendchise.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* ── Base ── */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #ffffff; color: #000000; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-    *, *::before, *::after { border-color: #000000 !important; background: transparent !important; }
-    body, .hero, .container, .content-section, .tech-section, .footer-cta, .navbar { background: #ffffff !important; }
-    h1, h2, h3, h4, h5, h6, p, li, span, div, a { color: #000000 !important; }
-    .badge, .tech-card, .feature-card, .stat-card, .tech-category { border: 1px solid #000000 !important; background: #ffffff !important; }
-    /* ── Hero ── */
-    .hero { border-bottom: 2px solid #000000; padding: 40px 0; text-align: center; margin-bottom: 40px; }
-    .back-link { display: inline-block; margin-bottom: 20px; color: #000000; text-decoration: none; font-weight: 600; font-size: 0.9em; }
-    .back-link:hover { text-decoration: underline; }
-    .hero h1 { font-size: 2.5em; margin-bottom: 10px; font-weight: 700; }
-    .hero-subtitle { font-size: 1.05em; color: #333333; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
-    .hero-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
-    .badge { background: #ffffff; border: 1px solid #000000; padding: 6px 12px; font-size: 0.85em; font-weight: 600; }
-    .hero-cta { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; font-size: 0.9em; font-weight: 700; text-decoration: none; border: 2px solid #000000; color: #000000; background: #ffffff; cursor: pointer; transition: background 0.2s ease, color 0.2s ease; letter-spacing: 0.02em; }
-    .cta-btn:hover { background: #000000 !important; color: #ffffff !important; }
-    .cta-btn.primary { background: #000000 !important; color: #ffffff !important; }
-    /* ── Layout ── */
-    .container { max-width: 900px; margin: 0 auto; padding: 40px 0; }
-    /* ── Screenshots ── */
-    .screenshots-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0 20px 0; }
-    .screenshot-item img { width: 100%; border: 1px solid #000000; display: block; }
-    .screenshot-item p { font-size: 0.78em; color: #555555; text-align: center; margin-top: 6px; }
-    /* ── Content Sections ── */
-    .content-section { border: 1px solid #000000; padding: 30px; margin-bottom: 30px; }
-    .content-section h3 { margin-bottom: 15px; font-size: 1.2em; font-weight: 700; border-bottom: 1px solid #000000; padding-bottom: 8px; }
-    .content-section p { color: #333333; margin-bottom: 15px; line-height: 1.8; }
-    .content-section ul { padding-left: 25px; margin-bottom: 10px; }
-    .content-section li { color: #333333; margin-bottom: 10px; line-height: 1.6; overflow-wrap: break-word; word-break: break-word; }
-    .content-section strong { color: #000000; font-weight: 700; }
-    code { background: #f5f5f5 !important; color: #000000 !important; padding: 2px 6px; font-family: 'Courier New', monospace; font-size: 0.9em; border: 1px solid #cccccc !important; }
-    /* ── Learning Note ── */
-    .learning-note { border: 2px solid #000000; border-left: 6px solid #000000; padding: 20px 25px; margin-bottom: 30px; }
-    .learning-note p { color: #333333; font-size: 0.95em; margin: 0; }
-    .learning-note strong { font-weight: 700; color: #000000; }
-    /* ── Tech ── */
-    .tech-section { border: 1px solid #000000; padding: 30px 20px; margin-bottom: 30px; }
-    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 30px; }
-    .tech-card { border: 1px solid #000000; padding: 20px; text-align: center; }
-    .tech-card h4 { margin-bottom: 8px; font-size: 1em; font-weight: 700; }
-    .tech-card p { color: #333333; font-size: 0.85em; line-height: 1.5; }
-    .tech-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .tech-category { border: 1px solid #000000; padding: 15px; }
-    .tech-category h5 { margin-bottom: 12px; font-size: 1em; font-weight: 700; }
-    .tech-category p { color: #333333; font-size: 0.9em; line-height: 1.6; }
-    /* ── Features ── */
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 30px; }
-    .feature-card { border: 1px solid #000000; padding: 25px; }
-    .feature-icon { font-size: 2em; margin-bottom: 12px; }
-    .feature-card h3 { margin-bottom: 10px; font-size: 1.1em; font-weight: 700; border-bottom: none !important; padding-bottom: 0 !important; }
-    .feature-card p { color: #333333; font-size: 0.92em; line-height: 1.6; }
-    /* ── Stats ── */
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 30px; }
-    .stat-card { border: 1px solid #000000; padding: 25px; text-align: center; }
-    .stat-number { font-size: 2.2em; font-weight: 700; margin-bottom: 8px; }
-    .stat-label { color: #333333; font-size: 0.9em; }
-    /* ── Footer CTA ── */
-    .footer-cta { border: 2px solid #000000; padding: 40px 30px; text-align: center; margin-bottom: 40px; }
-    .footer-cta h2 { margin-bottom: 15px; font-size: 1.8em; }
-    .footer-cta p { color: #333333; margin-bottom: 25px; }
-    .button-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; font-weight: 600; font-size: 0.95em; text-decoration: none; border: 2px solid #000000; color: #000000; background: #ffffff; cursor: pointer; }
-    .btn:hover { background: #000000 !important; color: #ffffff !important; }
-    /* ── Collapsible ── */
-    details.collapsible-section { border: none; margin-bottom: 0; }
-    details.collapsible-section > summary { font-size: 1.5em; margin: 50px 0 20px 0; font-weight: 700; border-bottom: 2px solid #000000; padding-bottom: 10px; cursor: pointer; list-style: revert; }
-    details.collapsible-section > summary:hover { background: transparent !important; }
-    /* ── TOC ── */
-    .toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; margin-top: 8px; }
-    .toc-link { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 1.5px solid #000000; text-decoration: none; color: #000000; font-weight: 600; font-size: 0.88em; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; line-height: 1.35; }
-    .toc-link:hover { background: #000000 !important; color: #ffffff !important; }
-    .toc-link i { margin-top: 3px; flex-shrink: 0; width: 16px; text-align: center; }
-    .toc-sub { font-size: 0.78em; font-weight: 400; opacity: 0.65; display: block; margin-top: 2px; line-height: 1.2; }
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2em; }
-      .hero { padding: 30px 0; }
-      .hero-cta { flex-direction: column; align-items: stretch; }
-      .cta-btn { width: 100%; text-align: center; }
-      .content-section { padding: 20px 16px; }
-      .tech-section { padding: 20px 16px; }
-      .footer-cta { padding: 24px 16px; }
-      .screenshots-grid { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      details.collapsible-section > summary { font-size: 1.15em; padding-bottom: 8px; }
-      .button-group { flex-direction: column; align-items: stretch; }
-    }
-  </style>
 </head>
 <body>
 
@@ -125,7 +34,8 @@
   <!-- Hero -->
   <div class="hero">
     <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
-    <h1>🏪 Multitenant E-Commerce</h1>
+    <h1>Multitenant E-Commerce</h1>
+    <p class="hero-subtitle">Multi-tenant SaaS e-commerce platform — Next.js 16, PayloadCMS, tRPC, and MongoDB — featuring role-based tenant isolation and end-to-end type safety.</p>
     <div class="screenshots-grid">
       <div class="screenshot-item">
         <img src="pictures/multitenant-ecommerce1.png" alt="Main storefront with category filters">
@@ -136,14 +46,13 @@
         <p>Tenant storefront — per-seller product listings</p>
       </div>
     </div>
-    <p class="hero-subtitle">Multi-Tenant SaaS E-Commerce Platform built with Next.js 16, PayloadCMS, tRPC, and MongoDB — featuring role-based tenant isolation and end-to-end type safety.</p>
     <div class="hero-badges">
       <span class="badge">Next.js 16</span>
       <span class="badge">PayloadCMS</span>
       <span class="badge">TypeScript</span>
       <span class="badge">Multi-Tenant</span>
       <span class="badge">tRPC</span>
-      <span class="badge">Bun</span>
+      <span class="badge wip">In Progress</span>
     </div>
     <div class="hero-cta">
       <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" class="cta-btn primary" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
@@ -151,7 +60,6 @@
     </div>
   </div>
 
-  <!-- Main Content -->
   <div class="container">
 
     <!-- TOC -->
@@ -163,18 +71,24 @@
         <a href="#tech" class="toc-link"><i class="fas fa-layer-group"></i><span>Technology Stack</span></a>
         <a href="#features" class="toc-link"><i class="fas fa-star"></i><span>Key Features</span></a>
         <a href="#architecture" class="toc-link"><i class="fas fa-sitemap"></i><span>Architecture</span></a>
-        <a href="#stats" class="toc-link"><i class="fas fa-chart-bar"></i><span>At a Glance</span></a>
         <a href="#learned" class="toc-link"><i class="fas fa-graduation-cap"></i><span>What I Learned</span></a>
-        <a href="#workflow" class="toc-link"><i class="fas fa-code-branch"></i><span>Dev Workflow</span></a>
       </div>
     </div>
 
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Payload Collections</div></div>
+      <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Admin Role Levels</div></div>
+      <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">Tenants Supported</div></div>
+      <div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">TypeScript Coverage</div></div>
+    </div>
+
     <!-- Demo Video -->
-    <details class="collapsible-section" id="demo">
+    <details class="collapsible-section" id="demo" open>
       <summary><i class="fas fa-play-circle"></i> Demo Video</summary>
       <div class="content-section" style="padding: 0; overflow: hidden; margin-top: 20px;">
-        <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-          <iframe src="https://www.loom.com/embed/00a62fe246f9453ba770e8f43ac52696" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none !important;"></iframe>
+        <div class="video-wrapper">
+          <iframe src="https://www.loom.com/embed/00a62fe246f9453ba770e8f43ac52696" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </details>
@@ -184,18 +98,15 @@
       <summary><i class="fas fa-info-circle"></i> Project Overview</summary>
       <div style="margin-top: 20px;">
         <div class="learning-note">
-          <p><strong>Learning Project (In Progress):</strong> Built by following a structured tutorial to explore advanced Next.js patterns, multi-tenant architecture, and headless CMS integration. The focus was understanding how production-grade SaaS platforms are structured.</p>
+          <p><strong>Learning project (in progress):</strong> Built by following a structured tutorial to explore advanced Next.js patterns, multi-tenant architecture, and headless CMS integration.</p>
         </div>
         <div class="content-section">
-          <p>A multi-tenant e-commerce SaaS platform where each seller's data and products are isolated through role-based access control. Powered by <strong>PayloadCMS</strong> as the headless CMS and admin backend, <strong>Next.js 16</strong> for server-rendered storefronts, and <strong>tRPC</strong> for end-to-end type-safe data access.</p>
+          <p>A multi-tenant e-commerce SaaS where each seller's data and products are isolated through declarative role-based access control. <strong>PayloadCMS</strong> powers the headless backend and admin panel, <strong>Next.js 16</strong> renders the storefronts, and <strong>tRPC</strong> connects them with end-to-end type safety.</p>
           <ul>
-            <li><strong>Multi-Tenancy:</strong> Each tenant's products and settings are isolated through PayloadCMS role-based access control</li>
-            <li><strong>CMS-Driven Backend:</strong> PayloadCMS provides a full admin panel for content, product, and user management</li>
-            <li><strong>Type-Safe API Layer:</strong> tRPC connects Next.js frontend to backend procedures fully end-to-end typed</li>
-            <li><strong>Secure Auth:</strong> httpOnly cookie-based auth set server-side — the JWT never touches <code>localStorage</code></li>
-            <li><strong>Product Discovery:</strong> Hierarchical category nav, tag filtering, price range, and infinite scroll product listings</li>
-            <li><strong>Product Library:</strong> Authenticated users can save and revisit purchased products from their personal library</li>
-            <li><strong>Database Seeding:</strong> Seed script to populate tenants, products, and categories for development and demo environments</li>
+            <li><strong>Multi-tenancy:</strong> Tenant data is scoped at the database level via PayloadCMS access control</li>
+            <li><strong>Auth:</strong> JWT stored in an <code>httpOnly</code> cookie server-side — never exposed to JavaScript</li>
+            <li><strong>Discovery:</strong> Hierarchical category nav, tag &amp; price filters, infinite-scroll listings</li>
+            <li><strong>Library:</strong> Authenticated users access purchased products from a personal library</li>
           </ul>
         </div>
       </div>
@@ -206,20 +117,14 @@
       <summary><i class="fas fa-layer-group"></i> Technology Stack</summary>
       <div class="tech-section" style="margin-top: 20px;">
         <div class="tech-grid">
-          <div class="tech-card"><h4>Next.js 16</h4><p>App Router, server components, and middleware-based routing</p></div>
-          <div class="tech-card"><h4>PayloadCMS</h4><p>Headless CMS with multi-tenant plugin, collections, and admin UI</p></div>
-          <div class="tech-card"><h4>TypeScript</h4><p>Fully typed codebase from Payload-generated types to tRPC procedures</p></div>
-          <div class="tech-card"><h4>MongoDB</h4><p>Document database via Mongoose adapter for flexible data modelling</p></div>
-          <div class="tech-card"><h4>tRPC</h4><p>End-to-end type-safe API without code generation or REST boilerplate</p></div>
-          <div class="tech-card"><h4>React Hook Form + Zod</h4><p>Form state management and schema-based validation with full TypeScript inference</p></div>
-          <div class="tech-card"><h4>Tailwind CSS</h4><p>Utility-first styling for responsive, consistent UI components</p></div>
-          <div class="tech-card"><h4>shadcn/ui</h4><p>Accessible, unstyled component primitives built on Radix UI</p></div>
-          <div class="tech-card"><h4>Bun</h4><p>Fast JavaScript runtime and package manager replacing Node.js/npm</p></div>
-        </div>
-        <div class="tech-categories">
-          <div class="tech-category"><h5><i class="fas fa-server"></i> Backend &amp; CMS</h5><p><strong>PayloadCMS</strong> — Collections, hooks, and access control<br><strong>@payloadcms/plugin-multi-tenant</strong> — Tenant scoping</p></div>
-          <div class="tech-category"><h5><i class="fas fa-database"></i> Database</h5><p><strong>MongoDB</strong> via <code>@payloadcms/db-mongodb</code><br><strong>Mongoose adapter</strong> — Schema validation &amp; queries</p></div>
-          <div class="tech-category"><h5><i class="fas fa-network-wired"></i> API Layer</h5><p><strong>tRPC 11</strong> — Type-safe server/client procedures<br><strong>TanStack Query 5</strong> — Caching, infinite scroll &amp; async state</p></div>
+          <div class="tech-card"><h4>Next.js 16</h4><p>App Router, server components, middleware</p></div>
+          <div class="tech-card"><h4>PayloadCMS</h4><p>Headless CMS with multi-tenant plugin</p></div>
+          <div class="tech-card"><h4>TypeScript</h4><p>End-to-end typing from Payload to tRPC</p></div>
+          <div class="tech-card"><h4>MongoDB</h4><p>Document database via Mongoose adapter</p></div>
+          <div class="tech-card"><h4>tRPC 11</h4><p>Type-safe API layer, no codegen</p></div>
+          <div class="tech-card"><h4>TanStack Query 5</h4><p>Caching &amp; infinite scroll</p></div>
+          <div class="tech-card"><h4>React Hook Form + Zod</h4><p>Schema-based form validation</p></div>
+          <div class="tech-card"><h4>Tailwind + shadcn/ui</h4><p>Accessible primitives on Radix UI</p></div>
         </div>
       </div>
     </details>
@@ -228,16 +133,12 @@
     <details class="collapsible-section" id="features">
       <summary><i class="fas fa-star"></i> Key Features</summary>
       <div class="features-grid" style="margin-top: 20px;">
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-globe"></i></div><h3>Role-Based Multi-Tenancy</h3><p>Each tenant's data is isolated at the database level via PayloadCMS access control hooks. Tenant admins can only view and manage their own products and settings; super-admins have unrestricted access across all tenants.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-user-shield"></i></div><h3>Role-Based Access Control</h3><p>Super-admins have global access across all tenants. Tenant admins can only manage their own store's products and settings, enforced at the CMS level.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-lock"></i></div><h3>Secure Cookie-Based Auth</h3><p>Payload's built-in auth writes the JWT into an <strong>httpOnly cookie</strong> server-side, never exposed to JavaScript, protecting against XSS token theft.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-scroll"></i></div><h3>Infinite Scroll</h3><p>Product listings use TanStack Query's <code>useInfiniteQuery</code> with server-side prefetching; the first page is rendered on the server and subsequent pages load seamlessly.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-code"></i></div><h3>tRPC Type-Safe API</h3><p>All data-fetching between the Next.js app and backend goes through tRPC routers, providing compile-time type checking and eliminating runtime type mismatches.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-tags"></i></div><h3>Hierarchical Categories &amp; Tags</h3><p>Categories support parent/subcategory nesting and auto-populate their children. Combined with flat tags, this powers a rich multi-level nav and filter UI.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-filter"></i></div><h3>Filters &amp; Pagination</h3><p>Product listings support category/tag filtering and paginated results, keeping storefronts performant regardless of catalogue size.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-th-large"></i></div><h3>PayloadCMS Admin Panel</h3><p>Fully featured admin interface auto-generated by Payload for managing products, tenants, users, media, and refund policies.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-book"></i></div><h3>Product Library</h3><p>Authenticated users have a personal product library where they can access and revisit their purchased products, persisted in the database and protected behind auth.</p></div>
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-pen-nib"></i></div><h3>Rich Text Descriptions</h3><p>Product descriptions use Payload's <strong>Lexical</strong> rich text editor. Sellers can format content with headings, lists, and inline styles, stored as structured JSON.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-globe"></i></div><h3>Role-Based Multi-Tenancy</h3><p>Each tenant's data is isolated via PayloadCMS access control hooks; super-admins have unrestricted access.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-lock"></i></div><h3>Secure Cookie Auth</h3><p>JWT lives in an <code>httpOnly</code> cookie set server-side, protecting against XSS token theft.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-scroll"></i></div><h3>Infinite Scroll</h3><p>TanStack Query's <code>useInfiniteQuery</code> with server-side prefetching for fast first paint.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-code"></i></div><h3>Type-Safe tRPC API</h3><p>Compile-time guarantees end-to-end using Payload's auto-generated TypeScript types.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-tags"></i></div><h3>Hierarchical Categories</h3><p>Parent/subcategory nesting powers a multi-level nav and combined tag filtering.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-th-large"></i></div><h3>Payload Admin Panel</h3><p>Auto-generated admin UI for products, tenants, users, and media.</p></div>
       </div>
     </details>
 
@@ -247,27 +148,16 @@
       <div style="margin-top: 20px;">
         <div class="content-section">
           <h3>Tenant Data Isolation</h3>
-          <p>The <code>multiTenantPlugin</code> attaches a tenant relationship to the products collection. When a tenant admin logs in, PayloadCMS access control hooks filter all queries to only return records belonging to their tenant. Super-admins bypass these restrictions and can manage any tenant's data — configured declaratively with no manual access control logic per collection.</p>
+          <p>The <code>multiTenantPlugin</code> attaches a tenant relationship to scoped collections. PayloadCMS access control hooks then filter queries declaratively — tenant admins only see their own data, super-admins see everything. No manual access logic per collection.</p>
         </div>
         <div class="content-section">
           <h3>Authentication Flow</h3>
-          <p>The user submits credentials via the sign-in form. The tRPC <code>login</code> mutation calls Payload's local auth API server-side, which validates credentials and returns a JWT. That token is written into an <strong>httpOnly cookie</strong>; the browser sends it automatically on every request, but JavaScript cannot read it, preventing XSS-based token theft. On the client, <code>queryClient.invalidateQueries</code> refreshes the session state after login or logout.</p>
+          <p>The tRPC <code>login</code> mutation invokes Payload's local auth API server-side. The JWT is written to an <code>httpOnly</code> cookie and sent automatically on every request, while remaining unreadable to client JavaScript. <code>queryClient.invalidateQueries</code> refreshes session state on login/logout.</p>
         </div>
         <div class="content-section">
-          <h3>tRPC + TanStack Query Data Layer</h3>
-          <p>The frontend communicates with PayloadCMS through tRPC routers (<code>products</code>, <code>categories</code>, <code>tenants</code>). Each procedure is typed end-to-end using Payload's auto-generated TypeScript types. <strong>TanStack Query 5</strong> handles caching, background refetching, and infinite scroll via <code>useInfiniteQuery</code>; the first page is server-prefetched for fast initial load.</p>
+          <h3>Data Layer</h3>
+          <p>tRPC routers (<code>products</code>, <code>categories</code>, <code>tenants</code>) expose Payload data with full type inference. TanStack Query 5 handles caching, background refetch, and infinite scroll; the first page is server-prefetched.</p>
         </div>
-      </div>
-    </details>
-
-    <!-- Stats -->
-    <details class="collapsible-section" id="stats">
-      <summary><i class="fas fa-chart-bar"></i> At a Glance</summary>
-      <div class="stats-grid" style="margin-top: 20px;">
-        <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Payload Collections</div></div>
-        <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Admin Role Levels</div></div>
-        <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">Tenants Supported</div></div>
-        <div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">TypeScript Coverage</div></div>
       </div>
     </details>
 
@@ -275,50 +165,29 @@
     <details class="collapsible-section" id="learned">
       <summary><i class="fas fa-graduation-cap"></i> What I Learned</summary>
       <div class="features-grid" style="margin-top: 20px;">
-        <div class="feature-card"><h3>Multi-Tenant Patterns</h3><p>How to design a single codebase that isolates data per tenant using scoped database queries and declarative access control.</p></div>
-        <div class="feature-card"><h3>Headless CMS Architecture</h3><p>How PayloadCMS acts as both a backend API and admin interface, replacing traditional custom-built admin dashboards.</p></div>
-        <div class="feature-card"><h3>End-to-End Type Safety</h3><p>Using tRPC alongside Payload's auto-generated TypeScript types to ensure frontend and backend are always in sync at compile time.</p></div>
-        <div class="feature-card"><h3>Schema Validation with Zod</h3><p>React Hook Form + Zod handles all form state and input validation. Schemas are defined once and shared between the form and the tRPC input validators.</p></div>
-        <div class="feature-card"><h3>Next.js App Router</h3><p>Leveraging server components, route groups, and middleware for routing logic and server-side data prefetching.</p></div>
-        <div class="feature-card"><h3>Bun Runtime</h3><p>Used Bun as the JavaScript runtime and package manager, which provides significantly faster installs and dev server startup compared to Node.js/npm.</p></div>
-      </div>
-    </details>
-
-    <!-- Dev Workflow -->
-    <details class="collapsible-section" id="workflow">
-      <summary><i class="fas fa-code-branch"></i> Development Workflow</summary>
-      <div style="margin-top: 20px;">
-        <div class="content-section">
-          <h3>Feature Branching</h3>
-          <p>Each feature, fix, or logical unit of work was developed on its own dedicated branch, keeping <code>main</code> stable throughout development. This mirrors standard team workflows where changes are isolated until they're reviewed and ready to merge.</p>
-        </div>
-        <div class="content-section">
-          <h3>Pull Requests &amp; Code Review with CodeRabbit</h3>
-          <p>Every feature branch was merged via a pull request. <strong>CodeRabbit</strong> was integrated as an automated AI code reviewer on each PR, generating descriptive summaries, flagging potential bugs, and suggesting improvements before the code was merged.</p>
-          <ul>
-            <li><strong>Automated summaries:</strong> CodeRabbit produced a plain-English walkthrough of every PR covering what changed, why, and what to watch out for</li>
-            <li><strong>Inline feedback:</strong> Issues were raised as review comments on specific lines, matching the experience of a human peer review</li>
-            <li><strong>Error detection:</strong> Caught logic issues, missing edge cases, and code smells before they landed on <code>main</code></li>
-            <li><strong>Clean commit history:</strong> Merging via PRs kept the Git history readable and each change traceable to a purpose</li>
-          </ul>
-        </div>
+        <div class="feature-card"><h3>Multi-Tenant Patterns</h3><p>Designing a single codebase that isolates data per tenant via scoped queries and declarative access control.</p></div>
+        <div class="feature-card"><h3>Headless CMS Architecture</h3><p>Using PayloadCMS as both backend API and admin UI in place of custom dashboards.</p></div>
+        <div class="feature-card"><h3>End-to-End Type Safety</h3><p>tRPC + Payload's generated types keep client and server in lockstep at compile time.</p></div>
+        <div class="feature-card"><h3>Schema-Based Validation</h3><p>React Hook Form + Zod schemas shared between forms and tRPC input validators.</p></div>
+        <div class="feature-card"><h3>Next.js App Router</h3><p>Server components, route groups, and middleware for SSR data prefetching.</p></div>
+        <div class="feature-card"><h3>PR Workflow</h3><p>Feature branches with PR-based merges, reviewed by <strong>CodeRabbit</strong> AI on every change.</p></div>
       </div>
     </details>
 
     <!-- Footer CTA -->
     <div class="footer-cta">
-      <h2>Explore the Source Code</h2>
-      <p>Browse the repository to see the full implementation of multi-tenant routing, PayloadCMS config, and tRPC routers.</p>
+      <h2>Explore the Source</h2>
+      <p>Browse the repo to see the multi-tenant routing, PayloadCMS config, and tRPC routers.</p>
       <div class="button-group">
-        <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" class="btn" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
-        <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="btn" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-        <a href="../index.html#projects" class="btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" class="cta-btn primary" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
+        <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="cta-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="../index.html#projects" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
 
   </div>
 
-  <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})" style="position:fixed;bottom:30px;right:30px;width:45px;height:45px;border:2px solid #000;background:#fff !important;color:#000;font-size:1.4em;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:1000;font-weight:700;">&#9776;</button>
+  <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})">&#9776;</button>
   <script>
     const btn = document.getElementById('back-to-top');
     window.addEventListener('scroll', function() { btn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
