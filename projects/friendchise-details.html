@@ -221,7 +221,7 @@
     <details class="collapsible-section">
     <summary id="v2-vision">What's New in V2 &mdash; Live</summary>
     <div class="content-section">
-      <p>V2 shipped the worker-facing and operational tools the platform was built to enable. All of the following are live at <a href="https://friend-chise.vercel.app" target="_blank" style="font-weight:600; text-decoration:underline;">friend-chise.vercel.app</a>.</p>
+        V2 shipped the worker-facing and operational tools the platform was built to enable. Rate limiting (Upstash Redis, sliding-window), Sentry monitoring, and the CI pipeline shipped alongside V2. All of the following are live at <a href="https://friend-chise.vercel.app" target="_blank" style="font-weight:600; text-decoration:underline;">friend-chise.vercel.app</a>.
 
       <h3>Pluggable Tools</h3>
       <p>A dedicated Tools section gives each org access to operational utilities. The sidebar lists all available tools, recent sessions are surfaced on the dashboard, and new tools can be added without restructuring the app.</p>
@@ -845,14 +845,14 @@
     <div class="content-section">
       <h3>Smoke Test Report &mdash; V1</h3>
       <p>
-        A structured smoke test was conducted across 87 individual test cases (now 468 unit tests + Playwright E2E in CI) covering all major features, RBAC permissions, mobile responsiveness, and edge cases.
+        A structured smoke test was conducted across 87 individual test cases covering all major features, RBAC permissions, mobile responsiveness, and edge cases. The codebase now has <strong>582 automated tests</strong> across three layers: 468 unit tests, 93 integration tests (real Postgres in CI), and 21 Playwright E2E tests.
       </p>
 
       <div class="stats-grid" style="margin-top: 20px;">
-        <div class="stat-card"><div class="stat-number">87</div><div class="stat-label">Total Tests</div></div>
-        <div class="stat-card"><div class="stat-number">45</div><div class="stat-label">Passed</div></div>
-        <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Partial</div></div>
-        <div class="stat-card"><div class="stat-number">34</div><div class="stat-label">Failed</div></div>
+        <div class="stat-card"><div class="stat-number">468</div><div class="stat-label">Unit Tests</div></div>
+        <div class="stat-card"><div class="stat-number">93</div><div class="stat-label">Integration Tests</div></div>
+        <div class="stat-card"><div class="stat-number">21</div><div class="stat-label">E2E Tests</div></div>
+        <div class="stat-card"><div class="stat-number">582</div><div class="stat-label">Total Automated</div></div>
       </div>
 
       <h4 class="subsection-title">Testing Categories</h4>
@@ -881,8 +881,11 @@
       <h4 class="subsection-title">Methodology</h4>
       <ul>
         <li><strong>Manual smoke testing</strong> &mdash; end-to-end walkthrough of all 14 major features</li>
+        <li><strong>Unit tests (Vitest)</strong> &mdash; 468 tests covering validators, services, RBAC logic, and utility functions</li>
+        <li><strong>Integration tests (Vitest + real Postgres)</strong> &mdash; 93 tests running against a live DB, spinning up in GitHub Actions with a Postgres service container</li>
+        <li><strong>E2E tests (Playwright)</strong> &mdash; 21 browser tests covering auth flows, org creation, task management, and multi-role permission boundaries</li>
+        <li><strong>CI pipeline (GitHub Actions)</strong> &mdash; type-check &rarr; lint &rarr; unit &rarr; integration runs on every push and pull request to master</li>
         <li><strong>RBAC automation script</strong> &mdash; automated route-level permission testing across 15 sensitive URLs</li>
-        <li><strong>Cross-device testing</strong> &mdash; desktop and iPhone</li>
         <li><strong>Two-account testing</strong> &mdash; owner vs default member to verify permission boundaries</li>
       </ul>
 

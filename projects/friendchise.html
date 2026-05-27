@@ -167,7 +167,7 @@
     <h2 class="section-title">By the Numbers</h2>
     <div class="stats-grid">
       <div class="stat-card"><div class="stat-number">19</div><div class="stat-label">Prisma Models</div></div>
-      <div class="stat-card"><div class="stat-number">468</div><div class="stat-label">Unit Tests</div></div>
+      <div class="stat-card"><div class="stat-number">582</div><div class="stat-label">Automated Tests</div></div>
       <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">Personas</div></div>
       <div class="stat-card"><div class="stat-number">36</div><div class="stat-label">Features</div></div>
       <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Real Pilot</div></div>
@@ -191,6 +191,10 @@
       <div class="feature-card">
         <h3>Auth &amp; Security</h3>
         <p>OAuth + JWT sessions, Edge runtime compatibility, org-scoped permission checks on every route. Full RBAC &mdash; not just &ldquo;admin vs user.&rdquo;</p>
+      </div>
+      <div class="feature-card">
+        <h3>Production Engineering</h3>
+        <p>GitHub Actions CI runs type-check &rarr; lint &rarr; 468 unit tests &rarr; 93 integration tests (real Postgres) on every push. Sentry for error monitoring, performance tracing, and session replay. Upstash Redis sliding-window rate limiting on every API route and server action.</p>
       </div>
     </div>
 
