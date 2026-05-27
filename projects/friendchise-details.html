@@ -87,44 +87,49 @@
     <details class="collapsible-section" open>
     <summary id="screenshots">Screenshots</summary>
     <div class="content-section">
-      <div class="screenshots-grid" style="grid-template-columns: 1fr 1fr 1fr;">
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Organizations hub page.png" alt="Organizations hub" loading="lazy">
-          <p>Organizations hub &mdash; multi-tenant org picker</p>
+      <div class="screenshot-carousel" id="main-carousel">
+        <button class="carousel-btn" onclick="carouselStep('main-carousel', -1)" aria-label="Previous screenshot">&#8592;</button>
+        <div class="carousel-track">
+          <div class="carousel-slide active">
+            <img src="pictures/friendchise/Organizations hub page.png" alt="Organizations hub" loading="lazy">
+            <p>Organizations hub &mdash; multi-tenant org picker</p>
+          </div>
+          <div class="carousel-slide">
+            <img src="pictures/friendchise/Org Overview Page.png" alt="Dashboard" loading="lazy">
+            <p>Dashboard &mdash; today's schedule, stats, recent tools</p>
+          </div>
+          <div class="carousel-slide">
+            <img src="pictures/friendchise/Timetable Calender Mode.png" alt="Timetable &mdash; calendar" loading="lazy">
+            <p>Timetable &mdash; weekly calendar with colour-coded task blocks</p>
+          </div>
+          <div class="carousel-slide">
+            <img src="pictures/friendchise/Calender Simple Mode.png" alt="Timetable &mdash; simple list" loading="lazy">
+            <p>Timetable &mdash; simple list view with assignees and status</p>
+          </div>
+          <div class="carousel-slide">
+            <img src="pictures/friendchise/Settings role page.png" alt="Role management" loading="lazy">
+            <p>Roles &mdash; permission system with per-role task eligibility</p>
+          </div>
+          <div class="carousel-slide">
+            <img src="pictures/friendchise/Member List Card Mode.png" alt="Member management" loading="lazy">
+            <p>Members &mdash; card view with roles and bot slot members</p>
+          </div>
+          <div class="carousel-slide">
+            <img src="pictures/friendchise/Tools Page.png" alt="Tools hub" loading="lazy">
+            <p>Tools hub &mdash; pluggable operational tools</p>
+          </div>
+          <div class="carousel-slide">
+            <img src="pictures/friendchise/Conversion Entries.png" alt="Conversion tool" loading="lazy">
+            <p>Conversion Tool &mdash; ingredient scaling by batch</p>
+          </div>
+          <div class="carousel-slide">
+            <img src="pictures/friendchise/Roster List.png" alt="Staff roster" loading="lazy">
+            <p>Roster &mdash; multi-week staff shift scheduling</p>
+          </div>
         </div>
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Org Overview Page.png" alt="Dashboard" loading="lazy">
-          <p>Dashboard &mdash; today's schedule, stats, recent tools</p>
-        </div>
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Timetable Calender Mode.png" alt="Timetable &mdash; calendar" loading="lazy">
-          <p>Timetable &mdash; weekly calendar with colour-coded task blocks</p>
-        </div>
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Calender Simple Mode.png" alt="Timetable &mdash; simple list" loading="lazy">
-          <p>Timetable &mdash; simple list view with assignees and status</p>
-        </div>
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Settings role page.png" alt="Role management" loading="lazy">
-          <p>Roles &mdash; permission system with per-role task eligibility</p>
-        </div>
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Member List Card Mode.png" alt="Member management" loading="lazy">
-          <p>Members &mdash; card view with roles and bot slot members</p>
-        </div>
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Tools Page.png" alt="Tools hub" loading="lazy">
-          <p>Tools hub &mdash; pluggable operational tools</p>
-        </div>
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Conversion Entries.png" alt="Conversion tool" loading="lazy">
-          <p>Conversion Tool &mdash; ingredient scaling by batch</p>
-        </div>
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Roster List.png" alt="Staff roster" loading="lazy">
-          <p>Roster &mdash; multi-week staff shift scheduling</p>
-        </div>
+        <button class="carousel-btn" onclick="carouselStep('main-carousel', 1)" aria-label="Next screenshot">&#8594;</button>
       </div>
+      <div class="carousel-counter" id="main-carousel-counter">1 / 9</div>
     </div>
     </details>
 
@@ -916,6 +921,17 @@
   <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})">&#9776;</button>
 
   <script>
+    function carouselStep(id, dir) {
+      const carousel = document.getElementById(id);
+      const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+      let current = slides.findIndex(s => s.classList.contains('active'));
+      slides[current].classList.remove('active');
+      current = (current + dir + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      const counter = document.getElementById(id + '-counter');
+      if (counter) counter.textContent = (current + 1) + ' / ' + slides.length;
+    }
+
     const btn = document.getElementById('back-to-top');
     window.addEventListener('scroll', function() {
       btn.style.display = window.scrollY > 400 ? 'flex' : 'none';

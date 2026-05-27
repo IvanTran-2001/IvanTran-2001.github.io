@@ -32,6 +32,16 @@ h1, h2, h3, h4, h5, h6, p, li, span, div, a, blockquote { color: #000000 !import
 .screenshots-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0 20px 0; }
 .screenshot-item img { width: 100%; border: 1px solid #000000; display: block; }
 .screenshot-item p { font-size: 0.78em; color: #555555; text-align: center; margin-top: 6px; }
+/* Screenshot carousel */
+.screenshot-carousel { display: flex; align-items: center; gap: 14px; margin: 16px 0 0; }
+.carousel-track { flex: 1; overflow: hidden; border: 1px solid #000; }
+.carousel-slide { display: none; }
+.carousel-slide.active { display: block; }
+.carousel-slide img { width: 100%; display: block; }
+.carousel-slide p { text-align: center; padding: 8px 12px; font-size: 0.8em; color: #444; background: #f5f5f5; margin: 0; border-top: 1px solid #ddd; }
+.carousel-btn { background: #000; color: #fff; border: none; width: 42px; height: 42px; font-size: 1.3rem; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+.carousel-btn:hover { background: #333; }
+.carousel-counter { text-align: center; font-size: 0.8em; color: #888; margin-top: 8px; }
 .learning-note { border: 2px solid #000000; border-left: 6px solid #000000; padding: 20px 25px; margin-bottom: 30px; }
 .learning-note p { color: #333333; font-size: 0.95em; margin: 0; }
 .challenge-card { border: 1px solid #000000; padding: 22px; margin-bottom: 20px; }
