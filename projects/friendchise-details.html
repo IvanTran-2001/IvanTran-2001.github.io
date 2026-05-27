@@ -932,6 +932,11 @@
       if (counter) counter.textContent = (current + 1) + ' / ' + slides.length;
     }
 
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') carouselStep('main-carousel', -1);
+      if (e.key === 'ArrowRight') carouselStep('main-carousel', 1);
+    });
+
     const btn = document.getElementById('back-to-top');
     window.addEventListener('scroll', function() {
       btn.style.display = window.scrollY > 400 ? 'flex' : 'none';

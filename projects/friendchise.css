@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6, p, li, span, div, a, blockquote { color: #000000 !import
 .carousel-track { flex: 1; overflow: hidden; border: 1px solid #000; }
 .carousel-slide { display: none; }
 .carousel-slide.active { display: block; }
-.carousel-slide img { width: 100%; display: block; }
+.carousel-slide img { width: 100%; max-height: 420px; object-fit: contain; display: block; background: #f0f0f0; }
 .carousel-slide p { text-align: center; padding: 8px 12px; font-size: 0.8em; color: #444; background: #f5f5f5; margin: 0; border-top: 1px solid #ddd; }
 .carousel-btn { background: #000; color: #fff; border: none; width: 42px; height: 42px; font-size: 1.3rem; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
 .carousel-btn:hover { background: #333; }
