@@ -86,11 +86,9 @@
     <!-- Screenshots -->
     <details class="collapsible-section" open>
     <summary id="screenshots">Screenshots</summary>
-    <div class="content-section">
+    <div class="content-section screenshots-section">
       <div class="screenshot-carousel-wrapper">
-        <div class="screenshot-carousel" id="main-carousel">
-        <button class="carousel-btn" onclick="carouselStep('main-carousel', -1)" aria-label="Previous screenshot">&#8592;</button>
-        <div class="carousel-track">
+        <div id="main-carousel" class="carousel-track">
           <div class="carousel-slide active">
             <img src="pictures/friendchise/Organizations hub page.png" alt="Organizations hub" loading="lazy">
             <p>Organizations hub &mdash; multi-tenant org picker</p>
@@ -128,9 +126,11 @@
             <p>Roster &mdash; multi-week staff shift scheduling</p>
           </div>
         </div>
-        <button class="carousel-btn" onclick="carouselStep('main-carousel', 1)" aria-label="Next screenshot">&#8594;</button>
-      </div>
-      <div class="carousel-counter" id="main-carousel-counter">1 / 9</div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="carouselStep('main-carousel', -1)" aria-label="Previous screenshot">&#8592;</button>
+          <div class="carousel-counter" id="main-carousel-counter">1 / 9</div>
+          <button class="carousel-btn" onclick="carouselStep('main-carousel', 1)" aria-label="Next screenshot">&#8594;</button>
+        </div>
       </div>
     </div>
     </details>
