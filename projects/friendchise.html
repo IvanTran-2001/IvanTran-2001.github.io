@@ -34,7 +34,7 @@
     <div class="hero-content">
       <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
       <h1 style="line-height:0; font-size:0; margin-bottom:20px;">
-        <img src="pictures/Logo.png" alt="FriendChise" style="width:100%; height:260px; object-fit:cover; object-position:center; display:block;">
+        <img src="pictures/friendchise/Timetable Calender Mode.png" alt="FriendChise — Timetable view" style="width:100%; height:260px; object-fit:cover; object-position:top; display:block; border-bottom:1px solid #000;">
       </h1>
       <p class="hero-subtitle">A multi-tenant task management SaaS for franchise businesses. Currently in production pilot at a Walker's Doughnuts franchise on an isolated Supabase instance.</p>
 
@@ -115,7 +115,7 @@
 
     <!-- Screenshots -->
     <h2 class="section-title">Screenshots</h2>
-    <div class="screenshots-grid">
+    <div class="screenshots-grid" id="screenshots-grid">
       <div class="screenshot-item">
         <img src="pictures/friendchise/Timetable Calender Mode.png" alt="Timetable — calendar view" loading="lazy">
         <p>Timetable — weekly calendar with colour-coded task blocks</p>
@@ -208,13 +208,58 @@
     </div>
   </div>
 
+  <!-- Lightbox overlay -->
+  <div id="lightbox" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px;">
+    <button onclick="event.stopPropagation();document.getElementById('lightbox').style.display='none'" style="position:absolute;top:16px;right:24px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;line-height:1;padding:4px;">&times;</button>
+    <img id="lightbox-img" style="max-width:92vw;max-height:82vh;object-fit:contain;border:1px solid rgba(255,255,255,0.15);" onclick="event.stopPropagation()">
+    <p id="lightbox-caption" style="color:#ccc;font-size:0.85em;text-align:center;max-width:700px;margin:0;"></p>
+  </div>
+
   <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})">&#9776;</button>
 
   <script>
+    // Back to top
     const btn = document.getElementById('back-to-top');
     window.addEventListener('scroll', function() {
       btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
     });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    document.querySelectorAll('.screenshot-item img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = img.closest('.screenshot-item').querySelector('p')?.textContent || '';
+        lightbox.style.display = 'flex';
+      });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') lightbox.style.display = 'none';
+    });
+
+    // Show more screenshots
+    const grid = document.getElementById('screenshots-grid');
+    if (grid) {
+      const items = Array.from(grid.querySelectorAll('.screenshot-item'));
+      const INITIAL = 4;
+      if (items.length > INITIAL) {
+        items.slice(INITIAL).forEach(item => { item.style.display = 'none'; });
+        const showBtn = document.createElement('button');
+        showBtn.textContent = 'Show ' + (items.length - INITIAL) + ' more screenshots';
+        showBtn.style.cssText = 'display:block;margin:16px auto 0;padding:10px 28px;border:1px solid #000;background:#fff;font-size:0.88em;font-family:inherit;cursor:pointer;letter-spacing:0.02em;';
+        let expanded = false;
+        showBtn.addEventListener('click', () => {
+          expanded = !expanded;
+          items.slice(INITIAL).forEach(item => { item.style.display = expanded ? '' : 'none'; });
+          showBtn.textContent = expanded ? 'Show fewer screenshots' : 'Show ' + (items.length - INITIAL) + ' more screenshots';
+        });
+        grid.insertAdjacentElement('afterend', showBtn);
+      }
+    }
   </script>
   <script src="../navbar.js"></script>
 </body>
