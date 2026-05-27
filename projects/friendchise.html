@@ -94,7 +94,6 @@
         <li><strong>Google OAuth &amp; LinkedIn Sign-In</strong> &mdash; Auth.js v5, JWT sessions, httpOnly cookies, Edge middleware route protection</li>
         <li><strong>Demo Mode</strong> &mdash; no account needed; a pre-seeded &ldquo;Donut Shop A&rdquo; org is provisioned on the same production database, isolated entirely by code &mdash; demo accounts get a <code>@demo.friendchise.app</code> email, all queries are org-scoped, the JWT expires in 2 hours, and every row is auto-deleted within 24 hours. Per-session caps: 200 tasks, 50 members, 50 concurrent sessions globally. Added in V2.</li>
         <li><strong>Role &amp; Permission System</strong> &mdash; custom roles with 6 permission types; RBAC guards on every server action and API route</li>
-        <li><strong>Production / Demo Isolation</strong> &mdash; not a separate database or env flag; demo sessions share the production DB and are isolated purely in code via org-scoping, email-pattern guards, and per-session resource limits</li>
       </ul>
       <h3 style="margin:16px 0 8px;">Task Management &amp; Scheduling</h3>
       <ul>
@@ -117,6 +116,12 @@
         <li><strong>Notification Panel</strong> &mdash; bell icon with unread badge; member and franchise invite cards with accept/decline; seen/unseen tracking; Popover on desktop, bottom Sheet on mobile</li>
         <li><strong>Org Settings</strong> &mdash; logo upload (512&times;512 crop dialog), org name, address, timezone, operating days and hours; ownership transfer; org delete</li>
         <li><strong>Franchise Management</strong> &mdash; generate invite tokens, view and manage child franchisees, extend/revoke tokens, change franchisee owner; new franchisees inherit roles and settings on join, then selectively adopt tasks from the shared network</li>
+      </ul>
+      <h3 style="margin:16px 0 8px;">V2 Layout &amp; Navigation</h3>
+      <ul>
+        <li><strong>V2 Redesign</strong> &mdash; whole-app visual overhaul; breadcrumbs removed to maximize screen real estate; consistent layout language throughout</li>
+        <li><strong>PageSidebar</strong> &mdash; collapsible per-page sidebar with persisted open/closed state (<code>localStorage</code>); mobile renders as a full-screen overlay</li>
+        <li><strong>ActionSidebar</strong> &mdash; contextual detail/edit panel opened on demand by any component; desktop: inline sidebar column; mobile: slides up from the bottom as a sheet. Drives code reuse across all detail views and made mobile layout management significantly simpler.</li>
       </ul>
       <p style="margin-top: 15px;">
         <a href="friendchise-details.html#whats-live" style="font-weight:600; text-decoration:underline;">Full feature list, architecture decisions, and roadmap &rarr;</a>

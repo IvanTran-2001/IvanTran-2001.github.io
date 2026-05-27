@@ -166,7 +166,6 @@
       <h3 style="margin: 16px 0 8px;">Core Platform (V1)</h3>
       <ul>
         <li><strong>Google OAuth &amp; LinkedIn Sign-In</strong> &mdash; Auth.js v5 with JWT sessions and httpOnly cookies</li>
-        <li><strong>Demo Mode</strong> &mdash; no account needed; clicking &ldquo;Try Demo&rdquo; provisions a pre-seeded &ldquo;Donut Shop A&rdquo; org on the same production database, isolated by code: auto-generated <code>@demo.friendchise.app</code> accounts, org-scoped queries, 2-hour JWT expiry, hard deletion within 24 hours. Per-session caps: 200 tasks, 50 members, 50 concurrent sessions globally. Added in V2.</li>
         <li><strong>Create Organization</strong> &mdash; multi-tenant org creation with owner role auto-assigned</li>
         <li><strong>Role &amp; Permission System</strong> &mdash; custom roles with 6 permission types, two defaults (Owner, Default Member)</li>
         <li><strong>Task Library</strong> &mdash; CRUD for tasks with name, duration, start time, color, role eligibility, and tags</li>
@@ -179,12 +178,15 @@
         <li><strong>RBAC Route Guards</strong> &mdash; server-side permission checks on all sensitive routes and server actions</li>
         <li><strong>Organization Settings</strong> &mdash; name, address, operating days, open/close times, timezone, org logo upload</li>
         <li><strong>Responsive Design</strong> &mdash; mobile sidebar, collapsible navigation, touch-friendly interactions</li>
-        <li><strong>Dynamic Breadcrumbs</strong> &mdash; async server component resolves dynamic route IDs to human-readable names via Prisma</li>
+        <li><strong>Dynamic Breadcrumbs</strong> &mdash; async server component resolves dynamic route IDs to human-readable names via Prisma (removed in V2 to prioritize screen space)</li>
         <li><strong>Role Security</strong> &mdash; three-layer owner role guard plus cross-tenant task ID validation in transactions</li>
-        <li><strong>Demo Isolation</strong> &mdash; same production database as the Walker's pilot; isolation is entirely in code. Demo accounts use a <code>@demo.friendchise.app</code> email pattern, all DB queries are org-scoped, JWT expires at 2 hours, rows hard-deleted within 24 hours. Hard caps: 200 tasks, 50 members, 50 concurrent sessions, 1850 global tasks before new sessions are rejected.</li>
       </ul>
       <h3 style="margin: 20px 0 8px;">New in V2</h3>
       <ul>
+        <li><strong>V2 Visual Redesign</strong> &mdash; whole-app redesign; breadcrumbs removed to maximize screen space; consistent layout language and improved information hierarchy throughout</li>
+        <li><strong>PageSidebar</strong> &mdash; collapsible per-page sidebar panel; open/closed state persisted in <code>localStorage</code> across navigations; mobile renders as a full-screen overlay</li>
+        <li><strong>ActionSidebar</strong> &mdash; contextual detail and edit panel opened imperatively by any component; desktop: inline sidebar column beside the page; mobile: slides up from the bottom as a sheet. Auto-closes on route change. Enabled code reuse across detail views and made mobile enhancements much easier to manage.</li>
+        <li><strong>Demo Mode</strong> &mdash; no account needed; provisioned on the same production database, isolated entirely by code &mdash; auto-generated <code>@demo.friendchise.app</code> accounts, org-scoped queries, 2-hour JWT expiry, hard deletion within 24 hours. Per-session caps: 200 tasks, 50 members, 50 concurrent sessions globally.</li>
         <li><strong>Dashboard</strong> &mdash; org overview with today's schedule progress bar, member/task/role/completion stats, and recent tool activity</li>
         <li><strong>Task Comments &amp; Voting</strong> &mdash; threaded discussion on tasks with upvotes, downvotes, replies, and pinned notes; shared across the franchise network</li>
         <li><strong>Tag System</strong> &mdash; color-coded task categories with task counts; filterable across timetable and task library</li>
