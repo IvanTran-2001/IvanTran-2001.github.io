@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6, p, li, span, div, a, blockquote { color: #000000 !import
 
 /* Misc shared elements used across project pages */
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; font-weight: 600; font-size: 0.95em; text-decoration: none; border: 2px solid #000000; color: #000000; background: #ffffff; cursor: pointer; }
-.btn:hover { background: #000000 !important; color: #ffffff !important; }
+.btn:hover, .btn:hover * { background: #000000 !important; color: #ffffff !important; }
 .feature-icon { font-size: 1.5em; margin-bottom: 10px; }
 .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
 .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none !important; }
@@ -66,7 +66,7 @@ h1, h2, h3, h4, h5, h6, p, li, span, div, a, blockquote { color: #000000 !import
   transition: background 0.2s ease, color 0.2s ease;
   letter-spacing: 0.02em;
 }
-.cta-btn:hover { background: #000000 !important; color: #ffffff !important; }
+.cta-btn:hover, .cta-btn:hover * { background: #000000 !important; color: #ffffff !important; }
 .cta-btn.primary { background: #000000 !important; color: #ffffff !important; }
 .cta-btn.primary:hover { background: #333333 !important; }
 
@@ -194,7 +194,7 @@ details.collapsible-section > summary:hover { background: transparent !important
   transition: background 0.15s ease, color 0.15s ease;
   line-height: 1.35;
 }
-.toc-link:hover { background: #000000 !important; color: #ffffff !important; }
+.toc-link:hover, .toc-link:hover * { background: #000000 !important; color: #ffffff !important; }
 .toc-link i { margin-top: 3px; flex-shrink: 0; width: 16px; text-align: center; }
 .toc-sub { font-size: 0.78em; font-weight: 400; opacity: 0.65; display: block; margin-top: 2px; line-height: 1.2; }
 
