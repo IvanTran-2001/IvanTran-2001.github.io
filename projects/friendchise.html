@@ -96,8 +96,9 @@
       </ul>
       <h3 style="margin:16px 0 8px;">Task Management &amp; Scheduling</h3>
       <ul>
-        <li><strong>Task Library</strong> &mdash; CRUD with markdown descriptions, color, image upload, role eligibility, tags; card &amp; list views; sort and filter; task publishing across the franchise network</li>
-        <li><strong>Task Comments &amp; Voting</strong> &mdash; threaded comments with upvotes, downvotes, replies, pinning, and soft delete; shared across the franchise network for brand-wide tasks</li>
+        <li><strong>Task Library</strong> &mdash; CRUD with markdown descriptions, color, image upload, role eligibility, tags; card &amp; list views; sort and filter; any org can publish tasks to the franchise network &mdash; knowledge flows in both directions</li>
+        <li><strong>Franchise Task Discovery</strong> &mdash; browse tasks published by any org in the network; selectively add them to your own library; inheritance is opt-in, not a forced sync</li>
+        <li><strong>Task Comments &amp; Voting</strong> &mdash; threaded comments with upvotes, downvotes, replies, pinning, and soft delete; visible across the franchise for network-scoped tasks</li>
         <li><strong>Timetable</strong> &mdash; weekly/daily calendar and simple list view; status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE); role filter; per-entry edit and reassign</li>
         <li><strong>Timetable Templates</strong> &mdash; drag-and-drop weekly schedule builder (calendar or table mode); apply to any date range with frozen task snapshots; duplicate, rename, delete</li>
       </ul>
@@ -113,7 +114,7 @@
         <li><strong>Member Management</strong> &mdash; invite by email, accept/decline flow, role assignment; card &amp; list views with search and role filter; edit, restrict, and remove members; bot slots (placeholder accounts for roster)</li>
         <li><strong>Notification Panel</strong> &mdash; bell icon with unread badge; member and franchise invite cards with accept/decline; seen/unseen tracking; Popover on desktop, bottom Sheet on mobile</li>
         <li><strong>Org Settings</strong> &mdash; logo upload (512&times;512 crop dialog), org name, address, timezone, operating days and hours; ownership transfer; org delete</li>
-        <li><strong>Franchise Management</strong> &mdash; generate invite tokens, view and manage child franchisees, extend/revoke tokens, change franchisee owner; new franchisees auto-clone all roles, tasks, and settings from the parent brand</li>
+        <li><strong>Franchise Management</strong> &mdash; generate invite tokens, view and manage child franchisees, extend/revoke tokens, change franchisee owner; new franchisees inherit roles and settings on join, then selectively adopt tasks from the shared network</li>
       </ul>
       <p style="margin-top: 15px;">
         <a href="friendchise-details.html#whats-live" style="font-weight:600; text-decoration:underline;">Full feature list, architecture decisions, and roadmap &rarr;</a>
@@ -195,7 +196,7 @@
       </div>
       <div class="feature-card">
         <h3>System Design</h3>
-        <p>Hierarchical multi-tenant architecture (Brand &rarr; Franchisee). Two-layer timetable system. Min/max frequency constraints. Documented tradeoffs.</p>
+        <p>Hierarchical multi-tenant architecture (Brand &rarr; Franchisee). Two-layer timetable system. Min/max frequency constraints. Documented tradeoffs. ActionSidebar pattern: a single component that renders as an inline panel on desktop and slides up as a bottom Sheet on mobile &mdash; no separate popup needed, consistent behavior everywhere.</p>
       </div>
       <div class="feature-card">
         <h3>Full-Stack TypeScript</h3>
