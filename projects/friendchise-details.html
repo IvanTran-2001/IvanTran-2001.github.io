@@ -166,7 +166,7 @@
       <h3 style="margin: 16px 0 8px;">Core Platform (V1)</h3>
       <ul>
         <li><strong>Google OAuth &amp; LinkedIn Sign-In</strong> &mdash; Auth.js v5 with JWT sessions and httpOnly cookies</li>
-        <li><strong>Demo Mode</strong> &mdash; isolated sandbox session, no account required; auto-expires after 2 hours</li>
+        <li><strong>Demo Mode</strong> &mdash; no account needed; clicking &ldquo;Try Demo&rdquo; provisions a pre-seeded &ldquo;Donut Shop A&rdquo; org on the same production database, isolated by code: auto-generated <code>@demo.friendchise.app</code> accounts, org-scoped queries, 2-hour JWT expiry, hard deletion within 24 hours. Per-session caps: 200 tasks, 50 members, 50 concurrent sessions globally. Added in V2.</li>
         <li><strong>Create Organization</strong> &mdash; multi-tenant org creation with owner role auto-assigned</li>
         <li><strong>Role &amp; Permission System</strong> &mdash; custom roles with 6 permission types, two defaults (Owner, Default Member)</li>
         <li><strong>Task Library</strong> &mdash; CRUD for tasks with name, duration, start time, color, role eligibility, and tags</li>
@@ -181,7 +181,7 @@
         <li><strong>Responsive Design</strong> &mdash; mobile sidebar, collapsible navigation, touch-friendly interactions</li>
         <li><strong>Dynamic Breadcrumbs</strong> &mdash; async server component resolves dynamic route IDs to human-readable names via Prisma</li>
         <li><strong>Role Security</strong> &mdash; three-layer owner role guard plus cross-tenant task ID validation in transactions</li>
-        <li><strong>Production / Demo Data Isolation</strong> &mdash; the public demo and the Walker's pilot run on separate Supabase databases, OAuth clients, and auth secrets</li>
+        <li><strong>Demo Isolation</strong> &mdash; same production database as the Walker's pilot; isolation is entirely in code. Demo accounts use a <code>@demo.friendchise.app</code> email pattern, all DB queries are org-scoped, JWT expires at 2 hours, rows hard-deleted within 24 hours. Hard caps: 200 tasks, 50 members, 50 concurrent sessions, 1850 global tasks before new sessions are rejected.</li>
       </ul>
       <h3 style="margin: 20px 0 8px;">New in V2</h3>
       <ul>

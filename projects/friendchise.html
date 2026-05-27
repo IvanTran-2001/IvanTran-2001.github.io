@@ -92,9 +92,9 @@
       <h3 style="margin:0 0 8px;">Auth &amp; Access</h3>
       <ul>
         <li><strong>Google OAuth &amp; LinkedIn Sign-In</strong> &mdash; Auth.js v5, JWT sessions, httpOnly cookies, Edge middleware route protection</li>
-        <li><strong>Demo Mode</strong> &mdash; isolated sandbox, no account required, auto-expires after 2 hours</li>
+        <li><strong>Demo Mode</strong> &mdash; no account needed; a pre-seeded &ldquo;Donut Shop A&rdquo; org is provisioned on the same production database, isolated entirely by code &mdash; demo accounts get a <code>@demo.friendchise.app</code> email, all queries are org-scoped, the JWT expires in 2 hours, and every row is auto-deleted within 24 hours. Per-session caps: 200 tasks, 50 members, 50 concurrent sessions globally. Added in V2.</li>
         <li><strong>Role &amp; Permission System</strong> &mdash; custom roles with 6 permission types; RBAC guards on every server action and API route</li>
-        <li><strong>Production / Demo Isolation</strong> &mdash; the Walker's pilot and public demo run on completely separate Supabase instances with separate OAuth clients</li>
+        <li><strong>Production / Demo Isolation</strong> &mdash; not a separate database or env flag; demo sessions share the production DB and are isolated purely in code via org-scoping, email-pattern guards, and per-session resource limits</li>
       </ul>
       <h3 style="margin:16px 0 8px;">Task Management &amp; Scheduling</h3>
       <ul>
@@ -206,7 +206,7 @@
       </div>
       <div class="feature-card">
         <h3>Auth &amp; Security</h3>
-        <p>Auth.js v5 with Edge runtime &mdash; JWT sessions that work in middleware without a DB call. Production and demo environments run on completely separate Supabase instances with separate OAuth clients, not just an env flag. Org-scoped RBAC on every server action. Rate limiting on every API route, not just auth endpoints.</p>
+        <p>Auth.js v5 with Edge runtime &mdash; JWT sessions that work in middleware without a DB call. Demo isolation is done entirely in code: demo accounts are identified by a <code>@demo.friendchise.app</code> email suffix, every DB query is org-scoped, data auto-deletes after 2&ndash;24 hours, and hard caps prevent abuse &mdash; no separate database or env flag needed. Org-scoped RBAC on every server action. Rate limiting on every API route, not just auth endpoints.</p>
       </div>
       <div class="feature-card">
         <h3>Production Engineering</h3>
