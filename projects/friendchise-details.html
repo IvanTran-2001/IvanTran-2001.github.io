@@ -51,9 +51,10 @@
     <div class="content-section" id="jump">
       <h3>Jump to Section</h3>
       <div class="toc-grid">
-        <a href="#whats-live" class="toc-link"><i class="fas fa-check-circle"></i><span>What's Live in V1</span></a>
+        <a href="#screenshots" class="toc-link"><i class="fas fa-images"></i><span>Screenshots</span></a>
+        <a href="#whats-live" class="toc-link"><i class="fas fa-check-circle"></i><span>What's Live</span></a>
         <a href="#why-infrastructure" class="toc-link"><i class="fas fa-shield-halved"></i><span>Why V1 Is Heavy<span class="toc-sub">infrastructure-first rationale</span></span></a>
-        <a href="#v2-vision" class="toc-link"><i class="fas fa-rocket"></i><span>V2 Vision<span class="toc-sub">tools, posts, comments</span></span></a>
+        <a href="#v2-vision" class="toc-link"><i class="fas fa-rocket"></i><span>What's New in V2<span class="toc-sub">tools, comments, dashboard</span></span></a>
         <a href="#design" class="toc-link"><i class="fas fa-pencil-ruler"></i><span>Design &amp; Architecture<span class="toc-sub">Figma + DB Schema</span></span></a>
         <a href="#personas" class="toc-link"><i class="fas fa-users"></i><span>User Personas<span class="toc-sub">7 personas</span></span></a>
         <a href="#stories" class="toc-link"><i class="fas fa-list-ul"></i><span>User Stories<span class="toc-sub">34 stories</span></span></a>
@@ -81,6 +82,51 @@
       <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Real-World Pilot</div></div>
     </div>
 
+    <!-- Screenshots -->
+    <details class="collapsible-section" open>
+    <summary id="screenshots">Screenshots</summary>
+    <div class="content-section">
+      <div class="screenshots-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Organizations hub page.png" alt="Organizations hub" loading="lazy">
+          <p>Organizations hub &mdash; multi-tenant org picker</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Org Overview Page.png" alt="Dashboard" loading="lazy">
+          <p>Dashboard &mdash; today's schedule, stats, recent tools</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Timetable Calender Mode.png" alt="Timetable &mdash; calendar" loading="lazy">
+          <p>Timetable &mdash; weekly calendar with colour-coded task blocks</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Calender Simple Mode.png" alt="Timetable &mdash; simple list" loading="lazy">
+          <p>Timetable &mdash; simple list view with assignees and status</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Settings role page.png" alt="Role management" loading="lazy">
+          <p>Roles &mdash; permission system with per-role task eligibility</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Member List Card Mode.png" alt="Member management" loading="lazy">
+          <p>Members &mdash; card view with roles and bot slot members</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Tools Page.png" alt="Tools hub" loading="lazy">
+          <p>Tools hub &mdash; pluggable operational tools</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Conversion Entries.png" alt="Conversion tool" loading="lazy">
+          <p>Conversion Tool &mdash; ingredient scaling by batch</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Roster List.png" alt="Staff roster" loading="lazy">
+          <p>Roster &mdash; multi-week staff shift scheduling</p>
+        </div>
+      </div>
+    </div>
+    </details>
+
     <!-- Problem deep dive table -->
     <details class="collapsible-section" open>
     <summary id="problem-table">Problem Breakdown</summary>
@@ -102,30 +148,56 @@
     </div>
     </details>
 
-    <!-- What's Live in V1 -->
+    <!-- What's Live -->
     <details class="collapsible-section">
-    <summary id="whats-live">What's Live in V1</summary>
+    <summary id="whats-live">What's Live</summary>
     <div class="content-section">
       <p>These features are deployed and functional at <a href="https://friend-chise.vercel.app" target="_blank" style="font-weight:600; text-decoration:underline;">friend-chise.vercel.app</a>:</p>
+      <h3 style="margin: 16px 0 8px;">Core Platform (V1)</h3>
       <ul>
-        <li><strong>Google OAuth Sign-In</strong> &mdash; Auth.js v5 with JWT sessions and httpOnly cookies</li>
+        <li><strong>Google OAuth &amp; LinkedIn Sign-In</strong> &mdash; Auth.js v5 with JWT sessions and httpOnly cookies</li>
+        <li><strong>Demo Mode</strong> &mdash; isolated sandbox session, no account required; auto-expires after 2 hours</li>
         <li><strong>Create Organization</strong> &mdash; multi-tenant org creation with owner role auto-assigned</li>
         <li><strong>Role &amp; Permission System</strong> &mdash; custom roles with 6 permission types, two defaults (Owner, Default Member)</li>
-        <li><strong>Task Library</strong> &mdash; CRUD for tasks with name, duration, start time, color, and role eligibility</li>
-        <li><strong>Timetable</strong> &mdash; weekly/daily calendar views with role filtering, status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE), and entry management</li>
-        <li><strong>Timetable Templates</strong> &mdash; create reusable weekly schedules and apply them to any date range with frozen task snapshots</li>
+        <li><strong>Task Library</strong> &mdash; CRUD for tasks with name, duration, start time, color, role eligibility, and tags</li>
+        <li><strong>Timetable</strong> &mdash; weekly/daily calendar and simple list views with role filtering, status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE), and entry management</li>
+        <li><strong>Timetable Templates</strong> &mdash; drag-and-drop schedule builder over org operating hours; apply to any date range with frozen task snapshots</li>
         <li><strong>Member Management</strong> &mdash; invite by email, accept/decline flow, role assignment, member profile editing</li>
         <li><strong>Notification System</strong> &mdash; invite notifications with seen/unread tracking and notification panel</li>
         <li><strong>Franchise System</strong> &mdash; generate franchise tokens, link child orgs to parent brands, transfer ownership</li>
-        <li><strong>RBAC Route Guards</strong> &mdash; server-side permission checks on all sensitive routes and server actions</li>
-        <li><strong>Organization Settings</strong> &mdash; name, address, operating days, open/close times, timezone</li>
-        <li><strong>Responsive Design</strong> &mdash; mobile sidebar, collapsible navigation, touch-friendly interactions</li>
-        <li><strong>Drag-and-Drop Template Editor</strong> &mdash; visual schedule builder over org operating hours with task assignment</li>
         <li><strong>Franchise Cloning</strong> &mdash; joining a franchise auto-clones all roles, tasks, and timetable settings from the parent org</li>
+        <li><strong>RBAC Route Guards</strong> &mdash; server-side permission checks on all sensitive routes and server actions</li>
+        <li><strong>Organization Settings</strong> &mdash; name, address, operating days, open/close times, timezone, org logo upload</li>
+        <li><strong>Responsive Design</strong> &mdash; mobile sidebar, collapsible navigation, touch-friendly interactions</li>
         <li><strong>Dynamic Breadcrumbs</strong> &mdash; async server component resolves dynamic route IDs to human-readable names via Prisma</li>
         <li><strong>Role Security</strong> &mdash; three-layer owner role guard plus cross-tenant task ID validation in transactions</li>
         <li><strong>Production / Demo Data Isolation</strong> &mdash; the public demo and the Walker's pilot run on separate Supabase databases, OAuth clients, and auth secrets</li>
       </ul>
+      <h3 style="margin: 20px 0 8px;">New in V2</h3>
+      <ul>
+        <li><strong>Dashboard</strong> &mdash; org overview with today's schedule progress bar, member/task/role/completion stats, and recent tool activity</li>
+        <li><strong>Task Comments &amp; Voting</strong> &mdash; threaded discussion on tasks with upvotes, downvotes, replies, and pinned notes; shared across the franchise network</li>
+        <li><strong>Tag System</strong> &mdash; color-coded task categories with task counts; filterable across timetable and task library</li>
+        <li><strong>Task Card View</strong> &mdash; image-rich card view for the task library alongside the existing list view</li>
+        <li><strong>Conversion Tool</strong> &mdash; scale ingredient quantities across batch sizes; shareable named conversion sets with rate lists</li>
+        <li><strong>Staff Roster</strong> &mdash; multi-week shift scheduling with templates, per-day headcount requirements, and open-slot bot members</li>
+        <li><strong>Item List Tool</strong> &mdash; searchable ingredient and product catalog shared across the org</li>
+        <li><strong>Bot Members</strong> &mdash; placeholder accounts that fill open roster slots without requiring a real user account</li>
+      </ul>
+      <div class="screenshots-grid" style="grid-template-columns: 1fr 1fr 1fr; margin-top: 20px;">
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Organizations hub page.png" alt="Organizations hub" loading="lazy">
+          <p>Organizations hub &mdash; multi-tenant org picker</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Org Overview Page.png" alt="Dashboard" loading="lazy">
+          <p>Dashboard &mdash; today's schedule, stats, recent tools</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Member List Card Mode.png" alt="Member management" loading="lazy">
+          <p>Members &mdash; card view with roles and bot slots</p>
+        </div>
+      </div>
     </div>
     </details>
 
@@ -145,26 +217,48 @@
     </div>
     </details>
 
-    <!-- What's Coming in V2 -->
+    <!-- What's New in V2 (Live) -->
     <details class="collapsible-section">
-    <summary id="v2-vision">What's Coming in V2</summary>
+    <summary id="v2-vision">What's New in V2 &mdash; Live</summary>
     <div class="content-section">
-      <p>V2 is the actual product the platform was built to enable.</p>
+      <p>V2 shipped the worker-facing and operational tools the platform was built to enable. All of the following are live at <a href="https://friend-chise.vercel.app" target="_blank" style="font-weight:600; text-decoration:underline;">friend-chise.vercel.app</a>.</p>
 
-      <h3>Tasks Become Rich, Composable Work Units</h3>
-      <p>Each task gets tabs &mdash; configurable per task &mdash; and pluggable &ldquo;tools&rdquo;: calculators, recipes, media, and more. Workers click a task and see exactly what they need, in the order that makes sense for that job.</p>
-
-      <h3>The Conversion Tool &mdash; First V2 Feature to Ship</h3>
-      <p>You're making custard for 200 doughnuts. The tool tells you: 5L milk, 10L thick cream, 1.25L custard powder. Edit one number, everything scales. This is the first pluggable tool and the clearest demonstration of what &ldquo;task as work unit&rdquo; actually means.</p>
-
-      <h3>More V2 Changes</h3>
+      <h3>Pluggable Tools</h3>
+      <p>A dedicated Tools section gives each org access to operational utilities. The sidebar lists all available tools, recent sessions are surfaced on the dashboard, and new tools can be added without restructuring the app.</p>
       <ul>
-        <li><strong>Task detail page becomes orderable</strong> &mdash; item cards, recipe steps, embedded images and videos.</li>
-        <li><strong>Task types</strong> &mdash; the schema gains a <code>kind</code> field (recipe, chore, daily task, etc.) so the UI can render each type appropriately.</li>
-        <li><strong>Posts and comments layer</strong> &mdash; announcements and trending tasks become a feed. Comments on tasks and posts have up/down votes.</li>
+        <li><strong>Conversion Tool</strong> &mdash; you're making custard for 200 doughnuts; the tool tells you: 5L milk, 10L thick cream, 1.25L custard powder. Edit one quantity and everything scales. Shareable named conversion sets with full rate lists.</li>
+        <li><strong>Staff Roster</strong> &mdash; multi-week shift scheduling grid with per-day headcount requirements. Templates carry over week to week. Bot members fill open slots without needing a real user account.</li>
+        <li><strong>Item List</strong> &mdash; searchable ingredient and product catalog shared across the org.</li>
       </ul>
 
-      <p><em>V1 made the platform safe for a real shop. V2 is what the platform was built to enable.</em></p>
+      <h3>Task Comments &amp; Knowledge Sharing</h3>
+      <p>Every task now has a threaded comment section. Comments support upvotes, downvotes, replies, and pinning. For franchise-shared tasks, comments are visible across the entire brand network &mdash; the knowledge-sharing layer the platform was originally designed around.</p>
+
+      <h3>Dashboard &amp; Today's View</h3>
+      <p>The org home page now shows a live dashboard: today's schedule progress bar, member/task/role/completion stats, recent tool activity, and a quick link to the roster. Workers land on a clear picture of the day without navigating anywhere.</p>
+
+      <h3>Tags, Card View &amp; UX Polish</h3>
+      <ul>
+        <li><strong>Tag System</strong> &mdash; color-coded task categories with task counts; filterable across the timetable and task library.</li>
+        <li><strong>Task Card View</strong> &mdash; image-rich card layout alongside the existing list view.</li>
+        <li><strong>Demo Mode</strong> &mdash; isolated sandbox session, no account required; auto-expires after 2 hours.</li>
+        <li><strong>LinkedIn OAuth</strong> &mdash; additional sign-in method alongside Google.</li>
+      </ul>
+
+      <div class="screenshots-grid" style="grid-template-columns: 1fr 1fr 1fr; margin-top: 20px;">
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Tools Page.png" alt="Tools hub" loading="lazy">
+          <p>Tools hub &mdash; pluggable operational tools</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Conversion Entries.png" alt="Conversion tool" loading="lazy">
+          <p>Conversion Tool &mdash; ingredient scaling by batch</p>
+        </div>
+        <div class="screenshot-item">
+          <img src="pictures/friendchise/Task Comments.png" alt="Task comments" loading="lazy">
+          <p>Task comments &mdash; upvotes, replies, pinned notes</p>
+        </div>
+      </div>
     </div>
     </details>
 
@@ -704,6 +798,7 @@
     <details class="collapsible-section">
     <summary id="roadmap">Roadmap &amp; Progress</summary>
     <div class="content-section">
+      <h3 style="margin-bottom: 10px;">V1 &mdash; Core Platform</h3>
       <ul class="roadmap-list">
         <li><span class="status-done">&#10003;</span> Service layer &amp; REST API</li>
         <li><span class="status-done">&#10003;</span> Task management (CRUD, eligibility)</li>
@@ -713,12 +808,28 @@
         <li><span class="status-done">&#10003;</span> Timetable template editor (drag/drop)</li>
         <li><span class="status-done">&#10003;</span> Template materialisation (apply to week)</li>
         <li><span class="status-done">&#10003;</span> Parent/child org hierarchy with invite links</li>
-        <li><span class="status-wip">&#9680;</span> Worker "Today" view (filtered daily checklist)</li>
-        <li><span class="status-wip">&#9680;</span> Notifications for schedule changes</li>
-        <li><span class="status-todo">&#9675;</span> Recipe database (searchable, role-based)</li>
-        <li><span class="status-todo">&#9675;</span> Task-linked forum (posts, comments, upvotes)</li>
-        <li><span class="status-todo">&#9675;</span> Completion stats dashboard</li>
-        <li><span class="status-todo">&#9675;</span> Fair rotation algorithm</li>
+        <li><span class="status-done">&#10003;</span> Franchise cloning (roles, tasks, settings)</li>
+        <li><span class="status-done">&#10003;</span> RBAC route guards &amp; permission checks</li>
+        <li><span class="status-done">&#10003;</span> Production / demo data isolation</li>
+      </ul>
+      <h3 style="margin: 20px 0 10px;">V2 &mdash; Operational Tools &amp; Knowledge Layer</h3>
+      <ul class="roadmap-list">
+        <li><span class="status-done">&#10003;</span> Dashboard with today's schedule &amp; org stats</li>
+        <li><span class="status-done">&#10003;</span> Task comments, upvotes, replies, and pinning</li>
+        <li><span class="status-done">&#10003;</span> Tag system (color-coded task categories)</li>
+        <li><span class="status-done">&#10003;</span> Task card view (image-rich grid layout)</li>
+        <li><span class="status-done">&#10003;</span> Demo mode (isolated sandbox, no account)</li>
+        <li><span class="status-done">&#10003;</span> LinkedIn OAuth</li>
+        <li><span class="status-done">&#10003;</span> Conversion Tool (ingredient scaling, batch sets)</li>
+        <li><span class="status-done">&#10003;</span> Staff Roster (multi-week scheduling, templates)</li>
+        <li><span class="status-done">&#10003;</span> Item List Tool (ingredient &amp; product catalog)</li>
+        <li><span class="status-done">&#10003;</span> Bot members (placeholder slots for roster)</li>
+      </ul>
+      <h3 style="margin: 20px 0 10px;">V3 &mdash; Planned</h3>
+      <ul class="roadmap-list">
+        <li><span class="status-todo">&#9675;</span> Recipe database (searchable, role-based access)</li>
+        <li><span class="status-todo">&#9675;</span> Completion stats &amp; performance dashboard</li>
+        <li><span class="status-todo">&#9675;</span> Fair rotation algorithm (auto task cycle)</li>
         <li><span class="status-todo">&#9675;</span> Demographic-based smart recommendations</li>
         <li><span class="status-todo">&#9675;</span> AI compliance/safety flagging</li>
         <li><span class="status-todo">&#9675;</span> Seasonal cycle chaining</li>

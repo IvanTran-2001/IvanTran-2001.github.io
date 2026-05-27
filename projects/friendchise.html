@@ -43,7 +43,7 @@
         <span class="badge">Multi-Tenant</span>
         <span class="badge">RBAC</span>
         <span class="badge">SaaS</span>
-        <span class="badge">V1 &mdash; Live</span>
+        <span class="badge">V2 &mdash; Live</span>
         <span class="badge">In Pilot</span>
       </div>
 
@@ -81,24 +81,60 @@
       </p>
     </div>
 
-    <!-- What's Live in V1 -->
-    <h2 class="section-title" id="whats-live">What's Live in V1</h2>
+    <!-- What's Live -->
+    <h2 class="section-title" id="whats-live">What's Live</h2>
     <div class="content-section">
       <ul>
-        <li><strong>Google OAuth Sign-In</strong> &mdash; Auth.js v5 with JWT sessions</li>
+        <li><strong>Google OAuth &amp; LinkedIn Sign-In</strong> &mdash; Auth.js v5 with JWT sessions</li>
+        <li><strong>Demo Mode</strong> &mdash; isolated sandbox session, no account required</li>
         <li><strong>Multi-tenant Organizations</strong> &mdash; org creation with owner role auto-assigned</li>
+        <li><strong>Dashboard</strong> &mdash; today's schedule progress, org stats, and recent tool activity</li>
         <li><strong>Role &amp; Permission System</strong> &mdash; custom roles with 6 permission types</li>
-        <li><strong>Task Library</strong> &mdash; CRUD for tasks with role eligibility</li>
-        <li><strong>Timetable</strong> &mdash; weekly/daily views with status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE)</li>
-        <li><strong>Timetable Templates</strong> &mdash; reusable weekly schedules with drag-and-drop editor</li>
-        <li><strong>Member Management</strong> &mdash; invite by email, accept/decline flow, role assignment</li>
+        <li><strong>Task Library</strong> &mdash; CRUD with role eligibility, tags, and list &amp; card views</li>
+        <li><strong>Task Comments &amp; Voting</strong> &mdash; threaded discussion with upvotes, replies, and pinned notes</li>
+        <li><strong>Tag System</strong> &mdash; color-coded task categories with task counts</li>
+        <li><strong>Timetable</strong> &mdash; weekly/daily calendar and simple list views with status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE)</li>
+        <li><strong>Timetable Templates</strong> &mdash; drag-and-drop weekly schedule builder, apply to any date range</li>
+        <li><strong>Member Management</strong> &mdash; invite by email, accept/decline flow, role assignment, bot slot members</li>
         <li><strong>Franchise System</strong> &mdash; link child orgs to parent brands; auto-clone roles, tasks, settings</li>
+        <li><strong>Conversion Tool</strong> &mdash; scale ingredient quantities across batch sizes with shareable conversion sets</li>
+        <li><strong>Staff Roster</strong> &mdash; multi-week shift scheduling with templates and open-slot bots</li>
+        <li><strong>Item List Tool</strong> &mdash; searchable ingredient and product catalog</li>
         <li><strong>RBAC Route Guards</strong> &mdash; server-side permission checks on every sensitive route</li>
-        <li><strong>Production / Demo Isolation</strong> &mdash; public demo and pilot run on separate Supabase databases</li>
+        <li><strong>Production / Demo Data Isolation</strong> &mdash; public demo and pilot run on separate Supabase databases</li>
       </ul>
       <p style="margin-top: 15px;">
-        <a href="friendchise-details.html#whats-live" style="font-weight:600; text-decoration:underline;">See the full V1 feature list, V2 vision, and rationale &rarr;</a>
+        <a href="friendchise-details.html#whats-live" style="font-weight:600; text-decoration:underline;">See the full feature list, architecture decisions, and roadmap &rarr;</a>
       </p>
+    </div>
+
+    <!-- Screenshots -->
+    <h2 class="section-title">Screenshots</h2>
+    <div class="screenshots-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div class="screenshot-item">
+        <img src="pictures/friendchise/Org Overview Page.png" alt="Dashboard" loading="lazy">
+        <p>Dashboard — today's schedule, org stats, recent tools</p>
+      </div>
+      <div class="screenshot-item">
+        <img src="pictures/friendchise/Timetable Calender Mode.png" alt="Timetable — calendar view" loading="lazy">
+        <p>Timetable — weekly calendar with colour-coded task blocks</p>
+      </div>
+      <div class="screenshot-item">
+        <img src="pictures/friendchise/Calender Simple Mode.png" alt="Timetable — simple list view" loading="lazy">
+        <p>Timetable — simple list view with assignees and status</p>
+      </div>
+      <div class="screenshot-item">
+        <img src="pictures/friendchise/Conversion Entries.png" alt="Conversion tool" loading="lazy">
+        <p>Conversion Tool — scale ingredient quantities by batch</p>
+      </div>
+      <div class="screenshot-item">
+        <img src="pictures/friendchise/Roster List.png" alt="Staff roster" loading="lazy">
+        <p>Roster — multi-week staff shift scheduling</p>
+      </div>
+      <div class="screenshot-item">
+        <img src="pictures/friendchise/Task Comments.png" alt="Task comments" loading="lazy">
+        <p>Task comments — threaded discussion with votes and pinned notes</p>
+      </div>
     </div>
 
     <!-- Tech Stack -->
