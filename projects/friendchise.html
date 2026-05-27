@@ -47,6 +47,7 @@
 
       <div class="hero-cta">
         <a href="https://friend-chise.vercel.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler"></i> Figma V2</a>
         <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
         <a href="friendchise-details.html" class="cta-btn"><i class="fas fa-book"></i> Full Case Study</a>
       </div>
@@ -82,6 +83,7 @@
       <p>
         Franchise owners build a task library and define what a standard week looks like. Managers apply that template to any week in one click and track completion through the day. Workers see their schedule on any device and leave tips for each other in each task's comment thread &mdash; so knowledge stops being lost and starts compounding across the network.
       </p>
+      <p style="margin-top:12px;"><strong>Currently deployed at a real Walker's Doughnuts franchise location.</strong> Real users, real operational data, real stakes.</p>
     </div>
 
     <!-- What's Live -->
@@ -191,24 +193,28 @@
     <h2 class="section-title">What This Demonstrates</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <h3>Product Thinking</h3>
-        <p>Started from a real problem I lived through. 7 personas, 34 user stories, 36 MoSCoW-prioritized features, and 9 user flows defined before writing code.</p>
+        <h3>Product Before Code</h3>
+        <p>Most solo projects skip design entirely. This one didn't. 7 personas, 34 user stories, 36 MoSCoW-prioritized features, 9 user flows, and two rounds of Figma wireframes &mdash; all before writing a line of production code. The kind of process you'd follow on a real team.</p>
       </div>
       <div class="feature-card">
-        <h3>System Design</h3>
-        <p>Hierarchical multi-tenant architecture (Brand &rarr; Franchisee). Two-layer timetable system. Min/max frequency constraints. Documented tradeoffs. ActionSidebar pattern: a single component that renders as an inline panel on desktop and slides up as a bottom Sheet on mobile &mdash; no separate popup needed, consistent behavior everywhere.</p>
+        <h3>Multi-Tenant Architecture</h3>
+        <p>Hierarchical org model (Brand &rarr; Franchisee) built from scratch &mdash; no library, no shortcut. Every query is org-scoped. Franchise invite tokens clone roles and settings on join. Tasks can be published to the network and selectively inherited. Two-layer timetable system with frozen task snapshots and min/max frequency constraints.</p>
       </div>
       <div class="feature-card">
         <h3>Full-Stack TypeScript</h3>
-        <p>Next.js 16 App Router with RSC, Server Actions, and REST API. Discriminated union result types for clean error handling. End-to-end type safety with Zod.</p>
+        <p>RSC, Server Actions, and a REST API coexisting in one Next.js 16 codebase. Discriminated union result types for exhaustive, exception-free error handling. Async server components resolve route IDs to human-readable breadcrumbs before the page renders. End-to-end type safety with Zod v4.</p>
       </div>
       <div class="feature-card">
         <h3>Auth &amp; Security</h3>
-        <p>OAuth + JWT sessions, Edge runtime compatibility, org-scoped permission checks on every route. Full RBAC &mdash; not just &ldquo;admin vs user.&rdquo;</p>
+        <p>Auth.js v5 with Edge runtime &mdash; JWT sessions that work in middleware without a DB call. Production and demo environments run on completely separate Supabase instances with separate OAuth clients, not just an env flag. Org-scoped RBAC on every server action. Rate limiting on every API route, not just auth endpoints.</p>
       </div>
       <div class="feature-card">
         <h3>Production Engineering</h3>
         <p>582 automated tests: 468 unit (Vitest), 93 integration against a real Postgres DB, 21 Playwright E2E. GitHub Actions CI runs type-check &rarr; lint &rarr; unit &rarr; integration on every push. Sentry error monitoring + session replay. Upstash Redis sliding-window rate limiting on every API route.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Real-World Validation</h3>
+        <p>Not a toy. Deployed to and actively used by a real Walker's Doughnuts franchise location &mdash; real users, real operational data, real stakes. The problems it solves came from lived experience inside that store. That's what &ldquo;1 Real Pilot&rdquo; means.</p>
       </div>
     </div>
 
