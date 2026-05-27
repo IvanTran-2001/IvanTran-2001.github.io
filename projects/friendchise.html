@@ -34,7 +34,7 @@
     <div class="hero-content">
       <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
       <h1>FriendChise</h1>
-      <p class="hero-subtitle">A multi-tenant task management SaaS for franchise businesses. Currently in production pilot at a Walker's Doughnuts franchise on an isolated Supabase instance.</p>
+      <p class="hero-subtitle">Built from a real operational problem I lived through — now in production pilot at a Walker's Doughnuts franchise. Franchise owners define tasks and schedules, managers apply templates and track completion, workers see their day on any device.</p>
 
       <div class="hero-badges">
         <span class="badge">Full-Stack</span>
@@ -77,37 +77,39 @@
     <h2 class="section-title" id="solution">The Solution</h2>
     <div class="content-section">
       <p>
-        A web app where franchise owners define task libraries and timetable templates at the franchise level, managers apply those templates to generate weekly schedules for their branch, and workers view their assigned tasks on any device.
+        Franchise owners build a task library — what tasks exist, how long they take, which roles can do them. They define what a standard week looks like in a template, then managers apply that template to any date range in one click. Workers see their assigned tasks on any device, mark them done as they go, and leave tips for each other in each task's comment thread.
       </p>
       <p>
-        Everything is scoped by organization with role-based permissions. Parent brands define defaults; child franchisees inherit and customize. An invite system handles onboarding, and a notification panel keeps everyone informed.
+        Every org is fully isolated with role-based permissions. A franchise token system lets brands spin up new franchisee locations that instantly inherit the parent's tasks, roles, and settings — so a new franchise owner starts structured from day one instead of figuring it out alone.
       </p>
     </div>
 
     <!-- What's Live -->
     <h2 class="section-title" id="whats-live">What's Live</h2>
     <div class="content-section">
+      <h3 style="margin:0 0 8px;">Auth &amp; Access</h3>
       <ul>
-        <li><strong>Google OAuth &amp; LinkedIn Sign-In</strong> &mdash; Auth.js v5 with JWT sessions</li>
-        <li><strong>Demo Mode</strong> &mdash; isolated sandbox session, no account required</li>
-        <li><strong>Multi-tenant Organizations</strong> &mdash; org creation with owner role auto-assigned</li>
-        <li><strong>Dashboard</strong> &mdash; today's schedule progress, org stats, and recent tool activity</li>
-        <li><strong>Role &amp; Permission System</strong> &mdash; custom roles with 6 permission types</li>
-        <li><strong>Task Library</strong> &mdash; CRUD with role eligibility, tags, and list &amp; card views</li>
-        <li><strong>Task Comments &amp; Voting</strong> &mdash; threaded discussion with upvotes, replies, and pinned notes</li>
-        <li><strong>Tag System</strong> &mdash; color-coded task categories with task counts</li>
-        <li><strong>Timetable</strong> &mdash; weekly/daily calendar and simple list views with status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE)</li>
-        <li><strong>Timetable Templates</strong> &mdash; drag-and-drop weekly schedule builder, apply to any date range</li>
-        <li><strong>Member Management</strong> &mdash; invite by email, accept/decline flow, role assignment, bot slot members</li>
-        <li><strong>Franchise System</strong> &mdash; link child orgs to parent brands; auto-clone roles, tasks, settings</li>
-        <li><strong>Conversion Tool</strong> &mdash; scale ingredient quantities across batch sizes with shareable conversion sets</li>
-        <li><strong>Staff Roster</strong> &mdash; multi-week shift scheduling with templates and open-slot bots</li>
-        <li><strong>Item List Tool</strong> &mdash; searchable ingredient and product catalog</li>
-        <li><strong>RBAC Route Guards</strong> &mdash; server-side permission checks on every sensitive route</li>
-        <li><strong>Production / Demo Data Isolation</strong> &mdash; public demo and pilot run on separate Supabase databases</li>
+        <li><strong>Google OAuth &amp; LinkedIn Sign-In</strong> &mdash; Auth.js v5, JWT sessions, httpOnly cookies</li>
+        <li><strong>Demo Mode</strong> &mdash; isolated sandbox, no account required, auto-expires after 2 hours</li>
+        <li><strong>Role &amp; Permission System</strong> &mdash; custom roles with 6 permission types; RBAC route guards on every sensitive server action and API route</li>
+        <li><strong>Production / Demo Isolation</strong> &mdash; the Walker's pilot and public demo run on completely separate Supabase instances</li>
+      </ul>
+      <h3 style="margin:16px 0 8px;">Scheduling</h3>
+      <ul>
+        <li><strong>Task Library</strong> &mdash; CRUD with role eligibility, tags, card &amp; list views, comments &amp; voting</li>
+        <li><strong>Timetable</strong> &mdash; weekly/daily calendar and simple list view, status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE)</li>
+        <li><strong>Templates</strong> &mdash; drag-and-drop weekly schedule builder; apply to any date range with frozen task snapshots</li>
+        <li><strong>Franchise Cloning</strong> &mdash; new franchisee joins a brand and instantly inherits all roles, tasks, and settings</li>
+      </ul>
+      <h3 style="margin:16px 0 8px;">Operational Tools</h3>
+      <ul>
+        <li><strong>Dashboard</strong> &mdash; today's schedule progress, org stats, recent tool activity</li>
+        <li><strong>Conversion Tool</strong> &mdash; scale ingredient quantities across batch sizes; shareable named conversion sets</li>
+        <li><strong>Staff Roster</strong> &mdash; multi-week shift scheduling with templates and open-slot bot members</li>
+        <li><strong>Item List</strong> &mdash; searchable ingredient and product catalog shared across the org</li>
       </ul>
       <p style="margin-top: 15px;">
-        <a href="friendchise-details.html#whats-live" style="font-weight:600; text-decoration:underline;">See the full feature list, architecture decisions, and roadmap &rarr;</a>
+        <a href="friendchise-details.html#whats-live" style="font-weight:600; text-decoration:underline;">Full feature list, architecture decisions, and roadmap &rarr;</a>
       </p>
     </div>
 
@@ -156,10 +158,14 @@
         <div class="tech-card"><h4>TypeScript</h4><p>End-to-end type safety</p></div>
         <div class="tech-card"><h4>PostgreSQL</h4><p>Hosted on Supabase</p></div>
         <div class="tech-card"><h4>Prisma v7</h4><p>Type-safe ORM &amp; migrations</p></div>
-        <div class="tech-card"><h4>Auth.js v5</h4><p>Google OAuth + JWT</p></div>
+        <div class="tech-card"><h4>Auth.js v5</h4><p>Google + LinkedIn OAuth, JWT sessions</p></div>
         <div class="tech-card"><h4>Tailwind v4</h4><p>shadcn/ui + Radix UI</p></div>
         <div class="tech-card"><h4>Zod v4</h4><p>Runtime validation</p></div>
         <div class="tech-card"><h4>Vercel</h4><p>Production deployment</p></div>
+        <div class="tech-card"><h4>Sentry</h4><p>Error monitoring, performance tracing, session replay</p></div>
+        <div class="tech-card"><h4>Upstash Redis</h4><p>Sliding-window rate limiting on every API route</p></div>
+        <div class="tech-card"><h4>Vitest + Playwright</h4><p>582 automated tests: unit, integration, E2E</p></div>
+        <div class="tech-card"><h4>GitHub Actions</h4><p>CI: type-check &rarr; lint &rarr; unit &rarr; integration</p></div>
       </div>
     </div>
 
@@ -194,7 +200,7 @@
       </div>
       <div class="feature-card">
         <h3>Production Engineering</h3>
-        <p>GitHub Actions CI runs type-check &rarr; lint &rarr; 468 unit tests &rarr; 93 integration tests (real Postgres) on every push. Sentry for error monitoring, performance tracing, and session replay. Upstash Redis sliding-window rate limiting on every API route and server action.</p>
+        <p>582 automated tests: 468 unit (Vitest), 93 integration against a real Postgres DB, 21 Playwright E2E. GitHub Actions CI runs type-check &rarr; lint &rarr; unit &rarr; integration on every push. Sentry error monitoring + session replay. Upstash Redis sliding-window rate limiting on every API route.</p>
       </div>
     </div>
 
