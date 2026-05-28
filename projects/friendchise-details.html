@@ -982,14 +982,7 @@
 
     <div class="content-section">
       <h3>Component Library &amp; Customisation</h3>
-      <p><strong>shadcn/ui</strong> was chosen because its components are copy-owned rather than imported from a black-box package &mdash; every primitive lives in <code>components/ui/</code> and can be edited directly. This meant visual changes that would normally require forking a library were just a one-line edit. The base style is <strong>radix-nova</strong> over Radix UI primitives, which handles all accessibility (keyboard nav, focus management, ARIA) automatically.</p>
-      <p>Key customisations on top of the defaults:</p>
-      <ul>
-        <li><strong>Sharp corners</strong> &mdash; <code>rounded-none</code> on buttons gives the UI a precise, tool-like feel rather than the rounded-pill look common in consumer apps.</li>
-        <li><strong>Subtle hovers</strong> &mdash; hover states use a <code>primary/8</code> opacity tint instead of a solid background change, so the UI acknowledges interaction without being distracting.</li>
-        <li><strong>Press feedback</strong> &mdash; <code>active:translate-y-px</code> on every button gives a micro press animation that makes the UI feel tactile.</li>
-        <li><strong>Fonts</strong> &mdash; DM Sans for body text (geometric, clean), DM Serif Display for headings (adds character), JetBrains Mono for hex values and code.</li>
-      </ul>
+      <p><strong>shadcn/ui</strong> was chosen because components are copy-owned &mdash; every primitive lives in the codebase and can be edited directly, so there is no forking a locked dependency when a visual tweak is needed. Accessibility (keyboard navigation, focus management, ARIA) is handled automatically via the underlying Radix UI primitives. Supporting libraries were picked for single jobs: <strong>Sonner</strong> for toast notifications, <strong>react-easy-crop</strong> for in-browser image cropping, <strong>browser-image-compression</strong> for client-side image compression before upload, and <strong>react-markdown</strong> for rendering task descriptions written in Markdown.</p>
     </div>
 
     <div class="content-section">
