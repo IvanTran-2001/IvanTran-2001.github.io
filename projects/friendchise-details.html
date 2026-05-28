@@ -53,6 +53,7 @@
       <h3>Jump to Section</h3>
       <div class="toc-grid">
         <a href="#screenshots" class="toc-link"><i class="fas fa-images"></i><span>Screenshots</span></a>
+        <a href="#v1-v2" class="toc-link"><i class="fas fa-code-compare"></i><span>V1 &rarr; V2 Comparison</span></a>
         <a href="#whats-live" class="toc-link"><i class="fas fa-check-circle"></i><span>What's Live</span></a>
         <a href="#why-infrastructure" class="toc-link"><i class="fas fa-shield-halved"></i><span>Why V1 Is Heavy<span class="toc-sub">infrastructure-first rationale</span></span></a>
         <a href="#design" class="toc-link"><i class="fas fa-pencil-ruler"></i><span>Design &amp; Architecture<span class="toc-sub">Figma + DB Schema</span></span></a>
@@ -89,39 +90,39 @@
       <div class="screenshot-carousel-wrapper">
         <div id="main-carousel" class="carousel-track">
           <div class="carousel-slide active">
-            <img src="pictures/friendchise/Organizations hub page.png" alt="Organizations hub" loading="lazy">
+            <img src="pictures/friendchise/V2/Organizations hub page.png" alt="Organizations hub" loading="lazy" class="zoomable" onclick="openLightbox(this)">
             <p>Organizations hub &mdash; multi-tenant org picker</p>
           </div>
           <div class="carousel-slide">
-            <img src="pictures/friendchise/Org Overview Page.png" alt="Dashboard" loading="lazy">
+            <img src="pictures/friendchise/V2/Org Overview Page.png" alt="Dashboard" loading="lazy" class="zoomable" onclick="openLightbox(this)">
             <p>Dashboard &mdash; today's schedule, stats, recent tools</p>
           </div>
           <div class="carousel-slide">
-            <img src="pictures/friendchise/Timetable Calender Mode.png" alt="Timetable &mdash; calendar" loading="lazy">
+            <img src="pictures/friendchise/V2/Timetable Calender Mode.png" alt="Timetable &mdash; calendar" loading="lazy" class="zoomable" onclick="openLightbox(this)">
             <p>Timetable &mdash; weekly calendar with colour-coded task blocks</p>
           </div>
           <div class="carousel-slide">
-            <img src="pictures/friendchise/Calender Simple Mode.png" alt="Timetable &mdash; simple list" loading="lazy">
+            <img src="pictures/friendchise/V2/Calender Simple Mode.png" alt="Timetable &mdash; simple list" loading="lazy" class="zoomable" onclick="openLightbox(this)">
             <p>Timetable &mdash; simple list view with assignees and status</p>
           </div>
           <div class="carousel-slide">
-            <img src="pictures/friendchise/Settings role page.png" alt="Role management" loading="lazy">
+            <img src="pictures/friendchise/V2/Settings role page.png" alt="Role management" loading="lazy" class="zoomable" onclick="openLightbox(this)">
             <p>Roles &mdash; permission system with per-role task eligibility</p>
           </div>
           <div class="carousel-slide">
-            <img src="pictures/friendchise/Member List Card Mode.png" alt="Member management" loading="lazy">
+            <img src="pictures/friendchise/V2/Member List Card Mode.png" alt="Member management" loading="lazy" class="zoomable" onclick="openLightbox(this)">
             <p>Members &mdash; card view with roles and bot slot members</p>
           </div>
           <div class="carousel-slide">
-            <img src="pictures/friendchise/Tools Page.png" alt="Tools hub" loading="lazy">
+            <img src="pictures/friendchise/V2/Tools Page.png" alt="Tools hub" loading="lazy" class="zoomable" onclick="openLightbox(this)">
             <p>Tools hub &mdash; pluggable operational tools</p>
           </div>
           <div class="carousel-slide">
-            <img src="pictures/friendchise/Conversion Entries.png" alt="Conversion tool" loading="lazy">
+            <img src="pictures/friendchise/V2/Conversion Entries.png" alt="Conversion tool" loading="lazy" class="zoomable" onclick="openLightbox(this)">
             <p>Conversion Tool &mdash; ingredient scaling by batch</p>
           </div>
           <div class="carousel-slide">
-            <img src="pictures/friendchise/Roster List.png" alt="Staff roster" loading="lazy">
+            <img src="pictures/friendchise/V2/Roster List.png" alt="Staff roster" loading="lazy" class="zoomable" onclick="openLightbox(this)">
             <p>Roster &mdash; multi-week staff shift scheduling</p>
           </div>
         </div>
@@ -130,6 +131,73 @@
           <div class="carousel-counter" id="main-carousel-counter">1 / 9</div>
           <button class="carousel-btn" onclick="carouselStep('main-carousel', 1)" aria-label="Next screenshot">&#8594;</button>
         </div>
+      </div>
+    </div>
+    </details>
+
+    <!-- V1 → V2 Comparison -->
+    <details class="collapsible-section" open>
+    <summary id="v1-v2">V1 &rarr; V2 Design Evolution</summary>
+    <div class="content-section">
+      <p>The V2 redesign rebuilt every page around a new layout system &mdash; collapsible PageSidebar, ActionSidebar panels, and a consistent information hierarchy. These are direct before/after comparisons on screens that exist in both versions.</p>
+      <div class="comparison-grid">
+
+        <div class="comparison-pair">
+          <h4 class="comparison-label">Timetable &mdash; Calendar View</h4>
+          <div class="comparison-images">
+            <div class="comparison-item">
+              <span class="comparison-badge v1-badge">V1</span>
+              <img src="pictures/friendchise/V1/Timetable - Calender.png" alt="V1 Timetable calendar" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+            <div class="comparison-item">
+              <span class="comparison-badge v2-badge">V2</span>
+              <img src="pictures/friendchise/V2/Timetable Calender Mode.png" alt="V2 Timetable calendar" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-pair">
+          <h4 class="comparison-label">Timetable &mdash; Simple List</h4>
+          <div class="comparison-images">
+            <div class="comparison-item">
+              <span class="comparison-badge v1-badge">V1</span>
+              <img src="pictures/friendchise/V1/Timetable - SimpleMode.png" alt="V1 Timetable simple" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+            <div class="comparison-item">
+              <span class="comparison-badge v2-badge">V2</span>
+              <img src="pictures/friendchise/V2/Calender Simple Mode.png" alt="V2 Timetable simple" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-pair">
+          <h4 class="comparison-label">Members &mdash; Card View</h4>
+          <div class="comparison-images">
+            <div class="comparison-item">
+              <span class="comparison-badge v1-badge">V1</span>
+              <img src="pictures/friendchise/V1/Member List - Card Mode.png" alt="V1 Member list" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+            <div class="comparison-item">
+              <span class="comparison-badge v2-badge">V2</span>
+              <img src="pictures/friendchise/V2/Member List Card Mode.png" alt="V2 Member list" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-pair">
+          <h4 class="comparison-label">Roles &amp; Permissions</h4>
+          <div class="comparison-images">
+            <div class="comparison-item">
+              <span class="comparison-badge v1-badge">V1</span>
+              <img src="pictures/friendchise/V1/Role List: RBAC.png" alt="V1 Role list" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+            <div class="comparison-item">
+              <span class="comparison-badge v2-badge">V2</span>
+              <img src="pictures/friendchise/V2/Settings role page.png" alt="V2 Settings role" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     </details>
@@ -197,15 +265,15 @@
       </ul>
       <div class="screenshots-grid" style="grid-template-columns: 1fr 1fr 1fr; margin-top: 20px;">
         <div class="screenshot-item">
-          <img src="pictures/friendchise/Organizations hub page.png" alt="Organizations hub" loading="lazy">
+          <img src="pictures/friendchise/V2/Organizations hub page.png" alt="Organizations hub" loading="lazy" class="zoomable" onclick="openLightbox(this)">
           <p>Organizations hub &mdash; multi-tenant org picker</p>
         </div>
         <div class="screenshot-item">
-          <img src="pictures/friendchise/Org Overview Page.png" alt="Dashboard" loading="lazy">
+          <img src="pictures/friendchise/V2/Org Overview Page.png" alt="Dashboard" loading="lazy" class="zoomable" onclick="openLightbox(this)">
           <p>Dashboard &mdash; today's schedule, stats, recent tools</p>
         </div>
         <div class="screenshot-item">
-          <img src="pictures/friendchise/Member List Card Mode.png" alt="Member management" loading="lazy">
+          <img src="pictures/friendchise/V2/Member List Card Mode.png" alt="Member management" loading="lazy" class="zoomable" onclick="openLightbox(this)">
           <p>Members &mdash; card view with roles and bot slots</p>
         </div>
       </div>
