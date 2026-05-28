@@ -272,15 +272,15 @@
         </div>
         <div class="entry-subtitle">Full-Stack SaaS Platform &mdash; Next.js 16, TypeScript, Prisma, PostgreSQL, Auth.js v5, Upstash Redis, Sentry, Vercel</div>
         <div class="entry-description">
-          <p>Multi-tenant franchise management platform built from operational inefficiencies I observed while working at Walker's Donuts. In production pilot at a real franchise location. Covers scheduling, operational tools, and knowledge sharing for franchise businesses.</p>
+          <p>Multi-tenant franchise management platform built from operational inefficiencies I observed while working at Walker's Doughnuts. Actively used at a real franchise location.</p>
           <ul>
             <li>Architected multi-tenant RBAC with franchise hierarchy &mdash; 19 Prisma models, 6 permission types, org-scoped data isolation on PostgreSQL (Supabase); new franchisees auto-inherit parent brand&rsquo;s tasks, roles, and settings via franchise token system</li>
-            <li>Timetable with weekly/daily calendar and simple list views; drag-and-drop template builder materialises real-date task instances with full audit trail; status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE)</li>
-            <li>V2 shipped operational tools (Conversion Tool, Staff Roster, Item List), task comments with voting, Dashboard, Demo Mode, LinkedIn + Google OAuth, and Bot Members</li>
+            <li>Timetable with weekly/daily calendar and list views; drag-and-drop template builder materialises real-date task instances with a full audit trail</li>
+            <li>Demo Mode isolated entirely in code &mdash; sandbox org provisioned on the production database, accounts identified by email suffix, hard caps per session, data auto-deleted within 24 hours; no separate DB or env flag</li>
             <li>Service Layer architecture with discriminated union result types for type-safe error handling across Server Actions and REST API routes</li>
             <li>Upstash Redis sliding-window rate limiting on all API routes; Sentry error monitoring with session replay; GitHub Actions CI (type-check &rarr; lint &rarr; unit &rarr; integration) on every push</li>
             <li>582 automated tests: 468 unit (Vitest), 93 integration against real Postgres, 21 Playwright E2E; CodeRabbit AI code review on every PR</li>
-            <li>Live: <a href="https://friend-chise.vercel.app" style="color:#000;text-decoration:underline;">friend-chise.vercel.app</a> | GitHub: <a href="https://github.com/IvanTran-2001/FriendChise" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/FriendChise</a></li>
+            <li>Live: <a href="https://friendchise.app" style="color:#000;text-decoration:underline;">friendchise.app</a> | GitHub: <a href="https://github.com/IvanTran-2001/FriendChise" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/FriendChise</a></li>
           </ul>
         </div>
       </div>
