@@ -981,11 +981,6 @@
     </div>
 
     <div class="content-section">
-      <h3>Color System</h3>
-      <p>Tasks, roles, and tags each carry a user-chosen color stored in the database. A <strong>ColorPicker</strong> component wraps a native <code>&lt;input type="color"&gt;</code> backed by a curated palette of 12 colors &mdash; red, orange, amber, green, teal, blue, indigo, violet, pink, gray, slate, and brown &mdash; plus a <code>randomColor()</code> helper that picks one at random on creation. On the timetable, color is the primary at-a-glance differentiator: a manager scanning across a week can identify which task is which by color before reading any text. Because the color is stored on the entry at creation time (snapshot pattern), changing a task&rsquo;s color later doesn&rsquo;t rewrite the historical calendar view.</p>
-    </div>
-
-    <div class="content-section">
       <h3>Component Library &amp; Customisation</h3>
       <p><strong>shadcn/ui</strong> was chosen because its components are copy-owned rather than imported from a black-box package &mdash; every primitive lives in <code>components/ui/</code> and can be edited directly. This meant visual changes that would normally require forking a library were just a one-line edit. The base style is <strong>radix-nova</strong> over Radix UI primitives, which handles all accessibility (keyboard nav, focus management, ARIA) automatically.</p>
       <p>Key customisations on top of the defaults:</p>
