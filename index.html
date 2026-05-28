@@ -707,35 +707,50 @@
           </ul>
           <div class="project-buttons">
             <a href="projects/friendchise.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-            <a href="https://friend-chise.vercel.app" class="project-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://friendchise.app" class="project-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             <a href="https://github.com/IvanTran-2001/FriendChise" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             <a href="projects/friendchise-details.html" class="project-btn"><i class="fas fa-layer-group"></i> Design &amp; Engineering</a>
           </div>
         </div>
       </div>
 
-      <!-- Multitenant E-Commerce -->
+      <!-- QA Wolf -->
       <div class="project-card">
-        <img src="projects/pictures/multitenant-ecommerce1.png" alt="Multitenant E-Commerce" class="project-card-image">
+        <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image">
         <div class="project-card-content">
-          <h3>Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></h3>
-          <p>A multi-tenant SaaS e-commerce platform where each seller's data and products are isolated through role-based access control.</p>
+          <h3>QA Wolf Technical Assessment <span class="proj-badge badge-finalist">Final Stage</span></h3>
+          <p>Take-home assessment for QA Wolf &mdash; no resume required, applications screened on projects alone. Built a Node.js tool to scrape and validate article sort order on Hacker News. <strong>Reached the paid final round (AUD $250)</strong> and completed a live Playwright assessment in QA Wolf's platform.</p>
           <ul>
-            <li>PayloadCMS multi-tenant plugin with tenant-scoped data isolation</li>
-            <li>Seed script to populate tenants, products, and categories for development</li>
-            <li>tRPC for end-to-end type-safe data fetching</li>
-            <li>Super-admin and tenant-admin role separation</li>
-            <li>Category, tag filtering and paginated product listings</li>
+            <li>Playwright scraping and DOM interaction across paginated Hacker News content</li>
+            <li>Data validation with structured error reporting and non-zero exit codes on failure</li>
+            <li>Jest unit test suite covering validation logic and edge cases</li>
           </ul>
           <div class="project-buttons">
-            <a href="projects/multitenant-ecommerce.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-            <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" class="project-btn" target="_blank"><i class="fas fa-play-circle"></i> Demo</a>
-            <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="projects/QA-Wolf-Take-Home.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
+            <a href="projects/QA-Wolf-Take-Home.html#demo" class="project-btn"><i class="fas fa-play-circle"></i> Demo Video</a>
+            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
 
-      <!-- MERN Thinkboard -->
+      <!-- Warehouse -->
+      <div class="project-card">
+        <img src="projects/pictures/warehouse-echt.png" alt="Warehouse" class="project-card-image">
+        <div class="project-card-content">
+          <h3>Warehouse Consulting <span class="proj-badge badge-industry">Real-World</span></h3>
+          <p>Unpaid consulting at a warehouse &mdash; identified a 2-person lift operation caused by a fragmented 3-table schema. Authored the full technical spec (formula, filtering rules, edge cases, annotated example table) and submitted it to the WMS vendor (Thomax Technology) for implementation.</p>
+          <ul>
+            <li>Consolidated 3 inventory tables into 1 &mdash; pickers confirm daily stock from a single column</li>
+            <li>Eliminated the dedicated computer operator per lift team; lifters now work independently</li>
+            <li>Caught a live-data bug mid-day post-deployment &mdash; <code>replenResidual</code> values were static snapshots; documented root cause and escalated for a dynamic fix</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="projects/echt-warehouse.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
+          </div>
+        </div>
+      </div>
+
+     <!-- MERN Thinkboard -->
       <div class="project-card">
         <img src="projects/pictures/mernThinkboard.png" alt="MERN Thinkboard" class="project-card-image">
         <div class="project-card-content">
@@ -754,28 +769,6 @@
             <a href="https://www.loom.com/share/3b74959b6c4c43429d404a129b769081" class="project-btn" target="_blank"><i class="fas fa-play-circle"></i> Demo</a>
             <a href="https://mern-thinkboard-qsrl.onrender.com" class="project-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- QA Wolf -->
-      <div class="project-card">
-        <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image">
-        <div class="project-card-content">
-          <h3>QA Wolf Testing <span class="proj-badge badge-finalist">Final Stage</span></h3>
-          <p>Automation tool validating article sort order on Hacker News using Playwright-driven web scraping.</p>
-          <ul>
-            <li>Cross-browser scraping with Playwright</li>
-            <li>Validates sort order and data integrity</li>
-            <li>Structured error reporting and logging</li>
-            <li>Clean CLI with configurable options</li>
-            <li>Robust edge case and error recovery handling</li>
-            <li>Unit test suite with Jest</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/QA-Wolf-Take-Home.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-            <a href="projects/QA-Wolf-Take-Home.html#demo" class="project-btn"><i class="fas fa-play-circle"></i> Demo Video</a>
-            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
@@ -801,6 +794,27 @@
         </div>
       </div>
 
+      <!-- Multitenant E-Commerce -->
+      <div class="project-card">
+        <img src="projects/pictures/multitenant-ecommerce1.png" alt="Multitenant E-Commerce" class="project-card-image">
+        <div class="project-card-content">
+          <h3>Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></h3>
+          <p>A multi-tenant SaaS e-commerce platform where each seller's data and products are isolated through role-based access control.</p>
+          <ul>
+            <li>PayloadCMS multi-tenant plugin with tenant-scoped data isolation</li>
+            <li>Seed script to populate tenants, products, and categories for development</li>
+            <li>tRPC for end-to-end type-safe data fetching</li>
+            <li>Super-admin and tenant-admin role separation</li>
+            <li>Category, tag filtering and paginated product listings</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="projects/multitenant-ecommerce.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
+            <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" class="project-btn" target="_blank"><i class="fas fa-play-circle"></i> Demo</a>
+            <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
       <!-- LeetCode -->
       <div class="project-card">
         <img src="projects/pictures/leetcode.png" alt="LeetCode" class="project-card-image">
@@ -822,27 +836,7 @@
         </div>
       </div>
 
-      <!-- Warehouse -->
-      <div class="project-card">
-        <img src="projects/pictures/warehouse-echt.png" alt="Warehouse" class="project-card-image">
-        <div class="project-card-content">
-          <h3>Warehouse Consulting <span class="proj-badge badge-industry">Real-World</span></h3>
-          <p>Database redesign and optimisation consulting engagement for a warehouse management system.</p>
-          <ul>
-            <li>Optimised SQL queries and indexing strategies for improved performance</li>
-            <li>Identified and resolved process inefficiencies in existing workflows</li>
-            <li>Re-architected the database schema for improved normalisation</li>
-            <li>Reduced error rates through schema and constraint optimisation</li>
-            <li>Produced technical documentation for stakeholder handover</li>
-            <li>Conducted data analysis and delivered findings in written reports</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/echt-warehouse.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
+     </div>
   </div>
 
   <!-- Contact Section -->
