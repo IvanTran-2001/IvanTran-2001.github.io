@@ -55,7 +55,6 @@
         <a href="#screenshots" class="toc-link"><i class="fas fa-images"></i><span>Screenshots</span></a>
         <a href="#whats-live" class="toc-link"><i class="fas fa-check-circle"></i><span>What's Live</span></a>
         <a href="#why-infrastructure" class="toc-link"><i class="fas fa-shield-halved"></i><span>Why V1 Is Heavy<span class="toc-sub">infrastructure-first rationale</span></span></a>
-        <a href="#v2-vision" class="toc-link"><i class="fas fa-rocket"></i><span>What's New in V2<span class="toc-sub">tools, comments, dashboard</span></span></a>
         <a href="#design" class="toc-link"><i class="fas fa-pencil-ruler"></i><span>Design &amp; Architecture<span class="toc-sub">Figma + DB Schema</span></span></a>
         <a href="#personas" class="toc-link"><i class="fas fa-users"></i><span>User Personas<span class="toc-sub">7 personas</span></span></a>
         <a href="#stories" class="toc-link"><i class="fas fa-list-ul"></i><span>User Stories<span class="toc-sub">34 stories</span></span></a>
@@ -226,51 +225,6 @@
       <p>
         V1.5 (next milestone) adds rate limiting and security hardening before V2 work begins. No worker-facing features ship to a real shop without those guardrails in place.
       </p>
-    </div>
-    </details>
-
-    <!-- What's New in V2 (Live) -->
-    <details class="collapsible-section">
-    <summary id="v2-vision">What's New in V2 &mdash; Live</summary>
-    <div class="content-section">
-        V2 shipped the worker-facing and operational tools the platform was built to enable. Rate limiting (Upstash Redis, sliding-window), Sentry monitoring, and the CI pipeline shipped alongside V2. All of the following are live at <a href="https://friend-chise.vercel.app" target="_blank" style="font-weight:600; text-decoration:underline;">friend-chise.vercel.app</a>.
-
-      <h3>Pluggable Tools</h3>
-      <p>A dedicated Tools section gives each org access to operational utilities. The sidebar lists all available tools, recent sessions are surfaced on the dashboard, and new tools can be added without restructuring the app.</p>
-      <ul>
-        <li><strong>Conversion Tool</strong> &mdash; you're making custard for 200 doughnuts; the tool tells you: 5L milk, 10L thick cream, 1.25L custard powder. Edit one quantity and everything scales. Shareable named conversion sets with full rate lists.</li>
-        <li><strong>Staff Roster</strong> &mdash; multi-week shift scheduling grid with per-day headcount requirements. Templates carry over week to week. Bot members fill open slots without needing a real user account.</li>
-        <li><strong>Item List</strong> &mdash; searchable ingredient and product catalog shared across the org.</li>
-      </ul>
-
-      <h3>Task Comments &amp; Knowledge Sharing</h3>
-      <p>Every task now has a threaded comment section. Comments support upvotes, downvotes, replies, and pinning. For franchise-shared tasks, comments are visible across the entire brand network &mdash; the knowledge-sharing layer the platform was originally designed around.</p>
-
-      <h3>Dashboard &amp; Today's View</h3>
-      <p>The org home page now shows a live dashboard: today's schedule progress bar, member/task/role/completion stats, recent tool activity, and a quick link to the roster. Workers land on a clear picture of the day without navigating anywhere.</p>
-
-      <h3>Tags, Card View &amp; UX Polish</h3>
-      <ul>
-        <li><strong>Tag System</strong> &mdash; color-coded task categories with task counts; filterable across the timetable and task library.</li>
-        <li><strong>Task Card View</strong> &mdash; image-rich card layout alongside the existing list view.</li>
-        <li><strong>Demo Mode</strong> &mdash; isolated sandbox session, no account required; auto-expires after 2 hours.</li>
-        <li><strong>LinkedIn OAuth</strong> &mdash; additional sign-in method alongside Google.</li>
-      </ul>
-
-      <div class="screenshots-grid" style="grid-template-columns: 1fr 1fr 1fr; margin-top: 20px;">
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Tools Page.png" alt="Tools hub" loading="lazy">
-          <p>Tools hub &mdash; pluggable operational tools</p>
-        </div>
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Conversion Entries.png" alt="Conversion tool" loading="lazy">
-          <p>Conversion Tool &mdash; ingredient scaling by batch</p>
-        </div>
-        <div class="screenshot-item">
-          <img src="pictures/friendchise/Task Comments.png" alt="Task comments" loading="lazy">
-          <p>Task comments &mdash; upvotes, replies, pinned notes</p>
-        </div>
-      </div>
     </div>
     </details>
 
