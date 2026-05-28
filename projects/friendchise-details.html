@@ -951,16 +951,11 @@
 
     <!-- API Routes -->
     <details class="collapsible-section">
-    <summary id="api-routes">REST API Endpoints</summary>
+    <summary id="api-routes">REST API</summary>
     <div class="content-section">
-      <ul>
-        <li><strong>POST /api/orgs</strong> &mdash; Create org (auto-creates Owner/Member roles with permissions)</li>
-        <li><strong>GET/POST/DELETE /api/orgs/[orgId]/memberships</strong> &mdash; Manage members (requires ORG_MANAGE)</li>
-        <li><strong>GET/POST/DELETE /api/orgs/[orgId]/tasks</strong> &mdash; Task templates (TASK_CREATE/DELETE)</li>
-        <li><strong>GET/POST /api/orgs/[orgId]/task-instances</strong> &mdash; Task instances with <code>?status=</code> filtering</li>
-        <li><strong>GET/POST/DELETE .../task-instances/[id]/assignees</strong> &mdash; Assignee management (TASK_ASSIGN)</li>
-        <li><strong>PATCH .../task-instances/[id]/status</strong> &mdash; Update status (TASKINSTANCE_COMPLETE)</li>
-      </ul>
+      <p>Most of the app runs on Next.js Server Actions and Server Components &mdash; mutations from the UI go through Server Actions, and initial page data is loaded server-side. REST API routes exist for two specific cases where that model doesn&apos;t fit.</p>
+      <p>The first is <strong>client-side lazy loading</strong>. The roster loads surrounding weeks in the background as you navigate &mdash; it can&apos;t wait for a full server render each time, so it calls <code>GET /api/orgs/[orgId]/roster-entries?weeks=...</code> to fetch a batch of weeks on the client after the page is already showing. The sidebar similarly uses a small fetch to reactively check whether the current org is a parent or child without triggering a full navigation.</p>
+      <p>The second is <strong>future external consumers</strong>. A planned mobile app would need a proper API surface rather than Server Actions, which are tied to Next.js. Building routes now means that path is already open.</p>
     </div>
     </details>
 
