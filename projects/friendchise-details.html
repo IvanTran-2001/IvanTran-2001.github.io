@@ -1092,10 +1092,19 @@
     <summary id="testing">Testing &amp; Quality Assurance</summary>
 
     <div class="content-section">
-      <h3>Smoke Test Report &mdash; V1</h3>
-      <p>
-        A structured smoke test was conducted across 87 individual test cases covering all major features, RBAC permissions, mobile responsiveness, and edge cases. The codebase now has <strong>582 automated tests</strong> across three layers: 468 unit tests, 93 integration tests (real Postgres in CI), and 21 Playwright E2E tests.
-      </p>
+      <h3>CI Pipeline</h3>
+      <p>Every push to <code>master</code> and every pull request runs through a three-job GitHub Actions pipeline. The <strong>check</strong> job runs first and is the gate: it installs dependencies, generates the Prisma client, type-checks, lints, and runs all unit tests. Only if <code>check</code> passes do the <strong>integration</strong> and <strong>e2e</strong> jobs start &mdash; and they run in parallel.</p>
+      <p>Both downstream jobs spin up a real <strong>Postgres 16 service container</strong>, deploy migrations, and seed the database before running their tests. Integration tests hit actual database queries against a live schema &mdash; no mocks, no in-memory fakes. The E2E job installs Playwright Chromium, runs the browser tests against a fully seeded app, and if anything fails it automatically uploads the Playwright HTML report as a build artifact with a 7-day retention window so failures can be debugged from the exact screenshots and traces without re-running locally.</p>
+    </div>
+
+    <div class="content-section">
+      <h3>PR Workflow</h3>
+      <p>Every pull request uses a structured template. Before merging, the author must check off: no lint errors, build passes, tested on desktop (Chrome) and on mobile (iPhone Safari). UI changes require screenshots or a recording. The template also tracks which smoke test issues the PR resolves, linking fixes back to specific reported cases. The type field (bug fix / enhancement / refactor / UI / docs) keeps the commit history readable at a glance.</p>
+    </div>
+
+    <div class="content-section">
+      <h3>Test Layers</h3>
+      <p>582 automated tests across three layers, all running in CI on every PR:</p>
 
       <div class="stats-grid" style="margin-top: 20px; grid-template-columns: repeat(4, 1fr);">
         <div class="stat-card" style="padding: 16px;"><div class="stat-number" style="font-size:1.5em;">468</div><div class="stat-label">Unit Tests</div></div>
@@ -1104,8 +1113,18 @@
         <div class="stat-card" style="padding: 16px;"><div class="stat-number" style="font-size:1.5em;">582</div><div class="stat-label">Total Automated</div></div>
       </div>
 
-      <h4 class="subsection-title">Testing Categories</h4>
-      <table class="generic-table">
+      <ul style="margin-top: 16px;">
+        <li><strong>Unit (Vitest)</strong> &mdash; validators, services, RBAC logic, and utility functions; fast, no DB required</li>
+        <li><strong>Integration (Vitest + real Postgres)</strong> &mdash; service-layer queries run against a live schema with migrations and seed data applied in CI</li>
+        <li><strong>E2E (Playwright)</strong> &mdash; auth flows, org creation, task management, multi-role permission boundaries; Playwright report uploaded on failure</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h3>V1 Smoke Test</h3>
+      <p>Before V2 work began, a structured manual smoke test was run across 87 test cases covering every major feature, RBAC rules, mobile layout, and edge cases. Results were tracked by category and linked to GitHub issues. The failures from this pass drove the V1.5 hardening milestone &mdash; nothing went to a real user without those being resolved first.</p>
+
+      <table class="generic-table" style="margin-top: 14px;">
         <thead>
           <tr><th>Category</th><th>Pass</th><th>Partial</th><th>Fail</th><th>Total</th></tr>
         </thead>
@@ -1127,19 +1146,8 @@
         </tbody>
       </table>
 
-      <h4 class="subsection-title">Methodology</h4>
-      <ul>
-        <li><strong>Manual smoke testing</strong> &mdash; end-to-end walkthrough of all 14 major features</li>
-        <li><strong>Unit tests (Vitest)</strong> &mdash; 468 tests covering validators, services, RBAC logic, and utility functions</li>
-        <li><strong>Integration tests (Vitest + real Postgres)</strong> &mdash; 93 tests running against a live DB, spinning up in GitHub Actions with a Postgres service container</li>
-        <li><strong>E2E tests (Playwright)</strong> &mdash; 21 browser tests covering auth flows, org creation, task management, and multi-role permission boundaries</li>
-        <li><strong>CI pipeline (GitHub Actions)</strong> &mdash; type-check &rarr; lint &rarr; unit &rarr; integration runs on every push and pull request to master</li>
-        <li><strong>RBAC automation script</strong> &mdash; automated route-level permission testing across 15 sensitive URLs</li>
-        <li><strong>Two-account testing</strong> &mdash; owner vs default member to verify permission boundaries</li>
-      </ul>
-
-      <p>
-        Full test report and individual bug issues are tracked on
+      <p style="margin-top: 14px;">
+        Full report and individual bug issues tracked on
         <a href="https://github.com/IvanTran-2001/FriendChise" target="_blank" style="font-weight:700; text-decoration:underline;"><i class="fab fa-github"></i> GitHub</a>.
       </p>
     </div>
