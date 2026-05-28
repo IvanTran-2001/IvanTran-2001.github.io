@@ -306,23 +306,39 @@
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Multitenant E-Commerce Platform <span style="font-size:0.8em;font-weight:600;border:1px solid #000;padding:1px 6px;">In Progress</span></span>
-          <span class="entry-date">February 2026 – Present</span>
+          <span class="entry-title">QA Wolf Technical Assessment</span>
+          <span class="entry-date">January 2026</span>
         </div>
-        <div class="entry-subtitle">Full-Stack SaaS E-Commerce — Next.js 16, PayloadCMS, tRPC, MongoDB, TypeScript</div>
+        <div class="entry-subtitle">Automated Testing & Web Scraping</div>
         <div class="entry-description">
-          <p>Learning project following a structured tutorial to explore Next.js 16 App Router, headless CMS integration, and multi-tenant architecture. On hold; plan to extend into a production storefront for a client.</p>
+          <p>Take-home technical assessment for QA Wolf's hiring process &mdash; no resume required, applications screened on submitted projects alone. Built a Node.js automation tool to scrape and validate article sort order on Hacker News. Reached the final round (paid, AUD $250) and completed a live Playwright assessment in QA Wolf's platform.</p>
           <ul>
-            <li>Multi-tenant data isolation via PayloadCMS <code>multiTenantPlugin</code> &mdash; attaches a tenant relationship declaratively to all scoped collections; access control hooks filter queries automatically with no manual per-route logic; 6 Payload collections, 2 admin role levels</li>
-            <li>httpOnly cookie auth via Payload’s local auth API server-side &mdash; JWT never exposed to client JavaScript; tRPC <code>login</code> mutation handles the full auth flow</li>
-            <li>End-to-end type-safe data layer with tRPC 11 and Payload’s auto-generated TypeScript types &mdash; products, categories, and tenants routers with full inference</li>
-            <li>Infinite scroll product listings with TanStack Query <code>useInfiniteQuery</code> and server-side prefetching; hierarchical parent/subcategory nav with combined tag and price filters</li>
-            <li>Demo: <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" style="color:#000;text-decoration:underline;">loom.com/share/00a62fe246f9453ba770e8f43ac52696</a> &nbsp;|&nbsp; GitHub: <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/multitenant-ecommerce</a></li>
+            <li>Used Playwright for cross-browser web scraping and DOM interaction across paginated content</li>
+            <li>Implemented data validation with structured error reporting and non-zero exit codes on failure</li>
+            <li>Jest unit test suite covering validation logic and edge cases</li>
           </ul>
         </div>
       </div>
 
       <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Warehouse Management System Redesign</span>
+          <span class="entry-date">December 2023</span>
+        </div>
+        <div class="entry-subtitle">Database Schema Consulting &mdash; Warehouse Inventory</div>
+        <div class="entry-description">
+          <p>Unpaid consulting engagement while employed at a warehouse, completed over 2 weeks ahead of a peak-season period. Identified that the stock control system required a 2-person lift operation due to a fragmented 3-table schema. Authored the full technical specification &mdash; calculation logic, filtering rules, edge cases, and an example table &mdash; and submitted it to the WMS vendor (Thomax Technology) for implementation.</p>
+          <ul>
+            <li>Consolidated 3 inventory tables into 1 &mdash; pickers now confirm daily stock requirements from a single column on a single page refresh</li>
+            <li>Eliminated the dedicated computer operator per lift team; lifters can now work independently, reducing coordination overhead</li>
+            <li>Reduced picking errors &mdash; each mistake previously required physically relocating an entire section to retrieve a misplaced item</li>
+            <li>Caught a live-data bug mid-day post-deployment &mdash; <code>replenResidual</code> values were static snapshots, not recalculating when BulkBinCodes updated, causing stale entries to pass the visibility filter; documented the root cause and escalated to Thomax Technology for a dynamic fix</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+          <div class="entry">
         <div class="entry-header">
           <span class="entry-title">MERN Thinkboard</span>
           <span class="entry-date">January 2026</span>
@@ -360,39 +376,25 @@
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">QA Wolf Technical Assessment</span>
-          <span class="entry-date">January 2026</span>
+          <span class="entry-title">Multitenant E-Commerce Platform <span style="font-size:0.8em;font-weight:600;border:1px solid #000;padding:1px 6px;">In Progress</span></span>
+          <span class="entry-date">February 2026 – Present</span>
         </div>
-        <div class="entry-subtitle">Automated Testing & Web Scraping</div>
+        <div class="entry-subtitle">Full-Stack SaaS E-Commerce — Next.js 16, PayloadCMS, tRPC, MongoDB, TypeScript</div>
         <div class="entry-description">
-          <p>Take-home technical assessment for QA Wolf's hiring process &mdash; no resume required, applications screened on submitted projects alone. Built a Node.js automation tool to scrape and validate article sort order on Hacker News. Reached the final round (paid, AUD $250) and completed a live Playwright assessment in QA Wolf's platform.</p>
+          <p>Learning project following a structured tutorial to explore Next.js 16 App Router, headless CMS integration, and multi-tenant architecture. On hold; plan to extend into a production storefront for a client.</p>
           <ul>
-            <li>Used Playwright for cross-browser web scraping and DOM interaction across paginated content</li>
-            <li>Implemented data validation with structured error reporting and non-zero exit codes on failure</li>
-            <li>Jest unit test suite covering validation logic and edge cases</li>
+            <li>Multi-tenant data isolation via PayloadCMS <code>multiTenantPlugin</code> &mdash; attaches a tenant relationship declaratively to all scoped collections; access control hooks filter queries automatically with no manual per-route logic; 6 Payload collections, 2 admin role levels</li>
+            <li>httpOnly cookie auth via Payload’s local auth API server-side &mdash; JWT never exposed to client JavaScript; tRPC <code>login</code> mutation handles the full auth flow</li>
+            <li>End-to-end type-safe data layer with tRPC 11 and Payload’s auto-generated TypeScript types &mdash; products, categories, and tenants routers with full inference</li>
+            <li>Infinite scroll product listings with TanStack Query <code>useInfiniteQuery</code> and server-side prefetching; hierarchical parent/subcategory nav with combined tag and price filters</li>
+            <li>Demo: <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" style="color:#000;text-decoration:underline;">loom.com/share/00a62fe246f9453ba770e8f43ac52696</a> &nbsp;|&nbsp; GitHub: <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/multitenant-ecommerce</a></li>
           </ul>
         </div>
       </div>
 
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Warehouse Management System Redesign</span>
-          <span class="entry-date">December 2023</span>
-        </div>
-        <div class="entry-subtitle">Database Schema Consulting &mdash; Warehouse Inventory</div>
-        <div class="entry-description">
-          <p>Unpaid consulting engagement while employed at a warehouse, completed over 2 weeks ahead of a peak-season period. Identified that the stock control system required a 2-person lift operation due to a fragmented 3-table schema. Authored the full technical specification &mdash; calculation logic, filtering rules, edge cases, and an example table &mdash; and submitted it to the WMS vendor (Thomax Technology) for implementation.</p>
-          <ul>
-            <li>Consolidated 3 inventory tables into 1 &mdash; pickers now confirm daily stock requirements from a single column on a single page refresh</li>
-            <li>Eliminated the dedicated computer operator per lift team; lifters can now work independently, reducing coordination overhead</li>
-            <li>Reduced picking errors &mdash; each mistake previously required physically relocating an entire section to retrieve a misplaced item</li>
-            <li>Caught a live-data bug mid-day post-deployment &mdash; <code>replenResidual</code> values were static snapshots, not recalculating when BulkBinCodes updated, causing stale entries to pass the visibility filter; documented the root cause and escalated to Thomax Technology for a dynamic fix</li>
-          </ul>
-        </div>
-      </div>
     </div>
 
-    <div class="section">
+<div class="section">
       <h2 class="section-title">Competitive Programming</h2>
 
       <div class="entry">
