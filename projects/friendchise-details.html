@@ -883,29 +883,36 @@
     <details class="collapsible-section">
     <summary id="permission-matrix">Permission Matrix (RBAC)</summary>
     <div class="content-section">
-      <table class="permission-table">
+      <h3>Role Model</h3>
+      <p>Every org has two fixed system roles that cannot be edited or deleted:</p>
+      <ul>
+        <li><strong>Owner</strong> &mdash; holds all permissions automatically. Always.</li>
+        <li><strong>Default Member</strong> &mdash; holds no permissions by default. Assigned to every new member on invite.</li>
+      </ul>
+      <p>Everything between those two is a <strong>custom role</strong> created by the org owner. Each custom role is a named combination of any subset of the permission flags below.</p>
+
+      <h3>Permission Flags</h3>
+      <table class="generic-table">
         <thead>
-          <tr><th>Action</th><th>Owner</th><th>Manager</th><th>Worker</th></tr>
+          <tr><th>Flag</th><th>What it unlocks</th></tr>
         </thead>
         <tbody>
-          <tr><td>Create/delete organization</td><td>&#10003;</td><td>&mdash;</td><td>&mdash;</td></tr>
-          <tr><td>Manage members (invite/remove/change role)</td><td>&#10003;</td><td>&mdash;</td><td>&mdash;</td></tr>
-          <tr><td>Create/manage custom ranks</td><td>&#10003;</td><td>&mdash;</td><td>&mdash;</td></tr>
-          <tr><td>Create/edit/delete task templates</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
-          <tr><td>Create/edit timetable templates</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
-          <tr><td>Apply template to a week (create entries)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
-          <tr><td>Edit timetable entries (reassign, reschedule)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
-          <tr><td>Assign members to task instances</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
-          <tr><td>View timetable (full week)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
-          <tr><td>View own daily tasks</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
-          <tr><td>Update task status</td><td>&#10003;</td><td>&#10003;</td><td>&#10003; (own)</td></tr>
-          <tr><td>View all org members</td><td>&#10003;</td><td>&#10003;</td><td>&#10003; (read)</td></tr>
-          <tr><td>Create local tasks/recipes</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
-          <tr><td>Post in forum</td><td>&#10003;</td><td>&#10003;</td><td>Role-dependent</td></tr>
-          <tr><td>View secret recipes</td><td>&#10003;</td><td>Role-dep.</td><td>Role-dep.</td></tr>
+          <tr><td><code>MANAGE_MEMBERS</code></td><td>Invite, remove, and change the role of members</td></tr>
+          <tr><td><code>MANAGE_ROLES</code></td><td>Create, edit, and delete custom roles</td></tr>
+          <tr><td><code>MANAGE_TIMETABLE</code></td><td>Create/edit timetable templates, apply templates, drag entries, reassign and reschedule</td></tr>
+          <tr><td><code>MANAGE_TASKS</code></td><td>Create, edit, and delete task definitions and task templates</td></tr>
+          <tr><td><code>MANAGE_SETTINGS</code></td><td>Edit org settings (name, open/close hours, etc.)</td></tr>
+          <tr><td><code>VIEW_TIMETABLE</code></td><td>View the full week calendar (without this, members only see their own daily tasks)</td></tr>
         </tbody>
       </table>
-      <p>Permission enum values: <code>MANAGE_MEMBERS</code>, <code>MANAGE_ROLES</code>, <code>MANAGE_TIMETABLE</code>, <code>MANAGE_TASKS</code>, <code>MANAGE_SETTINGS</code>, <code>VIEW_TIMETABLE</code></p>
+
+      <h3>Parent Org &mdash; Exclusive Permissions</h3>
+      <p>Certain actions are only available to the owner of a <strong>parent (franchisor) org</strong> and are not exposed to child org owners at all:</p>
+      <ul>
+        <li>Delete a child org from the franchise network</li>
+        <li>Transfer ownership of a child org to another member</li>
+        <li>Access franchisee management (view and oversee all child orgs)</li>
+      </ul>
     </div>
     </details>
 
