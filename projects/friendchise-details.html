@@ -869,13 +869,13 @@
       <h3>Drag and Drop</h3>
       <p>Native HTML5 drag API &mdash; no library. Dragging a task from the sidebar sets <code>type: "task"</code> in a shared ref. Dragging an existing entry sets <code>type: "move"</code> plus an <code>offsetMin</code> recording how far down the block was grabbed, so the block stays under the cursor rather than jumping to the top. On drag over, cursor <code>clientY</code> is converted to minutes using the same 150px constant and snapped to 15-minute intervals. On drop, the server action creates or updates the entry. On mobile, drag is replaced with tap-to-place.</p>
 
-      <h3>Apply / Overwrite Flow</h3>
-      <ol>
-        <li>Manager goes to the Timetable page (current week&rsquo;s entries)</li>
-        <li>Selects a template from the dropdown</li>
-        <li>If the week has no entries &rarr; create entries directly</li>
-        <li>If the week already has entries &rarr; confirmation dialog warns before overwriting</li>
-      </ol>
+      <h3>Creating Entries</h3>
+      <p>There are two ways to add entries to the live calendar:</p>
+      <ul>
+        <li><strong>Direct</strong> &mdash; drag a task from the sidebar onto any day column. The entry is created immediately at that time slot.</li>
+        <li><strong>Template apply</strong> &mdash; select a saved template from the dropdown to bulk-create all its entries for the week at once. If the week already has entries, a confirmation dialog warns before overwriting them.</li>
+      </ul>
+      <p>Both paths show a dismissible warning dialog if the target date is in the past. The dismissal is stored per-user in localStorage so repeat users aren&rsquo;t nagged.</p>
     </div>
 
     <div class="content-section">
