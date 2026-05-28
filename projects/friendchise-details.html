@@ -852,24 +852,22 @@
     <details class="collapsible-section">
     <summary id="timetable">Timetable System Design</summary>
     <div class="content-section">
-      <h3>Two-Layer Architecture</h3>
-      <p><strong>Layer 1 &mdash; Template / Cycle Profile (pattern definition):</strong> A named cycle profile (e.g., "Standard Week" with 7 days). Task placements stored as <code>TaskInstance</code> rows with relative <code>dayOffset</code> and <code>startTimeMin</code>. No real dates &mdash; purely positional.</p>
-      <p><strong>Layer 2 &mdash; Materialised Schedule (real calendar):</strong> When a manager selects a template, the system calculates real dates (<code>weekStartDate + dayOffset</code>) and creates new <code>TaskInstance</code> rows with absolute <code>scheduledStartAt</code> / <code>scheduledEndAt</code>.</p>
-
-      <h3>Why Materialised (Not Virtual Projection)</h3>
+      <h3>Templates and Entries</h3>
+      <p>The timetable is built on two separate concepts:</p>
       <ul>
-        <li>Real scenario: Someone completed a task at 9am. Later you edit the template to move it to 2pm. Virtual projection would show "scheduled at 2pm, done at 9am" &mdash; misleading</li>
-        <li>Materialised rows give you an <strong>audit trail</strong></li>
-        <li>Each instance can be independently edited (reassign, reschedule, change status)</li>
-        <li>Storage cost is minimal &mdash; a few hundred rows per week per org</li>
+        <li><strong>Template</strong> &mdash; a reusable weekly pattern; defines which tasks go on which days and at what times. No real dates, not on any live timetable. Just a saved layout a manager can apply whenever they need it.</li>
+        <li><strong>Entry</strong> &mdash; a real task on the actual timetable. Has a concrete date, an assignee, a status (TODO &rarr; IN_PROGRESS &rarr; DONE), and its own edit history. Applying a template creates one entry row per task.</li>
       </ul>
+
+      <h3>Materialised Timetable Entries</h3>
+      <p>When a manager applies a template to a week, the system converts it into real database rows &mdash; one entry per task &mdash; with actual dates attached. Each entry then lives independently: it can be reassigned, rescheduled, or marked done without affecting the template or any other week. Editing the template after applying it does not change entries that already exist.</p>
 
       <h3>Apply / Overwrite Flow</h3>
       <ol>
-        <li>Manager goes to Timetable page (current week's materialised schedule)</li>
+        <li>Manager goes to the Timetable page (current week's entries)</li>
         <li>Selects a template from the dropdown</li>
-        <li>If week has no instances &rarr; materialise directly</li>
-        <li>If week already has instances &rarr; confirmation dialog warns before overwriting</li>
+        <li>If week has no entries &rarr; create entries directly</li>
+        <li>If week already has entries &rarr; confirmation dialog warns before overwriting</li>
         <li>Cycle must start on a Monday (enforced by backend + UI)</li>
       </ol>
     </div>
@@ -926,8 +924,8 @@
     <summary id="architecture">Architecture &amp; Design Decisions</summary>
 
     <div class="content-section">
-      <h3>Materialised Scheduling vs Virtual Projection</h3>
-      <p><strong>Chose: Materialised scheduling.</strong> When a template is applied, real TaskInstance rows are generated with absolute dates. This allows per-instance overrides without a complex exception layer.</p>
+      <h3>Template → Entry Scheduling</h3>
+      <p>Applying a template creates real entry rows with absolute dates rather than computing the schedule on the fly. Each entry is then independent — it can be reassigned, rescheduled, or completed without affecting the template or other weeks.</p>
     </div>
 
     <div class="content-section">
