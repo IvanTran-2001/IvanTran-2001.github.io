@@ -390,6 +390,7 @@
             <li>Consolidated 3 inventory tables into 1 &mdash; pickers now confirm daily stock requirements from a single column on a single page refresh</li>
             <li>Eliminated the dedicated computer operator per lift team; lifters can now work independently, reducing coordination overhead</li>
             <li>Reduced picking errors &mdash; each mistake previously required physically relocating an entire section to retrieve a misplaced item</li>
+            <li>Caught a live-data bug mid-day post-deployment &mdash; RPR values were static snapshots, not recalculating when BulkBinCodes updated, causing stale entries to pass the visibility filter; documented the root cause and escalated to the dev team for a dynamic fix</li>
           </ul>
         </div>
       </div>

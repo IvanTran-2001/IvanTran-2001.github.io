@@ -103,7 +103,7 @@
     <details class="collapsible-section" id="solution">
       <summary><i class="fas fa-lightbulb"></i> Solution</summary>
       <div class="content-section" style="margin-top: 20px;">
-        <p>Working with the WMS development team, we designed a <strong>single unified table</strong> consolidating all three functions. Initial testing revealed the table was static (only updated by warehouse input). I traced this to <strong>order date misalignment between systems</strong>; we then implemented dynamic synchronisation to keep it live.</p>
+        <p>Working with the WMS development team, we designed a <strong>single unified table</strong> consolidating all three functions. On the first live day I noticed entries showing incorrect stock counts — RPR values of 2.00 where 0.00 was expected. The visibility filter (<code>RPR &gt; 0</code>) was operating on <strong>static snapshots</strong>: RPR wasn't recalculating when <code>BulkBinCodes</code> were updated upstream, so stale entries were slipping through. I documented the issue in a formal report and escalated to the dev team, who then implemented <strong>dynamic recalculation</strong> so values update in real time.</p>
         <ul>
           <li>Mapped variables and dependencies to understand the full data landscape</li>
           <li>Identified essential vs. redundant fields to reduce cognitive load</li>
