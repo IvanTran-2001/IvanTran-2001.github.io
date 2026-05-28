@@ -982,8 +982,9 @@
 
     <div class="content-section">
       <h3>ActionSidebar</h3>
-      <p>The solution is <code>ActionSidebarSlot</code> &mdash; a context-driven panel that any button anywhere in the app can open by calling <code>useActionSidebar().open(title, &lt;Panel /&gt;)</code>. On desktop it renders as a persistent sidebar extending from the navigation panel. On mobile it becomes a bottom sheet that slides up from the bottom of the screen. Because the panel is sized to fit within the mobile screen width, anything that renders correctly inside it is guaranteed to fit on mobile without additional responsive work per feature.</p>
-      <p>The toolbar stays minimal: just navigation controls. Filters, task actions, template pickers, and member panels all live inside the ActionSidebar instead. This also prevents the toolbar from becoming a dumping ground as features are added &mdash; the comparison screenshots show how much more cluttered V1&apos;s toolbar was before this pattern was introduced.</p>
+      <p>The solution is a two-part panel system. The <strong>PageSidebar</strong> is the left navigation column &mdash; it holds section links, filters, view toggles, and action buttons like "Add Task" or "Apply Template". When a button is clicked, it opens content in the <strong>ActionSidebar</strong>: a separate panel that renders the actual tool UI (a searchable task list, a template picker, a member form, etc.).</p>
+      <p>On desktop the ActionSidebar appears as a panel directly to the right of the PageSidebar, side by side. On mobile it becomes a bottom sheet that slides up from the bottom of the screen. Because the panel is sized to fit the mobile screen width, anything that renders correctly inside it is guaranteed to fit on mobile without additional responsive work per feature.</p>
+      <p>The toolbar above the calendar stays minimal &mdash; just prev/next navigation and the date label. All filters and actions live in the PageSidebar instead. This is visible in the V1&rarr;V2 comparison screenshots, where V1&apos;s toolbar was significantly more cluttered.</p>
     </div>
 
     </details>
