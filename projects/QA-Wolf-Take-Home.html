@@ -19,9 +19,9 @@
   <nav class="navbar">
     <a href="../index.html" class="navbar-name">IVAN TRAN</a>
     <ul class="navbar-links">
+      <li><a href="#outcome"><i class="fas fa-trophy"></i> Outcome</a></li>
       <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
       <li><a href="#tech"><i class="fas fa-layer-group"></i> Tech Stack</a></li>
-      <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
       <li><a href="#testing"><i class="fas fa-vial"></i> Testing</a></li>
     </ul>
     <div class="navbar-socials">
@@ -33,7 +33,7 @@
   <div class="hero">
     <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
     <h1>QA Wolf Technical Assessment</h1>
-    <p class="hero-subtitle">Hacker News sort validator built with Node.js and Playwright — scrapes the 100 newest articles and verifies chronological ordering with a modular CLI and full test suite.</p>
+    <p class="hero-subtitle">Take-home technical assessment for QA Wolf's hiring process — applications screened on submitted projects, no resume required. Built a Hacker News sort validator with Node.js + Playwright. <strong>Reached the paid final round (AUD $250)</strong> and completed a live Playwright assessment in QA Wolf's platform.</p>
     <div class="hero-badges">
       <span class="badge"><i class="fas fa-vial"></i> Test Automation</span>
       <span class="badge"><i class="fas fa-spider"></i> Web Scraping</span>
@@ -47,10 +47,40 @@
 
   <div class="container">
 
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">Final Round</div><div class="stat-label">Stage Reached</div></div>
+      <div class="stat-card"><div class="stat-number">AUD $250</div><div class="stat-label">Paid Assessment</div></div>
+      <div class="stat-card"><div class="stat-number">No Resume</div><div class="stat-label">Project-Only Screening</div></div>
+      <div class="stat-card"><div class="stat-number">Jan 2026</div><div class="stat-label">Date</div></div>
+    </div>
+
+    <!-- Hiring Outcome -->
+    <details class="collapsible-section" id="outcome" open>
+      <summary><i class="fas fa-trophy"></i> Hiring Outcome</summary>
+      <div style="margin-top: 20px;">
+        <div class="outcome-card">
+          <p><strong>Reached the final round of QA Wolf's hiring process</strong> — a paid live Playwright assessment (AUD $250) in QA Wolf's own platform, January 21, 2026.</p>
+        </div>
+        <div class="content-section" style="margin-top: 16px;">
+          <h3>How QA Wolf Hires</h3>
+          <p>QA Wolf's process is entirely project-based — no resume required at any stage. Candidates submit their existing projects and are evaluated purely on the quality of their work. Passing the take-home moves you to a final live coding round in QA Wolf's platform where you write automated tests in real time.</p>
+          <h3>Timeline</h3>
+          <ul>
+            <li><strong>Submitted projects</strong> — application screened on GitHub work, no resume</li>
+            <li><strong>Take-home assessment</strong> — built this Hacker News validator in Node.js + Playwright</li>
+            <li><strong>Jan 16, 2026</strong> — received final round invitation (email on file)</li>
+            <li><strong>Jan 21, 2026</strong> — completed paid live Playwright assessment (AUD $250) in QA Wolf's platform</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
     <!-- TOC -->
     <div class="content-section" id="jump">
       <h3>Jump to Section</h3>
       <div class="toc-grid">
+        <a href="#outcome" class="toc-link"><i class="fas fa-trophy"></i><span>Hiring Outcome</span></a>
         <a href="#demo" class="toc-link"><i class="fas fa-play-circle"></i><span>Demo Video</span></a>
         <a href="#overview" class="toc-link"><i class="fas fa-info-circle"></i><span>Project Overview</span></a>
         <a href="#tech" class="toc-link"><i class="fas fa-layer-group"></i><span>Technology Stack</span></a>
@@ -74,7 +104,7 @@
     <details class="collapsible-section" id="overview">
       <summary><i class="fas fa-info-circle"></i> Project Overview</summary>
       <div class="content-section" style="margin-top: 20px;">
-        <p>A Node.js + Playwright tool that scrapes the first 100 articles from <strong>Hacker News/newest</strong> and validates they are sorted newest-to-oldest by timestamp, reporting any out-of-order articles with detailed context.</p>
+        <p>Submitted as a take-home technical assessment for QA Wolf — a company that screens candidates on submitted projects alone, with no resume required at any stage. This tool scrapes the first 100 articles from <strong>Hacker News/newest</strong> and validates they are sorted newest-to-oldest by timestamp, reporting any out-of-order articles with detailed context.</p>
         <ul>
           <li>Multi-page Playwright navigation across paginated results</li>
           <li>Timestamp parsing and strict ordering validation</li>
@@ -149,8 +179,8 @@ node index.js --help</pre>
 
     <!-- CTA -->
     <div class="footer-cta">
-      <h2>See It in Action</h2>
-      <p>Watch the walkthrough or explore the source code.</p>
+      <h2>Reached the Paid Final Round</h2>
+      <p>This take-home assessment earned a final round invitation from QA Wolf. Watch the walkthrough or explore the source code.</p>
       <div class="button-group">
         <a href="https://www.loom.com/share/d3b55a224db6491ab0369a05233862a7" class="cta-btn primary" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
         <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="cta-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
