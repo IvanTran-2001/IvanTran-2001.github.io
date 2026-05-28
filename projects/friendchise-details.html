@@ -884,10 +884,10 @@
     <summary id="permission-matrix">Permission Matrix (RBAC)</summary>
     <div class="content-section">
       <h3>Role Model</h3>
-      <p>Every org has two fixed system roles that cannot be edited or deleted:</p>
+      <p>Every org has two fixed system roles that cannot be deleted:</p>
       <ul>
-        <li><strong>Owner</strong> &mdash; holds all permissions automatically. Always.</li>
-        <li><strong>Default Member</strong> &mdash; holds no permissions by default. Assigned to every new member on invite.</li>
+        <li><strong>Owner</strong> &mdash; holds all permissions automatically. Cannot be edited or deleted.</li>
+        <li><strong>Default Member</strong> &mdash; starts with no permissions, but its permission set is editable. Automatically assigned to every new member on invite. Cannot be deleted.</li>
       </ul>
       <p>Everything between those two is a <strong>custom role</strong> created by the org owner. Each custom role is a named combination of any subset of the permission flags below.</p>
 
