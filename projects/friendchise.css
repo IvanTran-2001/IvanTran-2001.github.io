@@ -32,6 +32,12 @@ h1, h2, h3, h4, h5, h6, p, li, span, div, a, blockquote { color: #000000 !import
 .screenshots-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0 20px 0; }
 .screenshot-item img { width: 100%; border: 1px solid #000000; display: block; }
 .screenshot-item p { font-size: 0.78em; color: #555555; text-align: center; margin-top: 6px; }
+/* Lightbox */
+#lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; align-items: center; justify-content: center; cursor: zoom-out; }
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; cursor: zoom-out; display: block; }
+.zoomable { cursor: zoom-in; }
+
 /* Screenshot carousel */
 .screenshots-section { padding: 0 !important; }
 .screenshot-carousel-wrapper { width: 100%; }
