@@ -952,6 +952,16 @@
       <p>API routes handle the cases Server Actions can&apos;t. The roster pre-fetches surrounding weeks in the background while the page is already visible &mdash; it calls <code>GET /api/orgs/[orgId]/roster-entries?weeks=...</code> with a buffer of weeks ahead and behind the current view so navigation feels instant. The sidebar also uses a small fetch to reactively check org type without a full page reload. A secondary reason these routes exist is to serve as a foundation for future external consumers like a mobile app, which can&apos;t use Server Actions.</p>
     </div>
 
+    <div class="content-section">
+      <h3>Input Validation</h3>
+      <p>All inputs are validated with <strong>Zod v4</strong> schemas before reaching the service layer. Every major entity (tasks, roles, memberships, timetable entries, templates, etc.) has a dedicated schema in <code>lib/validators/</code>. Server Actions and API routes call into these schemas at the system boundary &mdash; invalid payloads are rejected before any database query runs. This keeps the service layer clean: it can assume its arguments are already well-typed and within bounds.</p>
+    </div>
+
+    <div class="content-section">
+      <h3>Rate Limiting</h3>
+      <p>Rate limiting runs in the Next.js middleware layer (<code>proxy.ts</code>) via <strong>Upstash Redis</strong> and <code>@upstash/ratelimit</code>. Two sliding-window limiters cover different threat surfaces: OAuth endpoints are capped at 20 requests per 15 minutes keyed by IP (guarding against credential-stuffing and OAuth DoS), while all other API routes allow 60 requests per minute keyed by authenticated user ID with an IP fallback for unauthenticated calls. Every 429 response includes a <code>Retry-After</code> header so clients know exactly when to retry. The limiter is configured to fail open &mdash; if Redis is unavailable the request is allowed through rather than dropped, and the error is captured to Sentry. In local development without a Redis URL the limiter is simply not initialised.</p>
+    </div>
+
     </details>
 
     <!-- Responsive Layout -->
@@ -1133,6 +1143,12 @@
         <a href="https://github.com/IvanTran-2001/FriendChise" target="_blank" style="font-weight:700; text-decoration:underline;"><i class="fab fa-github"></i> GitHub</a>.
       </p>
     </div>
+
+    <div class="content-section">
+      <h3>Observability</h3>
+      <p>Production errors and performance are monitored with <strong>Sentry</strong> via <code>@sentry/nextjs</code>. It covers error monitoring, performance tracing, session replay, and server-side structured logs. Rather than calling Sentry directly throughout the codebase, all log calls go through a thin wrapper in <code>lib/observability.ts</code> (<code>log.info</code>, <code>log.warn</code>, <code>log.error</code>) that routes to <code>Sentry.logger</code> under the hood &mdash; meaning the underlying backend can be swapped or enriched with shared fields from one place. The rate limiter in <code>proxy.ts</code> also calls this wrapper when Redis errors, so fail-open events are captured without the request failing.</p>
+    </div>
+
     </details>
 
     <!-- Footer CTA -->
