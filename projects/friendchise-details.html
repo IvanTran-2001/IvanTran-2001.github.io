@@ -852,9 +852,8 @@
     <details class="collapsible-section">
     <summary id="timetable">Timetable System Design</summary>
     <div class="content-section">
-      <h3>Timetable Entries, Template Entries, and Templates</h3>
-      <p>The source of truth is always the <strong>timetable entry</strong> &mdash; a real task slot on the live calendar. It has a concrete date, an assignee, a status (TODO &rarr; IN_PROGRESS &rarr; DONE), and its own history. Managers can create entries directly by dragging a task onto the calendar; no template is required.</p>
-      <p>Templates exist purely to reduce redundancy when the same weekly layout repeats. A <strong>template entry</strong> is a single saved task slot (day + time + task) inside a template. A <strong>template</strong> is a named collection of those template entries. Applying a template bulk-creates one timetable entry per template entry &mdash; so a template with 20 entries generates 20 real rows with one action.</p>
+      <h3>Data Model</h3>
+      <p>The live calendar is driven by <strong>timetable entries</strong> &mdash; real rows with a date, assignee, and status that managers can create directly. <strong>Templates</strong> are optional: a template is a named set of <strong>template entries</strong> (day + time + task slots) that can be applied to any week, bulk-creating one timetable entry per slot. Templates exist only to reduce repetition; they have no effect on the live calendar until applied.</p>
 
       <h3>Calendar Grid</h3>
       <p>The calendar is a scrollable div with a fixed <strong>150px per hour</strong> constant that drives all positioning. Total height is always <code>24 &times; 150 = 3600px</code>. Each task block is <code>position: absolute</code> inside its day column &mdash; <code>top</code> and <code>height</code> are calculated directly from the task's start time and duration in minutes:</p>
