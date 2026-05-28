@@ -981,10 +981,30 @@
     </div>
 
     <div class="content-section">
-      <h3>ActionSidebar</h3>
+      <h3>Page &amp; Action Sidebar</h3>
       <p>The solution is a two-part panel system. The <strong>PageSidebar</strong> is the left navigation column &mdash; it holds section links, filters, view toggles, and action buttons like "Add Task" or "Apply Template". When a button is clicked, it opens content in the <strong>ActionSidebar</strong>: a separate panel that renders the actual tool UI (a searchable task list, a template picker, a member form, etc.).</p>
       <p>On desktop the ActionSidebar appears as a panel directly to the right of the PageSidebar, side by side. On mobile it becomes a bottom sheet that slides up from the bottom of the screen. Because the panel is sized to fit the mobile screen width, anything that renders correctly inside it is guaranteed to fit on mobile without additional responsive work per feature.</p>
-      <p>The toolbar above the calendar stays minimal &mdash; just prev/next navigation and the date label. All filters and actions live in the PageSidebar instead. This is visible in the V1&rarr;V2 comparison screenshots, where V1&apos;s toolbar was significantly more cluttered.</p>
+      <p>The toolbar above the calendar stays minimal &mdash; just prev/next navigation and the date label. All filters and actions live in the PageSidebar instead.</p>
+
+      <div class="comparison-grid" style="margin-top: 20px;">
+        <div class="comparison-pair">
+          <h4 class="comparison-label">Timetable &mdash; Task List Panel</h4>
+          <div class="comparison-images">
+            <div class="comparison-item">
+              <span class="comparison-badge v1-badge">V1 &mdash; Cluttered toolbar</span>
+              <img src="pictures/friendchise/V1/Timetable - Calender.png" alt="V1 Timetable with cluttered toolbar" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+            <div class="comparison-item">
+              <span class="comparison-badge v2-badge">V2 &mdash; Desktop</span>
+              <img src="pictures/friendchise/V2/Timetable-Task-List.png" alt="V2 Timetable desktop with ActionSidebar" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+            <div class="comparison-item">
+              <span class="comparison-badge v2-badge">V2 &mdash; Mobile</span>
+              <img src="pictures/friendchise/V2/Mobile-Timetable-Task-List.png" alt="V2 Timetable mobile bottom sheet" loading="lazy" class="zoomable" onclick="openLightbox(this)">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     </details>
