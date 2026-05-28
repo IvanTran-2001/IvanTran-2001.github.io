@@ -71,7 +71,6 @@
           <a href="#multi-tenant" class="toc-link"><i class="fas fa-sitemap"></i><span>Multi-Tenant Architecture</span></a>
           <a href="#timetable" class="toc-link"><i class="fas fa-calendar-week"></i><span>Timetable System</span></a>
           <a href="#permission-matrix" class="toc-link"><i class="fas fa-key"></i><span>Roles &amp; Permissions</span></a>
-          <a href="#architecture" class="toc-link"><i class="fas fa-cubes"></i><span>Architecture Decisions</span></a>
           <a href="#data-model" class="toc-link"><i class="fas fa-database"></i><span>Data Model</span></a>
           <a href="#api-routes" class="toc-link"><i class="fas fa-plug"></i><span>REST API</span></a>
           <a href="#roadmap" class="toc-link"><i class="fas fa-road"></i><span>Roadmap</span></a>
@@ -913,41 +912,6 @@
         <li>Transfer ownership of a child org to another member</li>
         <li>Access franchisee management (view and oversee all child orgs)</li>
       </ul>
-    </div>
-    </details>
-
-    <!-- Architecture Decisions -->
-    <details class="collapsible-section">
-    <summary id="architecture">Architecture &amp; Design Decisions</summary>
-
-    <div class="content-section">
-      <h3>Template &rarr; Entry Scheduling</h3>
-      <p>The live calendar is driven by timetable entries &mdash; real rows with a date, assignee, and status. Managers can create entries directly or apply a template to bulk-create them. Templates are optional and exist only to reduce repetition; they have no effect on the live calendar until applied. Each entry lives independently once created: it can be reassigned, rescheduled, or completed without affecting the template or any other week.</p>
-    </div>
-
-    <div class="content-section">
-      <h3>Single Table Dual-Purpose (TaskInstance)</h3>
-      <p><strong>Chose: One table for now.</strong> Template placements have <code>templateId</code> + <code>dayOffset</code> + <code>startTimeMin</code>. Materialised instances have <code>scheduledStartAt</code> + <code>scheduledEndAt</code>. Distinguished by which fields are populated. Clean refactor path to split later if needed.</p>
-    </div>
-
-    <div class="content-section">
-      <h3>Auth Config Split for Edge Runtime</h3>
-      <p>Next.js middleware runs on the Edge runtime, which can't import <code>@prisma/client</code>. Auth config split into <strong>auth.config.ts</strong> (Edge-compatible, no Prisma) and <strong>auth.ts</strong> (full config with Prisma adapter). A real production pattern.</p>
-    </div>
-
-    <div class="content-section">
-      <h3>Service Layer Pattern</h3>
-      <p>Both Server Actions (web UI) and API Routes (external/mobile) are thin wrappers that delegate to <code>lib/services/</code>. No duplicated business logic. Server Actions additionally call <code>revalidatePath</code> to invalidate the Next.js cache.</p>
-    </div>
-
-    <div class="content-section">
-      <h3>Discriminated Union Result Types</h3>
-      <p>Auth helpers return <code>{ ok: true, user, membership }</code> or <code>{ ok: false, response: 401|403 }</code>. Routes early-return with <code>if (!authz.ok) return authz.response</code> &mdash; clean, consistent, no exceptions for control flow.</p>
-    </div>
-
-    <div class="content-section">
-      <h3>Shared Tasks with Single Forum Thread</h3>
-      <p>Tasks are NOT copied into child orgs. Each canonical task has one shared forum thread that all brand-network franchisees can comment under. Avoids data duplication, centralizes community knowledge, and updates propagate automatically.</p>
     </div>
     </details>
 
