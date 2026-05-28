@@ -918,20 +918,27 @@
     <!-- Data Model -->
     <details class="collapsible-section">
     <summary id="data-model">Data Model</summary>
+
     <div class="content-section">
-      <p>Key models in the PostgreSQL schema:</p>
-      <ul>
-        <li><strong>Organization</strong> &mdash; Top-level tenant with optional <code>parentOrgId</code> for brand&rarr;franchisee hierarchy. Has <code>openTimeMin</code>, <code>closeTimeMin</code>, <code>timezone</code>.</li>
-        <li><strong>User / Account / Session</strong> &mdash; Auth.js managed. OAuth account linking. JWT strategy.</li>
-        <li><strong>Membership</strong> &mdash; Join table: User &harr; Organization, with a Role.</li>
-        <li><strong>Role / RolePermission</strong> &mdash; Org-scoped roles with granular <code>OrgPermission</code> enum values.</li>
-        <li><strong>Task</strong> &mdash; Reusable template: title, description, durationMin, peopleRequired, preferredStartTimeMin, minWaitDays, maxWaitDays.</li>
-        <li><strong>TaskEligibility</strong> &mdash; Links Task to eligible Roles.</li>
-        <li><strong>TimetableTemplate</strong> &mdash; Named cycle profile with <code>templateDays</code> count and optional <code>effectiveFrom</code>.</li>
-        <li><strong>TaskInstance</strong> &mdash; Dual-purpose: template placements (relative <code>dayOffset</code>) OR materialised entries (absolute <code>scheduledStartAt</code>). Status: TODO &rarr; IN_PROGRESS &rarr; DONE / SKIPPED.</li>
-        <li><strong>TaskInstanceAssignee</strong> &mdash; Many-to-many: TaskInstance &harr; Membership.</li>
-      </ul>
+      <h3>Users &amp; Organisations</h3>
+      <p>A <code>User</code> is a global account. An <code>Organization</code> is a tenant. <code>Membership</code> is the join between them &mdash; meaning one user can belong to multiple orgs without duplicating their account. <code>Organization</code> also has an optional <code>parentOrgId</code> that points to another org in the same table, which is how the brand&rarr;franchisee hierarchy is modelled without a separate table.</p>
     </div>
+
+    <div class="content-section">
+      <h3>Roles &amp; Permissions</h3>
+      <p>Each org defines its own <code>Role</code> set. Permissions aren&apos;t stored as an enum column on the role &mdash; they are individual <code>Permission</code> rows, each holding one <code>PermissionAction</code> value. <code>MemberRole</code> then links a membership to one or more roles. This means an org can build any permission combination without a schema migration, and a membership can hold multiple roles simultaneously.</p>
+    </div>
+
+    <div class="content-section">
+      <h3>Tasks, Templates &amp; Entries</h3>
+      <p>A <code>Task</code> is the definition &mdash; name, duration, eligibility, image. It doesn&apos;t represent anything scheduled. <code>TimetableTemplateEntry</code> stores a reusable slot (day index + time) inside a named <code>TimetableTemplate</code>; applying a template bulk-generates real entries for a given week. <code>TimetableEntry</code> is that real row: it has a specific date, a status, assignees, and its own copy of the task&apos;s name, colour, and description frozen at creation. That snapshot means editing a <code>Task</code> later doesn&apos;t rewrite historical entries.</p>
+    </div>
+
+    <div class="content-section">
+      <h3>Snapshot Pattern</h3>
+      <p>The same snapshot technique is used wherever a record needs to stay readable after its source changes. <code>Invite</code> stores <code>orgName</code> and <code>inviterName</code> at send time so the invite card renders correctly even if the org is renamed or the sender leaves. <code>AuditLog</code> stores <code>before</code>/<code>after</code> JSON blobs for the same reason &mdash; the log is a permanent record, not a live join.</p>
+    </div>
+
     </details>
 
     <!-- API Routes -->
