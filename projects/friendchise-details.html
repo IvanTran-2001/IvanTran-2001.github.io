@@ -920,6 +920,10 @@
     <summary id="data-model">Data Model</summary>
 
     <div class="content-section">
+      <p>Two patterns run through most of the schema. The first is <strong>materialisation</strong>: reusable templates exist only to reduce repetitive setup, but real work always happens on materialised rows that carry their own date, status, and history. Editing a template never touches past records. The second is <strong>separation at the identity layer</strong>: <code>User</code> and <code>Organization</code> are independent models joined through <code>Membership</code>, so neither owns the other &mdash; a user can belong to multiple orgs, and an org can exist independently of any single user account.</p>
+    </div>
+
+    <div class="content-section">
       <h3>Users &amp; Organisations</h3>
       <p>A <code>User</code> is a global account. An <code>Organization</code> is a tenant. <code>Membership</code> is the join between them &mdash; meaning one user can belong to multiple orgs without duplicating their account. <code>Organization</code> also has an optional <code>parentOrgId</code> that is a self-referential foreign key back to the same table. If <code>parentOrgId</code> is <code>null</code>, the org is a root (brand). If it is set, the org is a franchisee and the value points to its parent. This means the entire hierarchy lives in one table with no extra joins needed to determine whether an org is a parent or child.</p>
     </div>
