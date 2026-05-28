@@ -57,7 +57,6 @@
           <a href="#screenshots" class="toc-link"><i class="fas fa-images"></i><span>Screenshots</span></a>
           <a href="#v1-v2" class="toc-link"><i class="fas fa-code-compare"></i><span>V1 &rarr; V2 Comparison</span></a>
           <a href="#whats-live" class="toc-link"><i class="fas fa-check-circle"></i><span>What's Live</span></a>
-          <a href="#why-infrastructure" class="toc-link"><i class="fas fa-shield-halved"></i><span>Why V1 Is Heavy</span></a>
           <a href="#design" class="toc-link"><i class="fas fa-pencil-ruler"></i><span>Design &amp; Architecture</span></a>
           <a href="#personas" class="toc-link"><i class="fas fa-users"></i><span>Personas &amp; Stories</span></a>
           <a href="#features" class="toc-link"><i class="fas fa-star"></i><span>Key Features</span></a>
@@ -310,22 +309,6 @@
           <p>Members &mdash; card view with roles and bot slots</p>
         </div>
       </div>
-    </div>
-    </details>
-
-    <!-- Why V1 Is Infrastructure-Heavy -->
-    <details class="collapsible-section">
-    <summary id="why-infrastructure">Why V1 Is Infrastructure-Heavy</summary>
-    <div class="content-section">
-      <p>
-        The app is being trialled at a real franchise from V1 &mdash; which meant multi-tenant isolation, RBAC, and franchise hierarchy had to ship before any worker-facing features. Tasks contain proprietary recipes that only certain roles should see. Permissions couldn't be bolted on later; they had to exist before the first real worker ever logged in.
-      </p>
-      <p>
-        V1 looks like an &ldquo;admin panel&rdquo; because the worker-facing flow is intentionally V2 territory. Shipping the platform first &mdash; with the full permission model, franchise hierarchy, and invite system in place &mdash; lets V2 focus purely on product, not plumbing.
-      </p>
-      <p>
-        V1.5 (next milestone) adds rate limiting and security hardening before V2 work begins. No worker-facing features ship to a real shop without those guardrails in place.
-      </p>
     </div>
     </details>
 
@@ -1042,9 +1025,11 @@
     <!-- Roadmap -->
     <details class="collapsible-section">
     <summary id="roadmap">Roadmap &amp; Progress</summary>
+
     <div class="content-section">
-      <h3 style="margin-bottom: 10px;">V1 &mdash; Core Platform</h3>
-      <ul class="roadmap-list">
+      <h3>V1 &mdash; Core Platform</h3>
+      <p>The app was trialled at a real franchise from the very first version, which meant the full infrastructure had to be production-ready before any worker-facing features existed. Multi-tenant isolation, RBAC, and the franchise hierarchy shipped first because tasks contain proprietary recipes that only certain roles should see &mdash; permissions couldn&rsquo;t be bolted on later; they had to exist before the first real worker ever logged in. V1 looks like an admin panel because the worker-facing product was intentionally V2 territory. Shipping the platform first &mdash; with the complete permission model, franchise hierarchy, and invite system in place &mdash; meant V2 could focus entirely on product, not plumbing. A V1.5 milestone added rate limiting and security hardening before V2 work began; no worker-facing features shipped to a real shop without those guardrails.</p>
+      <ul class="roadmap-list" style="margin-top: 14px;">
         <li><span class="status-done">&#10003;</span> Service layer &amp; REST API</li>
         <li><span class="status-done">&#10003;</span> Task management (CRUD, eligibility)</li>
         <li><span class="status-done">&#10003;</span> Member management (invite, roles)</li>
@@ -1057,9 +1042,13 @@
         <li><span class="status-done">&#10003;</span> RBAC route guards &amp; permission checks</li>
         <li><span class="status-done">&#10003;</span> Production / demo data isolation</li>
       </ul>
-      <h3 style="margin: 20px 0 10px;">V2 &mdash; Operational Tools &amp; Knowledge Layer</h3>
-      <ul class="roadmap-list">
-        <li><span class="status-done">&#10003;</span> Dashboard with today's schedule &amp; org stats</li>
+    </div>
+
+    <div class="content-section">
+      <h3>V2 &mdash; Operational Tools &amp; Knowledge Layer</h3>
+      <p>With auth, permissions, and the franchise hierarchy proven in production, V2 could focus purely on the tools managers and workers actually use day-to-day. This version built out the operational layer: dashboards, knowledge sharing, scheduling, and the utilities specific to food service (ingredient scaling, batch conversion, product catalogs). Demo mode was added here to let evaluators explore the full product without creating an account.</p>
+      <ul class="roadmap-list" style="margin-top: 14px;">
+        <li><span class="status-done">&#10003;</span> Dashboard with today&rsquo;s schedule &amp; org stats</li>
         <li><span class="status-done">&#10003;</span> Task comments, upvotes, replies, and pinning</li>
         <li><span class="status-done">&#10003;</span> Tag system (color-coded task categories)</li>
         <li><span class="status-done">&#10003;</span> Task card view (image-rich grid layout)</li>
@@ -1070,8 +1059,12 @@
         <li><span class="status-done">&#10003;</span> Item List Tool (ingredient &amp; product catalog)</li>
         <li><span class="status-done">&#10003;</span> Bot members (placeholder slots for roster)</li>
       </ul>
-      <h3 style="margin: 20px 0 10px;">V3 &mdash; Planned</h3>
-      <ul class="roadmap-list">
+    </div>
+
+    <div class="content-section">
+      <h3>V3 &mdash; Planned</h3>
+      <p>V3 is the intelligence layer. Once V1 and V2 have accumulated enough scheduling, performance, and knowledge data, the next step is automating the patterns that surface from it &mdash; smart task rotation, demographic-based recommendations, AI-assisted compliance checks, and the tools that let the best-performing franchisees&rsquo; methods propagate across the network automatically.</p>
+      <ul class="roadmap-list" style="margin-top: 14px;">
         <li><span class="status-todo">&#9675;</span> Recipe database (searchable, role-based access)</li>
         <li><span class="status-todo">&#9675;</span> Completion stats &amp; performance dashboard</li>
         <li><span class="status-todo">&#9675;</span> Fair rotation algorithm (auto task cycle)</li>
@@ -1081,6 +1074,7 @@
         <li><span class="status-todo">&#9675;</span> Mobile app</li>
       </ul>
     </div>
+
     </details>
 
     <!-- Testing -->
