@@ -77,9 +77,9 @@
         <p>Identified an inefficiency on the warehouse floor and worked with a third-party WMS vendor to consolidate three fragmented inventory tables into a single intuitive view, reducing cognitive load and bridging the skill gap between experienced and new staff.</p>
         <h3>My Contributions</h3>
         <ul>
-          <li>Identified the inefficiency and pitched the consolidation to management and the WMS vendor</li>
-          <li>Tested the new tables, reported bugs, and documented edge cases</li>
-          <li>Collaborated with WMS developers on schema and SQL changes</li>
+          <li>Identified the inefficiency and pitched the consolidation to management and the WMS vendor (Thomax Technology)</li>
+          <li>Authored the full technical specification &mdash; calculation logic for <code>replenResidual</code>, multi-condition filtering rules, edge case handling (negative &rarr; 0, bold positives), and an annotated example table &mdash; submitted directly to the vendor developer</li>
+          <li>Caught a live-data bug mid-day after go-live: <code>replenResidual</code> values were static snapshots not recalculating on BulkBinCode updates; documented root cause and escalated for a dynamic fix</li>
           <li>Trained staff on the new workflow with practical tips and best practices</li>
         </ul>
       </div>
@@ -103,7 +103,8 @@
     <details class="collapsible-section" id="solution">
       <summary><i class="fas fa-lightbulb"></i> Solution</summary>
       <div class="content-section" style="margin-top: 20px;">
-        <p>Working with the WMS development team, we designed a <strong>single unified table</strong> consolidating all three functions. On the first live day I noticed entries showing incorrect stock counts — RPR values of 2.00 where 0.00 was expected. The visibility filter (<code>RPR &gt; 0</code>) was operating on <strong>static snapshots</strong>: RPR wasn't recalculating when <code>BulkBinCodes</code> were updated upstream, so stale entries were slipping through. I documented the issue in a formal report and escalated to the dev team, who then implemented <strong>dynamic recalculation</strong> so values update in real time.</p>
+        <p>I authored a full technical specification and submitted it to the WMS vendor (Thomax Technology). The spec defined a new <code>replenResidual</code> column: <code>ReplenQuantity &minus; SUM(BulkBinCodes where location starts with &ldquo;SUP&rdquo; or equals &ldquo;TABLE&rdquo;)</code>. Entries where <code>replenResidual &le; 0</code> would be hidden; negative values clamped to 0; positives bolded. I included a full annotated example table covering all filter cases. The vendor developer (Dominic York) deployed the implementation and asked us to verify the output.</p>
+        <p>During live use I noticed entries showing <code>2.00</code> where <code>0.00</code> was expected. I traced this to <strong>static snapshot values</strong>: <code>replenResidual</code> was being calculated at query time but not recalculating when <code>BulkBinCodes</code> were updated, so the visibility filter was operating on stale data. I documented the root cause and escalated back to Thomax Technology for a dynamic recalculation fix.</p>
         <ul>
           <li>Mapped variables and dependencies to understand the full data landscape</li>
           <li>Identified essential vs. redundant fields to reduce cognitive load</li>

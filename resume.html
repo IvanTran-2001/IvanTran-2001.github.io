@@ -385,12 +385,12 @@
         </div>
         <div class="entry-subtitle">Database Schema Consulting &mdash; Warehouse Inventory</div>
         <div class="entry-description">
-          <p>Unpaid consulting engagement while employed at a warehouse, completed over 2 weeks ahead of a peak-season period. Identified that the stock control system required a 2-person lift operation (lifter + computer operator) due to a fragmented 3-table schema. Redesigned the schema, which was then implemented by an internal team member from my specification.</p>
+          <p>Unpaid consulting engagement while employed at a warehouse, completed over 2 weeks ahead of a peak-season period. Identified that the stock control system required a 2-person lift operation due to a fragmented 3-table schema. Authored the full technical specification &mdash; calculation logic, filtering rules, edge cases, and an example table &mdash; and submitted it to the WMS vendor (Thomax Technology) for implementation.</p>
           <ul>
             <li>Consolidated 3 inventory tables into 1 &mdash; pickers now confirm daily stock requirements from a single column on a single page refresh</li>
             <li>Eliminated the dedicated computer operator per lift team; lifters can now work independently, reducing coordination overhead</li>
             <li>Reduced picking errors &mdash; each mistake previously required physically relocating an entire section to retrieve a misplaced item</li>
-            <li>Caught a live-data bug mid-day post-deployment &mdash; RPR values were static snapshots, not recalculating when BulkBinCodes updated, causing stale entries to pass the visibility filter; documented the root cause and escalated to the dev team for a dynamic fix</li>
+            <li>Caught a live-data bug mid-day post-deployment &mdash; <code>replenResidual</code> values were static snapshots, not recalculating when BulkBinCodes updated, causing stale entries to pass the visibility filter; documented the root cause and escalated to Thomax Technology for a dynamic fix</li>
           </ul>
         </div>
       </div>
