@@ -73,6 +73,7 @@
           <a href="#permission-matrix" class="toc-link"><i class="fas fa-key"></i><span>Roles &amp; Permissions</span></a>
           <a href="#data-model" class="toc-link"><i class="fas fa-database"></i><span>Data Model</span></a>
           <a href="#api-routes" class="toc-link"><i class="fas fa-layer-group"></i><span>API, Actions &amp; Services</span></a>
+          <a href="#responsive" class="toc-link"><i class="fas fa-mobile-screen"></i><span>Responsive Layout</span></a>
           <a href="#roadmap" class="toc-link"><i class="fas fa-road"></i><span>Roadmap</span></a>
           <a href="#testing" class="toc-link"><i class="fas fa-vial"></i><span>Testing &amp; QA</span></a>
         </div>
@@ -966,6 +967,23 @@
     <div class="content-section">
       <h3>API Routes</h3>
       <p>API routes handle the cases Server Actions can&apos;t. The roster pre-fetches surrounding weeks in the background while the page is already visible &mdash; it calls <code>GET /api/orgs/[orgId]/roster-entries?weeks=...</code> with a buffer of weeks ahead and behind the current view so navigation feels instant. The sidebar also uses a small fetch to reactively check org type without a full page reload. A secondary reason these routes exist is to serve as a foundation for future external consumers like a mobile app, which can&apos;t use Server Actions.</p>
+    </div>
+
+    </details>
+
+    <!-- Responsive Layout -->
+    <details class="collapsible-section">
+    <summary id="responsive">Responsive Layout &amp; ActionSidebar</summary>
+
+    <div class="content-section">
+      <h3>The Problem with Toolbars on Mobile</h3>
+      <p>On desktop, a toolbar packed with filters, action buttons, and navigation controls looks fine. On mobile &mdash; especially on customer iPads running at 480p resolution &mdash; that same toolbar expands vertically and pushes the actual content far down the screen. Vertical space is the most constrained resource on a small screen, so anything eating into it unnecessarily is a real problem.</p>
+    </div>
+
+    <div class="content-section">
+      <h3>ActionSidebar</h3>
+      <p>The solution is <code>ActionSidebarSlot</code> &mdash; a context-driven panel that any button anywhere in the app can open by calling <code>useActionSidebar().open(title, &lt;Panel /&gt;)</code>. On desktop it renders as a persistent sidebar extending from the navigation panel. On mobile it becomes a bottom sheet that slides up from the bottom of the screen. Because the panel is sized to fit within the mobile screen width, anything that renders correctly inside it is guaranteed to fit on mobile without additional responsive work per feature.</p>
+      <p>The toolbar stays minimal: just navigation controls. Filters, task actions, template pickers, and member panels all live inside the ActionSidebar instead. This also prevents the toolbar from becoming a dumping ground as features are added &mdash; the comparison screenshots show how much more cluttered V1&apos;s toolbar was before this pattern was introduced.</p>
     </div>
 
     </details>
