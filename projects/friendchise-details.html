@@ -995,6 +995,13 @@
     </div>
 
     <div class="content-section">
+      <h3>Navigation Sidebar</h3>
+      <p>The main navigation sidebar stays collapsed by default and only expands on hover. The reasoning is straightforward: the nav links don&rsquo;t need permanent screen real estate &mdash; once a user is inside a section, they&rsquo;re not constantly jumping between pages. Keeping it collapsed reclaims the horizontal space that matters most on views like the timetable, where the calendar needs as much width as possible.</p>
+      <p>The collapsed state also made the mobile layout considerably easier to build. Because the sidebar never claimed a fixed horizontal chunk, there was no extra responsive work needed to hide or reorganise it for small screens &mdash; it was already out of the way. This directly enabled the PageSidebar to take up the full available width on mobile without competing for space, which is what makes the tool panel feel native rather than squeezed.</p>
+      <p>The toggle button that opens and closes the PageSidebar is intentionally coloured rather than neutral. It sits flush with the toolbar and the two read as a single unit &mdash; the positioning and sizing make the transition between them feel continuous rather than two separate components placed next to each other. The colour signals that this is a high-frequency interactive element, not a passive label, so users immediately recognise it as the primary handle for accessing the tools on that page.</p>
+    </div>
+
+    <div class="content-section">
       <h3>The Problem with Toolbars on Mobile</h3>
       <p>On desktop, a toolbar packed with filters, action buttons, and navigation controls looks fine. On mobile &mdash; especially on customer iPads running at 480p resolution &mdash; that same toolbar expands vertically and pushes the actual content far down the screen. Vertical space is the most constrained resource on a small screen, so anything eating into it unnecessarily is a real problem.</p>
     </div>
