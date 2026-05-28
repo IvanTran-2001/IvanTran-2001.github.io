@@ -59,7 +59,7 @@
         <a href="#design" class="toc-link"><i class="fas fa-pencil-ruler"></i><span>Design &amp; Architecture<span class="toc-sub">Figma + DB Schema</span></span></a>
         <a href="#personas" class="toc-link"><i class="fas fa-users"></i><span>Personas &amp; Stories<span class="toc-sub">7 personas &middot; 34 stories</span></span></a>
         <a href="#features" class="toc-link"><i class="fas fa-star"></i><span>Key Features<span class="toc-sub">MoSCoW priority</span></span></a>
-        <a href="#flows" class="toc-link"><i class="fas fa-project-diagram"></i><span>User Flows<span class="toc-sub">9 flows</span></span></a>
+        <a href="#flows" class="toc-link"><i class="fas fa-project-diagram"></i><span>User Flows<span class="toc-sub">12 flows</span></span></a>
         <a href="#multi-tenant" class="toc-link"><i class="fas fa-sitemap"></i><span>Multi-Tenant Architecture</span></a>
         <a href="#timetable" class="toc-link"><i class="fas fa-calendar-week"></i><span>Timetable System</span></a>
         <a href="#permission-matrix" class="toc-link"><i class="fas fa-key"></i><span>Permission Matrix</span></a>
@@ -76,7 +76,7 @@
       <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">User Personas</div></div>
       <div class="stat-card"><div class="stat-number">34</div><div class="stat-label">User Stories</div></div>
       <div class="stat-card"><div class="stat-number">24</div><div class="stat-label">Features (MoSCoW)</div></div>
-      <div class="stat-card"><div class="stat-number">9</div><div class="stat-label">User Flows</div></div>
+      <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">User Flows</div></div>
       <div class="stat-card"><div class="stat-number">38</div><div class="stat-label">Prisma Models</div></div>
       <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Permission Types</div></div>
       <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Real-World Pilot</div></div>
@@ -632,18 +632,18 @@
 
     <!-- User Flows -->
     <details class="collapsible-section">
-    <summary id="flows">User Flows (9 Total)</summary>
+    <summary id="flows">User Flows (12 Total)</summary>
 
     <div class="flow-card">
-      <h4>1. New Franchisee Onboarding (Nina) &mdash; <span style="font-size:0.8em;font-weight:600;border:1px solid #155724;padding:1px 6px;color:#155724 !important;">Partially Live</span></h4>
+      <h4>1. New Franchisee Onboarding (Nina) &mdash; <span style="font-size:0.8em;font-weight:600;border:1px solid #155724;padding:1px 6px;color:#155724 !important;">Mostly Live</span></h4>
       <ol>
-        <li>Signs up / gets invited by franchisor</li>
-        <li>Creates franchise location profile (name, address, size, equipment)</li>
-        <li>Automatically inherits franchisor's default tasks</li>
-        <li>Reviews inherited tasks &mdash; excludes those that don't apply, adjusts frequency, adds custom tasks</li>
-        <li>Adds workers (invite by email/code), assigns roles/ranks</li>
-        <li>Generates first task cycle</li>
-        <li>Publishes timetable &rarr; Workers can now see their schedule</li>
+        <li>Signs up or gets invited by the franchisor</li>
+        <li>Creates franchise location profile (name, address, operating hours, timezone)</li>
+        <li>Automatically inherits the franchisor's default tasks, roles, and settings on join</li>
+        <li>Reviews task library &mdash; adds custom local tasks, adjusts as needed</li>
+        <li>Adds workers by email invite, assigns roles</li>
+        <li>Applies a timetable template to the first week</li>
+        <li>Workers can now see their schedule on any device</li>
       </ol>
     </div>
 
@@ -652,7 +652,7 @@
       <ol>
         <li>Opens app &rarr; sees full timetable (all workers, all tasks)</li>
         <li>Filters to "My Tasks Today"</li>
-        <li>Clicks on a task &rarr; views step-by-step instructions, warnings, video tutorials, forum tips</li>
+        <li>Clicks on a task &rarr; views task details and community comments; marks it in progress</li>
         <li>Completes the task &rarr; presses "Done" &rarr; moves to next task</li>
       </ol>
     </div>
@@ -678,11 +678,12 @@
     </div>
 
     <div class="flow-card">
-      <h4>5. Forum Interaction (Any Member) &mdash; <span style="font-size:0.8em;font-weight:600;border:1px solid #856404;padding:1px 6px;color:#856404 !important;">Planned</span></h4>
+      <h4>5. Task Comments &amp; Knowledge Sharing (Any Member) &mdash; <span style="font-size:0.8em;font-weight:600;border:1px solid #155724;padding:1px 6px;color:#155724 !important;">Partially Live</span></h4>
       <ol>
-        <li>Accesses forum via: clicking a task &rarr; "View Posts", clicking a recipe, or General Forum</li>
-        <li>Browses/searches posts &rarr; reads, upvotes/downvotes, watches attached video, comments</li>
-        <li>OR creates a new post &mdash; selects category, writes content, attaches media, submits</li>
+        <li>Clicks any task &rarr; opens the task detail panel</li>
+        <li>Reads comments from teammates and the franchise network; upvotes/downvotes helpful tips</li>
+        <li>Adds a comment &mdash; shares their approach, a tip, or flags an issue; can reply to others</li>
+        <li><em>(Planned)</em> General Forum: browse/search posts across all topics, attach media, create standalone posts</li>
       </ol>
     </div>
 
@@ -723,6 +724,36 @@
         <li>Creates custom ranks (e.g., "Head Baker", "Shift Lead", "Trainee")</li>
         <li>Assigns permissions to each rank</li>
         <li>Assigns ranks to workers &rarr; workers now see/access only what their rank allows</li>
+      </ol>
+    </div>
+
+    <div class="flow-card">
+      <h4>10. Organization Dashboard (Jay) &mdash; <span style="font-size:0.8em;font-weight:600;border:1px solid #155724;padding:1px 6px;color:#155724 !important;">Live in V2</span></h4>
+      <ol>
+        <li>Logs in &rarr; lands on the org dashboard</li>
+        <li>Sees today's schedule progress bar &mdash; how many tasks are TODO vs IN_PROGRESS vs DONE</li>
+        <li>Reviews org stats: total members, active tasks, role count, overall completion rate</li>
+        <li>Spots a bottleneck &rarr; navigates directly to the timetable to reassign or adjust</li>
+      </ol>
+    </div>
+
+    <div class="flow-card">
+      <h4>11. Knowledge Sharing (Sarah) &mdash; <span style="font-size:0.8em;font-weight:600;border:1px solid #155724;padding:1px 6px;color:#155724 !important;">Live in V2</span></h4>
+      <ol>
+        <li>Opens a task she has mastered &rarr; sees task detail and existing comments</li>
+        <li>Writes a comment sharing her method &mdash; e.g. &ldquo;We batch this in groups of 3, cuts time by 40%&rdquo;</li>
+        <li>A manager pins her comment for visibility to all members in the network</li>
+        <li>Other franchise members upvote it &rarr; rises to the top of the comment thread</li>
+      </ol>
+    </div>
+
+    <div class="flow-card">
+      <h4>12. Demo Mode (New Visitor) &mdash; <span style="font-size:0.8em;font-weight:600;border:1px solid #155724;padding:1px 6px;color:#155724 !important;">Live in V2</span></h4>
+      <ol>
+        <li>Visits friend-chise.vercel.app &rarr; clicks &ldquo;Try Demo&rdquo; &mdash; no account or signup needed</li>
+        <li>A sandbox org is auto-provisioned on the production database with an isolated session</li>
+        <li>Explores the full app: tasks, members, timetable, roster, conversion tool, comments</li>
+        <li>Session expires after 2 hours; all demo data is hard-deleted within 24 hours</li>
       </ol>
     </div>
     </details>
