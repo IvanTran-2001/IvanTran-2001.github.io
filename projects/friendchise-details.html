@@ -921,8 +921,8 @@
     <summary id="architecture">Architecture &amp; Design Decisions</summary>
 
     <div class="content-section">
-      <h3>Template → Entry Scheduling</h3>
-      <p>Applying a template creates real entry rows with absolute dates rather than computing the schedule on the fly. Each entry is then independent — it can be reassigned, rescheduled, or completed without affecting the template or other weeks.</p>
+      <h3>Template &rarr; Entry Scheduling</h3>
+      <p>The live calendar is driven by timetable entries &mdash; real rows with a date, assignee, and status. Managers can create entries directly or apply a template to bulk-create them. Templates are optional and exist only to reduce repetition; they have no effect on the live calendar until applied. Each entry lives independently once created: it can be reassigned, rescheduled, or completed without affecting the template or any other week.</p>
     </div>
 
     <div class="content-section">
