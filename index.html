@@ -700,14 +700,13 @@
         <img src="projects/pictures/friendchise/V2/Org Overview Page.png" alt="FriendChise Dashboard" class="project-card-image" style="object-position: top;">
         <div class="project-card-content">
           <h3>FriendChise <span class="proj-badge badge-live">V2 &mdash; Live</span></h3>
-          <p>A multi-tenant task management SaaS for franchise businesses. In production pilot at a Walker's Doughnuts franchise — built from a real operational problem I lived through.</p>
+          <p>A multi-tenant task management SaaS for franchise businesses. <strong>Built for and actively used at a real Walker's Doughnuts franchise location</strong> — real users, real operational data, real stakes.</p>
           <ul>
-            <li>Multi-tenant RBAC with franchise hierarchy — owner, manager, and member permission scopes with 6 permission types</li>
-            <li>Timetable with weekly/daily calendar and simple list views, templates, role filtering, and status tracking</li>
-            <li>Task Library with comments &amp; voting, tags, card/list views, and role eligibility filters</li>
-            <li>Pluggable Tools: Conversion Tool (recipe scaling), Staff Roster (shift scheduling), Item List catalog</li>
-            <li>Dashboard, Demo Mode, LinkedIn + Google OAuth, Bot Members, and production/demo data isolation</li>
-            <li>19 Prisma models on PostgreSQL (Supabase), 582 automated tests, deployed on Vercel</li>
+            <li><strong>Multi-tenant franchise hierarchy</strong> — brand &rarr; franchisee org model, org-scoped queries throughout, roles cloned on join, tasks published to and selectively inherited from the franchise network</li>
+            <li><strong>RBAC on every surface</strong> — custom roles with 6 permission types; guards on every server action and API route; Upstash Redis sliding-window rate limiting on auth + API routes</li>
+            <li><strong>Demo Mode isolated entirely in code</strong> — no separate DB or env flag; demo accounts identified by email suffix, hard caps enforced per session, data auto-deleted within 24 hours</li>
+            <li><strong>Timetable + Task Library</strong> — weekly/daily calendar, templates with frozen task snapshots, threaded comments &amp; voting, role eligibility filters, card/list views</li>
+            <li><strong>582 automated tests</strong> — Vitest unit + integration (real Postgres) + 21 Playwright E2E; GitHub Actions CI gates every merge; Sentry error monitoring + session replay in prod</li>
           </ul>
           <div class="project-buttons">
             <a href="projects/friendchise.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
