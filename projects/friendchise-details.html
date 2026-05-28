@@ -855,20 +855,30 @@
       <h3>Templates and Entries</h3>
       <p>The timetable is built on two separate concepts:</p>
       <ul>
-        <li><strong>Template</strong> &mdash; a reusable weekly pattern; defines which tasks go on which days and at what times. No real dates, not on any live timetable. Just a saved layout a manager can apply whenever they need it.</li>
-        <li><strong>Entry</strong> &mdash; a real task on the actual timetable. Has a concrete date, an assignee, a status (TODO &rarr; IN_PROGRESS &rarr; DONE), and its own edit history. Applying a template creates one entry row per task.</li>
+        <li><strong>Template</strong> &mdash; a reusable pattern; defines which tasks go on which days and at what times. No real dates, not on any live timetable. Just a saved layout a manager can apply whenever they need it.</li>
+        <li><strong>Entry</strong> &mdash; a real task on the actual timetable. Has a concrete date, an assignee, a status (TODO &rarr; IN_PROGRESS &rarr; DONE), and its own history. Applying a template creates one entry row per task.</li>
       </ul>
 
-      <h3>Materialised Timetable Entries</h3>
-      <p>When a manager applies a template to a week, the system converts it into real database rows &mdash; one entry per task &mdash; with actual dates attached. Each entry then lives independently: it can be reassigned, rescheduled, or marked done without affecting the template or any other week. Editing the template after applying it does not change entries that already exist.</p>
+      <h3>Calendar Grid</h3>
+      <p>The calendar is a scrollable div with a fixed <strong>150px per hour</strong> constant that drives all positioning. Total height is always <code>24 &times; 150 = 3600px</code>. Each task block is <code>position: absolute</code> inside its day column &mdash; <code>top</code> and <code>height</code> are calculated directly from the task's start time and duration in minutes:</p>
+      <ul>
+        <li><code>top = (startTimeMin / 60) &times; 150px</code></li>
+        <li><code>height = (durationMin / 60) &times; 150px</code></li>
+      </ul>
+      <p>When multiple tasks overlap in the same column, a slot-assignment function detects the conflicts and splits the column width proportionally, giving each task its own lane.</p>
+
+      <h3>Adaptive Column Count</h3>
+      <p>A <code>ResizeObserver</code> watches the calendar container and updates its pixel width whenever the sidebar opens, the window resizes, or the task panel appears. Column count is recalculated as <code>floor((containerWidth - 56) / 90)</code> &mdash; 56px for the time label gutter, 90px minimum per column. The result is always forced to an odd number so there is a clear centre column, capped at 7 for a full week view.</p>
+
+      <h3>Drag and Drop</h3>
+      <p>Native HTML5 drag API &mdash; no library. Dragging a task from the sidebar sets <code>type: "task"</code> in a shared ref. Dragging an existing entry sets <code>type: "move"</code> plus an <code>offsetMin</code> recording how far down the block was grabbed, so the block stays under the cursor rather than jumping to the top. On drag over, cursor <code>clientY</code> is converted to minutes using the same 150px constant and snapped to 15-minute intervals. On drop, the server action creates or updates the entry. On mobile, drag is replaced with tap-to-place.</p>
 
       <h3>Apply / Overwrite Flow</h3>
       <ol>
-        <li>Manager goes to the Timetable page (current week's entries)</li>
+        <li>Manager goes to the Timetable page (current week&rsquo;s entries)</li>
         <li>Selects a template from the dropdown</li>
-        <li>If week has no entries &rarr; create entries directly</li>
-        <li>If week already has entries &rarr; confirmation dialog warns before overwriting</li>
-        <li>Cycle must start on a Monday (enforced by backend + UI)</li>
+        <li>If the week has no entries &rarr; create entries directly</li>
+        <li>If the week already has entries &rarr; confirmation dialog warns before overwriting</li>
       </ol>
     </div>
 
@@ -903,8 +913,8 @@
           <tr><td>Create/manage custom ranks</td><td>&#10003;</td><td>&mdash;</td><td>&mdash;</td></tr>
           <tr><td>Create/edit/delete task templates</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
           <tr><td>Create/edit timetable templates</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
-          <tr><td>Apply template to a week (materialise)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
-          <tr><td>Edit materialised instances (reassign)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
+          <tr><td>Apply template to a week (create entries)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
+          <tr><td>Edit timetable entries (reassign, reschedule)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
           <tr><td>Assign members to task instances</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
           <tr><td>View timetable (full week)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
           <tr><td>View own daily tasks</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
