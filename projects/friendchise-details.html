@@ -976,6 +976,33 @@
     <summary id="responsive">UI &amp; Visual Design</summary>
 
     <div class="content-section">
+      <h3>Visual Goals</h3>
+      <p>The target aesthetic was Jira &mdash; a professional, efficiency-first tool where nothing competes for attention unnecessarily. The approach: white background, simple dividing lines, and minimal chrome. Because the canvas is neutral, anything with actual colour &mdash; a task block on the calendar, a status badge, an org logo &mdash; immediately stands out without needing to shout. The same applies to typography: a globally heavy font weight (700 across the board) means text is always readable at a glance without relying on size alone. The goal was for a manager to open the timetable and immediately read the week, not hunt for information.</p>
+    </div>
+
+    <div class="content-section">
+      <h3>Color System</h3>
+      <p>Tasks, roles, and tags each carry a user-chosen color stored in the database. A <strong>ColorPicker</strong> component wraps a native <code>&lt;input type="color"&gt;</code> backed by a curated palette of 12 colors &mdash; red, orange, amber, green, teal, blue, indigo, violet, pink, gray, slate, and brown &mdash; plus a <code>randomColor()</code> helper that picks one at random on creation. On the timetable, color is the primary at-a-glance differentiator: a manager scanning across a week can identify which task is which by color before reading any text. Because the color is stored on the entry at creation time (snapshot pattern), changing a task&rsquo;s color later doesn&rsquo;t rewrite the historical calendar view.</p>
+    </div>
+
+    <div class="content-section">
+      <h3>Component Library &amp; Customisation</h3>
+      <p><strong>shadcn/ui</strong> was chosen because its components are copy-owned rather than imported from a black-box package &mdash; every primitive lives in <code>components/ui/</code> and can be edited directly. This meant visual changes that would normally require forking a library were just a one-line edit. The base style is <strong>radix-nova</strong> over Radix UI primitives, which handles all accessibility (keyboard nav, focus management, ARIA) automatically.</p>
+      <p>Key customisations on top of the defaults:</p>
+      <ul>
+        <li><strong>Sharp corners</strong> &mdash; <code>rounded-none</code> on buttons gives the UI a precise, tool-like feel rather than the rounded-pill look common in consumer apps.</li>
+        <li><strong>Subtle hovers</strong> &mdash; hover states use a <code>primary/8</code> opacity tint instead of a solid background change, so the UI acknowledges interaction without being distracting.</li>
+        <li><strong>Press feedback</strong> &mdash; <code>active:translate-y-px</code> on every button gives a micro press animation that makes the UI feel tactile.</li>
+        <li><strong>Fonts</strong> &mdash; DM Sans for body text (geometric, clean), DM Serif Display for headings (adds character), JetBrains Mono for hex values and code.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h3>Figma Wireframes</h3>
+      <p>Every major screen was wireframed in Figma before any UI code was written. The goal was not pixel-perfect mockups but a working out of where everything should live, how the layout breathes, and what the interactive states look like &mdash; hover, open panel, empty state, loading. Doing this first meant the implementation phase had clear targets and avoided mid-build layout rethinks. Wireframes covered the timetable (calendar and simple-list modes), task management, member management, settings panels, and the mobile responsive layout.</p>
+    </div>
+
+    <div class="content-section">
       <h3>The Problem with Toolbars on Mobile</h3>
       <p>On desktop, a toolbar packed with filters, action buttons, and navigation controls looks fine. On mobile &mdash; especially on customer iPads running at 480p resolution &mdash; that same toolbar expands vertically and pushes the actual content far down the screen. Vertical space is the most constrained resource on a small screen, so anything eating into it unnecessarily is a real problem.</p>
     </div>
