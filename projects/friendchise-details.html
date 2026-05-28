@@ -76,10 +76,10 @@
     <div class="stats-grid">
       <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">User Personas</div></div>
       <div class="stat-card"><div class="stat-number">34</div><div class="stat-label">User Stories</div></div>
-      <div class="stat-card"><div class="stat-number">36</div><div class="stat-label">Features (MoSCoW)</div></div>
+      <div class="stat-card"><div class="stat-number">24</div><div class="stat-label">Features (MoSCoW)</div></div>
       <div class="stat-card"><div class="stat-number">9</div><div class="stat-label">User Flows</div></div>
-      <div class="stat-card"><div class="stat-number">19</div><div class="stat-label">Prisma Models</div></div>
-      <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">Permission Types</div></div>
+      <div class="stat-card"><div class="stat-number">38</div><div class="stat-label">Prisma Models</div></div>
+      <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Permission Types</div></div>
       <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Real-World Pilot</div></div>
     </div>
 
@@ -324,7 +324,7 @@
     </div>
     <div class="content-section">
       <h3>Database Schema</h3>
-      <p>19 Prisma models across PostgreSQL (Supabase) covering users, organizations, memberships, roles, permissions, tasks, timetable entries, templates, template entries, notifications, and franchise relationships.</p>
+      <p>38 Prisma models across PostgreSQL (Supabase) covering users, organizations, memberships, roles, permissions, tasks, timetable entries, templates, notifications, franchise relationships, tags, task comments &amp; votes, rosters, roster templates, conversion sets, tool items, audit logs, and more.</p>
       <p><a href="https://dbdiagram.io/d/FriendChise-69c4cbff78c6c4bc7a6fd6e9" target="_blank" style="font-weight: 600; text-decoration: underline;">View Database Diagram &rarr;</a></p>
     </div>
     </details>
@@ -493,7 +493,7 @@
       </div>
       <div class="feature-card">
         <span class="priority-label priority-must">MUST</span>
-        <span class="priority-label" style="background:#fff3cd !important;color:#856404 !important;border-color:#856404 !important;">PLANNED</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V1</span>
         <h3>Parent &rarr; Child Task Inheritance</h3>
         <p>Franchisor defines default tasks all franchisees inherit. Franchisees can add their own local tasks on top.</p>
       </div>
@@ -520,6 +520,18 @@
         <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V1</span>
         <h3>Task Check-Off &amp; Tracking</h3>
         <p>Workers press "Done" to mark completion. Status flow: TODO &rarr; IN_PROGRESS &rarr; DONE / SKIPPED.</p>
+      </div>
+      <div class="feature-card">
+        <span class="priority-label priority-must">MUST</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V1</span>
+        <h3>Timetable Templates</h3>
+        <p>Drag-and-drop schedule builder with relative task placements. Apply a template to any week to materialise concrete timetable entries.</p>
+      </div>
+      <div class="feature-card">
+        <span class="priority-label priority-must">MUST</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V1</span>
+        <h3>Member Management &amp; Invites</h3>
+        <p>Invite workers by email, accept/decline flow, role assignment on join. Members can belong to multiple orgs simultaneously.</p>
       </div>
     </div>
 
@@ -549,6 +561,18 @@
         <h3>Gradual Onboarding</h3>
         <p>Cycle algorithm eases new workers into tasks slowly so they learn at a steady pace.</p>
       </div>
+      <div class="feature-card">
+        <span class="priority-label priority-should">SHOULD</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V1</span>
+        <h3>Notification System</h3>
+        <p>In-app invite and activity notifications with seen/unread state. Notification panel accessible from the nav.</p>
+      </div>
+      <div class="feature-card">
+        <span class="priority-label priority-should">SHOULD</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V2</span>
+        <h3>Multi-View Display</h3>
+        <p>Card and list views across the task library and members pages. Users switch views without losing state.</p>
+      </div>
     </div>
 
     <h3 class="subsection-title">Nice to Have</h3>
@@ -572,6 +596,40 @@
         <span class="priority-label priority-nice">NICE</span>
         <h3>Reward/Recognition System</h3>
         <p>Monthly best post, top contributor badges. Incentivize sharing.</p>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Could Have</h3>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="priority-label priority-could">COULD</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V2</span>
+        <h3>Demo Mode</h3>
+        <p>Isolated sandbox org on the production database. Auto-provisioned session, no account needed. 2-hour JWT expiry, hard-deleted within 24 hours. Per-session caps: 200 tasks, 50 members.</p>
+      </div>
+      <div class="feature-card">
+        <span class="priority-label priority-could">COULD</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V2</span>
+        <h3>Organization Dashboard</h3>
+        <p>Org overview with today's schedule progress bar, member/task/role/completion stats, and recent tool activity.</p>
+      </div>
+      <div class="feature-card">
+        <span class="priority-label priority-could">COULD</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V2</span>
+        <h3>Tag &amp; Category System</h3>
+        <p>Color-coded task categories with task counts. Filterable across the timetable and task library.</p>
+      </div>
+      <div class="feature-card">
+        <span class="priority-label priority-could">COULD</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V2</span>
+        <h3>Operational Tools Platform</h3>
+        <p>Pluggable tools hub: Conversion calculator (batch scaling), Staff Roster scheduler (multi-week templates), Item catalog (ingredient &amp; product list).</p>
+      </div>
+      <div class="feature-card">
+        <span class="priority-label priority-could">COULD</span>
+        <span class="priority-label" style="background:#d4edda !important;color:#155724 !important;border-color:#155724 !important;">LIVE IN V2</span>
+        <h3>Bot &amp; Placeholder Members</h3>
+        <p>Named placeholder accounts that fill open roster slots without requiring real user accounts. Useful for scheduling shifts before hiring is complete.</p>
       </div>
     </div>
     </details>
@@ -773,7 +831,7 @@
           <tr><td>View secret recipes</td><td>&#10003;</td><td>Role-dep.</td><td>Role-dep.</td></tr>
         </tbody>
       </table>
-      <p>Permission enum values: <code>ORG_MANAGE</code>, <code>ROLE_MANAGE</code>, <code>TASK_CREATE</code>, <code>TASK_UPDATE</code>, <code>TASK_DELETE</code>, <code>TASK_ASSIGN</code>, <code>TASKINSTANCE_COMPLETE</code></p>
+      <p>Permission enum values: <code>MANAGE_MEMBERS</code>, <code>MANAGE_ROLES</code>, <code>MANAGE_TIMETABLE</code>, <code>MANAGE_TASKS</code>, <code>MANAGE_SETTINGS</code>, <code>VIEW_TIMETABLE</code></p>
     </div>
     </details>
 
