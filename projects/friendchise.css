@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6, p, li, span, div, a, blockquote { color: #000000 !import
 .carousel-track { overflow: hidden; }
 .carousel-slide { display: none; }
 .carousel-slide.active { display: block; }
-.carousel-slide img { width: 100%; height: auto; display: block; }
+.carousel-slide img { width: 100%; height: auto; display: block; border-bottom: 1px solid #000; }
 .carousel-slide p { text-align: center; font-size: 0.78em; color: #555; margin: 8px 0 0; }
 .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 12px 0 16px; }
 .carousel-btn { background: transparent !important; color: #000 !important; border: 1px solid #000; width: 36px; height: 36px; font-size: 1.1rem; line-height: 1; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
