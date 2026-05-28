@@ -311,17 +311,13 @@
         </div>
         <div class="entry-subtitle">Full-Stack SaaS E-Commerce — Next.js 16, PayloadCMS, tRPC, MongoDB, TypeScript</div>
         <div class="entry-description">
-          <p>Multi-tenant SaaS e-commerce platform where each seller operates their own isolated storefront with role-based data access. Built with Next.js 16 App Router and PayloadCMS as the headless backend.</p>
+          <p>Learning project following a structured tutorial to explore Next.js 16 App Router, headless CMS integration, and multi-tenant architecture. On hold; plan to extend into a production storefront for a client.</p>
           <ul>
-            <li>Integrated <strong>PayloadCMS</strong> with the multi-tenant plugin for declarative role-based access control; tenant users are scoped to their own data and super-admins have global access</li>
-            <li>Built end-to-end type-safe data layer using <strong>tRPC 11</strong> and Payload's auto-generated TypeScript types, with no manual type maintenance required</li>
-            <li>Implemented secure <strong>httpOnly cookie</strong> authentication server-side; the JWT is never exposed to JavaScript, preventing XSS token theft</li>
-            <li>Built infinite scroll product listings using TanStack Query’s <code>useInfiniteQuery</code> with server-side prefetching for fast initial load</li>
-            <li>Hierarchical category system (parent/subcategory) powering nested navigation and multi-level product filtering</li>
-            <li>Used <strong>React Hook Form + Zod</strong> for type-safe form validation shared across client and server</li>
-            <li>Maintained feature branch Git workflow with pull requests reviewed by <strong>CodeRabbit</strong> AI for every merge</li>
-            <li>Wrote a seed script to populate the database with tenants, products, and categories for development and demo purposes</li>
-            <li>GitHub: <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/multitenant-ecommerce</a></li>
+            <li>Multi-tenant data isolation via PayloadCMS <code>multiTenantPlugin</code> &mdash; attaches a tenant relationship declaratively to all scoped collections; access control hooks filter queries automatically with no manual per-route logic; 6 Payload collections, 2 admin role levels</li>
+            <li>httpOnly cookie auth via Payload’s local auth API server-side &mdash; JWT never exposed to client JavaScript; tRPC <code>login</code> mutation handles the full auth flow</li>
+            <li>End-to-end type-safe data layer with tRPC 11 and Payload’s auto-generated TypeScript types &mdash; products, categories, and tenants routers with full inference</li>
+            <li>Infinite scroll product listings with TanStack Query <code>useInfiniteQuery</code> and server-side prefetching; hierarchical parent/subcategory nav with combined tag and price filters</li>
+            <li>Demo: <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" style="color:#000;text-decoration:underline;">loom.com/share/00a62fe246f9453ba770e8f43ac52696</a> &nbsp;|&nbsp; GitHub: <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/multitenant-ecommerce</a></li>
           </ul>
         </div>
       </div>
