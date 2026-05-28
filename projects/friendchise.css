@@ -227,6 +227,38 @@ details.collapsible-section > summary:hover { background: transparent !important
 .toc-link i { margin-top: 3px; flex-shrink: 0; width: 16px; text-align: center; }
 .toc-sub { font-size: 0.78em; font-weight: 400; opacity: 0.65; display: block; margin-top: 2px; line-height: 1.2; }
 
+/* Act Dividers */
+.act-divider {
+  margin: 64px 0 8px 0;
+  padding-top: 20px;
+  border-top: 3px solid #000;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.act-number {
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: #000;
+  color: #fff;
+  padding: 3px 10px;
+}
+.act-title {
+  font-size: 1.15em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.act-desc {
+  font-size: 0.8em;
+  font-weight: 400;
+  opacity: 0.45;
+  margin-left: auto;
+}
+
 /* Back to top button */
 #back-to-top {
   position: fixed;
