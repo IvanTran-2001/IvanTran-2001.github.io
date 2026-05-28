@@ -208,7 +208,16 @@ details.collapsible-section > summary {
 details.collapsible-section > summary:hover { background: transparent !important; }
 
 /* TOC Grid */
-.toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; margin-top: 8px; }
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px; margin-top: 6px; }
+.toc-group { margin-bottom: 20px; }
+.toc-group-label {
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  margin-bottom: 6px;
+}
 .toc-link {
   display: flex;
   align-items: flex-start;
