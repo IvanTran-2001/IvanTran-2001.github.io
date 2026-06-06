@@ -30,8 +30,26 @@ h1, h2, h3, h4, h5, h6, p, li, span, div, a, blockquote { color: #000000 !import
 .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
 .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none !important; }
 .screenshots-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0 20px 0; }
-.screenshot-item img { width: 100%; border: 1px solid #000000; display: block; }
-.screenshot-item p { font-size: 0.78em; color: #555555; text-align: center; margin-top: 6px; }
+.screenshot-item {
+  border: 1px solid #000000;
+  background: #ffffff !important;
+  padding: 12px;
+  box-shadow: 5px 5px 0 #000000;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.screenshot-item:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 #000000;
+}
+.screenshot-item img {
+  width: 100%;
+  border: 1px solid #000000;
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #ffffff;
+}
+.screenshot-item p { font-size: 0.78em; color: #555555; text-align: center; margin-top: 8px; }
 /* Lightbox */
 #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 9999; align-items: center; justify-content: center; cursor: zoom-out; }
 #lightbox.open { display: flex; }
