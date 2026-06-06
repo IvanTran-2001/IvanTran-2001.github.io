@@ -239,15 +239,7 @@
   <!-- Lightbox overlay -->
   <div id="lightbox" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px;">
     <button onclick="event.stopPropagation();document.getElementById('lightbox').style.display='none'" style="position:absolute;top:16px;right:24px;background:none;border:none;color:#fff;font-size:36px;cursor:pointer;line-height:1;padding:4px;">&times;</button>
-    <div id="lightbox-stage" style="max-width:92vw;max-height:82vh;overflow:auto;display:flex;align-items:center;justify-content:center;scrollbar-width:thin;">
-      <img id="lightbox-img" style="max-width:none;max-height:none;object-fit:contain;border:1px solid rgba(255,255,255,0.15);transform-origin:center center;display:block;" onclick="event.stopPropagation()">
-    </div>
-    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;" onclick="event.stopPropagation()">
-      <button id="zoom-out" type="button" style="background:none;border:1px solid rgba(255,255,255,0.45);color:#fff;font-size:18px;cursor:pointer;padding:6px 12px;line-height:1;">-</button>
-      <button id="zoom-in" type="button" style="background:none;border:1px solid rgba(255,255,255,0.45);color:#fff;font-size:18px;cursor:pointer;padding:6px 12px;line-height:1;">+</button>
-      <button id="zoom-reset" type="button" style="background:none;border:1px solid rgba(255,255,255,0.45);color:#fff;font-size:14px;cursor:pointer;padding:7px 12px;line-height:1;">Reset</button>
-      <span id="zoom-label" style="color:#ccc;font-size:0.85em;min-width:52px;text-align:center;">100%</span>
-    </div>
+    <img id="lightbox-img" style="max-width:92vw;max-height:82vh;object-fit:contain;border:1px solid rgba(255,255,255,0.15);display:block;cursor:zoom-out;" onclick="event.stopPropagation();document.getElementById('lightbox').style.display='none'">
     <p id="lightbox-caption" style="color:#ccc;font-size:0.85em;text-align:center;max-width:700px;margin:0;"></p>
   </div>
 
@@ -263,28 +255,13 @@
     // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxStage = document.getElementById('lightbox-stage');
     const lightboxCaption = document.getElementById('lightbox-caption');
-    const zoomInButton = document.getElementById('zoom-in');
-    const zoomOutButton = document.getElementById('zoom-out');
-    const zoomResetButton = document.getElementById('zoom-reset');
-    const zoomLabel = document.getElementById('zoom-label');
-    let zoomScale = 1;
-
-    function applyZoom(scale) {
-      zoomScale = Math.min(2.5, Math.max(0.75, scale));
-      lightboxImg.style.transform = `scale(${zoomScale})`;
-      zoomLabel.textContent = `${Math.round(zoomScale * 100)}%`;
-    }
 
     function openLightbox(img) {
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
       lightboxCaption.textContent = img.closest('.screenshot-item').querySelector('p')?.textContent || '';
       lightbox.style.display = 'flex';
-      applyZoom(1);
-      lightboxStage.scrollTop = 0;
-      lightboxStage.scrollLeft = 0;
     }
 
     document.querySelectorAll('.screenshot-item img').forEach(img => {
@@ -293,17 +270,7 @@
     });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') lightbox.style.display = 'none';
-      if (e.key === '+' || e.key === '=') applyZoom(zoomScale + 0.1);
-      if (e.key === '-') applyZoom(zoomScale - 0.1);
     });
-    zoomInButton.addEventListener('click', () => applyZoom(zoomScale + 0.1));
-    zoomOutButton.addEventListener('click', () => applyZoom(zoomScale - 0.1));
-    zoomResetButton.addEventListener('click', () => applyZoom(1));
-    lightboxStage.addEventListener('wheel', e => {
-      if (!lightbox.style.display || lightbox.style.display === 'none') return;
-      e.preventDefault();
-      applyZoom(zoomScale + (e.deltaY < 0 ? 0.08 : -0.08));
-    }, { passive: false });
 
     // Show more screenshots
     const grid = document.getElementById('screenshots-grid');
