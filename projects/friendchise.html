@@ -148,6 +148,10 @@
         <p>Task detail — description, comments, and voting</p>
       </div>
       <div class="screenshot-item">
+        <img src="pictures/friendchise/V2/Create-Task-V2.png" alt="Create task" loading="lazy">
+        <p>Create Task — task form with color, image, and role options</p>
+      </div>
+      <div class="screenshot-item">
         <img src="pictures/friendchise/V2/Conversion Entries.png" alt="Conversion tool" loading="lazy">
         <p>Conversion Tool — scale ingredient quantities by batch</p>
       </div>
@@ -276,7 +280,7 @@
     const grid = document.getElementById('screenshots-grid');
     if (grid) {
       const items = Array.from(grid.querySelectorAll('.screenshot-item'));
-      const INITIAL = 4;
+      const INITIAL = 5;
       if (items.length > INITIAL) {
         items.slice(INITIAL).forEach(item => { item.style.display = 'none'; });
         const showBtn = document.createElement('button');
