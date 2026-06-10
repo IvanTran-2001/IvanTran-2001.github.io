@@ -33,7 +33,10 @@
   <div class="hero">
     <div class="hero-content">
       <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
-      <h1>FriendChise</h1>
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <img src="pictures/friendchise/Logo4.png" alt="FriendChise logo" style="width:auto;height:52px;display:block;">
+        <h1 style="margin:0;">FriendChise</h1>
+      </div>
       <p class="hero-subtitle">A task management and knowledge-sharing platform for franchise businesses that connects franchisees to community-driven best practices &mdash; built to create consistency and prevent costly mistakes from day one.</p>
 
       <div class="hero-badges">
@@ -56,7 +59,9 @@
 
   <!-- App Preview -->
   <div style="max-width:1100px; margin:0 auto; padding:0 24px;">
-    <img src="pictures/friendchise/V2/Timetable-Calender-V2.5.png" alt="FriendChise — Timetable V2.5 view" style="width:100%; display:block; border:1px solid #000; margin-top:32px;">
+    <a href="pictures/friendchise/V2/TIMETABLE-CALENDER.png" target="_blank" rel="noopener noreferrer" aria-label="Open the main FriendChise preview in a new tab">
+      <img src="pictures/friendchise/V2/TIMETABLE-CALENDER.png" alt="FriendChise — Timetable V2.5 view" style="width:100%; display:block; border:1px solid #000; margin-top:32px; cursor:zoom-in;">
+    </a>
   </div>
 
   <!-- Main Content -->
@@ -132,7 +137,7 @@
     <h2 class="section-title">Screenshots</h2>
     <div class="screenshots-grid" id="screenshots-grid">
       <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/Timetable-Calender-V2.5.png" alt="Timetable — calendar view" loading="lazy">
+        <img src="pictures/friendchise/V2/TIMETABLE-CALENDER.png" alt="Timetable — calendar view" loading="lazy">
         <p>Timetable — weekly calendar with colour-coded task blocks</p>
       </div>
       <div class="screenshot-item">
@@ -140,7 +145,7 @@
         <p>Timetable — simple list view with assignees and status</p>
       </div>
       <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/Tasks List Mode.png" alt="Task library — list view" loading="lazy">
+        <img src="pictures/friendchise/V2/TASK-LIST.png" alt="Task library — list view" loading="lazy">
         <p>Task Library — list view with tags, roles, and status</p>
       </div>
       <div class="screenshot-item">
@@ -162,10 +167,6 @@
       <div class="screenshot-item">
         <img src="pictures/friendchise/V2/Task Comments.png" alt="Task comments" loading="lazy">
         <p>Task comments — threaded discussion with votes and pinned notes</p>
-      </div>
-      <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/Tasks Card Mode.jpg" alt="Task library — card view" loading="lazy">
-        <p>Task Library — card view with colour-coded tags</p>
       </div>
     </div>
 
@@ -280,17 +281,23 @@
     const grid = document.getElementById('screenshots-grid');
     if (grid) {
       const items = Array.from(grid.querySelectorAll('.screenshot-item'));
-      const INITIAL = 5;
-      if (items.length > INITIAL) {
-        items.slice(INITIAL).forEach(item => { item.style.display = 'none'; });
+      const PAGE_SIZE = 4;
+      let visibleCount = Math.min(PAGE_SIZE, items.length);
+      if (items.length > visibleCount) {
+        items.slice(visibleCount).forEach(item => { item.style.display = 'none'; });
         const showBtn = document.createElement('button');
-        showBtn.textContent = 'Show ' + (items.length - INITIAL) + ' more screenshots';
+        showBtn.textContent = 'Show ' + Math.min(PAGE_SIZE, items.length - visibleCount) + ' more screenshots';
         showBtn.style.cssText = 'display:block;margin:16px auto 0;padding:10px 28px;border:1px solid #000;background:#fff;font-size:0.88em;font-family:inherit;cursor:pointer;letter-spacing:0.02em;';
-        let expanded = false;
         showBtn.addEventListener('click', () => {
-          expanded = !expanded;
-          items.slice(INITIAL).forEach(item => { item.style.display = expanded ? '' : 'none'; });
-          showBtn.textContent = expanded ? 'Show fewer screenshots' : 'Show ' + (items.length - INITIAL) + ' more screenshots';
+          const nextCount = Math.min(PAGE_SIZE, items.length - visibleCount);
+          items.slice(visibleCount, visibleCount + nextCount).forEach(item => { item.style.display = ''; });
+          visibleCount += nextCount;
+
+          if (visibleCount >= items.length) {
+            showBtn.remove();
+          } else {
+            showBtn.textContent = 'Show ' + Math.min(PAGE_SIZE, items.length - visibleCount) + ' more screenshots';
+          }
         });
         grid.insertAdjacentElement('afterend', showBtn);
       }
