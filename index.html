@@ -136,7 +136,11 @@
     }
 
     .social-links a {
-      padding: 8px 16px;
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       border: 2px solid #000000;
       color: #000000;
       text-decoration: none;
@@ -212,6 +216,144 @@
       margin: 20px 0 40px 0;
     }
 
+    /* Contributions Section */
+    .contributions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin: 20px 0 40px 0;
+    }
+
+    .contribution-card {
+      border: 2px solid #000000;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+    }
+
+    .contribution-card > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .contribution-card > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .contribution-card > summary:hover {
+      background: linear-gradient(180deg, #fafafa 0%, #f4f4f4 100%);
+    }
+
+    .contribution-summary-head {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contribution-summary-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .contribution-summary-copy {
+      color: #333333;
+      margin: 0;
+      line-height: 1.45;
+      font-size: 0.92em;
+      max-width: 54ch;
+    }
+
+    .contribution-toggle {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid #000000;
+      padding: 7px 11px;
+      background: #ffffff;
+      color: #000000;
+      white-space: nowrap;
+    }
+
+    .contribution-card[open] .contribution-toggle {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .contribution-toggle i {
+      font-size: 0.9em;
+    }
+
+    .contribution-card-content {
+      padding: 0 20px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid #dddddd;
+    }
+
+    .contribution-card-content ul {
+      margin: 14px 0 0;
+      padding-left: 24px;
+    }
+
+    .contribution-card-content li {
+      color: #333333;
+      margin-bottom: 8px;
+      line-height: 1.5;
+      padding-left: 4px;
+    }
+
+    .contribution-card h3 {
+      color: #000000;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+      font-weight: 700;
+    }
+
+    .contribution-card p {
+      color: #333333;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      font-size: 0.9em;
+    }
+
+    .contribution-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+
+    .contribution-proof {
+      font-size: 0.85em;
+      color: #555555;
+      margin-top: auto;
+      padding-top: 8px;
+      border-top: 1px solid #000000;
+    }
+
+    .contribution-proof a {
+      color: #000000;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contribution-proof a:hover {
+      text-decoration: underline;
+    }
+
     .project-card {
       border: 2px solid #000000;
       display: flex;
@@ -267,6 +409,56 @@
       left: 0;
       color: #000000;
       font-weight: bold;
+    }
+
+    /* Load More Table */
+    .loadmore-table-wrap {
+      overflow-x: auto;
+    }
+
+    .loadmore-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92em;
+    }
+
+    .loadmore-table th,
+    .loadmore-table td {
+      border: 1px solid #000000;
+      padding: 14px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .loadmore-table th {
+      background: #f5f5f5;
+      font-weight: 700;
+      color: #000000;
+    }
+
+    .loadmore-title {
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 6px;
+    }
+
+    .loadmore-desc {
+      color: #333333;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .loadmore-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .loadmore-links .project-btn {
+      min-width: auto;
+      flex: 0 0 auto;
+      padding: 7px 10px;
+      font-size: 0.75em;
     }
 
     .project-buttons {
@@ -600,11 +792,12 @@
       <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
       <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
       <li><a href="#projects"><i class="fas fa-folder-open"></i> Projects</a></li>
-      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="#contributions"><i class="fas fa-code-branch"></i> Contributions</a></li>
     </ul>
     <div class="navbar-socials">
-      <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="https://github.com/IvanTran-2001" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="#contact" aria-label="Contact" title="Contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      <a href="https://github.com/IvanTran-2001" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
     </div>
   </nav>
 
@@ -613,11 +806,11 @@
     <h1>IVAN TRAN</h1>
     <p class="title-sub">FULL-STACK ENGINEER</p>
     <p class="hero-description">
-      <a href="tel:0405266660" style="color: #000000; text-decoration: none; font-weight: 600;">0405 266 660</a>  |
-      Melbourne, Australia  |
-      <a href="mailto:mystoganx2001@gmail.com" style="color: #000000; text-decoration: none; font-weight: 600;">mystoganx2001@gmail.com</a>  |
-      <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" style="color: #000000; text-decoration: none; font-weight: 600;">LinkedIn</a>  |
-      <a href="https://github.com/IvanTran-2001" target="_blank" style="color: #000000; text-decoration: none; font-weight: 600;">Portfolio/Github</a>
+      <strong>Phone:</strong> <a href="tel:0405266660" style="color: #000000; text-decoration: none; font-weight: 600;">0405 266 660</a>  |
+      <strong>Location:</strong> Melbourne, Australia  |
+      <strong>Email:</strong> <a href="mailto:mystoganx2001@gmail.com" style="color: #000000; text-decoration: none; font-weight: 600;">mystoganx2001@gmail.com</a>  |
+      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" style="color: #000000; text-decoration: none; font-weight: 600;">Profile</a>  |
+      <strong>GitHub:</strong> <a href="https://github.com/IvanTran-2001" target="_blank" style="color: #000000; text-decoration: none; font-weight: 600;">Portfolio</a>
     </p>
     <div class="hero-cta">
       <a href="#projects" class="cta-btn"><i class="fas fa-folder-open"></i> View Projects</a>
@@ -642,8 +835,8 @@
           </p>
 
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://github.com/IvanTran-2001" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://github.com/IvanTran-2001" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
           </div>
 
           <div class="resume-buttons">
@@ -721,6 +914,7 @@
           <h3>QA Wolf Technical Assessment <span class="proj-badge badge-finalist">Final Stage</span></h3>
           <p>Take-home assessment for QA Wolf &mdash; no resume required, applications screened on projects alone. Built a Node.js tool to scrape and validate article sort order on Hacker News. <strong>Reached the paid final round (AUD $250)</strong> and completed a live Playwright assessment in QA Wolf's platform.</p>
           <p style="font-size:0.85em;color:#666;margin-top:6px;"><i class="fas fa-check-circle" style="color:#2d7a2d;margin-right:4px;"></i>Email invitation on file &mdash; Jan 16, 2026.</p>
+          <p style="font-size:0.85em;color:#666;margin-top:4px;"><i class="fas fa-receipt" style="color:#2d7a2d;margin-right:4px;"></i>Payment confirmation on file for the paid assessment.</p>
           <ul>
             <li>Playwright scraping and DOM interaction across paginated Hacker News content</li>
             <li>Data validation with structured error reporting and non-zero exit codes on failure</li>
@@ -775,70 +969,104 @@
         </div>
       </div>
 
-      <!-- Vending Machine -->
-      <div class="project-card">
-        <img src="projects/pictures/vendingmachine.png" alt="Vending Machine" class="project-card-image">
-        <div class="project-card-content">
-          <h3>Vending Machine Simulator <span class="proj-badge badge-grade">100% Grade</span></h3>
-          <p>C++ systems project demonstrating custom data structure implementation, memory management, and design patterns.</p>
-          <ul>
-            <li>Implemented custom singly linked list without STL containers</li>
-            <li>Applied Command design pattern across 8+ operation classes</li>
-            <li>Finite state machine modelling transaction and idle states</li>
-            <li>Persistent file I/O for inventory and coin data</li>
-            <li>16+ unit test cases covering edge cases and failure modes</li>
-            <li>Zero memory leaks verified via Valgrind analysis</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/vendingmachine.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-            <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Multitenant E-Commerce -->
-      <div class="project-card">
-        <img src="projects/pictures/multitenant-ecommerce1.png" alt="Multitenant E-Commerce" class="project-card-image">
-        <div class="project-card-content">
-          <h3>Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></h3>
-          <p>A multi-tenant SaaS e-commerce platform where each seller's data and products are isolated through role-based access control.</p>
-          <ul>
-            <li>PayloadCMS multi-tenant plugin with tenant-scoped data isolation</li>
-            <li>Seed script to populate tenants, products, and categories for development</li>
-            <li>tRPC for end-to-end type-safe data fetching</li>
-            <li>Super-admin and tenant-admin role separation</li>
-            <li>Category, tag filtering and paginated product listings</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/multitenant-ecommerce.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-            <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" class="project-btn" target="_blank"><i class="fas fa-play-circle"></i> Demo</a>
-            <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- LeetCode -->
-      <div class="project-card">
-        <img src="projects/pictures/leetcode.png" alt="LeetCode" class="project-card-image">
-        <div class="project-card-content">
-          <h3>Competitive Programming & Certifications <span class="proj-badge badge-ongoing">Ongoing</span></h3>
-          <p>Ongoing algorithmic problem solving with a focus on time and space complexity optimisation.</p>
-          <ul>
-            <li><strong>LeetCode:</strong> 200+ problems — Easy (68), Medium (100), Hard (25)</li>
-            <li>71% acceptance rate, top 17% runtime performance globally</li>
-            <li>Topics: Dynamic Programming, Backtracking, Hash Tables, Graphs, Trees, Binary Search</li>
-            <li><strong>HackerRank:</strong> Gold Badge (React) — 5-star, 600 points</li>
-            <li><strong>HackerRank:</strong> Frontend Developer (React) Certificate, JavaScript Basic Certificate</li>
-            <li><strong>Google:</strong> Technical Support Fundamentals Certificate</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="https://leetcode.com/u/C0XKIES/" class="project-btn" target="_blank"><i class="fas fa-code"></i> Profile</a>
-            <a href="https://github.com/IvanTran-2001" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
      </div>
+  </div>
+
+  <details class="collapsible-section" id="more-projects">
+    <summary><i class="fas fa-chevron-down"></i> Load More Projects</summary>
+    <div class="content-section" style="margin-top: 20px;">
+      <p style="margin-bottom: 20px; color: #333333;">Older or lower-priority projects kept for reference, but not as the first impression.</p>
+      <div class="loadmore-table-wrap">
+        <table class="loadmore-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Why It’s Here</th>
+              <th>Links</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="loadmore-title">Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></div>
+                <div class="loadmore-desc">Multi-tenant SaaS e-commerce platform with tenant-scoped data isolation and role-based access control.</div>
+              </td>
+              <td>Good project, but still in progress, so it sits below the stronger finished proof pieces.</td>
+              <td>
+                <div class="loadmore-links">
+                  <a href="projects/multitenant-ecommerce.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
+                  <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="loadmore-title">Vending Machine Simulator <span class="proj-badge badge-grade">100% Grade</span></div>
+                <div class="loadmore-desc">C++ systems project focused on data structures, memory management, and command-pattern design.</div>
+              </td>
+              <td>Strong technical work, but less aligned with your current web/client-facing direction.</td>
+              <td>
+                <div class="loadmore-links">
+                  <a href="projects/vendingmachine.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
+                  <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="loadmore-title">Competitive Programming & Certifications <span class="proj-badge badge-ongoing">Ongoing</span></div>
+                <div class="loadmore-desc">LeetCode and certifications that show consistency, but they work better as a supporting section than a main project card.</div>
+              </td>
+              <td>Useful supporting evidence, not a portfolio project.</td>
+              <td>
+                <div class="loadmore-links">
+                  <a href="https://leetcode.com/u/C0XKIES/" class="project-btn" target="_blank"><i class="fas fa-code"></i> Profile</a>
+                  <a href="https://github.com/IvanTran-2001" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </details>
+
+  <!-- Contributions Section -->
+  <div id="contributions">
+    <h2 class="section-title">OPEN SOURCE CONTRIBUTIONS</h2>
+    <div class="contributions-grid">
+      <details class="contribution-card">
+        <summary>
+          <div class="contribution-summary-head">
+              <div class="contribution-summary-top">
+                <h3>DevTasks <span class="proj-badge badge-live">Merged PR</span></h3>
+                <span class="contribution-toggle"><i class="fas fa-chevron-down"></i> Details</span>
+              </div>
+              <p class="contribution-summary-copy">Config-driven sidebar navigation for a React/Vite app, with route-aware persistence, multi-page sections, and collapse animation.</p>
+              <div class="contribution-meta">
+                <span class="proj-badge badge-industry">Open Source</span>
+                <span class="proj-badge badge-ongoing">654 additions</span>
+                <span class="proj-badge badge-ongoing">178 deletions</span>
+              </div>
+          </div>
+        </summary>
+        <div class="contribution-card-content">
+          <ul>
+            <li>Built sidebar navigation for Task Management, Snippet Vault, Resource Hub, and Dev Utilities</li>
+            <li>Added collapse/expand animation and compact state for desktop</li>
+            <li>Kept the sidebar visible on configured subpages via <code>src/config/sidebarSections.js</code></li>
+            <li>Adjusted styling to match the project theme and layout rules</li>
+          </ul>
+          <p class="contribution-proof">
+            Proof: <a href="https://github.com/shamilahmdt/devtasks/pull/226" target="_blank" rel="noopener noreferrer">Pull Request #226</a> merged into main.
+          </p>
+          <div class="project-buttons">
+            <a href="https://github.com/shamilahmdt/devtasks/pull/226" class="project-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> PR Link</a>
+            <a href="https://github.com/shamilahmdt/devtasks" class="project-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Repo</a>
+          </div>
+        </div>
+      </details>
+    </div>
   </div>
 
   <!-- Contact Section -->

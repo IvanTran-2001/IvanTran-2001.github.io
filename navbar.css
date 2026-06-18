@@ -67,12 +67,13 @@
 .navbar-socials a {
   color: #000000;
   text-decoration: none;
-  font-size: 0.85em;
-  font-weight: 600;
   border: 1.5px solid #000000;
-  padding: 4px 12px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: background 0.2s ease, color 0.2s ease;
-  white-space: nowrap;
 }
 
 .navbar-socials a:hover {
