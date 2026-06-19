@@ -6,7 +6,6 @@
   <meta name="description" content="Ivan Tran Resume - Full-Stack Software Engineer with JavaScript, TypeScript, Next.js, React, Node.js, PayloadCMS, tRPC, MongoDB, C++, and Python expertise.">
   <meta name="keywords" content="Resume, Full-Stack Engineer, JavaScript, TypeScript, Next.js, React, Node.js, PayloadCMS, tRPC, MongoDB, C++, Python">
   <meta name="author" content="Ivan Tran">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>Ivan Tran - Resume</title>
   <style>
     * {
@@ -18,44 +17,45 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #000000;
-      line-height: 1.6;
-      max-width: 900px;
+      line-height: 1.3;
+      max-width: 840px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 18px 16px;
       background: #ffffff;
+      font-size: 12.2px;
     }
 
     .resume-container {
-      background: white;
-      padding: 40px;
+      background: #ffffff;
+      padding: 12px 16px;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 30px;
-      border-bottom: 2px solid #000000;
-      padding-bottom: 20px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #666666;
+      padding-bottom: 8px;
     }
 
     .header h1 {
       font-size: 2.5em;
       color: #000000;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       font-weight: 700;
     }
 
     .header p {
-      font-size: 1.1em;
-      color: #333333;
-      font-weight: 600;
-      margin-bottom: 10px;
+      font-size: 0.9em;
+      color: #4a4a4a;
+      font-weight: 500;
+      margin-bottom: 6px;
     }
 
     .contact-info {
-      font-size: 0.9em;
-      color: #333333;
+      font-size: 0.78em;
+      color: #4a4a4a;
       display: flex;
-      gap: 20px;
+      gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -63,7 +63,7 @@
     .contact-info span {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
     }
 
     .contact-info a {
@@ -77,106 +77,101 @@
     }
 
     .section {
-      margin-bottom: 30px;
+      margin-bottom: 10px;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .section-title {
-      font-size: 1.2em;
+      font-size: 1.18em;
       font-weight: 700;
+      color: #111111;
+      margin-bottom: 7px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #9a9a9a;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .section-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .section-header-link {
+      font-size: 0.72em;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      white-space: nowrap;
       color: #000000;
-      margin-bottom: 15px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #000000;
+      text-decoration: underline;
     }
 
     .entry {
-      margin-bottom: 20px;
+      margin-bottom: 7px;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .entry-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 5px;
+      margin-bottom: 2px;
       flex-wrap: wrap;
+      gap: 4px;
     }
 
     .entry-title {
       font-weight: 700;
-      color: #000000;
-      font-size: 1.05em;
+      color: #111111;
+      font-size: 1.12em;
     }
 
     .entry-subtitle {
-      color: #333333;
+      color: #5a5a5a;
       font-weight: 600;
-      font-size: 0.95em;
+      font-size: 0.78em;
     }
 
     .entry-date {
-      color: #333333;
-      font-size: 0.9em;
+      color: #5a5a5a;
+      font-size: 0.78em;
     }
 
     .entry-description {
-      color: #333333;
-      margin-top: 8px;
-      line-height: 1.6;
-      font-size: 0.95em;
+      color: #4a4a4a;
+      margin-top: 5px;
+      line-height: 1.25;
+      font-size: 0.78em;
     }
 
     .entry-description ul {
-      margin-left: 20px;
-      margin-top: 8px;
+      margin-left: 18px;
+      margin-top: 4px;
     }
 
     .entry-description li {
-      margin-bottom: 6px;
-      color: #333333;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 15px;
-    }
-
-    .skill-category {
-      border: 1px solid #000000;
-      padding: 15px;
-    }
-
-    .skill-category h4 {
-      color: #000000;
-      margin-bottom: 10px;
-      font-size: 0.95em;
-      font-weight: 700;
-    }
-
-    .skill-category p {
-      color: #333333;
-      font-size: 0.9em;
-      line-height: 1.6;
-    }
-
-    .highlight {
-      color: #000000;
-      font-weight: 700;
+      margin-bottom: 2px;
+      color: #4a4a4a;
     }
 
     @media (max-width: 768px) {
       .resume-container {
-        padding: 20px;
+        padding: 10px;
       }
 
       .header h1 {
-        font-size: 1.8em;
+        font-size: 2.08em;
       }
 
       .contact-info {
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
       }
 
       .entry-header {
@@ -184,18 +179,55 @@
       }
 
       .entry-date {
-        margin-top: 5px;
+        margin-top: 2px;
       }
+
     }
 
     @media print {
+      @page {
+        size: auto;
+        margin: 0.14in;
+      }
+
       body {
         background: white;
         padding: 0;
+        font-size: 9.1px;
+        line-height: 1.08;
       }
 
       .resume-container {
         padding: 0;
+      }
+
+      .section,
+      .entry,
+      .skill-category {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .section {
+        margin-bottom: 3px;
+      }
+
+      .entry {
+        margin-bottom: 3px;
+      }
+
+      .section-title {
+        margin-bottom: 2px;
+        padding-bottom: 2px;
+        border-bottom-color: #b5b5b5;
+      }
+
+      .entry-description ul {
+        margin-top: 0;
+      }
+
+      .entry-description li {
+        margin-bottom: 0;
       }
     }
   </style>
@@ -209,14 +241,14 @@
         <span>mystoganx2001@gmail.com</span>
         <span>0405 266 660</span>
         <span>Melbourne, Australia</span>
-        <span><a href="https://github.com/IvanTran-2001" target="_blank">github.com/IvanTran-2001</a></span>
-        <span><a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank">LinkedIn</a></span>
+        <span><a href="https://github.com/IvanTran-2001" target="_blank" rel="noreferrer">github.com/IvanTran-2001</a></span>
+        <span><a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" rel="noreferrer">linkedin.com/in/ivan-tran-76164017a/</a></span>
       </div>
     </div>
 
     <div class="section">
       <h2 class="section-title">Professional Summary</h2>
-      <p>Full-stack TypeScript engineer with a focus on production-quality systems. Built and deployed FriendChise — a multi-tenant franchise management SaaS actively used at a real Walker's Doughnuts location, covering hierarchical RBAC, org-scoped multi-tenancy, rate limiting, and 582 automated tests across a 3-job CI pipeline. Two years of a Bachelor of Computer Science at RMIT; 200+ LeetCode problems solved.</p>
+      <p>Full-stack TypeScript engineer focused on production-ready systems, real-client software, and open-source SaaS. Built FriendChise for a Walker's Doughnuts franchisee to improve operational efficiency with a searchable knowledge hub, paperless workflows, and scalable multi-tenant architecture.</p>
     </div>
 
     <div class="section">
@@ -226,26 +258,38 @@
           <span class="entry-title">RMIT University &mdash; Bachelor of Computer Science</span>
           <span class="entry-date">2021 - 2025 (Part-Time)</span>
         </div>
-        <div class="entry-description" style="margin-top: 8px;">
-          <p>Completed 2 years of the Bachelor of Computer Science, covering software engineering, data structures, algorithms, and system design.</p>
+        <div class="entry-description">
+          <p>Completed 2 years of the degree, covering software engineering, data structures, algorithms, and system design. GPA: 3.6.</p>
         </div>
       </div>
     </div>
 
     <div class="section">
       <h2 class="section-title">Work Experience</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <span class="entry-title">Echt Apparel &mdash; Warehouse Inventory Systems Consultant</span>
+          <span class="entry-date">December 11, 2023</span>
+        </div>
+        <div class="entry-subtitle">3rd-party WMS optimization &mdash; warehouse inventory operations</div>
+        <div class="entry-description">
+          <ul>
+            <li>Worked with a third-party WMS vendor to <strong>optimize inventory tables</strong> and <strong>improve warehouse operations</strong></li>
+            <li><strong>Documented calculation logic, filtering rules, and edge cases</strong> for the system redesign</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">Walker's Doughnuts (Franchisee) &mdash; Staff Member &amp; Freelance Software Developer</span>
+          <span class="entry-title">Walker's Doughnuts &mdash; Freelance Full-Stack Engineer</span>
           <span class="entry-date">August 2025 &ndash; Present</span>
         </div>
-        <div class="entry-subtitle">Melbourne, Australia</div>
+        <div class="entry-subtitle">Franchisee location software &mdash; FriendChise</div>
         <div class="entry-description">
           <ul>
-            <li>Worked in daily franchise operations; first-hand exposure to scheduling, task management, and cross-location consistency problems that became the basis for FriendChise</li>
-            <li>Pitched a software solution to the franchise owner, then ran requirement-gathering sessions with staff and management to define scope and prioritise features</li>
-            <li>Built and deployed FriendChise (March 2026); platform is actively used in production by the team; owner funds ongoing hosting costs, validating commercial value</li>
+            <li><strong>Deployed FriendChise</strong> to support doughnut shop operations and keep workflows consistent as staff change over time</li>
+            <li><strong>Built the platform around real franchise needs</strong>, covering task management, role-based access, and location coordination</li>
           </ul>
         </div>
       </div>
@@ -253,53 +297,26 @@
 
     <div class="section">
       <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h4>Languages</h4>
-          <p>JavaScript (ES6+), TypeScript, C++14, Python, SQL</p>
-        </div>
-        <div class="skill-category">
-          <h4>Frontend</h4>
-          <p>React 18, Next.js 16, TailwindCSS, shadcn/ui, Radix UI, Lucide Icons, React Hook Form, Zod</p>
-        </div>
-        <div class="skill-category">
-          <h4>Backend</h4>
-          <p>Node.js, Express.js, tRPC 11, TanStack Query 5, PayloadCMS 3, Lexical, REST API</p>
-        </div>
-        <div class="skill-category">
-          <h4>Database &amp; ORM</h4>
-          <p>PostgreSQL, Supabase, Prisma, MongoDB, Mongoose</p>
-        </div>
-        <div class="skill-category">
-          <h4>Tools</h4>
-          <p>Git, GitHub, Vercel, Playwright, Vitest, Jest, Sentry, Upstash Redis, GitHub Actions, Bun</p>
-        </div>
-        <div class="skill-category">
-          <h4>Workflow</h4>
-          <p>Feature branch workflow, PR reviews, TDD, OOP, Design Patterns</p>
-        </div>
-      </div>
+      <p>JavaScript, TypeScript, C++, Python, SQL, React, Next.js, TailwindCSS, Node.js, Express.js, tRPC, PayloadCMS, PostgreSQL, Prisma, MongoDB, Playwright, Vitest, Jest, Sentry, GitHub Actions, Bun.</p>
     </div>
 
     <div class="section">
-      <h2 class="section-title">Projects</h2>
+      <div class="section-header-row">
+        <h2 class="section-title" style="margin-bottom: 0;">Selected Projects</h2>
+        <span style="font-size: 0.72em; color: #000000;">For more projects:</span>
+        <a class="section-header-link" href="https://ivantran-2001.github.io">ivantran-2001.github.io</a>
+      </div>
 
       <div class="entry">
         <div class="entry-header">
-          <span class="entry-title">FriendChise – Franchise Management SaaS <span style="font-size:0.8em;font-weight:600;border:1px solid #000;padding:1px 6px;">V2 — Live</span></span>
-          <span class="entry-date">March 2026 – Present</span>
+          <span class="entry-title">FriendChise &ndash; Franchise Management SaaS <span style="font-size:0.8em;font-weight:600;border:1px solid #000;padding:1px 6px;">V2 &mdash; Live</span></span>
+          <span class="entry-date">March 2026 &ndash; Present</span>
         </div>
-        <div class="entry-subtitle">Full-Stack SaaS Platform &mdash; Next.js 16, TypeScript, Prisma, PostgreSQL, Auth.js v5, Upstash Redis, Sentry, Vercel</div>
+        <div class="entry-subtitle">Open-Source Full-Stack SaaS Platform &mdash; Next.js, TypeScript, Prisma, PostgreSQL, Auth.js, Redis, Sentry, Vercel</div>
         <div class="entry-description">
-          <p>Multi-tenant franchise management platform built from operational inefficiencies I observed while working at Walker's Doughnuts. Actively used at a real franchise location.</p>
           <ul>
-            <li>Architected multi-tenant RBAC with franchise hierarchy &mdash; 19 Prisma models, 6 permission types, org-scoped data isolation on PostgreSQL (Supabase); new franchisees auto-inherit parent brand&rsquo;s tasks, roles, and settings via franchise token system</li>
-            <li>Timetable with weekly/daily calendar and list views; drag-and-drop template builder materialises real-date task instances with a full audit trail</li>
-            <li>Demo Mode isolated entirely in code &mdash; sandbox org provisioned on the production database, accounts identified by email suffix, hard caps per session, data auto-deleted within 24 hours; no separate DB or env flag</li>
-            <li>Service Layer architecture with discriminated union result types for type-safe error handling across Server Actions and REST API routes</li>
-            <li>Upstash Redis sliding-window rate limiting on all API routes; Sentry error monitoring with session replay; GitHub Actions CI (type-check &rarr; lint &rarr; unit &rarr; integration) on every push</li>
-            <li>582 automated tests: 468 unit (Vitest), 93 integration against real Postgres, 21 Playwright E2E; CodeRabbit AI code review on every PR</li>
-            <li>Live: <a href="https://friendchise.app" style="color:#000;text-decoration:underline;">friendchise.app</a> | GitHub: <a href="https://github.com/IvanTran-2001/FriendChise" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/FriendChise</a></li>
+            <li><strong>Built multi-tenant RBAC with org-scoped data isolation</strong>, timetable views, drag-and-drop templates, Redis rate limiting, and Sentry monitoring</li>
+            <li><strong>Live:</strong> <a href="https://friendchise.app" style="color:#000;text-decoration:underline;">friendchise.app</a> | <strong>GitHub:</strong> <a href="https://github.com/IvanTran-2001/FriendChise" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/FriendChise</a></li>
           </ul>
         </div>
       </div>
@@ -309,13 +326,10 @@
           <span class="entry-title">QA Wolf Technical Assessment</span>
           <span class="entry-date">January 2026</span>
         </div>
-        <div class="entry-subtitle">Automated Testing & Web Scraping</div>
+        <div class="entry-subtitle">Automated Testing &amp; Web Scraping</div>
         <div class="entry-description">
-          <p>Take-home technical assessment for QA Wolf's hiring process &mdash; no resume required, applications screened on submitted projects alone. Built a Node.js automation tool to scrape and validate article sort order on Hacker News. Reached the final round (paid, AUD $250) and completed a live Playwright assessment in QA Wolf's platform.</p>
           <ul>
-            <li>Used Playwright for cross-browser web scraping and DOM interaction across paginated content</li>
-            <li>Implemented data validation with structured error reporting and non-zero exit codes on failure</li>
-            <li>Jest unit test suite covering validation logic and edge cases</li>
+            <li><strong>Built a Node.js and Playwright automation tool</strong> to validate Hacker News article sort order; <strong>reached the paid final-candidate round</strong> (<strong>AUD $220</strong>) after placing in the top 15 out of thousands, showing <strong>strong edge-case thinking</strong> and testing ability</li>
           </ul>
         </div>
       </div>
@@ -327,31 +341,9 @@
         </div>
         <div class="entry-subtitle">Database Schema Consulting &mdash; Warehouse Inventory</div>
         <div class="entry-description">
-          <p>Unpaid consulting engagement while employed at a warehouse, completed over 2 weeks ahead of a peak-season period. Identified that the stock control system required a 2-person lift operation due to a fragmented 3-table schema. Authored the full technical specification &mdash; calculation logic, filtering rules, edge cases, and an example table &mdash; and submitted it to the WMS vendor (Thomax Technology) for implementation.</p>
           <ul>
-            <li>Consolidated 3 inventory tables into 1 &mdash; pickers now confirm daily stock requirements from a single column on a single page refresh</li>
-            <li>Eliminated the dedicated computer operator per lift team; lifters can now work independently, reducing coordination overhead</li>
-            <li>Reduced picking errors &mdash; each mistake previously required physically relocating an entire section to retrieve a misplaced item</li>
-            <li>Caught a live-data bug mid-day post-deployment &mdash; <code>replenResidual</code> values were static snapshots, not recalculating when BulkBinCodes updated, causing stale entries to pass the visibility filter; documented the root cause and escalated to Thomax Technology for a dynamic fix</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-          <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">MERN Thinkboard</span>
-          <span class="entry-date">January 2026</span>
-        </div>
-        <div class="entry-subtitle">Full-Stack Note-Taking Application</div>
-        <div class="entry-description">
-          <p>Full-stack note-taking app built with the MERN stack. JWT auth, Redis rate limiting, full CRUD, deployed on Render.</p>
-          <ul>
-            <li>JWT authentication with bcrypt password hashing and 7-day token expiry</li>
-            <li>MongoDB/Mongoose schema for users and notes; REST API with full CRUD</li>
-            <li>Redis-based rate limiting on API routes</li>
-            <li>React frontend with protected routes; TailwindCSS + DaisyUI</li>
-            <li>Live: <a href="https://mern-thinkboard-qsrl.onrender.com" style="color: #000000; text-decoration: underline;">mern-thinkboard-qsrl.onrender.com</a></li>
+            <li><strong>Simplified inventory tables and workflows</strong> so tasks that previously required a 2-person operation could be completed by 1 person nearly as quickly; <strong>improved retrieval and movement efficiency by roughly 60-80%</strong></li>
+            <li><strong>Made onboarding and training easier</strong> by reducing table complexity, which <strong>improved hiring/training efficiency by about 50%</strong> and <strong>cut the margin of error by roughly 40%</strong> ahead of peak Christmas sales</li>
           </ul>
         </div>
       </div>
@@ -361,76 +353,38 @@
           <span class="entry-title">Vending Machine Simulator</span>
           <span class="entry-date">May 2023</span>
         </div>
-        <div class="entry-subtitle">C++ System Design - Team Project</div>
-        <div class="entry-description">
-          <p>Feature-complete vending machine simulator built in C++ as a team project, applying low-level memory management, custom data structures, and established design patterns.</p>
-          <ul>
-            <li>Implemented custom linked list data structures from the ground up</li>
-            <li>Applied the Command design pattern across 8+ operation classes for extensible architecture</li>
-            <li>Designed a change-dispensing algorithm supporting 8 coin denominations with optimal selection logic</li>
-            <li>Implemented structured error handling with 4 custom exception types</li>
-            <li>Zero memory leaks confirmed via Valgrind analysis</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">Multitenant E-Commerce Platform <span style="font-size:0.8em;font-weight:600;border:1px solid #000;padding:1px 6px;">In Progress</span></span>
-          <span class="entry-date">February 2026 – Present</span>
-        </div>
-        <div class="entry-subtitle">Full-Stack SaaS E-Commerce — Next.js 16, PayloadCMS, tRPC, MongoDB, TypeScript</div>
-        <div class="entry-description">
-          <p>Learning project following a structured tutorial to explore Next.js 16 App Router, headless CMS integration, and multi-tenant architecture. On hold; plan to extend into a production storefront for a client.</p>
-          <ul>
-            <li>Multi-tenant data isolation via PayloadCMS <code>multiTenantPlugin</code> &mdash; attaches a tenant relationship declaratively to all scoped collections; access control hooks filter queries automatically with no manual per-route logic; 6 Payload collections, 2 admin role levels</li>
-            <li>httpOnly cookie auth via Payload’s local auth API server-side &mdash; JWT never exposed to client JavaScript; tRPC <code>login</code> mutation handles the full auth flow</li>
-            <li>End-to-end type-safe data layer with tRPC 11 and Payload’s auto-generated TypeScript types &mdash; products, categories, and tenants routers with full inference</li>
-            <li>Infinite scroll product listings with TanStack Query <code>useInfiniteQuery</code> and server-side prefetching; hierarchical parent/subcategory nav with combined tag and price filters</li>
-            <li>Demo: <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" style="color:#000;text-decoration:underline;">loom.com/share/00a62fe246f9453ba770e8f43ac52696</a> &nbsp;|&nbsp; GitHub: <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" style="color:#000;text-decoration:underline;">github.com/IvanTran-2001/multitenant-ecommerce</a></li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-
-<div class="section">
-      <h2 class="section-title">Competitive Programming</h2>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">LeetCode</span>
-          <span class="entry-date">Ongoing</span>
-        </div>
-        <div class="entry-description">
-          <p><span class="highlight">200+ problems solved</span> across different difficulty levels.</p>
-          <ul>
-            <li><span class="highlight">71% acceptance rate</span></li>
-            <li><span class="highlight">Top 17% runtime globally</span></li>
-            <li>Topics: Dynamic Programming, Backtracking, Hash Tables, Graphs, Trees, Arrays</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-header">
-          <span class="entry-title">HackerRank</span>
-          <span class="entry-date">Active</span>
-        </div>
+        <div class="entry-subtitle">C++ Team Project &mdash; 4-person collaboration</div>
         <div class="entry-description">
           <ul>
-            <li><span class="highlight">Gold Badge</span> in React — 5-star, 600 points</li>
-            <li><span class="highlight">Frontend Developer (React) Role Certificate</span></li>
-            <li><span class="highlight">JavaScript Basic Certificate</span></li>
+            <li><strong>Collaborated in a 4-person team</strong> to build a C++ vending machine simulator using disciplined code structure, documentation, and design patterns</li>
+            <li><strong>Delivered efficiently</strong> and earned a <strong>100% grade</strong> with time to spare</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="section">
+      <h2 class="section-title">Competitive Programming</h2>
+      <div class="entry-description">
+        <ul>
+          <li><strong>LeetCode: 200+ problems solved</strong>, including 180+ completed before AI tools became common, reinforcing logic, structured thinking, and core CS fundamentals</li>
+          <li><strong>HackerRank:</strong> completed all React and TypeScript courses, reaching the highest React rank and reinforcing frontend fundamentals</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
       <h2 class="section-title">Portfolio</h2>
-      <p>View detailed project information, source code, and live demonstrations at: <a href="https://ivantran-2001.github.io" style="color: #000000; text-decoration: underline;">https://ivantran-2001.github.io</a></p>
+      <p>Check out more projects at <a href="https://ivantran-2001.github.io" style="color:#000;text-decoration:underline;">ivantran-2001.github.io</a>.</p>
     </div>
   </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('print') === '1') {
+      window.addEventListener('load', () => {
+        setTimeout(() => window.print(), 250);
+      });
+    }
+  </script>
 </body>
 </html>
