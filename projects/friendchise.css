@@ -324,9 +324,13 @@ details.collapsible-section > summary:hover { background: transparent !important
 
 /* Responsive */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 2em; }
-  .hero-subtitle { font-size: 1em; }
-  .section-title { font-size: 1.3em; }
+  .hero h1 { font-size: 2.15em; }
+  .hero-subtitle { font-size: 1.02em; }
+  .section-title { font-size: 1.38em; }
+  .content-section h3 { font-size: 1.18em; }
+  .content-section p { font-size: 0.92em; }
+  .content-section li { font-size: 0.9em; }
+  .tech-card h4, .tech-category h5, .feature-card h3, .persona-card h4, .story-card .story-role, .flow-card h4 { font-size: 1em; }
   .tech-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
   .features-grid { grid-template-columns: 1fr; }
   .personas-grid { grid-template-columns: 1fr; }
