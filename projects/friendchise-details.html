@@ -33,7 +33,7 @@
     <div class="hero-content">
       <a href="friendchise.html" class="back-link">&larr; Back to Overview</a>
       <h1>FriendChise &mdash; Full Case Study</h1>
-      <p class="hero-subtitle">The deep dive: personas, user flows, multi-tenant architecture, RBAC matrix, design decisions, and the V1 testing report.</p>
+      <p class="hero-subtitle">The deep dive: product decisions, multi-tenant architecture, RBAC, testing, and the technical trade-offs behind the live system.</p>
 
       <div class="hero-cta">
         <a href="https://www.figma.com/design/C2d8pW561eJxJfjL3PmbmI/FriendChise?node-id=10-291&t=HRkbaI53bDENuwXC-1" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler"></i> Figma V1</a>
@@ -50,7 +50,7 @@
     <!-- Short on Time -->
     <div class="content-section" style="background:var(--accent-bg,#f0f4ff);border-left:4px solid var(--accent,#4f6ef7);padding:18px 24px;">
       <p style="margin:0 0 10px;font-weight:700;font-size:1rem;">Short on time?</p>
-      <p style="margin:0;font-size:0.925rem;line-height:1.7;">Skip to the most signal-dense sections: &nbsp;
+      <p style="margin:0;font-size:0.925rem;line-height:1.7;">Best sections for a quick scan: &nbsp;
         <a href="#multi-tenant" style="font-weight:600;">Multi-Tenant Architecture</a> &nbsp;&middot;&nbsp;
         <a href="#permission-matrix" style="font-weight:600;">RBAC &amp; Permissions</a> &nbsp;&middot;&nbsp;
         <a href="#api-routes" style="font-weight:600;">Rate Limiting &amp; Validation</a> &nbsp;&middot;&nbsp;
@@ -99,6 +99,10 @@
       <div class="stat-card"><div class="stat-number">38</div><div class="stat-label">Prisma Models</div></div>
       <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Permission Types</div></div>
       <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Real-World Pilot</div></div>
+    </div>
+
+    <div class="content-section" style="margin-top:18px;">
+      <p style="margin:0;max-width:900px;">FriendChise was designed first as a product problem and only then as a codebase. The goal was to build a system that franchisees could actually use every day: clear permissions, reusable workflows, reliable scheduling, and a structure that could scale across locations.</p>
     </div>
 
     <div class="act-divider" id="part-product">

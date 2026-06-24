@@ -37,7 +37,8 @@
         <img src="pictures/friendchise/Logo4.png" alt="FriendChise logo" style="width:auto;height:52px;display:block;">
         <h1 style="margin:0;">FriendChise</h1>
       </div>
-      <p class="hero-subtitle">A task management and knowledge-sharing platform for franchise businesses that connects franchisees to community-driven best practices &mdash; built to create consistency and prevent costly mistakes from day one.</p>
+      <p class="hero-subtitle" style="font-weight:700;color:#111111;">Make every location run like your best one.</p>
+      <p class="hero-subtitle">FriendChise is a franchise operations hub for sharing tasks, timetables, tools, and comments across locations. Capture once, reuse everywhere, and improve consistency and quality.</p>
 
       <div class="hero-badges">
         <span class="badge">Full-Stack</span>
@@ -53,6 +54,12 @@
         <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler"></i> Figma V2</a>
         <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
         <a href="friendchise-details.html" class="cta-btn"><i class="fas fa-book"></i> Full Case Study</a>
+      </div>
+
+      <div style="margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;max-width:820px;">
+        <div style="border:1px solid #000;padding:10px 12px;background:#fff;"><strong>Live product</strong><br><span style="font-size:0.92em;line-height:1.4;">Deployed at a real Walker's Doughnuts franchise location.</span></div>
+        <div style="border:1px solid #000;padding:10px 12px;background:#fff;"><strong>What I built</strong><br><span style="font-size:0.92em;line-height:1.4;">Multi-tenant SaaS with RBAC, scheduling, and task workflows.</span></div>
+        <div style="border:1px solid #000;padding:10px 12px;background:#fff;"><strong>Why it matters</strong><br><span style="font-size:0.92em;line-height:1.4;">Keeps operations consistent and reduces onboarding friction.</span></div>
       </div>
     </div>
   </div>
@@ -79,66 +86,51 @@
     <!-- The Problem -->
     <h2 class="section-title" id="problem">The Problem</h2>
     <div class="content-section">
-      <p>
-        New franchisees struggle when opening a store &mdash; they lack operational knowledge that established stores have already figured out through trial and error. This hurts the new store <em>and</em> the overall brand. Consistency breaks down. Quality varies. Knowledge stays trapped inside the heads of a few people at a few locations.
-      </p>
+      <p>New franchisees often start without the operational knowledge that successful stores already have. That leads to inconsistent execution, slower onboarding, and avoidable mistakes.</p>
       <blockquote>
-        <p>I worked at a donut franchise that started as a top 5 location out of 30 and dropped to bottom 2 within two years. Workers were thrown in without training. 12-hour shifts with unfair task distribution led to burnout. Managers blamed workers for problems caused by a lack of structure.</p>
-        <p><strong>The problems weren't the people &mdash; it was the system.</strong> FriendChise is the tool I wish existed.</p>
+        <p>I worked at a donut franchise that started as a top 5 location out of 30 and dropped to bottom 2 within two years. The issue was lack of structure, training, and knowledge transfer.</p>
+        <p><strong>FriendChise is the tool I wish existed.</strong></p>
       </blockquote>
     </div>
 
     <!-- The Solution -->
     <h2 class="section-title" id="solution">The Solution</h2>
     <div class="content-section">
-      <p>
-        A platform that captures operational wisdom from successful stores and makes it accessible to everyone &mdash; while automating the boring stuff (scheduling, task distribution) so managers can focus on quality. Imagine if every franchisee performed as well as your best franchisee. That's the goal.
-      </p>
-      <p>
-        Franchise owners build a task library and define what a standard week looks like. Managers apply that template to any week in one click and track completion through the day. Workers see their schedule on any device and leave tips for each other in each task's comment thread &mdash; so knowledge stops being lost and starts compounding across the network.
-      </p>
-      <p style="margin-top:12px;"><strong>Currently deployed at a real Walker's Doughnuts franchise location.</strong> Real users, real operational data, real stakes.</p>
+      <p>FriendChise captures operational knowledge from successful stores and makes it reusable across the network. Managers can apply a weekly template, track work through the day, and keep the basics consistent without manual overhead.</p>
+      <p>Workers see schedules on any device and leave tips in task comments, so knowledge stops living in one person's head.</p>
+      <p style="margin-top:12px;"><strong>Currently deployed at a real Walker's Doughnuts franchise location.</strong></p>
     </div>
 
     <!-- What's Live -->
     <h2 class="section-title" id="whats-live">What's Live</h2>
     <div class="content-section">
-      <h3 style="margin:0 0 8px;">Auth &amp; Access</h3>
+      <p style="margin:0 0 12px;">A live product built to help franchise teams share knowledge, keep work organized, and run with less paper and less guesswork.</p>
+      <h3 style="margin:0 0 8px;">Shared Knowledge &amp; Task Workflow</h3>
       <ul>
-        <li><strong>Google OAuth &amp; LinkedIn Sign-In</strong> &mdash; Auth.js v5, JWT sessions, httpOnly cookies, Edge middleware route protection</li>
-        <li><strong>Demo Mode</strong> &mdash; no account needed; a pre-seeded &ldquo;Donut Shop A&rdquo; org is provisioned on the same production database, isolated entirely by code &mdash; demo accounts get a <code>@demo.friendchise.app</code> email, all queries are org-scoped, the JWT expires in 2 hours, and every row is auto-deleted within 24 hours. Per-session caps: 200 tasks, 50 members, 50 concurrent sessions globally. Added in V2.</li>
-        <li><strong>Role &amp; Permission System</strong> &mdash; custom roles with 6 permission types; RBAC guards on every server action and API route</li>
+        <li><strong>Task sharing and comments</strong> &mdash; publish tasks across the network and use threaded comments to share ideas, improve recipes, and capture better ways of working</li>
+        <li><strong>Task library</strong> &mdash; searchable recipes and tasks that keep everything organized and reduce reliance on scattered paper instructions</li>
+        <li><strong>RBAC filters</strong> &mdash; flexible permissions that decide which roles can see which tasks, timetables, and tools</li>
       </ul>
-      <h3 style="margin:16px 0 8px;">Task Management &amp; Scheduling</h3>
+      <h3 style="margin:16px 0 8px;">Planning &amp; Scheduling</h3>
       <ul>
-        <li><strong>Task Library</strong> &mdash; CRUD with markdown descriptions, color, image upload, role eligibility, tags; card &amp; list views; sort and filter; any org can publish tasks to the franchise network &mdash; knowledge flows in both directions</li>
-        <li><strong>Franchise Task Discovery</strong> &mdash; browse tasks published by any org in the network; selectively add them to your own library; inheritance is opt-in, not a forced sync</li>
-        <li><strong>Task Comments &amp; Voting</strong> &mdash; threaded comments with upvotes, downvotes, replies, pinning, and soft delete; visible across the franchise for network-scoped tasks</li>
-        <li><strong>Timetable</strong> &mdash; weekly/daily calendar and simple list view; status tracking (TODO &rarr; IN_PROGRESS &rarr; DONE); role filter; per-entry edit and reassign</li>
-        <li><strong>Timetable Templates</strong> &mdash; drag-and-drop weekly schedule builder (calendar or table mode); apply to any date range with frozen task snapshots; duplicate, rename, delete</li>
+        <li><strong>Timetable management</strong> &mdash; weekly and daily planning tools that help teams stay on track</li>
+        <li><strong>Roster list</strong> &mdash; track who works when, then apply that schedule back into the timetable</li>
+        <li><strong>Franchise system</strong> &mdash; expand into new stores while keeping shared processes and knowledge connected</li>
       </ul>
       <h3 style="margin:16px 0 8px;">Operational Tools</h3>
       <ul>
-        <li><strong>Dashboard</strong> &mdash; today's schedule progress bar, member/task/role/completion stats, recent tool activity</li>
-        <li><strong>Conversion Tool</strong> &mdash; scale ingredient quantities across batch sizes; shareable named conversion sets with full rate lists</li>
-        <li><strong>Staff Roster</strong> &mdash; multi-week shift scheduling grid; templates with cycle-week repeat; per-day headcount requirements; open-slot bot members</li>
-        <li><strong>Item List</strong> &mdash; searchable ingredient and product catalog shared across the org</li>
+        <li><strong>Tool hub</strong> &mdash; a set of practical tools for day-to-day operations</li>
+        <li><strong>Item list</strong> &mdash; a visual training aid for new staff, showing items like donut trays, decoration steps, filling, and placement</li>
+        <li><strong>Conversion tool</strong> &mdash; flexible measuring that helps teams make the right amount of product and reduce waste</li>
+        <li><strong>Roster list</strong> &mdash; a simple way to see who is working and plan coverage across the week</li>
       </ul>
-      <h3 style="margin:16px 0 8px;">Organization &amp; People</h3>
+      <h3 style="margin:16px 0 8px;">Access &amp; Structure</h3>
       <ul>
-        <li><strong>Member Management</strong> &mdash; invite by email, accept/decline flow, role assignment; card &amp; list views with search and role filter; edit, restrict, and remove members; bot slots (placeholder accounts for roster)</li>
-        <li><strong>Notification Panel</strong> &mdash; bell icon with unread badge; member and franchise invite cards with accept/decline; seen/unseen tracking; Popover on desktop, bottom Sheet on mobile</li>
-        <li><strong>Org Settings</strong> &mdash; logo upload (512&times;512 crop dialog), org name, address, timezone, operating days and hours; ownership transfer; org delete</li>
-        <li><strong>Franchise Management</strong> &mdash; generate invite tokens, view and manage child franchisees, extend/revoke tokens, change franchisee owner; new franchisees inherit roles and settings on join, then selectively adopt tasks from the shared network</li>
-      </ul>
-      <h3 style="margin:16px 0 8px;">V2 Layout &amp; Navigation</h3>
-      <ul>
-        <li><strong>V2 Redesign</strong> &mdash; whole-app visual overhaul; breadcrumbs removed to maximize screen real estate; consistent layout language throughout</li>
-        <li><strong>PageSidebar</strong> &mdash; collapsible per-page sidebar with persisted open/closed state (<code>localStorage</code>); mobile renders as a full-screen overlay</li>
-        <li><strong>ActionSidebar</strong> &mdash; contextual detail/edit panel opened on demand by any component; desktop: inline sidebar column; mobile: slides up from the bottom as a sheet. Drives code reuse across all detail views and made mobile layout management significantly simpler.</li>
+        <li><strong>Role-based access control</strong> &mdash; permission gates that stay flexible for different roles and filter what each user can see and do</li>
+        <li><strong>Member and org management</strong> &mdash; invite people, organize teams, and keep ownership structured as the business grows</li>
       </ul>
       <p style="margin-top: 15px;">
-        <a href="friendchise-details.html#whats-live" style="font-weight:600; text-decoration:underline;">Full feature list, architecture decisions, and roadmap &rarr;</a>
+        <a href="friendchise-details.html#whats-live" style="font-weight:600; text-decoration:underline;">Full feature list and architecture decisions &rarr;</a>
       </p>
     </div>
 
@@ -183,18 +175,12 @@
     <h2 class="section-title" id="tech">Tech Stack</h2>
     <div class="tech-section">
       <div class="tech-grid">
-        <div class="tech-card"><h4>Next.js 16</h4><p>App Router, React 19, Server Actions</p></div>
-        <div class="tech-card"><h4>TypeScript</h4><p>End-to-end type safety</p></div>
-        <div class="tech-card"><h4>PostgreSQL</h4><p>Hosted on Supabase</p></div>
-        <div class="tech-card"><h4>Prisma v7</h4><p>Type-safe ORM &amp; migrations</p></div>
-        <div class="tech-card"><h4>Auth.js v5</h4><p>Google + LinkedIn OAuth, JWT sessions</p></div>
-        <div class="tech-card"><h4>Tailwind v4</h4><p>shadcn/ui + Radix UI</p></div>
-        <div class="tech-card"><h4>Zod v4</h4><p>Runtime validation</p></div>
-        <div class="tech-card"><h4>Vercel</h4><p>Production deployment</p></div>
-        <div class="tech-card"><h4>Sentry</h4><p>Error monitoring, performance tracing, session replay</p></div>
-        <div class="tech-card"><h4>Upstash Redis</h4><p>Sliding-window rate limiting on every API route</p></div>
-        <div class="tech-card"><h4>Vitest + Playwright</h4><p>582 automated tests: unit, integration, E2E</p></div>
-        <div class="tech-card"><h4>GitHub Actions</h4><p>CI: type-check &rarr; lint &rarr; unit &rarr; integration</p></div>
+        <div class="tech-card"><h4>Frontend</h4><p>Next.js 16, React 19, TypeScript, Tailwind v4, shadcn/ui, Radix UI</p></div>
+        <div class="tech-card"><h4>Backend &amp; APIs</h4><p>Node.js, services/actions, REST routes, Zod v4</p></div>
+        <div class="tech-card"><h4>Data &amp; Auth</h4><p>PostgreSQL on Supabase, Prisma v7, Auth.js v5, RBAC, org-scoped data</p></div>
+        <div class="tech-card"><h4>Testing &amp; QA</h4><p>Vitest, Playwright, 582 automated tests, validation coverage</p></div>
+        <div class="tech-card"><h4>DevOps &amp; Reliability</h4><p>Vercel, GitHub Actions, Sentry, Upstash Redis rate limiting</p></div>
+        <div class="tech-card"><h4>Product &amp; Structure</h4><p>Figma wireframes, roadmap planning, multi-tenant architecture, reusable UI systems</p></div>
       </div>
     </div>
 
@@ -212,35 +198,31 @@
     <h2 class="section-title">What This Demonstrates</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <h3>Product Before Code</h3>
-        <p>Most solo projects skip design entirely. This one didn't. 7 personas, 34 user stories, 36 MoSCoW-prioritized features, 9 user flows, and two rounds of Figma wireframes &mdash; all before writing a line of production code. The kind of process you'd follow on a real team.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Multi-Tenant Architecture</h3>
-        <p>Hierarchical org model (Brand &rarr; Franchisee) built from scratch &mdash; no library, no shortcut. Every query is org-scoped. Franchise invite tokens clone roles and settings on join. Tasks can be published to the network and selectively inherited. Two-layer timetable system with frozen task snapshots and min/max frequency constraints.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Full-Stack TypeScript</h3>
-        <p>RSC, Server Actions, and a REST API coexisting in one Next.js 16 codebase. Discriminated union result types for exhaustive, exception-free error handling. Async server components resolve route IDs to human-readable breadcrumbs before the page renders. End-to-end type safety with Zod v4.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Auth &amp; Security</h3>
-        <p>Auth.js v5 with Edge runtime &mdash; JWT sessions that work in middleware without a DB call. Demo isolation is done entirely in code: demo accounts are identified by a <code>@demo.friendchise.app</code> email suffix, every DB query is org-scoped, data auto-deletes after 2&ndash;24 hours, and hard caps prevent abuse &mdash; no separate database or env flag needed. Org-scoped RBAC on every server action. Rate limiting on every API route, not just auth endpoints.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Production Engineering</h3>
-        <p>582 automated tests: 468 unit (Vitest), 93 integration against a real Postgres DB, 21 Playwright E2E. GitHub Actions CI runs type-check &rarr; lint &rarr; unit &rarr; integration on every push. Sentry error monitoring + session replay. Upstash Redis sliding-window rate limiting on every API route.</p>
-      </div>
-      <div class="feature-card">
         <h3>Real-World Validation</h3>
-        <p>Not a toy. Deployed to and actively used by a real Walker's Doughnuts franchise location &mdash; real users, real operational data, real stakes. The problems it solves came from lived experience inside that store. That's what &ldquo;1 Real Pilot&rdquo; means.</p>
+        <p>This is a real client product used in production at a Walker's Doughnuts franchise location. It was built around real feedback, real operational issues, and actual user interactions &mdash; not a mock scenario or toy app.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Documentation &amp; Communication</h3>
+        <p>FriendChise has a dedicated documentation site at <a href="https://friendchise.app/doc/overview" target="_blank" rel="noopener noreferrer" style="font-weight:600; text-decoration:underline;">friendchise.app/doc/overview</a> and architecture docs at <a href="https://friendchise.app/doc/architecture" target="_blank" rel="noopener noreferrer" style="font-weight:600; text-decoration:underline;">friendchise.app/doc/architecture</a>. The docs are written so both humans and future contributors can understand the product quickly. People have already contributed, and the project still leaves room to improve, refine, and add new ideas.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Product Engineering</h3>
+        <p>The product was designed first: Figma wireframes, UI flow planning, and database research came before implementation. Prisma models were shaped from the product requirements, and the roadmap kept the work focused so the app could grow without drifting off course.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Architecture &amp; Structure</h3>
+        <p>FriendChise is built as a structured full-stack system using Next.js and Node.js with services/actions, API routes for outside data, and Prisma connecting the UI to the database cleanly. Multi-tenant behavior, RBAC, and org-scoped data flow are all built to stay predictable as the product scales.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Testing &amp; Reliability</h3>
+        <p>582 automated tests, GitHub Actions CI, Sentry monitoring, and Redis-backed rate limiting support a production setup that can be shipped with confidence.</p>
       </div>
     </div>
 
     <!-- Footer CTA -->
     <div class="footer-cta">
       <h2>Want the deep dive?</h2>
-      <p>Product design process, schema decisions, multi-tenant architecture, RBAC, rate limiting, observability, UI system, and how a real pilot shaped every version.</p>
+      <p>Design decisions, architecture, testing, and real-world usage in a live franchise product.</p>
       <div class="button-group">
         <a href="friendchise-details.html" class="cta-btn primary"><i class="fas fa-book"></i> Read Full Case Study</a>
         <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler"></i> Figma V2</a>

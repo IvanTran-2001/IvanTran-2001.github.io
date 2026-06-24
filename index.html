@@ -838,7 +838,7 @@
     <div class="about-section">
       <div class="about-content">
         <div class="about-image">
-          <img src="profile.jpg" alt="Ivan Tran">
+          <img src="profile.jpg" alt="Ivan Tran" fetchpriority="high" decoding="async">
         </div>
         <div class="about-text">
           <p>
@@ -901,7 +901,7 @@
       <!-- FriendChise -->
       <div class="project-card">
         <div class="featured-banner">&#9733; Featured Project</div>
-        <img src="projects/pictures/friendchise/V2/TIMETABLE-CALENDER.png" alt="FriendChise Dashboard" class="project-card-image" style="object-position: top;">
+        <img src="projects/pictures/friendchise/V2/TIMETABLE-CALENDER.png" alt="FriendChise Dashboard" class="project-card-image" style="object-position: top;" loading="lazy" decoding="async">
         <div class="project-card-content">
           <h3>FriendChise <span class="proj-badge badge-live">V2 &mdash; Live</span></h3>
           <p><strong>Built for a real Walker's Doughnuts franchisee</strong> and used in production to replace paper-based workflows with a searchable knowledge hub and scalable multi-tenant system.</p>
@@ -921,7 +921,7 @@
 
       <!-- QA Wolf -->
       <div class="project-card">
-        <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image">
+        <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image" loading="lazy" decoding="async">
         <div class="project-card-content">
           <h3>QA Wolf Technical Assessment <span class="proj-badge badge-finalist">Final Stage</span></h3>
           <p><strong>Reached the paid final round (AUD $220)</strong> after placing in the top 15 out of thousands, showing strong edge-case thinking and testing ability.</p>
@@ -942,7 +942,7 @@
 
       <!-- Warehouse -->
       <div class="project-card">
-        <img src="projects/pictures/warehouse-echt.png" alt="Warehouse" class="project-card-image">
+        <img src="projects/pictures/warehouse-echt.png" alt="Warehouse" class="project-card-image" loading="lazy" decoding="async">
         <div class="project-card-content">
           <h3>Warehouse Consulting <span class="proj-badge badge-industry">Real-World</span></h3>
           <p><strong>Simplified a fragmented 3-table warehouse workflow</strong> so tasks that needed 2 people could be done by 1 person nearly as quickly.</p>
@@ -960,7 +960,7 @@
 
      <!-- Vending Machine Simulator -->
       <div class="project-card">
-        <img src="projects/pictures/vendingmachine.png" alt="Vending Machine Simulator" class="project-card-image">
+        <img src="projects/pictures/vendingmachine.png" alt="Vending Machine Simulator" class="project-card-image" loading="lazy" decoding="async">
         <div class="project-card-content">
           <h3>Vending Machine Simulator <span class="proj-badge badge-grade">100% Grade</span></h3>
           <p><strong>Collaborated in a 4-person team</strong> to build a C++ vending machine simulator using disciplined code structure, documentation, and design patterns.</p>
@@ -1046,14 +1046,46 @@
         <summary>
           <div class="contribution-summary-head">
               <div class="contribution-summary-top">
-                <h3>DevTasks <span class="proj-badge badge-live">Merged PR</span></h3>
+                <h3>DevTasks <span class="proj-badge badge-live">Pull Request #274</span></h3>
                 <span class="contribution-toggle"><i class="fas fa-chevron-down"></i> Details</span>
               </div>
-              <p class="contribution-summary-copy">Config-driven sidebar navigation for a React/Vite app, with route-aware persistence, multi-page sections, and collapse animation.</p>
+              <p class="contribution-summary-copy">Added a favorites layout for Dev Utilities, with starred tools moving into a dedicated list and duplicate cards collapsed into unique pages.</p>
               <div class="contribution-meta">
                 <span class="proj-badge badge-industry">Open Source</span>
-                <span class="proj-badge badge-ongoing">654 additions</span>
-                <span class="proj-badge badge-ongoing">178 deletions</span>
+                <span class="proj-badge badge-ongoing">React/Vite</span>
+                <span class="proj-badge badge-ongoing">Favorites Layout</span>
+              </div>
+          </div>
+        </summary>
+        <div class="contribution-card-content">
+          <ul>
+            <li>Added a favorites star for each utility card and a dedicated favorites layout for starred tools</li>
+            <li>Persisted favorites in the browser and moved cards instead of duplicating them</li>
+            <li>Deduplicated repeated pages with a unique-card array before rendering the list</li>
+            <li>Matched the project's monochrome design and tested the feature locally before submitting the PR</li>
+          </ul>
+          <p class="contribution-proof">
+            Proof: <a href="https://github.com/shamilahmdt/devtasks/pull/274" target="_blank" rel="noopener noreferrer">Pull Request #274</a>.
+          </p>
+          <div class="project-buttons">
+            <a href="https://github.com/shamilahmdt/devtasks/pull/274" class="project-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> PR Link</a>
+            <a href="https://github.com/shamilahmdt/devtasks" class="project-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Repo</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="contribution-card">
+        <summary>
+          <div class="contribution-summary-head">
+              <div class="contribution-summary-top">
+                <h3>DevTasks <span class="proj-badge badge-live">Pull Request #226</span></h3>
+                <span class="contribution-toggle"><i class="fas fa-chevron-down"></i> Details</span>
+              </div>
+              <p class="contribution-summary-copy">Built config-driven sidebar navigation for a React/Vite app, with route-aware persistence, multi-page sections, and collapse animation.</p>
+              <div class="contribution-meta">
+                <span class="proj-badge badge-industry">Open Source</span>
+                <span class="proj-badge badge-ongoing">React/Vite</span>
+                <span class="proj-badge badge-ongoing">Sidebar Navigation</span>
               </div>
           </div>
         </summary>
