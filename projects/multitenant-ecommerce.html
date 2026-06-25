@@ -84,18 +84,18 @@
     </div>
 
     <!-- Demo Video -->
-    <details class="collapsible-section" id="demo" open>
-      <summary><i class="fas fa-play-circle"></i> Demo Video</summary>
+    <section class="page-section" id="demo">
+      <h3 class="section-heading"><i class="fas fa-play-circle"></i> Demo Video</h3>
       <div class="content-section" style="padding: 0; overflow: hidden; margin-top: 20px;">
         <div class="video-wrapper">
           <iframe src="https://www.loom.com/embed/00a62fe246f9453ba770e8f43ac52696" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- Overview -->
-    <details class="collapsible-section" id="overview">
-      <summary><i class="fas fa-info-circle"></i> Project Overview</summary>
+    <section class="page-section" id="overview">
+      <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
       <div style="margin-top: 20px;">
         <div class="learning-note">
           <p><strong>Learning project (in progress):</strong> Built by following a structured tutorial to explore advanced Next.js patterns, multi-tenant architecture, and headless CMS integration.</p>
@@ -110,11 +110,11 @@
           </ul>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- Tech Stack -->
-    <details class="collapsible-section" id="tech">
-      <summary><i class="fas fa-layer-group"></i> Technology Stack</summary>
+    <section class="page-section" id="tech">
+      <h3 class="section-heading"><i class="fas fa-layer-group"></i> Technology Stack</h3>
       <div class="tech-section" style="margin-top: 20px;">
         <div class="tech-grid">
           <div class="tech-card"><h4>Next.js 16</h4><p>App Router, server components, middleware</p></div>
@@ -127,11 +127,11 @@
           <div class="tech-card"><h4>Tailwind + shadcn/ui</h4><p>Accessible primitives on Radix UI</p></div>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- Key Features -->
-    <details class="collapsible-section" id="features">
-      <summary><i class="fas fa-star"></i> Key Features</summary>
+    <section class="page-section" id="features">
+      <h3 class="section-heading"><i class="fas fa-star"></i> Key Features</h3>
       <div class="features-grid" style="margin-top: 20px;">
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-globe"></i></div><h3>Role-Based Multi-Tenancy</h3><p>Each tenant's data is isolated via PayloadCMS access control hooks; super-admins have unrestricted access.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-lock"></i></div><h3>Secure Cookie Auth</h3><p>JWT lives in an <code>httpOnly</code> cookie set server-side, protecting against XSS token theft.</p></div>
@@ -140,11 +140,11 @@
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-tags"></i></div><h3>Hierarchical Categories</h3><p>Parent/subcategory nesting powers a multi-level nav and combined tag filtering.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-th-large"></i></div><h3>Payload Admin Panel</h3><p>Auto-generated admin UI for products, tenants, users, and media.</p></div>
       </div>
-    </details>
+    </section>
 
     <!-- Architecture -->
-    <details class="collapsible-section" id="architecture">
-      <summary><i class="fas fa-sitemap"></i> Architecture</summary>
+    <section class="page-section" id="architecture">
+      <h3 class="section-heading"><i class="fas fa-sitemap"></i> Architecture</h3>
       <div style="margin-top: 20px;">
         <div class="content-section">
           <h3>Tenant Data Isolation</h3>
@@ -159,11 +159,11 @@
           <p>tRPC routers (<code>products</code>, <code>categories</code>, <code>tenants</code>) expose Payload data with full type inference. TanStack Query 5 handles caching, background refetch, and infinite scroll; the first page is server-prefetched.</p>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- What I Learned -->
-    <details class="collapsible-section" id="learned">
-      <summary><i class="fas fa-graduation-cap"></i> What I Learned</summary>
+    <section class="page-section" id="learned">
+      <h3 class="section-heading"><i class="fas fa-graduation-cap"></i> What I Learned</h3>
       <div class="features-grid" style="margin-top: 20px;">
         <div class="feature-card"><h3>Multi-Tenant Patterns</h3><p>Designing a single codebase that isolates data per tenant via scoped queries and declarative access control.</p></div>
         <div class="feature-card"><h3>Headless CMS Architecture</h3><p>Using PayloadCMS as both backend API and admin UI in place of custom dashboards.</p></div>
@@ -172,7 +172,7 @@
         <div class="feature-card"><h3>Next.js App Router</h3><p>Server components, route groups, and middleware for SSR data prefetching.</p></div>
         <div class="feature-card"><h3>PR Workflow</h3><p>Feature branches with PR-based merges, reviewed by <strong>CodeRabbit</strong> AI on every change.</p></div>
       </div>
-    </details>
+    </section>
 
     <!-- Footer CTA -->
     <div class="footer-cta">
@@ -187,10 +187,7 @@
 
   </div>
 
-  <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})">&#9776;</button>
   <script>
-    const btn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', function() { btn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
     function openSectionByHash(hash) {
       if (!hash) return;
       const target = document.querySelector(hash);

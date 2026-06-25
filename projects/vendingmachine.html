@@ -71,8 +71,8 @@
     </div>
 
     <!-- Overview -->
-    <details class="collapsible-section" id="overview" open>
-      <summary><i class="fas fa-info-circle"></i> Project Overview</summary>
+    <section class="page-section" id="overview">
+      <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
       <div class="content-section" style="margin-top: 20px;">
         <p>A fully-functional C++14 vending machine for a fictional pastry company, focused on <strong>robust programming, clean code, and dynamic memory management</strong>. Operates entirely in a console environment with persistent file-backed storage.</p>
         <ul>
@@ -82,11 +82,11 @@
           <li>Manual <code>new</code>/<code>delete</code> verified leak-free with Valgrind</li>
         </ul>
       </div>
-    </details>
+    </section>
 
     <!-- Custom Data Structures -->
-    <details class="collapsible-section" id="data-structures">
-      <summary><i class="fas fa-project-diagram"></i> Custom Data Structures</summary>
+    <section class="page-section" id="data-structures">
+      <h3 class="section-heading"><i class="fas fa-project-diagram"></i> Custom Data Structures</h3>
       <div class="content-section" style="margin-top: 20px;">
         <ul>
           <li><strong>Abstract LinkedList base class</strong> with virtual <code>printLL</code>, <code>findItem</code>, <code>saveLL</code>, <code>resetStock</code>, <code>remove</code>, <code>addLL</code>, and <code>deleteLL</code></li>
@@ -96,11 +96,11 @@
           <li>Strategy-style runtime switching between the two list implementations</li>
         </ul>
       </div>
-    </details>
+    </section>
 
     <!-- Core Features -->
-    <details class="collapsible-section" id="features">
-      <summary><i class="fas fa-star"></i> Core Features</summary>
+    <section class="page-section" id="features">
+      <h3 class="section-heading"><i class="fas fa-star"></i> Core Features</h3>
       <div class="features-grid" style="margin-top: 20px;">
         <div class="feature-card"><h3><i class="fas fa-box"></i> Product Management</h3><p>Display inventory ascending/descending, add items, remove stock, and track availability.</p></div>
         <div class="feature-card"><h3><i class="fas fa-shopping-cart"></i> Transactions</h3><p>Exact-change, insufficient-funds detection, out-of-stock handling, and transaction abort.</p></div>
@@ -109,11 +109,11 @@
         <div class="feature-card"><h3><i class="fas fa-user-shield"></i> Admin Functions</h3><p>Reset coins, restock, reverse-display inventory, and abort transactions.</p></div>
         <div class="feature-card"><h3><i class="fas fa-exchange-alt"></i> Runtime List Switching</h3><p>Toggle between single and doubly linked lists at runtime via the strategy pattern.</p></div>
       </div>
-    </details>
+    </section>
 
     <!-- Architecture -->
-    <details class="collapsible-section" id="architecture">
-      <summary><i class="fas fa-sitemap"></i> Architecture</summary>
+    <section class="page-section" id="architecture">
+      <h3 class="section-heading"><i class="fas fa-sitemap"></i> Architecture</h3>
       <div class="content-section" style="margin-top: 20px;">
         <ul>
           <li><strong>VendingMachine</strong> — core orchestrator managing state and command dispatch</li>
@@ -123,11 +123,11 @@
           <li><strong>Helper</strong> — static validation utilities for stock/coin formats and input parsing</li>
         </ul>
       </div>
-    </details>
+    </section>
 
     <!-- Testing -->
-    <details class="collapsible-section" id="testing">
-      <summary><i class="fas fa-vial"></i> Testing &amp; Quality Assurance</summary>
+    <section class="page-section" id="testing">
+      <h3 class="section-heading"><i class="fas fa-vial"></i> Testing &amp; Quality Assurance</h3>
       <div class="content-section" style="margin-top: 20px;">
         <ul>
           <li><strong>16+ test suites</strong> covering all major features and edge cases</li>
@@ -137,7 +137,7 @@
           <li><strong>Memory safety</strong> — zero leaks across all operations, verified by Valgrind</li>
         </ul>
       </div>
-    </details>
+    </section>
 
     <!-- Footer CTA -->
     <div class="footer-cta">
@@ -151,10 +151,7 @@
 
   </div>
 
-  <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})">&#9776;</button>
   <script>
-    const btn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', function() { btn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
     function openSectionByHash(hash) {
       if (!hash) return;
       const target = document.querySelector(hash);

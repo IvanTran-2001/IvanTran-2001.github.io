@@ -72,8 +72,8 @@
     </div>
 
     <!-- Overview -->
-    <details class="collapsible-section" id="overview" open>
-      <summary><i class="fas fa-info-circle"></i> Project Overview</summary>
+    <section class="page-section" id="overview">
+      <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
       <div class="content-section" style="margin-top: 20px;">
         <p>Identified an inefficiency on the warehouse floor and worked with a third-party WMS vendor to consolidate three fragmented inventory tables into a single intuitive view, reducing cognitive load and bridging the skill gap between experienced and new staff.</p>
         <h3>My Contributions</h3>
@@ -84,11 +84,11 @@
           <li>Trained staff on the new workflow with practical tips and best practices</li>
         </ul>
       </div>
-    </details>
+    </section>
 
     <!-- Problem -->
-    <details class="collapsible-section" id="problem">
-      <summary><i class="fas fa-exclamation-circle"></i> The Problem</summary>
+    <section class="page-section" id="problem">
+      <h3 class="section-heading"><i class="fas fa-exclamation-circle"></i> The Problem</h3>
       <div class="content-section" style="margin-top: 20px;">
         <p>The warehouse relied on <strong>three separate tables</strong> that staff had to cross-reference simultaneously:</p>
         <ol>
@@ -98,11 +98,11 @@
         </ol>
         <p>This forced staff to mentally consolidate data across three views, increasing cognitive load and error risk during high-volume operations.</p>
       </div>
-    </details>
+    </section>
 
     <!-- Solution -->
-    <details class="collapsible-section" id="solution">
-      <summary><i class="fas fa-lightbulb"></i> Solution</summary>
+    <section class="page-section" id="solution">
+      <h3 class="section-heading"><i class="fas fa-lightbulb"></i> Solution</h3>
       <div class="content-section" style="margin-top: 20px;">
         <p>I authored a full technical specification and submitted it to the WMS vendor (Thomax Technology). The spec defined a new <code>replenResidual</code> column: <code>ReplenQuantity &minus; SUM(BulkBinCodes where location starts with &ldquo;SUP&rdquo; or equals &ldquo;TABLE&rdquo;)</code>. Entries where <code>replenResidual &le; 0</code> would be hidden; negative values clamped to 0; positives bolded. I included a full annotated example table covering all filter cases. The vendor developer (Dominic York) deployed the implementation and asked us to verify the output.</p>
         <p>During live use I noticed entries showing <code>2.00</code> where <code>0.00</code> was expected. I traced this to <strong>static snapshot values</strong>: <code>replenResidual</code> was being calculated at query time but not recalculating when <code>BulkBinCodes</code> were updated, so the visibility filter was operating on stale data. I documented the root cause and escalated back to Thomax Technology for a dynamic recalculation fix.</p>
@@ -112,11 +112,11 @@
           <li>Coordinated tight deadlines via documentation, calls, and detailed PDFs</li>
         </ul>
       </div>
-    </details>
+    </section>
 
     <!-- Technical Spec -->
-    <details class="collapsible-section" id="spec">
-      <summary><i class="fas fa-code"></i> Technical Spec</summary>
+    <section class="page-section" id="spec">
+      <h3 class="section-heading"><i class="fas fa-code"></i> Technical Spec</h3>
       <div class="content-section" style="margin-top: 20px;">
         <p>The spec I authored and submitted to the vendor defined the logic for a new <code>replenResidual</code> column:</p>
         <div class="outcome-card" style="font-family: monospace; font-size: 0.95em; line-height: 1.6;">
@@ -213,11 +213,11 @@
         </div>
         <p style="margin-top:16px;color:#555;font-size:0.9em;">Submitted to the WMS vendor as part of support ticket <strong>THX-1373449</strong>. The vendor deployed the implementation on <strong>11 December 2023</strong> and requested verification of output accuracy — which is when the stale-data bug was caught.</p>
       </div>
-    </details>
+    </section>
 
     <!-- Results -->
-    <details class="collapsible-section" id="results">
-      <summary><i class="fas fa-chart-line"></i> Results &amp; Impact</summary>
+    <section class="page-section" id="results">
+      <h3 class="section-heading"><i class="fas fa-chart-line"></i> Results &amp; Impact</h3>
       <div style="margin-top: 20px;">
         <div class="outcome-card">
           <p><strong>Primary impact:</strong> One computer can now handle the workload of two forklift operators — effectively doubling operational efficiency.</p>
@@ -232,16 +232,16 @@
           </ul>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- Technical Report -->
-    <details class="collapsible-section" id="docs">
-      <summary><i class="fas fa-file-alt"></i> Technical Report</summary>
+    <section class="page-section" id="docs">
+      <h3 class="section-heading"><i class="fas fa-file-alt"></i> Technical Report</h3>
       <div style="margin-top: 20px;">
         <p style="color: #333; margin-bottom: 15px;">Detailed technical analysis and recommendations provided to the WMS development team:</p>
         <iframe src="Report.pdf" style="width: 100%; height: 700px; border: 1px solid #000; display: block;"></iframe>
       </div>
-    </details>
+    </section>
 
     <!-- Footer CTA -->
     <div class="footer-cta">
@@ -254,10 +254,7 @@
 
   </div>
 
-  <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})">&#9776;</button>
   <script>
-    const btn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', function() { btn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
     function openSectionByHash(hash) {
       if (!hash) return;
       const target = document.querySelector(hash);

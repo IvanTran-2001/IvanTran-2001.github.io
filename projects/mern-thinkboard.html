@@ -68,18 +68,18 @@
     </div>
 
     <!-- Demo Video -->
-    <details class="collapsible-section" id="demo" open>
-      <summary><i class="fas fa-play-circle"></i> Demo Video</summary>
+    <section class="page-section" id="demo">
+      <h3 class="section-heading"><i class="fas fa-play-circle"></i> Demo Video</h3>
       <div class="content-section" style="padding: 0; overflow: hidden; margin-top: 20px;">
         <div class="video-wrapper">
           <iframe src="https://www.loom.com/embed/3b74959b6c4c43429d404a129b769081" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- Overview -->
-    <details class="collapsible-section" id="overview">
-      <summary><i class="fas fa-info-circle"></i> Project Overview</summary>
+    <section class="page-section" id="overview">
+      <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
       <div class="content-section" style="margin-top: 20px;">
         <p>A production-ready note-taking application showcasing the full MERN stack with authentication, secure API design, and cloud deployment. Each user's notes are isolated server-side via owner checks on every CRUD operation.</p>
         <ul>
@@ -90,11 +90,11 @@
           <li><strong>Deployment:</strong> Render + MongoDB Atlas</li>
         </ul>
       </div>
-    </details>
+    </section>
 
     <!-- Tech Stack -->
-    <details class="collapsible-section" id="tech">
-      <summary><i class="fas fa-layer-group"></i> Technology Stack</summary>
+    <section class="page-section" id="tech">
+      <h3 class="section-heading"><i class="fas fa-layer-group"></i> Technology Stack</h3>
       <div class="tech-section" style="margin-top: 20px;">
         <div class="tech-grid">
           <div class="tech-card"><h4>MongoDB</h4><p>NoSQL document store via Atlas + Mongoose</p></div>
@@ -105,11 +105,11 @@
           <div class="tech-card"><h4>TailwindCSS + DaisyUI</h4><p>Utility-first responsive styling</p></div>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- Key Features -->
-    <details class="collapsible-section" id="features">
-      <summary><i class="fas fa-star"></i> Key Features</summary>
+    <section class="page-section" id="features">
+      <h3 class="section-heading"><i class="fas fa-star"></i> Key Features</h3>
       <div class="features-grid" style="margin-top: 20px;">
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-lock"></i></div><h3>JWT Authentication</h3><p>Stateless 7-day tokens with bcrypt-hashed passwords and protected frontend/backend routes.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>User Data Isolation</h3><p>Every CRUD operation verifies ownership before reading or mutating notes.</p></div>
@@ -118,11 +118,11 @@
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-network-wired"></i></div><h3>RESTful API</h3><p>Semantic HTTP methods, proper status codes, consistent JSON responses.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-mobile-alt"></i></div><h3>Responsive UI</h3><p>Mobile-first design with TailwindCSS + DaisyUI components.</p></div>
       </div>
-    </details>
+    </section>
 
     <!-- Architecture -->
-    <details class="collapsible-section" id="architecture">
-      <summary><i class="fas fa-sitemap"></i> Architecture &amp; Security</summary>
+    <section class="page-section" id="architecture">
+      <h3 class="section-heading"><i class="fas fa-sitemap"></i> Architecture &amp; Security</h3>
       <div class="content-section" style="margin-top: 20px;">
         <ul>
           <li><strong>MVC structure:</strong> Controllers, routes, models, and middleware are cleanly separated</li>
@@ -133,7 +133,7 @@
           <li><strong>CORS + input validation:</strong> Email/password/username checks on client and server</li>
         </ul>
       </div>
-    </details>
+    </section>
 
     <!-- Footer CTA -->
     <div class="footer-cta">
@@ -149,10 +149,7 @@
 
   </div>
 
-  <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})">&#9776;</button>
   <script>
-    const btn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', function() { btn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
     function openSectionByHash(hash) {
       if (!hash) return;
       const target = document.querySelector(hash);

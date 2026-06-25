@@ -56,8 +56,8 @@
     </div>
 
     <!-- Hiring Outcome -->
-    <details class="collapsible-section" id="outcome" open>
-      <summary><i class="fas fa-trophy"></i> Hiring Outcome</summary>
+    <section class="page-section" id="outcome">
+      <h3 class="section-heading"><i class="fas fa-trophy"></i> Hiring Outcome</h3>
       <div style="margin-top: 20px;">
         <div class="outcome-card">
           <p><strong>Reached the final round of QA Wolf's hiring process</strong> — a paid live Playwright assessment (AUD $220) in QA Wolf's own platform, January 21, 2026.</p>
@@ -74,7 +74,7 @@
           </ul>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- TOC -->
     <div class="content-section" id="jump">
@@ -91,18 +91,18 @@
     </div>
 
     <!-- Demo Video -->
-    <details class="collapsible-section" id="demo" open>
-      <summary><i class="fas fa-play-circle"></i> Demo Video</summary>
+    <section class="page-section" id="demo">
+      <h3 class="section-heading"><i class="fas fa-play-circle"></i> Demo Video</h3>
       <div class="content-section" style="padding: 0; overflow: hidden; margin-top: 20px;">
         <div class="video-wrapper">
           <iframe src="https://www.loom.com/embed/d3b55a224db6491ab0369a05233862a7" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- Overview -->
-    <details class="collapsible-section" id="overview">
-      <summary><i class="fas fa-info-circle"></i> Project Overview</summary>
+    <section class="page-section" id="overview">
+      <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
       <div class="content-section" style="margin-top: 20px;">
         <p>Submitted as a take-home technical assessment for QA Wolf — a company that screens candidates on submitted projects alone, with no resume required at any stage. This tool scrapes the first 100 articles from <strong>Hacker News/newest</strong> and validates they are sorted newest-to-oldest by timestamp, reporting any out-of-order articles with detailed context.</p>
         <ul>
@@ -113,11 +113,11 @@
           <li>Robust handling of malformed timestamps, pagination errors, and network issues</li>
         </ul>
       </div>
-    </details>
+    </section>
 
     <!-- Tech Stack -->
-    <details class="collapsible-section" id="tech">
-      <summary><i class="fas fa-layer-group"></i> Technology Stack</summary>
+    <section class="page-section" id="tech">
+      <h3 class="section-heading"><i class="fas fa-layer-group"></i> Technology Stack</h3>
       <div class="tech-section" style="margin-top: 20px;">
         <div class="tech-grid">
           <div class="tech-card"><h4>Node.js</h4><p>JavaScript runtime for the CLI and scraper</p></div>
@@ -126,11 +126,11 @@
           <div class="tech-card"><h4>@playwright/test</h4><p>Built-in test runner</p></div>
         </div>
       </div>
-    </details>
+    </section>
 
     <!-- Key Features -->
-    <details class="collapsible-section" id="features">
-      <summary><i class="fas fa-star"></i> Key Features</summary>
+    <section class="page-section" id="features">
+      <h3 class="section-heading"><i class="fas fa-star"></i> Key Features</h3>
       <div class="features-grid" style="margin-top: 20px;">
         <div class="feature-card"><h3><i class="fas fa-spider"></i> Playwright Scraping</h3><p>Multi-page navigation with dynamic content extraction.</p></div>
         <div class="feature-card"><h3><i class="fas fa-check-double"></i> Sort Validation</h3><p>ISO timestamp parsing with precise out-of-order detection.</p></div>
@@ -139,11 +139,11 @@
         <div class="feature-card"><h3><i class="fas fa-bug"></i> Error Injection</h3><p>Test mode that intentionally breaks the data to verify the validator catches it.</p></div>
         <div class="feature-card"><h3><i class="fas fa-exclamation-triangle"></i> Resilient Errors</h3><p>Graceful handling of pagination failures, bad timestamps, and network hiccups.</p></div>
       </div>
-    </details>
+    </section>
 
     <!-- Usage -->
-    <details class="collapsible-section" id="usage">
-      <summary><i class="fas fa-code"></i> Usage</summary>
+    <section class="page-section" id="usage">
+      <h3 class="section-heading"><i class="fas fa-code"></i> Usage</h3>
       <div class="content-section" style="margin-top: 20px;">
 <pre># Fetch and validate 100 articles
 node index.js
@@ -160,11 +160,11 @@ node index.js 100 0 --test-error
 # Help
 node index.js --help</pre>
       </div>
-    </details>
+    </section>
 
     <!-- Testing -->
-    <details class="collapsible-section" id="testing">
-      <summary><i class="fas fa-vial"></i> Testing</summary>
+    <section class="page-section" id="testing">
+      <h3 class="section-heading"><i class="fas fa-vial"></i> Testing</h3>
       <div class="content-section" style="margin-top: 20px;">
         <p>Run the suite with <code>npx playwright test</code>:</p>
         <ul>
@@ -175,7 +175,7 @@ node index.js --help</pre>
           <li><strong>Test-error tests</strong> — confirms intentional error injection works</li>
         </ul>
       </div>
-    </details>
+    </section>
 
     <!-- CTA -->
     <div class="footer-cta">
@@ -190,10 +190,7 @@ node index.js --help</pre>
 
   </div>
 
-  <button id="back-to-top" onclick="document.getElementById('jump').scrollIntoView({behavior:'smooth'})">&#9776;</button>
   <script>
-    const btn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', function() { btn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
     function openSectionByHash(hash) {
       if (!hash) return;
       const target = document.querySelector(hash);
