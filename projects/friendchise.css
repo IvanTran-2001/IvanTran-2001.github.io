@@ -142,6 +142,56 @@ h1, h2, h3, h4, h5, h6, p, li, span, div, a, blockquote { color: #000000 !import
 .content-section li { color: #333333; margin-bottom: 8px; line-height: 1.5; overflow-wrap: break-word; word-break: break-word; font-size: 0.88em; }
 .content-section strong { color: #000000; font-weight: 600; }
 
+.soft-panel {
+  border: 1px solid #000000;
+  padding: 20px 22px;
+  margin-top: 18px;
+}
+
+.problem-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.problem-item {
+  border: 1px solid #000000;
+  padding: 12px 14px;
+  background: #ffffff;
+}
+
+.problem-item strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.82em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.workflow-row {
+  border-top: 1px solid #000000;
+  padding-top: 16px;
+  font-family: monospace;
+  line-height: 1.8;
+  color: #222222;
+}
+
+.spec-example-table th,
+.spec-example-table td {
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  vertical-align: top;
+}
+
+.spec-example-table th {
+  text-align: left;
+}
+
 /* Blockquote */
 blockquote { border-left: 4px solid #000000 !important; padding: 16px 20px; margin: 16px 0; font-style: italic; background: #f9f9f9 !important; }
 blockquote p { margin-bottom: 10px; }

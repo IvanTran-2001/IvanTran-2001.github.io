@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ECHT Warehouse WMS Process Improvement — database consolidation that doubled operational efficiency.">
+  <meta name="description" content="ECHT Warehouse WMS Process Improvement — database consolidation that improved warehouse workflow efficiency.">
   <meta name="keywords" content="Warehouse Management, SQL, Database Design, Process Improvement, Consulting">
   <title>ECHT Warehouse WMS Process Improvement | Ivan Tran</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,12 +35,14 @@
   <div class="hero">
     <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
     <h1>ECHT Warehouse WMS Process Improvement</h1>
-    <p class="hero-subtitle">Proposed and helped implement a database consolidation that doubled operational efficiency — one computer now handles the workload of two forklift operators, with fewer errors and faster onboarding.</p>
+    <p class="hero-subtitle">Redesigned a fragmented warehouse replenishment workflow by consolidating three WMS reports into one operational view.</p>
+    <p class="hero-subtitle" style="font-size:0.96em;line-height:1.6;max-width:860px;">I translated warehouse requirements into a technical specification, coordinated implementation with a third-party WMS provider and identified a live-data defect during deployment validation.</p>
+    <p class="hero-subtitle" style="font-size:0.88em;color:#444;margin-top:-6px;">The change was deployed on 11 December 2023, approximately two weeks before the Christmas peak, when replenishment accuracy and avoidable downtime carried significant operational risk.</p>
     <div class="hero-badges">
-      <span class="badge">SQL</span>
-      <span class="badge">Process Improvement</span>
-      <span class="badge">Data Analysis</span>
       <span class="badge">WMS Consulting</span>
+      <span class="badge">Requirements Analysis</span>
+      <span class="badge">User Acceptance Testing</span>
+      <span class="badge">Process Improvement</span>
     </div>
     <div class="hero-cta">
       <a href="#docs" class="cta-btn primary"><i class="fas fa-file-alt"></i> Technical Report</a>
@@ -69,7 +71,7 @@
     <!-- Stats -->
     <div class="stats-grid">
       <div class="stat-card"><div class="stat-number">3→1</div><div class="stat-label">Tables Consolidated</div></div>
-      <div class="stat-card"><div class="stat-number">2×</div><div class="stat-label">Operational Efficiency</div></div>
+      <div class="stat-card"><div class="stat-number">Estimated</div><div class="stat-label">Efficiency Gain</div></div>
       <div class="stat-card"><div class="stat-number">↓</div><div class="stat-label">Error Rate</div></div>
       <div class="stat-card"><div class="stat-number">↓</div><div class="stat-label">Onboarding Time</div></div>
     </div>
@@ -79,6 +81,8 @@
       <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
       <div class="content-section" style="margin-top: 20px;">
         <p>Identified an inefficiency on the warehouse floor and worked with a third-party WMS vendor to consolidate three fragmented inventory tables into a single intuitive view, reducing cognitive load and bridging the skill gap between experienced and new staff.</p>
+        <h3>My Role</h3>
+        <p>I acted as the operational subject-matter expert and liaison between ECHT management and the third-party WMS provider. I defined the required business logic, documented the solution, validated the live implementation and trained staff on the updated workflow.</p>
         <h3>My Contributions</h3>
         <ul>
           <li>Identified the inefficiency and pitched the consolidation to management and the WMS vendor (Thomax Technology)</li>
@@ -92,7 +96,7 @@
     <!-- Problem -->
     <section class="page-section" id="problem">
       <h3 class="section-heading"><i class="fas fa-exclamation-circle"></i> The Problem</h3>
-      <div class="content-section" style="margin-top: 20px;">
+      <div class="content-section soft-panel">
         <p>The warehouse relied on <strong>three separate tables</strong> that staff had to cross-reference simultaneously:</p>
         <ol>
           <li>Inventory pallet contents (what items are where)</li>
@@ -103,12 +107,57 @@
       </div>
     </section>
 
+    <!-- Workflow Diagram -->
+    <section class="page-section" id="workflow">
+      <h3 class="section-heading"><i class="fas fa-code-branch"></i> Before-and-After Workflow</h3>
+      <div class="content-section soft-panel">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:start;">
+          <div style="border:1px solid #000;padding:18px;background:#fafafa;">
+            <p style="margin:0 0 12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;">Before</p>
+            <div style="font-family:monospace;line-height:1.7;color:#222;">
+              Inventory contents<br>
+              <div style="text-align:center;font-size:1.2em;line-height:1;">+</div>
+              Collection status<br>
+              <div style="text-align:center;font-size:1.2em;line-height:1;">+</div>
+              Customer order tracking<br>
+              <div style="text-align:center;font-size:1.2em;line-height:1.2;">↓</div>
+              Manual cross-referencing by staff
+            </div>
+          </div>
+          <div style="border:1px solid #000;padding:18px;">
+            <p style="margin:0 0 12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;">After</p>
+            <div style="font-family:monospace;line-height:1.7;color:#222;">
+              Consolidated WMS report<br>
+              <div style="text-align:center;font-size:1.2em;line-height:1.2;">↓</div>
+              Calculated <code>replenResidual</code><br>
+              <div style="text-align:center;font-size:1.2em;line-height:1.2;">↓</div>
+              Only actionable replenishment records shown
+            </div>
+          </div>
+        </div>
+        <div class="workflow-row">
+          Warehouse problem<br>
+          <div style="text-align:center;font-size:1.15em;line-height:1;">→</div>
+          Requirements analysis<br>
+          <div style="text-align:center;font-size:1.15em;line-height:1;">→</div>
+          Technical specification<br>
+          <div style="text-align:center;font-size:1.15em;line-height:1;">→</div>
+          Vendor implementation<br>
+          <div style="text-align:center;font-size:1.15em;line-height:1;">→</div>
+          Live validation<br>
+          <div style="text-align:center;font-size:1.15em;line-height:1;">→</div>
+          Defect diagnosis and escalation
+        </div>
+      </div>
+    </section>
+
     <!-- Solution -->
     <section class="page-section" id="solution">
       <h3 class="section-heading"><i class="fas fa-lightbulb"></i> Solution</h3>
-      <div class="content-section" style="margin-top: 20px;">
-        <p>I authored a full technical specification and submitted it to the WMS vendor (Thomax Technology). The spec defined a new <code>replenResidual</code> column: <code>ReplenQuantity &minus; SUM(BulkBinCodes where location starts with &ldquo;SUP&rdquo; or equals &ldquo;TABLE&rdquo;)</code>. Entries where <code>replenResidual &le; 0</code> would be hidden; negative values clamped to 0; positives bolded. I included a full annotated example table covering all filter cases. The vendor developer (Dominic York) deployed the implementation and asked us to verify the output.</p>
-        <p>During live use I noticed entries showing <code>2.00</code> where <code>0.00</code> was expected. I traced this to <strong>static snapshot values</strong>: <code>replenResidual</code> was being calculated at query time but not recalculating when <code>BulkBinCodes</code> were updated, so the visibility filter was operating on stale data. I documented the root cause and escalated back to Thomax Technology for a dynamic recalculation fix.</p>
+      <div class="content-section soft-panel">
+        <p>I proposed replacing the three-report workflow with one consolidated operational view.</p>
+        <p>I worked with ECHT management and Thomax Technology to translate the warehouse process into clear technical requirements. The specification defined which inventory locations should affect replenishment quantities and how edge cases should be displayed.</p>
+        <p>The vendor deployed the implementation on 11 December 2023 and requested live verification.</p>
         <ul>
           <li>Mapped variables and dependencies to understand the full data landscape</li>
           <li>Identified essential vs. redundant fields to reduce cognitive load</li>
@@ -120,96 +169,97 @@
     <!-- Technical Spec -->
     <section class="page-section" id="spec">
       <h3 class="section-heading"><i class="fas fa-code"></i> Technical Spec</h3>
-      <div class="content-section" style="margin-top: 20px;">
+      <div class="content-section soft-panel">
         <p>The spec I authored and submitted to the vendor defined the logic for a new <code>replenResidual</code> column:</p>
         <div class="outcome-card" style="font-family: monospace; font-size: 0.95em; line-height: 1.6;">
-          replenResidual = ReplenQuantity &minus; SUM(BulkBinCodes where location starts with &ldquo;SUP&rdquo; OR location = &ldquo;TABLE&rdquo;)
+          replenResidual = ReplenQuantity<br>
+          &minus; SUM(InventoryQuantity where BulkBinCode starts with &ldquo;SUP&rdquo; or equals &ldquo;TABLE&rdquo;)
         </div>
         <h3>Display Rules</h3>
-        <ul>
-          <li>If <code>replenResidual &le; 0</code> &mdash; entry is <strong>hidden</strong> from the report</li>
-          <li>If <code>replenResidual</code> is negative &mdash; clamp to <code>0</code> (never show negative)</li>
-          <li>If <code>replenResidual &gt; 0</code> &mdash; entry is <strong>visible</strong> and the value is bolded</li>
-          <li>Search input <code>%</code> shows all entries while applying the above rules</li>
-        </ul>
+        <ol>
+          <li>Calculate the residual.</li>
+          <li>Clamp negative values to zero.</li>
+          <li>Hide records where the final residual equals zero.</li>
+          <li>Bold positive values.</li>
+        </ol>
         <h3>Annotated Example <small style="font-weight:400;color:#666;">(Search input: TRA-FA-19%)</small></h3>
-        <p style="color:#555;font-size:0.9em;margin-bottom:12px;">The BulkBinCodes column only shows non-search locations (TABLE, SUP prefixes). TRA-FA-19 is the current shelf location and is excluded from the SUM.</p>
+        <p style="color:#555;font-size:0.9em;margin-bottom:12px;">The table is horizontally scrollable on smaller screens. Codes use monospace formatting and the visible/hidden column shows the final display state after the residual rules are applied.</p>
         <div style="overflow-x:auto;">
-          <table style="width:100%;border-collapse:collapse;font-size:0.875em;">
+          <table class="spec-example-table" style="width:100%;border-collapse:collapse;font-size:0.875em;">
             <thead>
               <tr style="background:#f5f5f5;">
-                <th style="border:1px solid #ddd;padding:8px 10px;text-align:left;">OldestOrder</th>
-                <th style="border:1px solid #ddd;padding:8px 10px;text-align:left;">ItemCode</th>
-                <th style="border:1px solid #ddd;padding:8px 10px;text-align:center;">ReplenQty</th>
-                <th style="border:1px solid #ddd;padding:8px 10px;text-align:left;">replenResidual</th>
-                <th style="border:1px solid #ddd;padding:8px 10px;text-align:left;">BulkBinCodes</th>
-                <th style="border:1px solid #ddd;padding:8px 10px;text-align:center;">Visible?</th>
+                <th>OldestOrder</th>
+                <th>ItemCode</th>
+                <th style="text-align:center;">ReplenQty</th>
+                <th>replenResidual</th>
+                <th>BulkBinCodes</th>
+                <th style="text-align:center;">Visible?</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style="border:1px solid #ddd;padding:8px 10px;">25/11/2023</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;font-family:monospace;">OW/XXS</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;">30</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">30 &minus; 0 = <strong>30</strong></td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">TRA-FA-19 &mdash; 100</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;color:green;">&#10004; 30 &gt; 0</td>
+                <td>25/11/2023</td>
+                <td style="font-family:monospace;">OW/XXS</td>
+                <td style="text-align:center;">30</td>
+                <td>30 &minus; 0 = <strong>30</strong></td>
+                <td>TRA-FA-19 &mdash; 100</td>
+                <td style="text-align:center;color:green;">&#10004; 30 &gt; 0</td>
               </tr>
               <tr style="background:#fafafa;">
-                <td style="border:1px solid #ddd;padding:8px 10px;">25/11/2023</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;font-family:monospace;">OW/XS</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;">30</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">30 &minus; 6 = <strong>24</strong></td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">TABLE &mdash; 6, TRA-FA-19 &mdash; 100</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;color:green;">&#10004; 30 &gt; 6</td>
+                <td>25/11/2023</td>
+                <td style="font-family:monospace;">OW/XS</td>
+                <td style="text-align:center;">30</td>
+                <td>30 &minus; 6 = <strong>24</strong></td>
+                <td>TABLE &mdash; 6, TRA-FA-19 &mdash; 100</td>
+                <td style="text-align:center;color:green;">&#10004; 30 &gt; 6</td>
               </tr>
               <tr>
-                <td style="border:1px solid #ddd;padding:8px 10px;">26/11/2023</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;font-family:monospace;">OW/S</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;">30</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">30 &minus; 30 = 0</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">TABLE &mdash; 30, TRA-FA-19 &mdash; 100</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;color:#c00;">&#10008; 30 &ge; 30</td>
+                <td>26/11/2023</td>
+                <td style="font-family:monospace;">OW/S</td>
+                <td style="text-align:center;">30</td>
+                <td>30 &minus; 30 = 0</td>
+                <td>TABLE &mdash; 30, TRA-FA-19 &mdash; 100</td>
+                <td style="text-align:center;color:#c00;">&#10008; 30 &ge; 30</td>
               </tr>
               <tr style="background:#fafafa;">
-                <td style="border:1px solid #ddd;padding:8px 10px;">27/11/2023</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;font-family:monospace;">OW/M</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;">30</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">30 &minus; 31 = 0 <small style="color:#888;">(clamped)</small></td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">TABLE &mdash; 31, TRA-FA-19 &mdash; 100</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;color:#c00;">&#10008; 31 &ge; 30</td>
+                <td>27/11/2023</td>
+                <td style="font-family:monospace;">OW/M</td>
+                <td style="text-align:center;">30</td>
+                <td>30 &minus; 31 = 0 <small style="color:#888;">(clamped)</small></td>
+                <td>TABLE &mdash; 31, TRA-FA-19 &mdash; 100</td>
+                <td style="text-align:center;color:#c00;">&#10008; 31 &ge; 30</td>
               </tr>
               <tr>
-                <td style="border:1px solid #ddd;padding:8px 10px;">28/11/2023</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;font-family:monospace;">OW/L</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;">30</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">30 &minus; 8 = <strong>22</strong></td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">SUP-425 &mdash; 8, TRA-FA-19 &mdash; 100</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;color:green;">&#10004; 30 &gt; 8</td>
+                <td>28/11/2023</td>
+                <td style="font-family:monospace;">OW/L</td>
+                <td style="text-align:center;">30</td>
+                <td>30 &minus; 8 = <strong>22</strong></td>
+                <td>SUP-425 &mdash; 8, TRA-FA-19 &mdash; 100</td>
+                <td style="text-align:center;color:green;">&#10004; 30 &gt; 8</td>
               </tr>
               <tr style="background:#fafafa;">
-                <td style="border:1px solid #ddd;padding:8px 10px;">29/11/2023</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;font-family:monospace;">OW/XL</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;">30</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">30 &minus; (8+6) = <strong>16</strong></td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">TABLE &mdash; 6, TRA-FA-19 &mdash; 100, SUP-425 &mdash; 8</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;color:green;">&#10004; 30 &gt; 14</td>
+                <td>29/11/2023</td>
+                <td style="font-family:monospace;">OW/XL</td>
+                <td style="text-align:center;">30</td>
+                <td>30 &minus; (8+6) = <strong>16</strong></td>
+                <td>TABLE &mdash; 6, TRA-FA-19 &mdash; 100, SUP-425 &mdash; 8</td>
+                <td style="text-align:center;color:green;">&#10004; 30 &gt; 14</td>
               </tr>
               <tr>
-                <td style="border:1px solid #ddd;padding:8px 10px;">30/11/2023</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;font-family:monospace;">OW/2XL</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;">30</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">30 &minus; (23+7) = 0</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">SUP-865 &mdash; 23, TRA-FA-19 &mdash; 100, TABLE &mdash; 7</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;color:#c00;">&#10008; 30 &ge; 30</td>
+                <td>30/11/2023</td>
+                <td style="font-family:monospace;">OW/2XL</td>
+                <td style="text-align:center;">30</td>
+                <td>30 &minus; (23+7) = 0</td>
+                <td>SUP-865 &mdash; 23, TRA-FA-19 &mdash; 100, TABLE &mdash; 7</td>
+                <td style="text-align:center;color:#c00;">&#10008; 30 &ge; 30</td>
               </tr>
               <tr style="background:#fafafa;">
-                <td style="border:1px solid #ddd;padding:8px 10px;">1/12/2023</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;font-family:monospace;">OW/3XL</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;">30</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">30 &minus; (7+24) = 0 <small style="color:#888;">(clamped)</small></td>
-                <td style="border:1px solid #ddd;padding:8px 10px;">SUP-865 &mdash; 7, TRA-FA-19 &mdash; 100, TABLE &mdash; 24</td>
-                <td style="border:1px solid #ddd;padding:8px 10px;text-align:center;color:#c00;">&#10008; 31 &ge; 30</td>
+                <td>1/12/2023</td>
+                <td style="font-family:monospace;">OW/3XL</td>
+                <td style="text-align:center;">30</td>
+                <td>30 &minus; (7+24) = 0 <small style="color:#888;">(clamped)</small></td>
+                <td>SUP-865 &mdash; 7, TRA-FA-19 &mdash; 100, TABLE &mdash; 24</td>
+                <td style="text-align:center;color:#c00;">&#10008; 31 &ge; 30</td>
               </tr>
             </tbody>
           </table>
@@ -218,21 +268,31 @@
       </div>
     </section>
 
+    <!-- Deployment Defect -->
+    <section class="page-section" id="diagnosis">
+      <h3 class="section-heading"><i class="fas fa-bug"></i> Deployment Defect and Diagnosis</h3>
+      <div class="content-section soft-panel">
+        <p>During validation, I found records showing replenishment quantities that should already have resolved to zero.</p>
+        <p>I traced the behaviour to values being calculated as static snapshots rather than recalculating after inventory-location updates.</p>
+        <p>I documented the observed behaviour and likely root cause, then escalated it to the vendor for correction before the Christmas peak.</p>
+      </div>
+    </section>
+
     <!-- Results -->
     <section class="page-section" id="results">
       <h3 class="section-heading"><i class="fas fa-chart-line"></i> Results &amp; Impact</h3>
       <div style="margin-top: 20px;">
         <div class="outcome-card">
-          <p><strong>Primary impact:</strong> One computer can now handle the workload of two forklift operators — effectively doubling operational efficiency.</p>
+          <p><strong>Primary impact:</strong> Enabled one operator to coordinate work that had previously required two separate workflows at nearly the same speed.</p>
         </div>
         <div class="content-section">
           <ul>
-            <li><strong>Consolidated system</strong> — three tables merged into a single unified view</li>
-            <li><strong>Fewer errors</strong> — eliminated team collisions and missed customer items</li>
-            <li><strong>Faster onboarding</strong> — narrower skill gap between experienced and new staff</li>
-            <li><strong>Better accuracy</strong> — real-time data sync increased inventory confidence</li>
-            <li><strong>Scalability</strong> — workflow scales seamlessly across team sizes</li>
+            <li><strong>Consolidated system</strong> — three fragmented WMS views into one operational report</li>
+            <li><strong>Fewer errors</strong> — reduced manual cross-referencing, duplicated movement and the risk of missed replenishment items</li>
+            <li><strong>Faster onboarding</strong> — simplified onboarding by reducing the number of reports and rules new staff needed to learn</li>
+            <li><strong>Validation</strong> — identified a stale-data defect during live validation and escalated it before the Christmas peak</li>
           </ul>
+          <p style="margin-top: 16px; color: #555; font-size: 0.95em;">Estimated operational outcomes included a 60&ndash;80% improvement in retrieval and stock-movement efficiency, approximately 50% faster training and roughly 40% fewer workflow errors.</p>
         </div>
       </div>
     </section>
@@ -242,14 +302,24 @@
       <h3 class="section-heading"><i class="fas fa-file-alt"></i> Technical Report</h3>
       <div style="margin-top: 20px;">
         <p style="color: #333; margin-bottom: 15px;">Detailed technical analysis and recommendations provided to the WMS development team:</p>
-        <iframe src="Report.pdf" style="width: 100%; height: 700px; border: 1px solid #000; display: block;"></iframe>
+        <iframe src="report.pdf" style="width: 100%; height: 700px; border: 1px solid #000; display: block;"></iframe>
       </div>
     </section>
 
     <!-- Footer CTA -->
     <div class="footer-cta">
-      <h2>Process Improvement in Action</h2>
-      <p>A real-world consulting project combining SQL, data analysis, and cross-team communication.</p>
+      <h2>What This Project Demonstrates</h2>
+      <p>A real-world consulting project combining warehouse process analysis, technical specification writing, validation and staff adoption.</p>
+      <div class="content-section" style="text-align:left;max-width:920px;margin:0 auto 24px;">
+        <ul>
+          <li>Operational requirements analysis</li>
+          <li>WMS and vendor coordination</li>
+          <li>Technical specification writing</li>
+          <li>User acceptance testing</li>
+          <li>Production defect diagnosis</li>
+          <li>Staff training and process adoption</li>
+        </ul>
+      </div>
       <div class="button-group">
         <a href="../index.html#projects" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
