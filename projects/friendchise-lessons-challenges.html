@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FriendChise Lessons & Challenges — the engineering problems and product lessons behind the multi-tenant workforce platform.">
+  <meta name="keywords" content="FriendChise, Lessons, Challenges, Multi-tenant, React, Next.js, Prisma, PostgreSQL, UI State, Timetables">
+  <title>FriendChise Lessons & Challenges | Ivan Tran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="friendchise.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="../index.html" class="navbar-name">IVAN TRAN</a>
+    <ul class="navbar-links">
+      <li><a href="#summary"><i class="fas fa-book-open"></i> Summary</a></li>
+      <li><a href="#state"><i class="fas fa-layer-group"></i> UI State</a></li>
+      <li><a href="#timetable"><i class="fas fa-calendar-alt"></i> Timetables</a></li>
+      <li><a href="#hierarchy"><i class="fas fa-sitemap"></i> Hierarchy</a></li>
+      <li><a href="#feedback"><i class="fas fa-comments"></i> Feedback</a></li>
+      <li><a href="#scope"><i class="fas fa-filter"></i> Scope</a></li>
+      <li><a href="#lessons"><i class="fas fa-lightbulb"></i> Lessons</a></li>
+    </ul>
+    <div class="navbar-socials">
+      <a href="https://github.com/IvanTran-2001/FriendChise" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="https://friendchise.app" target="_blank" aria-label="Live Site" title="Live Site"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-content">
+      <a href="friendchise.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to FriendChise</a>
+      <h1>Lessons &amp; Challenges</h1>
+      <p class="hero-subtitle" style="font-weight:700;color:#111111;">Engineering problems that shaped FriendChise.</p>
+      <p class="hero-subtitle">Building FriendChise required more than adding features. I had to solve complex UI state problems, simplify overlapping timetable data, design a franchise hierarchy, and turn staff feedback into practical product decisions.</p>
+      <div class="hero-cta">
+        <a href="friendchise.html" class="cta-btn primary"><i class="fas fa-arrow-left"></i> Back to FriendChise</a>
+        <a href="https://friendchise.app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        <a href="https://friendchise.app/doc" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Docs</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="summary">
+    <h2 class="section-title">Summary</h2>
+    <div class="content-section">
+      <p>Building FriendChise required more than adding features. I had to solve complex UI state problems, simplify overlapping timetable data, design a franchise hierarchy, and turn staff feedback into practical product decisions.</p>
+      <p>The project also changed how I approach engineering. I now spend more time understanding data flow, component boundaries and user needs before implementing a solution.</p>
+      <p><a href="friendchise.html" style="font-weight:600; text-decoration:underline;">Return to the main FriendChise case study</a></p>
+    </div>
+
+    <h2 class="section-title" id="state">Managing Shared UI State</h2>
+    <div class="content-section">
+      <p>The ActionSidebar was one of the hardest technical parts of FriendChise.</p>
+      <p>It needed to display different content depending on the user’s current action, including grouped timetable cards and conversion-list workflows. The difficulty was that the sidebar could remain open while the underlying data changed, leaving the rendered content tied to an older snapshot.</p>
+      <p>My first solution was to reopen the ActionSidebar with updated content, effectively replacing what was already inside it. That worked, but it became clear that a controlled re-render function was a cleaner and more reusable approach.</p>
+      <p>This challenge improved my understanding of React rendering, snapshots, component trees and shared state. It also taught me that when one interface element depends on many parts of the application, state ownership needs to be designed deliberately.</p>
+    </div>
+
+    <h2 class="section-title" id="timetable">Simplifying Overlapping Timetable Data</h2>
+    <div class="content-section">
+      <p>The timetable became difficult to read when several tasks occupied the same time period.</p>
+      <p>Displaying five separate task cards in the same space created visual clutter and made editing or moving items harder. I introduced grouped timetable cards so overlapping entries could be represented as one readable group, while still allowing users to open the group and manage each item individually.</p>
+      <p>This taught me that complexity should be handled by the system rather than passed to the user. When an interface needs lengthy instructions, it usually means the design still needs work.</p>
+      <p>The same principle influenced the conversion-list workflow. I focused on reducing the number of visible decisions and making the next action clear instead of exposing every internal rule at once.</p>
+    </div>
+
+    <h2 class="section-title" id="hierarchy">Designing a Franchise Hierarchy</h2>
+    <div class="content-section">
+      <p>FriendChise needed to support both independent workplaces and larger franchise networks.</p>
+      <p>Each franchisee operates as its own organisation, with its own staff, schedules, tasks and local data. A parent organisation can also connect multiple franchisees through a <code>parentId</code> relationship.</p>
+      <p>When a new franchisee joins a network, it can inherit shared resources and brand settings from the parent organisation, including items such as logos, tasks, procedures and operational knowledge. At the same time, each franchisee keeps control over its own local workflows and can share selected information with other locations.</p>
+      <p>The permissions model reflects this structure. A franchise parent can manage or govern connected franchisees, while each franchisee remains an independent tenant with its own access boundaries.</p>
+      <p>This was one of the most important architectural lessons in the project. Multi-tenant design is not only about separating data. It is also about deciding what should be inherited, what should remain local and who has authority at each level.</p>
+    </div>
+
+    <h2 class="section-title" id="feedback">Building From Real Workplace Feedback</h2>
+    <div class="content-section">
+      <p>Many FriendChise features came directly from staff frustrations.</p>
+      <p>One staff member wanted to replace paper-based processes. Another wanted a fairer way to distribute work because some employees were repeatedly assigned tasks that others did not know how to complete. Another suggested a camera system that could count doughnuts automatically and update inventory data.</p>
+      <p>Not every idea became an immediate feature, but each one helped shape the product direction.</p>
+      <p>These conversations taught me to separate the underlying problem from the proposed solution. A request for a camera system is not only about computer vision; it reflects a need for faster and more accurate stock tracking. Complaints about unfair work distribution point to gaps in training, visibility and task allocation.</p>
+      <p>This changed how I gather requirements. I now focus first on the operational problem, then decide whether the best response is a new feature, a simpler workflow or clearer information.</p>
+    </div>
+
+    <h2 class="section-title" id="scope">Limiting Data to the User’s Working Context</h2>
+    <div class="content-section">
+      <p>FriendChise avoids loading unlimited timetable data at once.</p>
+      <p>The application fetches timetable entries within a defined date range, currently limited to a maximum span of one week. This matches how staff use the system and prevents the client from requesting an unnecessarily large amount of data.</p>
+      <p>A normal workplace is unlikely to contain more than 1,000 tasks in a single week, but the architecture still needs sensible boundaries. Restricting requests by organisation and date range makes the system more predictable and provides a base for adding pagination or stricter limits later if usage grows.</p>
+      <p>This taught me that scalability often begins with simple decisions: fetch only what the current screen needs, scope every request correctly and avoid assuming that all data should be loaded at once.</p>
+    </div>
+
+    <h2 class="section-title" id="lessons">What I Would Do Differently</h2>
+    <div class="content-section">
+      <p>I would make FriendChise open source earlier.</p>
+      <p>Working with contributors exposed me to different approaches, unfamiliar mistakes and edge cases I would not have encountered alone. Reviewing their work also forced me to understand the codebase more deeply and communicate requirements more precisely.</p>
+      <p>I also learned to spend more time reading before building. Understanding the existing data flow, component structure and ownership boundaries is usually faster than implementing immediately and correcting the design later.</p>
+      <p>FriendChise taught me that strong software development depends as much on reading, architecture and communication as it does on writing code.</p>
+    </div>
+
+    <div class="footer-cta">
+      <h2>Next Step</h2>
+      <p>Return to the main FriendChise case study or explore the live product and documentation.</p>
+      <div class="button-group">
+        <a href="friendchise.html" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to FriendChise</a>
+        <a href="https://friendchise.app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        <a href="https://friendchise.app/doc" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Docs</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../navbar.js"></script>
+</body>
+</html>

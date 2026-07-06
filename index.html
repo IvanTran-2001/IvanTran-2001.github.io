@@ -48,17 +48,39 @@
     }
 
     .hero .title-sub {
-      font-size: 1.05em;
+      font-size: 1.1em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 700;
       color: #333333;
       margin-bottom: 16px;
     }
 
     .hero-description {
-      font-size: 0.9em;
+      font-size: 0.95em;
+      font-weight: 600;
       color: #333333;
-      margin: 16px auto;
+      margin: 16px auto 10px;
       max-width: 700px;
       line-height: 1.5;
+    }
+
+    .hero-links {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-links a {
+      color: #000000;
+      font-size: 0.86em;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .hero-links a:hover {
+      text-decoration-thickness: 2px;
     }
 
     .hero-cta {
@@ -178,14 +200,14 @@
     /* Skills Section */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
       margin: 16px 0 28px 0;
     }
 
     .skill-card {
       border: 1px solid #000000;
-      padding: 16px;
+      padding: 14px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -203,7 +225,7 @@
 
     .skill-card p {
       color: #333333;
-      font-size: 0.85em;
+      font-size: 0.82em;
       line-height: 1.45;
     }
 
@@ -809,7 +831,7 @@
     </ul>
     <div class="navbar-socials">
       <a href="#contact" aria-label="Contact" title="Contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-      <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/ivan-tran-dev/" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
       <a href="https://github.com/IvanTran-2001" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
     </div>
   </nav>
@@ -817,17 +839,14 @@
   <!-- Hero Section -->
   <div class="hero">
     <h1>IVAN TRAN</h1>
-    <p class="title-sub">FULL-STACK ENGINEER</p>
-    <p class="hero-description">
-      <strong>Phone:</strong> <a href="tel:0405266660" style="color: #000000; text-decoration: none; font-weight: 600;">0405 266 660</a>  |
-      <strong>Location:</strong> Melbourne, Australia  |
-      <strong>Email:</strong> <a href="mailto:mystoganx2001@gmail.com" style="color: #000000; text-decoration: none; font-weight: 600;">mystoganx2001@gmail.com</a>  |
-      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" style="color: #000000; text-decoration: none; font-weight: 600;">Profile</a>  |
-      <strong>GitHub:</strong> <a href="https://github.com/IvanTran-2001" target="_blank" style="color: #000000; text-decoration: none; font-weight: 600;">Portfolio</a>
-    </p>
+    <p class="title-sub">Full-Stack Engineer building operational software</p>
+    <p class="hero-description">TypeScript · React · Next.js · PostgreSQL</p>
     <div class="hero-cta">
-      <a href="#projects" class="cta-btn"><i class="fas fa-folder-open"></i> View Projects</a>
-      <a href="#contact" class="cta-btn"><i class="fas fa-envelope"></i> Get In Touch</a>
+      <a href="projects/friendchise.html" class="cta-btn"><i class="fas fa-layer-group"></i> View FriendChise</a>
+      <a href="Ivan%20Tran%20-%20Resume.pdf" class="cta-btn" target="_blank" rel="noopener"><i class="fas fa-file-alt"></i> View Resume</a>
+    </div>
+    <div class="hero-links">
+      <a href="https://github.com/IvanTran-2001" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </div>
 
@@ -840,15 +859,13 @@
           <img src="profile.jpg" alt="Ivan Tran" fetchpriority="high" decoding="async">
         </div>
         <div class="about-text">
-          <p>
-            Full-stack TypeScript engineer based in Melbourne with a frontend-first eye for building production-ready systems. Built FriendChise for a Walker's Doughnuts franchisee to improve operational efficiency with a searchable knowledge hub, paperless workflows, and scalable multi-tenant architecture.
-          </p>
-          <p>
-            Computer Science student at RMIT. 200+ LeetCode problems solved, plus completed React and TypeScript courses on HackerRank. Open to full-stack roles, on-site or remote.
-          </p>
+          <p>I’m a full-stack engineer based in Melbourne, building practical software for real workplace operations.</p>
+          <p>My main project is FriendChise, a multi-tenant workforce platform for scheduling, recurring tasks, checklists and operational knowledge. I built it from direct experience in hospitality and warehouse environments, where fragmented processes often created unnecessary work.</p>
+          <p>I work primarily with TypeScript, React, Next.js, Node.js and PostgreSQL. My experience also includes Playwright test automation, warehouse systems consulting and leading an open-source project with more than 20 contributors.</p>
+          <p>I’m currently developing FriendChise across web and mobile while seeking full-stack, frontend and software quality opportunities.</p>
 
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/ivan-tran-dev/" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
             <a href="https://github.com/IvanTran-2001" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
           </div>
 
@@ -866,35 +883,27 @@
     <h2 class="section-title">SKILLS</h2>
     <div class="skills-grid">
       <div class="skill-card">
-        <h4>Languages</h4>
-        <p>JavaScript (ES6+), TypeScript, C++14, Python, Java, SQL, VBA</p>
+        <h4>Core</h4>
+        <p>TypeScript, JavaScript, React, Next.js, Node.js, PostgreSQL</p>
       </div>
       <div class="skill-card">
-        <h4>Frontend</h4>
-        <p>React 18, Next.js 16, TailwindCSS, shadcn/ui, Radix UI, Lucide Icons, React Hook Form, Zod</p>
+        <h4>Backend & Infrastructure</h4>
+        <p>Prisma ORM, Supabase, Redis, REST APIs, Docker, Vercel</p>
       </div>
       <div class="skill-card">
-        <h4>Backend & CMS</h4>
-        <p>Node.js, Express.js, Prisma, PostgreSQL, Supabase, PayloadCMS 3, tRPC 11, TanStack Query 5, Lexical (rich text), REST API, MongoDB, Mongoose</p>
+        <h4>Testing</h4>
+        <p>Playwright, Jest, Test Automation</p>
       </div>
       <div class="skill-card">
-        <h4>Tools & Runtime</h4>
-        <p>Bun, Git, GitHub, Vercel, Playwright, Jest, Valgrind, MongoDB Atlas, Make</p>
-      </div>
-      <div class="skill-card">
-        <h4>Development Practices</h4>
-        <p>Feature branch workflow, Pull request reviews, CodeRabbit AI code review, httpOnly cookie auth, Clean Code, TDD, OOP, Design Patterns</p>
-      </div>
-      <div class="skill-card">
-        <h4>Core Competencies</h4>
-        <p>Data Structures & Algorithms, System Design, Multi-tenant SaaS Architecture, REST API Design, Test Automation</p>
+        <h4>Engineering</h4>
+        <p>Multi-Tenant Architecture, Role-Based Access Control, System Design, Git</p>
       </div>
     </div>
   </div>
 
   <!-- Projects Section -->
   <div id="projects">
-    <h2 class="section-title">PROJECTS</h2>
+    <h2 class="section-title">SELECTED WORK</h2>
     <div class="projects-grid">
 
       <!-- FriendChise -->
@@ -903,18 +912,37 @@
         <img src="projects/pictures/friendchise/V2/TIMETABLE-CALENDER.png" alt="FriendChise Dashboard" class="project-card-image" style="object-position: top;" loading="lazy" decoding="async">
         <div class="project-card-content">
           <h3>FriendChise <span class="proj-badge badge-live">V2 &mdash; Live</span> <span class="proj-badge badge-industry">Lead &amp; Maintainer</span></h3>
-          <p><strong>Built for a real Walker's Doughnuts franchisee</strong> and used in production to replace paper-based workflows with a searchable knowledge hub and scalable multi-tenant system.</p>
-          <p><strong>Led the open-source project with 10+ contributors</strong>, reviewing PRs, maintaining the codebase, answering questions, and coordinating feature direction.</p>
+          <p><strong>Built from real hospitality workflows</strong> to centralise scheduling, tasks, checklists and workplace knowledge across web and mobile.</p>
+          <p><strong>Led an open-source product with more than 20 contributors</strong>, maintaining architecture, reviewing pull requests and iterating from staff and manager feedback.</p>
           <ul>
-            <li><strong>Improved staff efficiency by roughly 20%</strong>, made hiring and training <strong>about 30%</strong> more efficient, and reduced waste from overproduction by <strong>around 20%</strong></li>
-            <li><strong>Designed for franchise-wide rollout</strong> so operations stay consistent as staff change over time</li>
-            <li><strong>Multi-tenant franchise hierarchy</strong> with org-scoped queries, role cloning, and inherited tasks across the network</li>
+            <li><strong>Multi-tenant workforce platform</strong> deployed in a live pilot at a Walker's Doughnuts franchise location</li>
+            <li><strong>Multi-tenant hierarchy and role-based permissions</strong> keep org data and local workflows separate</li>
+            <li><strong>Designed for operational clarity</strong> with recurring tasks, timetables, checklists and reusable knowledge</li>
           </ul>
           <div class="project-buttons">
             <a href="projects/friendchise.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
+            <a href="projects/friendchise-lessons-challenges.html" class="project-btn"><i class="fas fa-lightbulb"></i> Lessons</a>
             <a href="https://friendchise.app" class="project-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="https://github.com/IvanTran-2001/FriendChise" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             <a href="https://friendchise.app/doc" class="project-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-layer-group"></i> Design &amp; Engineering</a>
+            <a href="https://github.com/IvanTran-2001/FriendChise" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warehouse -->
+      <div class="project-card">
+        <img src="projects/pictures/warehouse-echt.png" alt="Warehouse" class="project-card-image" loading="lazy" decoding="async">
+        <div class="project-card-content">
+          <h3>ECHT Warehouse WMS Process Improvement <span class="proj-badge badge-industry">Real-World</span></h3>
+          <p><strong>Simplified a fragmented 3-table warehouse workflow</strong> so tasks that needed 2 people could be done by 1 person nearly as quickly.</p>
+          <p style="font-size:0.85em;color:#666;margin-top:6px;"><i class="fas fa-check-circle" style="color:#2d7a2d;margin-right:4px;"></i>Jira ticket THX-1373449 on file &mdash; technical spec &amp; PDF report on the detail page.</p>
+          <ul>
+            <li><strong>Improved retrieval and movement efficiency by roughly 60-80%</strong></li>
+            <li><strong>Made onboarding and training easier</strong>, improving hiring/training efficiency by about 50% and reducing error rates by roughly 40% ahead of peak Christmas sales</li>
+            <li>Caught a live-data bug mid-day post-deployment &mdash; <code>replenResidual</code> values were static snapshots; documented root cause and escalated for a dynamic fix</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="projects/echt-warehouse.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
           </div>
         </div>
       </div>
@@ -924,7 +952,7 @@
         <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image" loading="lazy" decoding="async">
         <div class="project-card-content">
           <h3>QA Wolf Technical Assessment <span class="proj-badge badge-finalist">Final Stage</span></h3>
-          <p><strong>Reached the paid final round (AUD $220)</strong> after placing in the top 15 out of thousands, showing strong edge-case thinking and testing ability.</p>
+          <p><strong>Reached the paid final round (AUD $220)</strong> after being selected as one of approximately 15 finalists, showing strong edge-case thinking and testing ability.</p>
           <p style="font-size:0.85em;color:#666;margin-top:6px;"><i class="fas fa-check-circle" style="color:#2d7a2d;margin-right:4px;"></i>Email invitation on file &mdash; Jan 16, 2026.</p>
           <p style="font-size:0.85em;color:#666;margin-top:4px;"><i class="fas fa-receipt" style="color:#2d7a2d;margin-right:4px;"></i>Payment confirmation on file for the paid assessment.</p>
           <ul>
@@ -936,24 +964,6 @@
             <a href="projects/QA-Wolf-Take-Home.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
             <a href="projects/QA-Wolf-Take-Home.html#demo" class="project-btn"><i class="fas fa-play-circle"></i> Demo Video</a>
             <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Warehouse -->
-      <div class="project-card">
-        <img src="projects/pictures/warehouse-echt.png" alt="Warehouse" class="project-card-image" loading="lazy" decoding="async">
-        <div class="project-card-content">
-          <h3>Warehouse Consulting <span class="proj-badge badge-industry">Real-World</span></h3>
-          <p><strong>Simplified a fragmented 3-table warehouse workflow</strong> so tasks that needed 2 people could be done by 1 person nearly as quickly.</p>
-          <p style="font-size:0.85em;color:#666;margin-top:6px;"><i class="fas fa-check-circle" style="color:#2d7a2d;margin-right:4px;"></i>Jira ticket THX-1373449 on file &mdash; technical spec &amp; PDF report on the detail page.</p>
-          <ul>
-            <li><strong>Improved retrieval and movement efficiency by roughly 60-80%</strong></li>
-            <li><strong>Made onboarding and training easier</strong>, improving hiring/training efficiency by about 50% and reducing error rates by roughly 40% ahead of peak Christmas sales</li>
-            <li>Caught a live-data bug mid-day post-deployment &mdash; <code>replenResidual</code> values were static snapshots; documented root cause and escalated for a dynamic fix</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/echt-warehouse.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
           </div>
         </div>
       </div>
@@ -982,7 +992,7 @@
   <details class="collapsible-section" id="more-projects">
     <summary><i class="fas fa-chevron-down"></i> Load More Projects</summary>
     <div class="content-section" style="margin-top: 20px;">
-      <p style="margin-bottom: 20px; color: #333333;">Older or lower-priority projects kept for reference, but not as the first impression.</p>
+      <p style="margin-bottom: 20px; color: #333333;">Additional projects and references.</p>
       <div class="loadmore-table-wrap">
         <table class="loadmore-table">
           <thead>
@@ -998,7 +1008,7 @@
                 <div class="loadmore-title">Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></div>
                 <div class="loadmore-desc">Multi-tenant SaaS e-commerce platform with tenant-scoped data isolation and role-based access control.</div>
               </td>
-              <td>Good project, but still in progress, so it sits below the stronger finished proof pieces.</td>
+              <td>Active build focused on tenant-scoped commerce flows, permissions and infrastructure.</td>
               <td>
                 <div class="loadmore-links">
                   <a href="projects/multitenant-ecommerce.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
@@ -1011,7 +1021,7 @@
                 <div class="loadmore-title">MERN Thinkboard</div>
                 <div class="loadmore-desc">Full-stack note-taking app built with React, Node.js, Express, MongoDB, JWT auth, and Redis-backed rate limiting.</div>
               </td>
-              <td>Older finished project that still shows MERN fundamentals, but it sits below the stronger current proof pieces.</td>
+              <td>Earlier full-stack note-taking app with authentication, persistence and rate limiting.</td>
               <td>
                 <div class="loadmore-links">
                   <a href="projects/mern-thinkboard.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
@@ -1024,7 +1034,7 @@
                 <div class="loadmore-title">Competitive Programming & Certifications <span class="proj-badge badge-ongoing">Ongoing</span></div>
                 <div class="loadmore-desc">LeetCode and certifications that show consistency, but they work better as a supporting section than a main project card.</div>
               </td>
-              <td>Useful supporting evidence, not a portfolio project.</td>
+              <td>Supporting evidence for consistency, problem-solving and continuous learning.</td>
               <td>
                 <div class="loadmore-links">
                   <a href="https://leetcode.com/u/C0XKIES/" class="project-btn" target="_blank"><i class="fas fa-code"></i> Profile</a>
@@ -1037,6 +1047,14 @@
       </div>
     </div>
   </details>
+
+  <!-- Beyond Coding -->
+  <div id="beyond-coding">
+    <h2 class="section-title">BEYOND CODING</h2>
+    <div class="content-section">
+      <p style="margin:0; color:#333333;">Previously ranked #2 in Australia and #128 globally in Clash of Clans, reflecting sustained competitive performance, planning and iteration.</p>
+    </div>
+  </div>
 
   <!-- Contributions Section -->
   <div id="contributions">
@@ -1144,9 +1162,9 @@
           <i class="fab fa-github"></i>
           <span>GitHub<span class="contact-social-desc">IvanTran-2001</span></span>
         </a>
-        <a href="https://www.linkedin.com/in/ivan-tran-76164017a/" target="_blank" class="contact-social-link">
+        <a href="https://www.linkedin.com/in/ivan-tran-dev/" target="_blank" class="contact-social-link">
           <i class="fab fa-linkedin"></i>
-          <span>LinkedIn<span class="contact-social-desc">ivan-tran-76164017a</span></span>
+          <span>LinkedIn<span class="contact-social-desc">ivan-tran-dev</span></span>
         </a>
         <a href="mailto:mystoganx2001@gmail.com" class="contact-social-link">
           <i class="fas fa-envelope"></i>

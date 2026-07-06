@@ -49,7 +49,7 @@
         <span class="badge">RBAC</span>
         <span class="badge">SaaS</span>
         <span class="badge">V2 &mdash; Live</span>
-        <span class="badge">In Pilot</span>
+        <span class="badge">Deployed in a Live Pilot</span>
       </div>
 
       <div class="hero-cta">
@@ -90,8 +90,9 @@
     <div class="content-section">
       <p>New franchisees often start without the operational knowledge that successful stores already have. That leads to inconsistent execution, slower onboarding, and avoidable mistakes.</p>
       <blockquote>
-        <p>I worked at a donut franchise that started as a top 5 location out of 30 and dropped to bottom 2 within two years. The issue was lack of structure, training, and knowledge transfer.</p>
-        <p><strong>FriendChise is the tool I wish existed.</strong></p>
+        <p>I worked at a doughnut franchise location that declined from one of the stronger-performing stores to one of the weakest over a two-year period.</p>
+        <p>From direct experience, I saw how inconsistent training, limited knowledge sharing and fragmented operational processes contributed to avoidable mistakes.</p>
+        <p><strong>FriendChise is the platform I wished the team had.</strong></p>
       </blockquote>
     </div>
 
@@ -101,6 +102,14 @@
       <p>FriendChise captures operational knowledge from successful stores and makes it reusable across the network. Managers can apply a weekly template, track work through the day, and keep the basics consistent without manual overhead.</p>
       <p>Workers see schedules on any device and leave tips in task comments, so knowledge stops living in one person's head.</p>
       <p style="margin-top:12px;"><strong>Currently deployed at a real Walker's Doughnuts franchise location.</strong></p>
+    </div>
+
+    <!-- My Role -->
+    <h2 class="section-title" id="my-role">My Role</h2>
+    <div class="content-section">
+      <p>I founded and lead the development of FriendChise.</p>
+      <p>My responsibilities include product planning, stakeholder interviews, interface design, full-stack development, database modelling, multi-tenant architecture, permissions, testing, deployment, documentation and open-source contributor coordination.</p>
+      <p>I designed the platform from direct hospitality experience and continue to improve it using feedback from staff and managers at the pilot location.</p>
     </div>
 
     <!-- What's Live -->
@@ -124,7 +133,6 @@
         <li><strong>Tool hub</strong> &mdash; a set of practical tools for day-to-day operations</li>
         <li><strong>Item list</strong> &mdash; a visual training aid for new staff, showing items like donut trays, decoration steps, filling, and placement</li>
         <li><strong>Conversion tool</strong> &mdash; flexible measuring that helps teams make the right amount of product and reduce waste</li>
-        <li><strong>Roster list</strong> &mdash; a simple way to see who is working and plan coverage across the week</li>
       </ul>
       <h3 style="margin:16px 0 8px;">Access &amp; Structure</h3>
       <ul>
@@ -180,14 +188,78 @@
         <div class="tech-card"><h4>Frontend</h4><p>Next.js 16, React 19, TypeScript, Tailwind v4, shadcn/ui, Radix UI</p></div>
         <div class="tech-card"><h4>Backend &amp; APIs</h4><p>Node.js, services/actions, REST routes, Zod v4</p></div>
         <div class="tech-card"><h4>Data &amp; Auth</h4><p>PostgreSQL on Supabase, Prisma v7, Auth.js v5, RBAC, org-scoped data</p></div>
-        <div class="tech-card"><h4>Testing &amp; QA</h4><p>Vitest, Playwright, 582 automated tests, validation coverage</p></div>
+        <div class="tech-card"><h4>Testing &amp; QA</h4><p>Vitest and Playwright with 582 automated tests covering permission checks, service-layer logic, validation, scheduling behaviour, multi-tenant data boundaries and key end-to-end workflows.</p></div>
         <div class="tech-card"><h4>DevOps &amp; Reliability</h4><p>Vercel, GitHub Actions, Sentry, Upstash Redis rate limiting</p></div>
         <div class="tech-card"><h4>Product &amp; Structure</h4><p>Figma wireframes, roadmap planning, multi-tenant architecture, reusable UI systems</p></div>
       </div>
     </div>
 
+    <!-- Architecture Diagram -->
+    <h2 class="section-title">Architecture Diagram</h2>
+    <div class="content-section architecture-section">
+      <div class="architecture-diagram">
+        <div class="architecture-flow">
+          <h3>Application Stack</h3>
+          <p>Requests move through the web app, server logic, permissions, data access and reliability tooling in a simple layered flow.</p>
+          <div class="architecture-chain">
+            <div class="architecture-node">Client</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Next.js application</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Server actions / services</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Auth and RBAC</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Prisma</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">PostgreSQL / Supabase</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Redis rate limiting</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Sentry monitoring</div>
+          </div>
+        </div>
+
+        <div class="architecture-flow">
+          <h3>Multi-Tenant Data Model</h3>
+          <p>The domain model keeps franchise data scoped from organisation level down to the operational objects the team works with every day.</p>
+          <div class="architecture-grid">
+            <div class="architecture-node">Organisation</div>
+            <div class="architecture-node">Locations</div>
+            <div class="architecture-node">Members</div>
+            <div class="architecture-node">Roles</div>
+            <div class="architecture-node">Timetables</div>
+            <div class="architecture-node">Tasks</div>
+          </div>
+          <div class="architecture-chain" style="margin-top:10px;">
+            <div class="architecture-node">Organisation</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Locations</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Members</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Roles</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Timetables</div>
+            <div class="architecture-arrow">→</div>
+            <div class="architecture-node">Tasks</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testing and Reliability -->
+    <h2 class="section-title">Testing and Reliability</h2>
+    <div class="content-section">
+      <p>The test suite covers permission checks, service-layer logic, validation, scheduling behaviour, multi-tenant data boundaries and key end-to-end workflows.</p>
+      <p>Production readiness is supported with GitHub Actions for CI, Sentry monitoring for runtime visibility and Redis-backed rate limiting for safer request handling.</p>
+    </div>
+
     <!-- Stats -->
-    <h2 class="section-title">By the Numbers</h2>
+    <h2 class="section-title">Measured Scope</h2>
+    <div class="content-section" style="margin-bottom: 18px;">
+      <p style="margin-bottom: 0;">The following figures reflect the size of the live pilot, the implementation, and the supporting product surface built around it.</p>
+    </div>
       <div class="hero-stats">
       <div class="stat-card"><div class="stat-number">19</div><div class="stat-label">Prisma Models</div></div>
       <div class="stat-card"><div class="stat-number">582</div><div class="stat-label">Automated Tests</div></div>
@@ -196,57 +268,50 @@
       <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Real Pilot</div></div>
     </div>
 
-    <!-- What This Demonstrates -->
-    <h2 class="section-title">What This Demonstrates</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Real-World Validation</h3>
-        <p>Used in production at a Walker's Doughnuts franchise location, built from real feedback and actual operational problems rather than a mock scenario.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Collaboration &amp; Adaptability</h3>
-        <p>Shows I can work in an existing codebase, adapt to established structure, and keep improving the product through stakeholder feedback and iteration.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Documentation &amp; Communication</h3>
-        <p>Has dedicated docs at <a href="https://friendchise.app/doc/overview" target="_blank" rel="noopener noreferrer" style="font-weight:600; text-decoration:underline;">friendchise.app/doc/overview</a> and <a href="https://friendchise.app/doc/architecture" target="_blank" rel="noopener noreferrer" style="font-weight:600; text-decoration:underline;">architecture docs</a>, making the project easier for others to understand and contribute to.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Product Engineering</h3>
-        <p>The product was designed first: Figma wireframes, UI flow planning, and database research came before implementation, with the roadmap keeping the work focused as it grew.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Architecture &amp; Structure</h3>
-        <p>Built as a structured full-stack system with Next.js, Node.js, Prisma, multi-tenant behavior, and RBAC so the app stays predictable as it scales.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Testing &amp; Reliability</h3>
-        <p>582 automated tests, GitHub Actions CI, Sentry monitoring, and Redis-backed rate limiting support a production setup shipped with confidence.</p>
+    <!-- Lessons and Challenges -->
+    <h2 class="section-title">Lessons and Challenges</h2>
+
+    <div class="content-section" style="display:flex; flex-direction:column; gap:12px;">
+      <p style="margin-bottom:0;">Building FriendChise required more than adding features. I had to solve complex UI state problems, simplify overlapping timetable data, design a franchise hierarchy, and turn staff feedback into practical product decisions.</p>
+      <p style="margin-bottom:0;">The project also changed how I approach engineering. I now spend more time understanding data flow, component boundaries and user needs before implementing a solution.</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="friendchise-lessons-challenges.html" class="cta-btn primary"><i class="fas fa-arrow-right"></i> Read full Lessons &amp; Challenges case study</a>
       </div>
     </div>
 
-    <!-- Dedicated Docs -->
-    <h2 class="section-title" id="docs">Dedicated Docs</h2>
-    <div class="content-section">
-      <p style="margin-bottom: 12px;">The detailed design and engineering write-up now lives in the docs site. Use it when you want the deeper breakdown of the product intent, UI decisions, architecture, and implementation notes.</p>
-      <ul>
-        <li><strong>Engineer intent</strong> — why the system was built and the problems it solves for franchise teams</li>
-        <li><strong>Design decisions</strong> — layout, navigation, and usability choices made for day-to-day use</li>
-        <li><strong>Architecture</strong> — multi-tenant structure, RBAC, and shared franchise data flow</li>
-        <li><strong>Implementation notes</strong> — the practical details that support the live product</li>
-      </ul>
-      <p style="margin-top: 14px;">
-        <a href="https://friendchise.app/doc" target="_blank" rel="noopener noreferrer" style="font-weight:600; text-decoration:underline;">Open the dedicated docs site &rarr;</a>
-      </p>
+    <!-- What This Project Demonstrates -->
+    <h2 class="section-title" id="docs">What This Project Demonstrates</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Product Engineering</h3>
+        <p>Designed the product around real hospitality workflows rather than a fictional brief. Used stakeholder feedback, Figma planning and iterative development to shape the platform.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Full-Stack Architecture</h3>
+        <p>Built a multi-tenant application using Next.js, TypeScript, PostgreSQL and Prisma, with organisation-scoped data, role-based permissions and reusable service-layer logic.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Testing and Reliability</h3>
+        <p>Created automated coverage for permissions, validation, scheduling logic and core workflows. Added GitHub Actions, Sentry monitoring and Redis-backed rate limiting to support safer production deployment.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Open-Source Leadership</h3>
+        <p>Maintained the project architecture, reviewed contributions, documented workflows and helped contributors work within a consistent codebase.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Real-World Validation</h3>
+        <p>Deployed the platform at a live Walker’s Doughnuts location and continued improving it through staff and manager feedback.</p>
+      </div>
     </div>
 
     <!-- Footer CTA -->
     <div class="footer-cta">
-      <h2>Want the live product?</h2>
-      <p>Explore the working app, the design file, or the source code.</p>
+      <h2>Docs and Links</h2>
+      <p>Explore the live demo, source code, design file and documentation.</p>
       <div class="button-group">
         <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler"></i> Figma V2</a>
         <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+        <a href="https://friendchise.app/doc" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Docs</a>
         <a href="../index.html#projects" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
