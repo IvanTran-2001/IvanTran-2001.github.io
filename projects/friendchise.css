@@ -183,6 +183,11 @@ blockquote p:last-child { margin-bottom: 0; }
   flex-wrap: wrap;
   gap: 8px;
 }
+.architecture-stack,
+.architecture-tree {
+  display: grid;
+  gap: 10px;
+}
 .architecture-node {
   border: 1px solid #000000;
   background: #ffffff;
@@ -205,16 +210,42 @@ blockquote p:last-child { margin-bottom: 0; }
   font-weight: 700;
   color: #000000;
 }
-.architecture-grid {
+.architecture-down {
+  text-align: center;
+}
+.architecture-root,
+.architecture-tree-root,
+.architecture-tree-child {
+  text-align: center;
+}
+.architecture-branch-grid,
+.architecture-tree-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
 }
-.architecture-grid .architecture-node {
+.architecture-branch-card {
+  border: 1px solid #000000;
+  background: #ffffff;
+  padding: 10px 12px;
+}
+.architecture-branch-card strong {
+  display: block;
+  font-size: 0.78em;
+  margin-bottom: 4px;
+}
+.architecture-branch-card span {
+  display: block;
+  color: #333333;
+  font-size: 0.72em;
+  line-height: 1.4;
+}
+.architecture-branch-card {
   text-align: center;
 }
 @media (max-width: 768px) {
-  .architecture-grid { grid-template-columns: 1fr; }
+  .architecture-branch-grid,
+  .architecture-tree-grid { grid-template-columns: 1fr; }
   .architecture-chain { gap: 6px; }
   .architecture-arrow { width: 100%; text-align: center; }
 }

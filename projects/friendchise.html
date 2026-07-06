@@ -24,6 +24,7 @@
       <li><a href="#problem"><i class="fas fa-exclamation-circle"></i> Problem</a></li>
       <li><a href="#solution"><i class="fas fa-lightbulb"></i> Solution</a></li>
       <li><a href="#tech"><i class="fas fa-layer-group"></i> Tech Stack</a></li>
+      <li><a href="friendchise-lessons-challenges.html"><i class="fas fa-lightbulb"></i> Lessons</a></li>
       <li><a href="#docs"><i class="fas fa-book"></i> Docs</a></li>
     </ul>
     <div class="navbar-socials">
@@ -40,16 +41,14 @@
         <img src="pictures/friendchise/Logo4.png" alt="FriendChise logo" style="width:auto;height:52px;display:block;">
         <h1 style="margin:0;">FriendChise</h1>
       </div>
-      <p class="hero-subtitle" style="font-weight:700;color:#111111;">Make every location run like your best one.</p>
-      <p class="hero-subtitle">FriendChise is a franchise operations hub for sharing tasks, timetables, tools, and comments across locations. Capture once, reuse everywhere, and improve consistency and quality.</p>
+      <p class="hero-subtitle" style="font-weight:700;color:#111111;">Multi-Tenant Workforce SaaS &mdash; Deployed in a Live Pilot</p>
+      <p class="hero-subtitle">A franchise operations platform for centralising scheduling, recurring tasks, checklists and workplace knowledge across locations.</p>
 
       <div class="hero-badges">
         <span class="badge">Full-Stack</span>
         <span class="badge">Multi-Tenant</span>
         <span class="badge">RBAC</span>
-        <span class="badge">SaaS</span>
-        <span class="badge">V2 &mdash; Live</span>
-        <span class="badge">Deployed in a Live Pilot</span>
+        <span class="badge">Live Pilot</span>
       </div>
 
       <div class="hero-cta">
@@ -112,32 +111,17 @@
       <p>I designed the platform from direct hospitality experience and continue to improve it using feedback from staff and managers at the pilot location.</p>
     </div>
 
-    <!-- What's Live -->
-    <h2 class="section-title" id="whats-live">What's Live</h2>
+    <!-- Key Workflows -->
+    <h2 class="section-title" id="whats-live">Key Workflows</h2>
     <div class="content-section">
-      <p style="margin:0 0 12px;">A live product built to help franchise teams share knowledge, keep work organized, and run with less paper and less guesswork.</p>
-      <h3 style="margin:0 0 8px;">Shared Knowledge &amp; Task Workflow</h3>
       <ul>
-        <li><strong>Task sharing and comments</strong> &mdash; publish tasks across the network and use threaded comments to share ideas, improve recipes, and capture better ways of working</li>
-        <li><strong>Task library</strong> &mdash; searchable recipes and tasks that keep everything organized and reduce reliance on scattered paper instructions</li>
-        <li><strong>RBAC filters</strong> &mdash; flexible permissions that decide which roles can see which tasks, timetables, and tools</li>
-      </ul>
-      <h3 style="margin:16px 0 8px;">Planning &amp; Scheduling</h3>
-      <ul>
-        <li><strong>Timetable management</strong> &mdash; weekly and daily planning tools that help teams stay on track</li>
-        <li><strong>Roster list</strong> &mdash; track who works when, then apply that schedule back into the timetable</li>
-        <li><strong>Franchise system</strong> &mdash; expand into new stores while keeping shared processes and knowledge connected</li>
-      </ul>
-      <h3 style="margin:16px 0 8px;">Operational Tools</h3>
-      <ul>
-        <li><strong>Tool hub</strong> &mdash; a set of practical tools for day-to-day operations</li>
-        <li><strong>Item list</strong> &mdash; a visual training aid for new staff, showing items like donut trays, decoration steps, filling, and placement</li>
-        <li><strong>Conversion tool</strong> &mdash; flexible measuring that helps teams make the right amount of product and reduce waste</li>
-      </ul>
-      <h3 style="margin:16px 0 8px;">Access &amp; Structure</h3>
-      <ul>
-        <li><strong>Role-based access control</strong> &mdash; permission gates that stay flexible for different roles and filter what each user can see and do</li>
-        <li><strong>Member and org management</strong> &mdash; invite people, organize teams, and keep ownership structured as the business grows</li>
+        <li><strong>Timetable management</strong> &mdash; weekly and daily scheduling with colour-coded task blocks</li>
+        <li><strong>Task library and comments</strong> &mdash; searchable tasks with threaded discussion, votes and shared knowledge</li>
+        <li><strong>Roster and staff planning</strong> &mdash; track shifts and apply coverage back into the timetable</li>
+        <li><strong>Role-based access control</strong> &mdash; permission gates that filter what each role can see and do</li>
+        <li><strong>Franchise hierarchy</strong> &mdash; expand into new locations while keeping shared resources connected</li>
+        <li><strong>Conversion tool</strong> &mdash; scale ingredient quantities to reduce waste from overproduction</li>
+        <li><strong>Member and org management</strong> &mdash; invite people, organise teams and manage ownership</li>
       </ul>
       <p style="margin-top: 15px;">
         <a href="https://friendchise.app/doc" target="_blank" rel="noopener noreferrer" style="font-weight:600; text-decoration:underline;">Full feature list and architecture decisions &rarr;</a>
@@ -200,49 +184,38 @@
       <div class="architecture-diagram">
         <div class="architecture-flow">
           <h3>Application Stack</h3>
-          <p>Requests move through the web app, server logic, permissions, data access and reliability tooling in a simple layered flow.</p>
-          <div class="architecture-chain">
-            <div class="architecture-node">Client</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Next.js application</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Server actions / services</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Auth and RBAC</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Prisma</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">PostgreSQL / Supabase</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Redis rate limiting</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Sentry monitoring</div>
+          <p>The application layer routes through the web app and service layer, while supporting systems sit beside the core request path rather than after the database.</p>
+          <div class="architecture-stack">
+            <div class="architecture-node architecture-root">Client</div>
+            <div class="architecture-arrow architecture-down">↓</div>
+            <div class="architecture-node architecture-root">Next.js application</div>
+            <div class="architecture-arrow architecture-down">↓</div>
+            <div class="architecture-node architecture-root">Server actions / API routes</div>
+            <div class="architecture-arrow architecture-down">↓</div>
+            <div class="architecture-node architecture-root">Service layer</div>
+            <div class="architecture-branch-grid">
+              <div class="architecture-branch-card"><strong>Auth and RBAC</strong><span>Role-aware access control and permission checks.</span></div>
+              <div class="architecture-branch-card"><strong>Prisma → PostgreSQL / Supabase</strong><span>Data access, persistence and tenant-scoped queries.</span></div>
+              <div class="architecture-branch-card"><strong>Redis rate limiting</strong><span>Request throttling and safer traffic handling.</span></div>
+              <div class="architecture-branch-card"><strong>Sentry monitoring</strong><span>Runtime monitoring and error visibility.</span></div>
+            </div>
           </div>
         </div>
 
         <div class="architecture-flow">
           <h3>Multi-Tenant Data Model</h3>
-          <p>The domain model keeps franchise data scoped from organisation level down to the operational objects the team works with every day.</p>
-          <div class="architecture-grid">
-            <div class="architecture-node">Organisation</div>
-            <div class="architecture-node">Locations</div>
-            <div class="architecture-node">Members</div>
-            <div class="architecture-node">Roles</div>
-            <div class="architecture-node">Timetables</div>
-            <div class="architecture-node">Tasks</div>
-          </div>
-          <div class="architecture-chain" style="margin-top:10px;">
-            <div class="architecture-node">Organisation</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Locations</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Members</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Roles</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Timetables</div>
-            <div class="architecture-arrow">→</div>
-            <div class="architecture-node">Tasks</div>
+          <p>The data model keeps each franchisee organisation independent while still allowing a parent organisation to share resources, manage permissions and govern connected locations.</p>
+          <div class="architecture-tree">
+            <div class="architecture-tree-root">Franchise Parent Organisation</div>
+            <div class="architecture-arrow architecture-down">↓</div>
+            <div class="architecture-tree-child">Franchisee Organisation</div>
+            <div class="architecture-tree-grid">
+              <div class="architecture-branch-card"><strong>Members</strong><span>Local users and staff records scoped to the organisation.</span></div>
+              <div class="architecture-branch-card"><strong>Roles and permissions</strong><span>Access boundaries for parent and franchisee users.</span></div>
+              <div class="architecture-branch-card"><strong>Timetables</strong><span>Weekly planning and scheduling for each location.</span></div>
+              <div class="architecture-branch-card"><strong>Local tasks</strong><span>Day-to-day work, checklists and operational items.</span></div>
+              <div class="architecture-branch-card"><strong>Shared / inherited franchise resources</strong><span>Brand settings, procedures and reusable operational knowledge.</span></div>
+            </div>
           </div>
         </div>
       </div>
