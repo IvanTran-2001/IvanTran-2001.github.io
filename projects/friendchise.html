@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FriendChise — A multi-tenant task management SaaS for franchise businesses. Currently in production pilot at a Walker's Doughnuts franchise.">
-  <meta name="keywords" content="Next.js, TypeScript, Prisma, PostgreSQL, Multi-tenant, RBAC, SaaS, Franchise Management">
+  <meta name="description" content="FriendChise — a multi-tenant workplace operations platform I built and maintain, used daily in production at a Walker's Doughnuts location.">
+  <meta name="keywords" content="Next.js, TypeScript, Prisma, PostgreSQL, Multi-tenant, RBAC, workplace operations, case study">
   <title>FriendChise | Ivan Tran</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,11 +24,13 @@
   <nav class="navbar">
     <a href="../index.html" class="navbar-name">IVAN TRAN</a>
     <ul class="navbar-links">
+      <li><a href="#summary"><i class="fas fa-book-open"></i> Summary</a></li>
       <li><a href="#problem"><i class="fas fa-exclamation-circle"></i> Problem</a></li>
-      <li><a href="#solution"><i class="fas fa-lightbulb"></i> Solution</a></li>
-      <li><a href="#tech"><i class="fas fa-layer-group"></i> Tech Stack</a></li>
-      <li><a href="friendchise-lessons-challenges.html"><i class="fas fa-lightbulb"></i> Lessons</a></li>
-      <li><a href="#docs"><i class="fas fa-book"></i> Docs</a></li>
+      <li><a href="#role"><i class="fas fa-id-badge"></i> Role</a></li>
+      <li><a href="#impact"><i class="fas fa-chart-line"></i> Impact</a></li>
+      <li><a href="#decisions"><i class="fas fa-layer-group"></i> Decisions</a></li>
+      <li><a href="#systems"><i class="fas fa-cubes"></i> Systems</a></li>
+      <li><a href="#tech"><i class="fas fa-book"></i> Tech</a></li>
     </ul>
     <div class="navbar-socials">
       <a href="https://github.com/IvanTran-2001/FriendChise" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
@@ -36,316 +38,193 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <div class="hero">
-    <div class="hero-content">
-      <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
-      <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;">
-        <img src="pictures/friendchise/Logo4.png" alt="FriendChise logo" style="width:auto;height:52px;display:block;">
-        <h1 style="margin:0;">FriendChise</h1>
-      </div>
-      <p class="hero-subtitle" style="font-weight:700;color:#111111;">Multi-Tenant Workforce SaaS &mdash; Deployed in a Live Pilot</p>
-      <p class="hero-subtitle">A franchise operations platform for centralising scheduling, recurring tasks, checklists and workplace knowledge across locations.</p>
-
-      <div class="hero-badges">
-        <span class="badge">Full-Stack</span>
-        <span class="badge">Multi-Tenant</span>
-        <span class="badge">RBAC</span>
-        <span class="badge">Live Pilot</span>
-      </div>
-
-      <div class="hero-cta">
-        <a href="https://friendchise.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-        <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler"></i> Figma V2</a>
-        <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
-      </div>
-
-      <div class="hero-cards">
-        <div style="border:1px solid #000;padding:10px 12px;background:#fff;"><strong>Live product</strong><br><span style="font-size:0.92em;line-height:1.4;">Deployed at a real Walker's Doughnuts franchise location.</span></div>
-        <div style="border:1px solid #000;padding:10px 12px;background:#fff;"><strong>What I built</strong><br><span style="font-size:0.92em;line-height:1.4;">Multi-tenant SaaS with RBAC, scheduling, and task workflows.</span></div>
-        <div style="border:1px solid #000;padding:10px 12px;background:#fff;"><strong>Why it matters</strong><br><span style="font-size:0.92em;line-height:1.4;">Keeps operations consistent and reduces onboarding friction.</span></div>
-      </div>
+    <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;">
+      <img src="pictures/friendchise/Logo4.png" alt="FriendChise logo" style="width:auto;height:44px;display:block;">
+      <h1 style="margin:0;">FriendChise</h1>
+    </div>
+    <p class="hero-subtitle">A workplace operations platform built from real problems at Walker's Doughnuts, used every day to run one production location.</p>
+    <div class="hero-badges">
+      <span class="badge">Used in Production</span>
+      <span class="badge">Multi-Tenant</span>
+      <span class="badge">Role-Based Access</span>
+      <span class="badge">Solo-Built</span>
+    </div>
+    <div class="hero-cta">
+      <a href="https://friendchise.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+      <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+      <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler"></i> Figma</a>
     </div>
   </div>
 
-  <!-- App Preview -->
-  <div style="max-width:1100px; margin:0 auto; padding:0 24px;">
-    <div style="border:1px solid #000; margin-top:32px; overflow:hidden; background:#fff;">
-      <div class="video-wrapper">
-        <iframe
-          src="https://www.youtube.com/embed/_tRE4lvoZPE?rel=0"
-          title="FriendChise project video"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Content -->
   <div class="container" id="jump">
+
+    <!-- Project Summary -->
+    <h2 class="section-title" id="summary">Project Summary</h2>
+    <div class="content-section">
+      <p>FriendChise is a multi-tenant workplace operations platform: scheduling, recurring tasks, procedures, a QR-based customer menu, and the role permissions needed to run all of that safely across a real business.</p>
+      <p>It wasn't built as a portfolio piece. It was built to run one specific store, and it's still running that store today. The rest of this page is a straightforward account of why I built it, the decisions behind it, and what running it in production has actually looked like.</p>
+    </div>
 
     <!-- The Problem -->
     <h2 class="section-title" id="problem">The Problem</h2>
     <div class="content-section">
-      <p>New franchisees often start without the operational knowledge that successful stores already have. That leads to inconsistent execution, slower onboarding, and avoidable mistakes.</p>
+      <p>At Walker's Doughnuts, the things that made a shift run well were rarely written down anywhere. A manager knew how to handle a rush. A senior staff member knew the fastest way to prep for the morning. None of it was documented, so none of it survived when that person wasn't rostered on.</p>
+      <p>Training was inconsistent because it depended entirely on who happened to be working that day. Procedures lived on paper, in someone's head, or nowhere at all. When a store lost an experienced staff member, it usually lost the knowledge they carried with them too.</p>
       <blockquote>
-        <p>I worked at a doughnut franchise location that declined from one of the stronger-performing stores to one of the weakest over a two-year period.</p>
-        <p>From direct experience, I saw how inconsistent training, limited knowledge sharing and fragmented operational processes contributed to avoidable mistakes.</p>
-        <p><strong>FriendChise is the platform I wished the team had.</strong></p>
+        <p>"The success of one location should strengthen every location." That's the idea FriendChise is built around — operational knowledge should be captured once and reused, not rediscovered by every new hire and every new shift.</p>
       </blockquote>
     </div>
 
-    <!-- The Solution -->
-    <h2 class="section-title" id="solution">The Solution</h2>
+    <!-- Why I Built It -->
+    <h2 class="section-title" id="why">Why I Built FriendChise</h2>
     <div class="content-section">
-      <p>FriendChise captures operational knowledge from successful stores and makes it reusable across the network. Managers can apply a weekly template, track work through the day, and keep the basics consistent without manual overhead.</p>
-      <p>Workers see schedules on any device and leave tips in task comments, so knowledge stops living in one person's head.</p>
-      <p style="margin-top:12px;"><strong>Currently deployed at a real Walker's Doughnuts franchise location.</strong></p>
+      <p>I saw this problem firsthand. Our store went from one of the better-performing locations in the franchise to sitting near the bottom of the leaderboard over time, and a lot of that decline traced back to staff turnover, inconsistent training, and knowledge that never made it past the people who had it.</p>
+      <p>I didn't set out to build a SaaS product. I set out to fix a problem at one store. FriendChise exists because writing procedures down once and making them accessible to every shift was clearly better than relying on tribal knowledge and hoping the right person was working that day.</p>
     </div>
 
     <!-- My Role -->
-    <h2 class="section-title" id="my-role">My Role</h2>
+    <h2 class="section-title" id="role">My Role</h2>
     <div class="content-section">
-      <p>I founded and lead the development of FriendChise.</p>
-      <p>My responsibilities include product planning, stakeholder interviews, interface design, full-stack development, database modelling, multi-tenant architecture, permissions, testing, deployment, documentation and open-source contributor coordination.</p>
-      <p>I designed the platform from direct hospitality experience and continue to improve it using feedback from staff and managers at the pilot location.</p>
+      <p>I built and maintain FriendChise on my own. There's no team handing me a spec — I'm responsible for figuring out what the store actually needs, designing it, building it, shipping it, and keeping it running.</p>
+      <p>That's covered product discovery and requirements gathering with the actual staff who use the system, UI/UX design in Figma, database design, full-stack development, API development, authentication, multi-tenant architecture, role-based permissions, deployment, documentation, and automated testing.</p>
+      <p>The project has also picked up more than 20 open-source contributors over time. I review their pull requests and keep the codebase consistent, which means I'm not just writing code — I'm maintaining standards for other people's code too.</p>
     </div>
 
-    <!-- Key Workflows -->
-    <h2 class="section-title" id="whats-live">Key Workflows</h2>
+    <!-- Real-World Impact -->
+    <h2 class="section-title" id="impact">Real-World Impact</h2>
+    <div class="content-section" style="margin-bottom: 18px;">
+      <p style="margin-bottom: 0;">These are the actual numbers from the one production location running FriendChise today — not projections, not a demo environment.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">19</div><div class="stat-label">Active Users</div></div>
+      <div class="stat-card"><div class="stat-number">~50</div><div class="stat-label">Operational Procedures</div></div>
+      <div class="stat-card"><div class="stat-number">101</div><div class="stat-label">Customer QR Menu Scans</div></div>
+      <div class="stat-card"><div class="stat-number">20+</div><div class="stat-label">Open-Source Contributors</div></div>
+    </div>
     <div class="content-section">
-      <ul>
-        <li><strong>Timetable management</strong> &mdash; weekly and daily scheduling with colour-coded task blocks</li>
-        <li><strong>Task library and comments</strong> &mdash; searchable tasks with threaded discussion, votes and shared knowledge</li>
-        <li><strong>Roster and staff planning</strong> &mdash; track shifts and apply coverage back into the timetable</li>
-        <li><strong>Role-based access control</strong> &mdash; permission gates that filter what each role can see and do</li>
-        <li><strong>Franchise hierarchy</strong> &mdash; expand into new locations while keeping shared resources connected</li>
-        <li><strong>Conversion tool</strong> &mdash; scale ingredient quantities to reduce waste from overproduction</li>
-        <li><strong>Member and org management</strong> &mdash; invite people, organise teams and manage ownership</li>
-      </ul>
-      <p style="margin-top: 15px;">
-        <a href="https://friendchise.app/doc" target="_blank" rel="noopener noreferrer" style="font-weight:600; text-decoration:underline;">Full feature list and architecture decisions &rarr;</a>
-      </p>
+      <p>QR Menu and Task Management are the two most used features day to day, which tells me the product is solving problems people actually have rather than sitting unused. The store now runs completely paperless — schedules, tasks, and procedures all live in the system instead of on printed sheets taped to a wall.</p>
     </div>
 
-    <!-- Screenshots -->
-    <h2 class="section-title">Screenshots</h2>
-    <div class="screenshots-grid" id="screenshots-grid">
-      <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/TIMETABLE-CALENDER.png" alt="Timetable — calendar view" loading="lazy">
-        <p>Timetable — weekly calendar with colour-coded task blocks</p>
+    <!-- Key Engineering Decisions -->
+    <h2 class="section-title" id="decisions">Key Engineering Decisions</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <video src="pictures/friendchise/videos/franchise.mp4" poster="pictures/friendchise/videos/franchise-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <h3>Multi-tenant from day one</h3>
+        <p>Even with one active location, I built the data model to isolate each organisation's data from the start. Retrofitting tenant boundaries into a system that wasn't designed for them is far more painful than designing for it early, and FriendChise was always meant to support more than one store.</p>
       </div>
-      <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/Calender Simple Mode.png" alt="Timetable — simple list view" loading="lazy">
-        <p>Timetable — simple list view with assignees and status</p>
+      <div class="feature-card">
+        <h3>Role-based access control</h3>
+        <p>Owners, managers, and staff all need different things from the same system. Rather than one flat permission level, I built RBAC so each role only sees the tools relevant to their job, which keeps the interface simpler for staff and safer for the business.</p>
       </div>
-      <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/TASK-LIST.png" alt="Task library — list view" loading="lazy">
-        <p>Task Library — list view with tags, roles, and status</p>
+      <div class="feature-card">
+        <h3>Modular product architecture</h3>
+        <p>Timetable, task management, procedures, and the QR menu are built as separate systems that share a common data layer rather than one tangled feature set. That means I can change how the roster works without risking the menu breaking, which matters a lot once real people depend on the app not breaking.</p>
       </div>
-      <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/Task Detail Page.png" alt="Task detail" loading="lazy">
-        <p>Task detail — description, comments, and voting</p>
+      <div class="feature-card">
+        <h3>Automated testing on the risky paths</h3>
+        <p>I didn't write tests everywhere equally. I prioritised coverage for permissions, tenant data boundaries, and validation logic — the places where a bug wouldn't just look bad, it would expose one business's data to another or let someone do something they shouldn't.</p>
       </div>
-      <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/Create-Task-V2.png" alt="Create task" loading="lazy">
-        <p>Create Task — task form with color, image, and role options</p>
+      <div class="feature-card">
+        <h3>Treating it like production software</h3>
+        <p>Because a real store depends on this running, deployment, monitoring, and documentation weren't optional extras. I set up CI, error monitoring, and rate limiting because "it works on my machine" isn't good enough when a manager is trying to build a roster at 7am.</p>
       </div>
-      <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/Conversion Entries.png" alt="Conversion tool" loading="lazy">
-        <p>Conversion Tool — scale ingredient quantities by batch</p>
-      </div>
-      <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/Roster List.png" alt="Staff roster" loading="lazy">
-        <p>Roster — multi-week staff shift scheduling</p>
-      </div>
-      <div class="screenshot-item">
-        <img src="pictures/friendchise/V2/Task Comments.png" alt="Task comments" loading="lazy">
-        <p>Task comments — threaded discussion with votes and pinned notes</p>
+      <div class="feature-card">
+        <h3>Designing for shift work, not a desk</h3>
+        <p>Staff use this on their phones, mid-shift, often with flour on their hands. Every workflow had to be quick to open, quick to read, and forgiving of interruptions, which shaped a lot of the UI decisions more than any technical constraint did.</p>
       </div>
     </div>
 
-    <!-- Tech Stack -->
-    <h2 class="section-title" id="tech">Tech Stack</h2>
+    <!-- Major Product Systems -->
+    <h2 class="section-title" id="systems">Major Product Systems</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <video src="pictures/friendchise/videos/timetable.mp4" poster="pictures/friendchise/videos/timetable-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <h3>Interactive timetable</h3>
+        <p>Weekly and daily scheduling so staff know what they're doing without asking a manager. Reduces the constant "what am I doing today" interruptions that used to eat into a manager's time.</p>
+      </div>
+      <div class="feature-card">
+        <video src="pictures/friendchise/videos/task.mp4" poster="pictures/friendchise/videos/task-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <h3>Task management</h3>
+        <p>Recurring operational tasks get assigned, tracked, and checked off instead of relying on someone remembering to do them. This is one of the two most-used parts of the system.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Procedures and knowledge base</h3>
+        <p>The core of the platform. Procedures that used to exist only in someone's head or on a scrap of paper are written once and are searchable by anyone on shift.</p>
+      </div>
+      <div class="feature-card">
+        <h3>QR menu generation</h3>
+        <p>A paperless, customer-facing menu accessed by QR code. Simple to update from one place instead of reprinting physical menus every time something changes.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Roster builder</h3>
+        <p>Lets a manager build and adjust staff schedules without falling back to a spreadsheet or a group chat full of shift-swap requests.</p>
+      </div>
+      <div class="feature-card">
+        <video src="pictures/friendchise/videos/demo.mp4" poster="pictures/friendchise/videos/demo-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <h3>Guided onboarding / demo system</h3>
+        <p>New users get walked through the product instead of being handed a login and left to figure it out — important when your users are busy hospitality staff, not software people.</p>
+      </div>
+      <div class="feature-card">
+        <video src="pictures/friendchise/videos/admin.mp4" poster="pictures/friendchise/videos/admin-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <h3>Admin dashboard</h3>
+        <p>Where an owner manages permissions, staff, and settings without needing me to make a database change every time something needs adjusting.</p>
+      </div>
+      <div class="feature-card">
+        <video src="pictures/friendchise/videos/tools.mp4" poster="pictures/friendchise/videos/tools-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <h3>Operational calculators</h3>
+        <p>Small business tools that remove repetitive manual math from day-to-day operations — the kind of thing that seems minor until you're the one doing it by hand every day.</p>
+      </div>
+    </div>
+
+    <!-- Technical Challenges -->
+    <h2 class="section-title" id="challenges">Technical Challenges</h2>
+    <div class="content-section">
+      <p><strong>Keeping tenant boundaries airtight.</strong> Multi-tenant bugs don't fail loudly — they fail by quietly leaking one organisation's data into another's view. I had to be deliberate about scoping every query by organisation rather than relying on the UI to hide things correctly.</p>
+      <p><strong>Making recurring schedules readable.</strong> Once you have multiple people, multiple frequencies, and multiple roles overlapping on a single timetable, the data gets complicated fast. The hard part wasn't storing that data — it was presenting it so a tired staff member could glance at their phone and understand it in a few seconds.</p>
+      <p><strong>Turning tribal knowledge into a system.</strong> The procedures feature sounds simple — store some text — but the real work was structuring it so staff would actually search it and trust it, instead of defaulting back to asking a coworker.</p>
+      <p><strong>Maintaining a live product while the codebase keeps growing.</strong> Once real people are relying on the app every day, every change carries more weight. Reviewing contributor pull requests while keeping the architecture consistent, and not breaking things for the one store that depends on it, has been an ongoing balancing act.</p>
+    </div>
+
+    <!-- Lessons Learned -->
+    <h2 class="section-title" id="lessons">Lessons Learned</h2>
+    <div class="content-section">
+      <p>Building software for people who aren't software people changed how I think about product decisions. A technically clean solution is worthless if the person on shift doesn't understand it or doesn't have time to use it.</p>
+      <p>Shipping to a real business also changed my priorities around reliability. It's one thing to have a bug in a side project; it's another when a manager is depending on the roster being correct at 6am. That pressure pushed me to take testing, monitoring, and deployment far more seriously than I would have otherwise.</p>
+      <p>The biggest lesson is a simple one: knowledge is more valuable when it outlives the person who had it. That idea shaped almost every product decision in FriendChise, and it's the same principle I try to apply to how I write code and documentation now — assume someone else will need to understand this without me in the room.</p>
+      <p><a href="friendchise-lessons-challenges.html" style="font-weight:600; text-decoration:underline;">Read the full engineering lessons and challenges write-up &rarr;</a></p>
+    </div>
+
+    <!-- Technologies Used -->
+    <h2 class="section-title" id="tech">Technologies Used</h2>
     <div class="tech-section">
       <div class="tech-grid">
         <div class="tech-card"><h4>Frontend</h4><p>Next.js 16, React 19, TypeScript, Tailwind v4, shadcn/ui, Radix UI</p></div>
-        <div class="tech-card"><h4>Backend &amp; APIs</h4><p>Node.js, services/actions, REST routes, Zod v4</p></div>
+        <div class="tech-card"><h4>Backend &amp; APIs</h4><p>Node.js, server actions, REST routes, Zod v4</p></div>
         <div class="tech-card"><h4>Data &amp; Auth</h4><p>PostgreSQL on Supabase, Prisma v7, Auth.js v5, RBAC, org-scoped data</p></div>
-        <div class="tech-card"><h4>Testing &amp; QA</h4><p>Vitest and Playwright with 582 automated tests covering permission checks, service-layer logic, validation, scheduling behaviour, multi-tenant data boundaries and key end-to-end workflows.</p></div>
+        <div class="tech-card"><h4>Testing &amp; QA</h4><p>Vitest and Playwright covering permission checks, service-layer logic, validation, scheduling behaviour, and multi-tenant data boundaries</p></div>
         <div class="tech-card"><h4>DevOps &amp; Reliability</h4><p>Vercel, GitHub Actions, Sentry, Upstash Redis rate limiting</p></div>
-        <div class="tech-card"><h4>Product &amp; Structure</h4><p>Figma wireframes, roadmap planning, multi-tenant architecture, reusable UI systems</p></div>
-      </div>
-    </div>
-
-    <!-- Architecture Diagram -->
-    <h2 class="section-title">Architecture Diagram</h2>
-    <div class="content-section architecture-section">
-      <div class="architecture-diagram">
-        <div class="architecture-flow">
-          <h3>Application Stack</h3>
-          <p>The application layer routes through the web app and service layer, while supporting systems sit beside the core request path rather than after the database.</p>
-          <div class="architecture-stack">
-            <div class="architecture-node architecture-root">Client</div>
-            <div class="architecture-arrow architecture-down">↓</div>
-            <div class="architecture-node architecture-root">Next.js application</div>
-            <div class="architecture-arrow architecture-down">↓</div>
-            <div class="architecture-node architecture-root">Server actions / API routes</div>
-            <div class="architecture-arrow architecture-down">↓</div>
-            <div class="architecture-node architecture-root">Service layer</div>
-            <div class="architecture-branch-grid">
-              <div class="architecture-branch-card"><strong>Auth and RBAC</strong><span>Role-aware access control and permission checks.</span></div>
-              <div class="architecture-branch-card"><strong>Prisma → PostgreSQL / Supabase</strong><span>Data access, persistence and tenant-scoped queries.</span></div>
-              <div class="architecture-branch-card"><strong>Redis rate limiting</strong><span>Request throttling and safer traffic handling.</span></div>
-              <div class="architecture-branch-card"><strong>Sentry monitoring</strong><span>Runtime monitoring and error visibility.</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="architecture-flow">
-          <h3>Multi-Tenant Data Model</h3>
-          <p>The data model keeps each franchisee organisation independent while still allowing a parent organisation to share resources, manage permissions and govern connected locations.</p>
-          <div class="architecture-tree">
-            <div class="architecture-tree-root">Franchise Parent Organisation</div>
-            <div class="architecture-arrow architecture-down">↓</div>
-            <div class="architecture-tree-child">Franchisee Organisation</div>
-            <div class="architecture-tree-grid">
-              <div class="architecture-branch-card"><strong>Members</strong><span>Local users and staff records scoped to the organisation.</span></div>
-              <div class="architecture-branch-card"><strong>Roles and permissions</strong><span>Access boundaries for parent and franchisee users.</span></div>
-              <div class="architecture-branch-card"><strong>Timetables</strong><span>Weekly planning and scheduling for each location.</span></div>
-              <div class="architecture-branch-card"><strong>Local tasks</strong><span>Day-to-day work, checklists and operational items.</span></div>
-              <div class="architecture-branch-card"><strong>Shared / inherited franchise resources</strong><span>Brand settings, procedures and reusable operational knowledge.</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Testing and Reliability -->
-    <h2 class="section-title">Testing and Reliability</h2>
-    <div class="content-section">
-      <p>The test suite covers permission checks, service-layer logic, validation, scheduling behaviour, multi-tenant data boundaries and key end-to-end workflows.</p>
-      <p>Production readiness is supported with GitHub Actions for CI, Sentry monitoring for runtime visibility and Redis-backed rate limiting for safer request handling.</p>
-    </div>
-
-    <!-- Stats -->
-    <h2 class="section-title">Measured Scope</h2>
-    <div class="content-section" style="margin-bottom: 18px;">
-      <p style="margin-bottom: 0;">The following figures reflect the size of the live pilot, the implementation, and the supporting product surface built around it.</p>
-    </div>
-      <div class="hero-stats">
-      <div class="stat-card"><div class="stat-number">19</div><div class="stat-label">Prisma Models</div></div>
-      <div class="stat-card"><div class="stat-number">582</div><div class="stat-label">Automated Tests</div></div>
-      <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">Personas</div></div>
-      <div class="stat-card"><div class="stat-number">36</div><div class="stat-label">Features</div></div>
-      <div class="stat-card"><div class="stat-number">1</div><div class="stat-label">Real Pilot</div></div>
-    </div>
-
-    <!-- Lessons and Challenges -->
-    <h2 class="section-title">Lessons and Challenges</h2>
-
-    <div class="content-section" style="display:flex; flex-direction:column; gap:12px;">
-      <p style="margin-bottom:0;">Building FriendChise required more than adding features. I had to solve complex UI state problems, simplify overlapping timetable data, design a franchise hierarchy, and turn staff feedback into practical product decisions.</p>
-      <p style="margin-bottom:0;">The project also changed how I approach engineering. I now spend more time understanding data flow, component boundaries and user needs before implementing a solution.</p>
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="friendchise-lessons-challenges.html" class="cta-btn primary"><i class="fas fa-arrow-right"></i> Read full Lessons &amp; Challenges case study</a>
-      </div>
-    </div>
-
-    <!-- What This Project Demonstrates -->
-    <h2 class="section-title" id="docs">What This Project Demonstrates</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <h3>Product Engineering</h3>
-        <p>Designed the product around real hospitality workflows rather than a fictional brief. Used stakeholder feedback, Figma planning and iterative development to shape the platform.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Full-Stack Architecture</h3>
-        <p>Built a multi-tenant application using Next.js, TypeScript, PostgreSQL and Prisma, with organisation-scoped data, role-based permissions and reusable service-layer logic.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Testing and Reliability</h3>
-        <p>Created automated coverage for permissions, validation, scheduling logic and core workflows. Added GitHub Actions, Sentry monitoring and Redis-backed rate limiting to support safer production deployment.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Open-Source Leadership</h3>
-        <p>Maintained the project architecture, reviewed contributions, documented workflows and helped contributors work within a consistent codebase.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Real-World Validation</h3>
-        <p>Deployed the platform at a live Walker’s Doughnuts location and continued improving it through staff and manager feedback.</p>
+        <div class="tech-card"><h4>Product &amp; Design</h4><p>Figma, requirements gathering, roadmap planning, iterative feedback from real users</p></div>
       </div>
     </div>
 
     <!-- Footer CTA -->
     <div class="footer-cta">
-      <h2>Docs and Links</h2>
-      <p>Explore the live demo, source code, design file and documentation.</p>
+      <h2>See It in Action</h2>
+      <p>Explore the live product, the source code, or the design file.</p>
       <div class="button-group">
-        <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler"></i> Figma V2</a>
-        <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View Code</a>
+        <a href="https://friendchise.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+        <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://friendchise.app/doc" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Docs</a>
         <a href="../index.html#projects" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
+
   </div>
 
-  <!-- Lightbox overlay -->
-  <div id="lightbox" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:20px;">
-    <img id="lightbox-img" style="max-width:92vw;max-height:82vh;object-fit:contain;border:1px solid rgba(255,255,255,0.15);display:block;cursor:zoom-out;" onclick="event.stopPropagation();document.getElementById('lightbox').style.display='none'">
-    <p id="lightbox-caption" style="color:#ccc;font-size:0.85em;text-align:center;max-width:700px;margin:0;"></p>
-  </div>
-
-  <script>
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-
-    function openLightbox(img) {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightboxCaption.textContent = img.closest('.screenshot-item').querySelector('p')?.textContent || '';
-      lightbox.style.display = 'flex';
-    }
-
-    document.querySelectorAll('.screenshot-item img').forEach(img => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => openLightbox(img));
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') lightbox.style.display = 'none';
-    });
-
-    // Show more screenshots
-    const grid = document.getElementById('screenshots-grid');
-    if (grid) {
-      const items = Array.from(grid.querySelectorAll('.screenshot-item'));
-      const PAGE_SIZE = 4;
-      let visibleCount = Math.min(PAGE_SIZE, items.length);
-      if (items.length > visibleCount) {
-        items.slice(visibleCount).forEach(item => { item.style.display = 'none'; });
-        const showBtn = document.createElement('button');
-        showBtn.textContent = 'Show ' + Math.min(PAGE_SIZE, items.length - visibleCount) + ' more screenshots';
-        showBtn.style.cssText = 'display:block;margin:16px auto 0;padding:10px 28px;border:1px solid #000;background:#fff;font-size:0.88em;font-family:inherit;cursor:pointer;letter-spacing:0.02em;';
-        showBtn.addEventListener('click', () => {
-          const nextCount = Math.min(PAGE_SIZE, items.length - visibleCount);
-          items.slice(visibleCount, visibleCount + nextCount).forEach(item => { item.style.display = ''; });
-          visibleCount += nextCount;
-
-          if (visibleCount >= items.length) {
-            showBtn.remove();
-          } else {
-            showBtn.textContent = 'Show ' + Math.min(PAGE_SIZE, items.length - visibleCount) + ' more screenshots';
-          }
-        });
-        grid.insertAdjacentElement('afterend', showBtn);
-      }
-    }
-  </script>
   <script src="../navbar.js"></script>
 </body>
 </html>
