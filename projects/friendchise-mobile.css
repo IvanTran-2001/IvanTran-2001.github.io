@@ -1,8 +1,8 @@
 /* FriendChise Mobile project page overrides */
 
 .mobile-page-shell {
+  width: 100%;
   max-width: 860px;
-  width: min(860px, calc(100vw - 32px));
   margin: 0 auto;
   padding: 28px 0;
 }
@@ -130,11 +130,17 @@
 .workflow-grid,
 .feature-scan-grid,
 .challenge-grid,
-.screenshot-grid,
 .roadmap-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
+}
+
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
 }
 
 .workflow-card,
@@ -342,6 +348,10 @@
 }
 
 @media (max-width: 880px) {
+  .screenshot-grid {
+    grid-template-columns: 1fr;
+  }
+
   .mobile-architecture .architecture-node {
     min-width: 0;
   }
