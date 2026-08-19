@@ -1,0 +1,377 @@
+/* FriendChise Mobile project page overrides */
+
+.mobile-page-shell {
+  max-width: 860px;
+  width: min(860px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.mobile-hero {
+  border-bottom: 2px solid #000000;
+  padding: 28px 0;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.mobile-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+  justify-items: center;
+}
+
+.mobile-kicker {
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.mobile-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.02;
+  margin-bottom: 12px;
+}
+
+.mobile-subtitle {
+  font-size: 0.98em;
+  line-height: 1.55;
+  color: #333333;
+  max-width: 66ch;
+  margin-bottom: 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobile-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  justify-content: center;
+}
+
+.mobile-pill {
+  border: 1px solid #000000;
+  padding: 5px 10px;
+  font-size: 0.72em;
+  font-weight: 700;
+  background: #ffffff;
+}
+
+.mobile-status-pill {
+  background: #edf7ff !important;
+}
+
+.mobile-cta-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mobile-hero-panel {
+  border: 1px solid #000000;
+  padding: 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  width: 100%;
+  max-width: 760px;
+  text-align: left;
+}
+
+.mobile-panel-title {
+  font-size: 0.82em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.mobile-panel-copy {
+  color: #333333;
+  font-size: 0.88em;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.mobile-mini-list {
+  display: grid;
+  gap: 10px;
+}
+
+.mobile-mini-item {
+  border-top: 1px solid #000000;
+  padding-top: 10px;
+}
+
+.mobile-mini-item strong {
+  display: block;
+  font-size: 0.82em;
+  margin-bottom: 4px;
+}
+
+.mobile-mini-item span {
+  color: #444444;
+  font-size: 0.8em;
+  line-height: 1.45;
+}
+
+.mobile-section {
+  margin-bottom: 28px;
+}
+
+.mobile-section .content-section {
+  margin-bottom: 0;
+}
+
+.workflow-grid,
+.feature-scan-grid,
+.challenge-grid,
+.screenshot-grid,
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.workflow-card,
+.scan-card,
+.challenge-card,
+.roadmap-card {
+  border: 1px solid #000000;
+  padding: 16px;
+  background: #ffffff;
+}
+
+.workflow-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #000000;
+  font-size: 0.78em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.workflow-card h3,
+.scan-card h3,
+.challenge-card h3,
+.roadmap-card h3 {
+  font-size: 1em;
+  margin-bottom: 8px;
+}
+
+.workflow-card p,
+.scan-card p,
+.challenge-card p,
+.roadmap-card p {
+  color: #333333;
+  font-size: 0.85em;
+  line-height: 1.55;
+}
+
+.workflow-arrow {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2em;
+  padding: 6px 0 2px;
+}
+
+.scan-card .scan-flow {
+  border-top: 1px solid #000000;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.scan-flow p {
+  margin-bottom: 8px;
+}
+
+.scan-flow p:last-child {
+  margin-bottom: 0;
+}
+
+.scan-flow strong {
+  display: inline-block;
+  min-width: 76px;
+}
+
+.architecture-diagram.mobile-architecture {
+  gap: 12px;
+}
+
+.mobile-architecture .architecture-node {
+  text-align: left;
+  white-space: normal;
+}
+
+.mobile-architecture .architecture-chain {
+  justify-content: center;
+}
+
+.mobile-architecture .architecture-node {
+  min-width: 180px;
+}
+
+.mobile-note {
+  border: 1px solid #000000;
+  padding: 16px;
+  background: #fafafa;
+}
+
+.mobile-note p {
+  color: #333333;
+  font-size: 0.88em;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+.mobile-note p:last-child {
+  margin-bottom: 0;
+}
+
+.phone-frame {
+  border: 2px solid #000000;
+  border-radius: 28px;
+  padding: 14px;
+  background: #0f0f0f;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.phone-screen {
+  flex: 1;
+  border-radius: 20px;
+  border: 1px solid #2a2a2a;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 40%),
+    linear-gradient(180deg, #f7f7f7 0%, #ededed 100%);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #000000;
+}
+
+.phone-screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.phone-screen-title {
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+.phone-screen-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #000000;
+  padding: 3px 8px;
+  font-size: 0.68em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.phone-screen-body {
+  display: grid;
+  gap: 8px;
+}
+
+.phone-screen-row {
+  border: 1px solid #000000;
+  background: #ffffff;
+  padding: 10px 12px;
+  font-size: 0.78em;
+  line-height: 1.45;
+}
+
+.phone-screen-row strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.phone-screen-footer {
+  margin-top: 12px;
+  border-top: 1px solid #000000;
+  padding-top: 10px;
+  font-size: 0.72em;
+  line-height: 1.45;
+}
+
+.phone-caption {
+  color: #333333;
+  font-size: 0.8em;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.mobile-roadmap-list {
+  display: grid;
+  gap: 12px;
+}
+
+.mobile-roadmap-item {
+  border: 1px solid #000000;
+  padding: 14px;
+}
+
+.mobile-roadmap-label {
+  font-size: 0.72em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.mobile-roadmap-item p {
+  color: #333333;
+  font-size: 0.85em;
+  line-height: 1.55;
+}
+
+@media (max-width: 880px) {
+  .mobile-architecture .architecture-node {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .mobile-hero {
+    padding-top: 18px;
+  }
+
+  .mobile-cta-row,
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mobile-hero {
+    text-align: left;
+  }
+
+  .mobile-pills,
+  .mobile-cta-row {
+    justify-content: stretch;
+  }
+
+  .mobile-hero-panel {
+    max-width: none;
+  }
+
+  .phone-frame {
+    min-height: 320px;
+  }
+}
