@@ -63,6 +63,7 @@ textarea:focus-visible {
 }
 
 .navbar-links a {
+  position: relative;
   color: #000000;
   text-decoration: none;
   font-size: 0.75em;
@@ -71,8 +72,7 @@ textarea:focus-visible {
   text-transform: uppercase;
   transition: opacity 0.2s ease;
   white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 3px;
+  padding-bottom: 4px;
 }
 
 .navbar-links a:hover {
@@ -82,7 +82,17 @@ textarea:focus-visible {
 .navbar-links a.active {
   opacity: 1;
   color: var(--accent);
-  border-bottom-color: var(--accent);
+}
+
+.navbar-links a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 999px;
 }
 
 /* Mobile "Sections" overflow menu — only rendered on pages with many anchors */
