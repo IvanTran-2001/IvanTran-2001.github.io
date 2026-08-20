@@ -4,6 +4,23 @@
                <link rel="stylesheet" href="../navbar.css"> (projects/)
    ============================================================ */
 
+:root {
+  /* Restrained blue accent — used for active/selected states, primary CTAs,
+     inline links and metric emphasis only. Black/white remain primary. */
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --accent-tint: #eff6ff;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .navbar {
   position: sticky;
   top: 0;
@@ -64,7 +81,8 @@
 
 .navbar-links a.active {
   opacity: 1;
-  border-bottom-color: #000000;
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 /* Mobile "Sections" overflow menu — only rendered on pages with many anchors */
@@ -91,7 +109,8 @@
 .navbar-sections summary::-webkit-details-marker { display: none; }
 
 .navbar-sections[open] summary {
-  background: #000000;
+  background: var(--accent);
+  border-color: var(--accent);
   color: #ffffff;
 }
 
@@ -118,9 +137,13 @@
   text-decoration: none;
 }
 
-.navbar-sections .sections-menu a:hover,
-.navbar-sections .sections-menu a.active {
+.navbar-sections .sections-menu a:hover {
   background: #f4f4f4;
+}
+
+.navbar-sections .sections-menu a.active {
+  color: var(--accent);
+  background: var(--accent-tint);
 }
 
 .navbar-socials {

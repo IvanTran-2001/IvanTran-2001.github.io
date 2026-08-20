@@ -102,20 +102,22 @@
     }
 
     .cta-btn.primary {
-      background: #000000;
+      background: var(--accent);
+      border-color: var(--accent);
       color: #ffffff;
     }
 
     .cta-btn.primary:hover {
-      background: #ffffff;
-      color: #000000;
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      color: #ffffff;
     }
 
     .text-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: #000000;
+      color: var(--accent);
       font-size: 0.85em;
       font-weight: 700;
       text-decoration: underline;
@@ -172,7 +174,7 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #333333;
+      color: var(--accent);
       margin-bottom: 10px;
     }
 
@@ -203,7 +205,7 @@
       text-align: center;
     }
 
-    .signal-chip strong { display: block; font-size: 0.86em; font-weight: 700; margin-bottom: 2px; }
+    .signal-chip strong { display: block; font-size: 0.86em; font-weight: 700; margin-bottom: 2px; color: var(--accent); }
     .signal-chip span { font-size: 0.66em; color: #333333; line-height: 1.25; display: block; }
 
     .flagship-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -251,7 +253,8 @@
       padding-top: 26px;
     }
 
-    .work-row { display: flex; flex-direction: column; border: 1px solid #000000; }
+    .work-row { display: flex; flex-direction: column; border: 1px solid #000000; transition: border-color 0.2s ease; }
+    .work-row:hover { border-color: var(--accent); }
     .work-row-image { width: 100%; height: 140px; object-fit: cover; display: block; border-bottom: 1px solid #000000; }
     .work-row-copy { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
     .work-row-copy h4 { font-size: 0.98em; font-weight: 700; }
@@ -266,13 +269,15 @@
       gap: 12px;
     }
 
-    .signal-card { border: 1px solid #000000; padding: 16px; }
+    .signal-card { border: 1px solid #000000; padding: 16px; transition: border-color 0.2s ease; }
+    .signal-card:hover { border-color: var(--accent); }
     .signal-card h4 { font-size: 0.92em; font-weight: 700; margin-bottom: 8px; }
     .signal-card p { font-size: 0.82em; color: #333333; line-height: 1.45; }
 
     /* Open source */
     .oss-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-    .oss-card { border: 1px solid #000000; padding: 16px; }
+    .oss-card { border: 1px solid #000000; padding: 16px; transition: border-color 0.2s ease; }
+    .oss-card:hover { border-color: var(--accent); }
     .oss-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
     .oss-card-top h4 { font-size: 0.92em; font-weight: 700; }
     .oss-card p { font-size: 0.84em; color: #333333; line-height: 1.5; }
@@ -314,7 +319,8 @@
       margin-bottom: 16px;
     }
 
-    .skill-card { border: 1px solid #000000; padding: 14px; }
+    .skill-card { border: 1px solid #000000; padding: 14px; transition: border-color 0.2s ease; }
+    .skill-card:hover { border-color: var(--accent); }
     .skill-card h4 { color: #000000; margin-bottom: 8px; font-size: 0.95em; font-weight: 700; }
     .skill-card p { color: #333333; font-size: 0.82em; line-height: 1.45; }
 
