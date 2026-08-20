@@ -119,8 +119,9 @@ textarea:focus-visible {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: #ffffff;
+  background: #ffffff !important;
   border: 1.5px solid #000000;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
   min-width: 180px;
   padding: 6px 0;
   z-index: 20;
@@ -135,6 +136,7 @@ textarea:focus-visible {
   letter-spacing: 0.03em;
   color: #000000;
   text-decoration: none;
+  background: #ffffff !important;
 }
 
 .navbar-sections .sections-menu a:hover {
