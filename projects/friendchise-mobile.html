@@ -51,50 +51,41 @@
 
   <div class="container mobile-page-shell">
     <header class="hero mobile-hero">
-      <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
       <div class="mobile-hero-grid">
-        <div>
-          <div class="mobile-kicker">Frontline operations app for FriendChise</div>
+        <div class="mobile-hero-copy">
+          <div class="mobile-kicker">Frontline Operations App</div>
           <h1 class="mobile-title">FriendChise Mobile</h1>
-          <p class="mobile-subtitle">A native Expo / React Native app that gives shift staff task management on their phone, plus a camera-to-task workflow that turns a photo or PDF into a structured, reviewable task — backed by the same multi-tenant FriendChise API used on web.</p>
-          <div class="mobile-pills">
-            <span class="mobile-pill mobile-status-pill">TestFlight · App Store review in progress</span>
-            <span class="mobile-pill">Expo Router</span>
-            <span class="mobile-pill">React Native</span>
-            <span class="mobile-pill">TypeScript</span>
-            <span class="mobile-pill">TanStack Query</span>
+          <p class="mobile-subtitle">A native Expo / React Native app that brings task management to shift staff on their phone, plus a camera-to-task workflow — backed by the same multi-tenant FriendChise API used on web.</p>
+          <div class="flagship-role">
+            <div class="flagship-role-title">TestFlight · App Store review in progress</div>
+            <div class="flagship-role-meta">Expo Router · React Native · TypeScript · TanStack Query</div>
           </div>
-          <div class="mobile-cta-row">
-            <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://friendchise.app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Web platform</a>
-            <a href="#screenshots" class="cta-btn"><i class="fas fa-camera"></i> See it in use</a>
+          <div class="hero-actions">
+            <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn primary" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://friendchise.app" class="cta-btn" target="_blank" rel="noopener noreferrer">Web Platform</a>
+          </div>
+          <div class="hero-links">
+            <a href="#screenshots"><i class="fas fa-camera" aria-hidden="true"></i> See it in use</a>
           </div>
         </div>
-
-        <aside class="mobile-hero-panel">
-          <div class="mobile-panel-title">What it complements</div>
-          <p class="mobile-panel-copy">Mobile shares the same org-scoped backend, auth model, and task data as the web app, compressed for one-handed, mid-shift use instead of a desk.</p>
-          <div class="mobile-mini-list">
-            <div class="mobile-mini-item">
-              <strong>Task list &amp; tools</strong>
-              <span>Org-scoped tasks and utilities, no desktop dashboard required.</span>
-            </div>
-            <div class="mobile-mini-item">
-              <strong>Capture → structured task</strong>
-              <span>Photo or PDF in, editable task draft out, via Scan-to-Task.</span>
-            </div>
-            <div class="mobile-mini-item">
-              <strong>Shared backend</strong>
-              <span>Same API, auth, and org-scoping as the web platform.</span>
-            </div>
+        <div class="flagship-hero-media">
+          <div class="phone-frame">
+            <img class="phone-shot" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task flow: task list into capture, generated draft, and review">
           </div>
-        </aside>
+          <p class="media-caption">Scan-to-Task: capture → draft → review</p>
+        </div>
       </div>
     </header>
 
+    <div class="mobile-fit-strip">
+      <div class="mobile-fit-item"><strong>Task list &amp; tools</strong><span>Org-scoped tasks and utilities, no desktop dashboard required.</span></div>
+      <div class="mobile-fit-item"><strong>Capture → structured task</strong><span>Photo or PDF in, editable task draft out, via Scan-to-Task.</span></div>
+      <div class="mobile-fit-item"><strong>Shared backend</strong><span>Same API, auth, and org-scoping as the web platform.</span></div>
+    </div>
+
     <section class="mobile-section" id="overview">
       <h2 class="section-title">Overview</h2>
-      <div class="content-section">
+      <div class="content-section plain">
         <p>At Walker's Doughnuts, shift procedures and task tracking lived on paper or in whoever was on shift — the same gap FriendChise's web platform was built to close for managers at a desk. FriendChise Mobile brings that task and procedure system to staff who are on the floor with a phone, not sitting at a computer.</p>
         <p>The app is used day-to-day on a shared device at the store via TestFlight. An App Store submission is in progress (the first review round required changes; a resubmission is underway) so staff can install it on individual phones.</p>
       </div>
@@ -192,7 +183,7 @@
 
     <section class="mobile-section" id="impact">
       <h2 class="section-title">Product Impact</h2>
-      <div class="content-section">
+      <div class="content-section plain">
         <p>The app runs day-to-day on a shared device at Walker's Doughnuts via TestFlight. Task creation and Scan-to-Task moved off paper and photo message threads into a task list staff already recognize from the web platform, so the record of what got done stays in one place instead of split across a phone's camera roll and a chat thread.</p>
         <p>Per-staff installs are the next step once the App Store listing clears review, rather than everyone sharing one device.</p>
       </div>
@@ -200,7 +191,7 @@
 
     <section class="mobile-section" id="role">
       <h2 class="section-title">My Contribution</h2>
-      <div class="content-section">
+      <div class="content-section plain">
         <p>I designed and built FriendChise Mobile on my own, end to end:</p>
         <ul>
           <li>Product scope and screen design for a shift-worker audience, reusing FriendChise's existing data model</li>
@@ -235,6 +226,7 @@
         <a href="https://friendchise.app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Web platform</a>
         <a href="friendchise.html" class="cta-btn"><i class="fas fa-arrow-left"></i> Main FriendChise case study</a>
       </div>
+      <a href="../index.html#projects" class="tertiary-link">&larr; Back to Portfolio</a>
     </div>
   </div>
 

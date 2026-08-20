@@ -51,29 +51,36 @@
 
   <!-- Hero -->
   <div class="hero flagship-hero">
-    <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
     <div class="flagship-hero-grid">
-      <div>
-        <div class="flagship-kicker">Flagship product</div>
-        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-          <img src="pictures/friendchise/MINI-LOGO.png" alt="FriendChise logo" style="width:auto;height:36px;display:block;">
-          <h1 style="margin:0;">FriendChise</h1>
+      <div class="flagship-hero-copy">
+        <div class="flagship-kicker">Flagship Product</div>
+        <div class="flagship-title-row">
+          <img src="pictures/friendchise/MINI-LOGO.png" alt="FriendChise logo" class="flagship-logo">
+          <h1>FriendChise</h1>
         </div>
         <p class="flagship-tagline">Make every location run like your best one.</p>
-        <p class="flagship-desc">A multi-tenant operations platform for repetitive, multi-location workplaces — scheduling, tasks, procedures, and tools running in real production use at Walker's Doughnuts, not a demo environment.</p>
-        <p class="flagship-role-line">Role: <span class="role-value">Founder &amp; Lead Developer</span> — solo-designed and built, now maintained with 27 open-source contributors.</p>
-        <div class="hero-cta" style="justify-content:flex-start;">
-          <a href="https://friendchise.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-          <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" class="cta-btn ghost" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler"></i> Figma</a>
-          <a href="#product" class="cta-btn ghost"><i class="fas fa-camera"></i> See it in use</a>
+        <p class="flagship-desc">A multi-tenant operations platform for repetitive, multi-location workplaces, running in real production use at Walker's Doughnuts — not a demo environment.</p>
+        <div class="flagship-role">
+          <div class="flagship-role-title">Founder &amp; Lead Developer</div>
+          <div class="flagship-role-meta">Solo-designed and built · maintained with 27 OSS contributors</div>
+        </div>
+        <div class="hero-actions">
+          <a href="https://friendchise.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          <a href="#impact" class="cta-btn">View Real-World Usage</a>
+        </div>
+        <div class="hero-links">
+          <a href="https://github.com/IvanTran-2001/FriendChise" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+          <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler" aria-hidden="true"></i> Figma</a>
         </div>
       </div>
-      <div class="browser-frame">
-        <div class="browser-frame-bar">
-          <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+      <div class="flagship-hero-media">
+        <div class="browser-frame">
+          <div class="browser-frame-bar">
+            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+          </div>
+          <img src="pictures/friendchise/GIFS-V2/admin.gif" alt="FriendChise organisation home dashboard showing tasks, timetable, and tools for one location">
         </div>
-        <img src="pictures/friendchise/GIFS-V2/admin.gif" alt="FriendChise organisation home dashboard showing tasks, timetable, and tools for one location">
+        <p class="media-caption">Production organisation overview</p>
       </div>
     </div>
   </div>
@@ -81,16 +88,15 @@
   <div class="container" id="jump">
 
     <div class="credibility-strip">
-      <div class="credibility-item"><div class="credibility-value">Production pilot</div><div class="credibility-label">Walker's Doughnuts</div></div>
-      <div class="credibility-item"><div class="credibility-value">55</div><div class="credibility-label">Prisma models</div></div>
+      <div class="credibility-item"><div class="credibility-value">Production</div><div class="credibility-label">Real-world pilot at Walker's Doughnuts</div></div>
       <div class="credibility-item"><div class="credibility-value">440+</div><div class="credibility-label">Automated tests</div></div>
       <div class="credibility-item"><div class="credibility-value">27</div><div class="credibility-label">OSS contributors</div></div>
-      <div class="credibility-item"><div class="credibility-value">Multi-tenant</div><div class="credibility-label">Franchise-ready</div></div>
+      <div class="credibility-item"><div class="credibility-value">Multi-tenant</div><div class="credibility-label">Organisation-scoped architecture</div></div>
     </div>
 
     <!-- Overview: Problem + Solution -->
     <h2 class="section-title" id="overview">Overview</h2>
-    <div class="content-section">
+    <div class="content-section plain">
       <p>At Walker's Doughnuts, the things that made a shift run well were rarely written down. A manager knew how to handle a rush; a senior staff member knew the fastest way to prep for the morning — and none of it survived when that person wasn't rostered on. Our store slid from one of the better performers in the franchise toward the bottom of the leaderboard, and a lot of that traced back to turnover and knowledge that never outlived the person who had it.</p>
       <div class="problem-grid" style="grid-template-columns: 1fr 1fr;">
         <div class="problem-item"><strong>Problem</strong>Operational knowledge, standards, training, and workflows fragment across locations and staff, and disappear when someone leaves.</div>
@@ -103,7 +109,7 @@
 
     <!-- Product Showcase -->
     <h2 class="section-title" id="product">Product</h2>
-    <div class="content-section" style="margin-bottom:22px;">
+    <div class="content-section plain" style="margin-bottom:22px;">
       <p style="margin-bottom:0;">Timetable, tasks, procedures, and tools are built as separate systems sharing one org-scoped data layer, so screenshots below reflect what a real shift actually sees.</p>
     </div>
 
@@ -236,13 +242,13 @@
         <p>GitHub Actions runs type-check + lint, unit tests, integration tests against Postgres, and Playwright end-to-end tests as separate gated stages on every pull request.</p>
       </div>
     </div>
-    <div class="content-section">
+    <div class="content-section plain">
       <p style="margin-bottom:0;">This isn't full coverage of the codebase — it's concentrated on the paths where a bug wouldn't just look bad, it would leak one organisation's data into another's view or let someone do something their role shouldn't allow.</p>
     </div>
 
     <!-- My Role -->
     <h2 class="section-title" id="role">My Role</h2>
-    <div class="content-section">
+    <div class="content-section plain">
       <p>I built and maintain FriendChise on my own. There's no team handing me a spec — I own the product direction, the architecture, and every decision described on this page:</p>
       <ul>
         <li>Product discovery and requirements gathering directly with the staff who use the system</li>
@@ -257,7 +263,7 @@
 
     <!-- Real-World Impact -->
     <h2 class="section-title" id="impact">Real-World Impact</h2>
-    <div class="content-section" style="margin-bottom: 18px;">
+    <div class="content-section plain" style="margin-bottom: 18px;">
       <p style="margin-bottom: 0;">These are the actual numbers from the one production location running FriendChise today, plus interest from the public demo — not projections.</p>
     </div>
     <div class="stats-grid">
@@ -267,7 +273,7 @@
       <div class="stat-card"><div class="stat-number">71</div><div class="stat-label">Public Demo Tries</div></div>
       <div class="stat-card"><div class="stat-number">27</div><div class="stat-label">Open-Source Contributors</div></div>
     </div>
-    <div class="content-section">
+    <div class="content-section plain">
       <p>QR Menu and Task Management are the two most used features day to day at the pilot location, which tells me the product is solving problems people actually have rather than sitting unused. The store now runs completely paperless — schedules, tasks, and procedures all live in the system instead of on printed sheets taped to a wall. The 71 demo tries are separate from that — public visitors trying the guided demo, not pilot-location usage.</p>
     </div>
 
@@ -290,8 +296,8 @@
         <a href="https://friendchise.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
         <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://friendchise.app/doc" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Docs</a>
-        <a href="../index.html#projects" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
+      <a href="../index.html#projects" class="tertiary-link">&larr; Back to Portfolio</a>
     </div>
 
   </div>
