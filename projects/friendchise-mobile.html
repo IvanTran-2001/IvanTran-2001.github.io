@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FriendChise Mobile — a native mobile companion for frontline workers, built with Expo, React Native, and TypeScript to speed up shift-time tasks and Scan-to-Task workflows.">
-  <meta name="keywords" content="Expo, React Native, TypeScript, Expo Router, TanStack Query, Mobile app, Scan-to-Task, OAuth">
+  <meta name="description" content="FriendChise Mobile — a native Expo/React Native operations app for frontline staff, sharing FriendChise's multi-tenant backend and adding a camera-to-task (Scan-to-Task) workflow.">
+  <meta name="keywords" content="Expo, React Native, TypeScript, Expo Router, TanStack Query, Zustand, Mobile app, Scan-to-Task, OAuth, OCR">
   <meta name="author" content="Ivan Tran">
   <title>FriendChise Mobile | Ivan Tran</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +26,10 @@
     <a href="../index.html" class="navbar-name">IVAN TRAN</a>
     <ul class="navbar-links">
       <li><a href="#overview"><i class="fas fa-book-open"></i> Overview</a></li>
-      <li><a href="#problem"><i class="fas fa-triangle-exclamation"></i> Problem</a></li>
-      <li><a href="#workflow"><i class="fas fa-mobile-screen"></i> Workflow</a></li>
-      <li><a href="#ai"><i class="fas fa-sparkles"></i> AI</a></li>
-      <li><a href="#engineering"><i class="fas fa-layer-group"></i> Engineering</a></li>
       <li><a href="#screenshots"><i class="fas fa-image"></i> Screenshots</a></li>
+      <li><a href="#workflow"><i class="fas fa-mobile-screen"></i> Workflow</a></li>
+      <li><a href="#engineering"><i class="fas fa-layer-group"></i> Engineering</a></li>
+      <li><a href="#impact"><i class="fas fa-chart-line"></i> Impact</a></li>
       <li><a href="#role"><i class="fas fa-id-badge"></i> Role</a></li>
     </ul>
     <div class="navbar-socials">
@@ -44,39 +43,38 @@
       <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
       <div class="mobile-hero-grid">
         <div>
-          <div class="mobile-kicker">Mobile companion to FriendChise</div>
+          <div class="mobile-kicker">Frontline operations app for FriendChise</div>
           <h1 class="mobile-title">FriendChise Mobile</h1>
-          <p class="mobile-subtitle">A native operations app for frontline staff to move through shifts faster by surfacing tasks, procedures, and Scan-to-Task workflows on the device they already carry.</p>
+          <p class="mobile-subtitle">A native Expo / React Native app that gives shift staff task management on their phone, plus a camera-to-task workflow that turns a photo or PDF into a structured, reviewable task — backed by the same multi-tenant FriendChise API used on web.</p>
           <div class="mobile-pills">
-            <span class="mobile-pill mobile-status-pill">Mobile v1</span>
+            <span class="mobile-pill mobile-status-pill">TestFlight · App Store review in progress</span>
             <span class="mobile-pill">Expo Router</span>
             <span class="mobile-pill">React Native</span>
             <span class="mobile-pill">TypeScript</span>
             <span class="mobile-pill">TanStack Query</span>
-            <span class="mobile-pill">Scan-to-Task</span>
           </div>
           <div class="mobile-cta-row">
             <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
             <a href="https://friendchise.app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Web platform</a>
-            <a href="#screenshots" class="cta-btn"><i class="fas fa-camera"></i> Workflow screenshots</a>
+            <a href="#screenshots" class="cta-btn"><i class="fas fa-camera"></i> See it in use</a>
           </div>
         </div>
 
         <aside class="mobile-hero-panel">
           <div class="mobile-panel-title">What it complements</div>
-          <p class="mobile-panel-copy">The mobile app is the shift-time front end for FriendChise. It keeps the same org-scoped backend and auth model, but compresses the workflow for quick, on-the-floor use.</p>
+          <p class="mobile-panel-copy">Mobile shares the same org-scoped backend, auth model, and task data as the web app, compressed for one-handed, mid-shift use instead of a desk.</p>
           <div class="mobile-mini-list">
             <div class="mobile-mini-item">
-              <strong>Fast access</strong>
-              <span>Tasks, tools, and org navigation stay close at hand.</span>
+              <strong>Task list &amp; tools</strong>
+              <span>Org-scoped tasks and utilities, no desktop dashboard required.</span>
             </div>
             <div class="mobile-mini-item">
-              <strong>Camera-first capture</strong>
-              <span>Scan-to-Task accepts photos and PDFs.</span>
+              <strong>Capture → structured task</strong>
+              <span>Photo or PDF in, editable task draft out, via Scan-to-Task.</span>
             </div>
             <div class="mobile-mini-item">
               <strong>Shared backend</strong>
-              <span>Mobile calls the same FriendChise API as web.</span>
+              <span>Same API, auth, and org-scoping as the web platform.</span>
             </div>
           </div>
         </aside>
@@ -86,7 +84,8 @@
     <section class="mobile-section" id="overview">
       <h2 class="section-title">Overview</h2>
       <div class="content-section">
-        <p>FriendChise Mobile is the worker-facing side of FriendChise: a focused app for finding shift information, capturing workplace inputs, and turning them into actions without opening a desktop dashboard.</p>
+        <p>At Walker's Doughnuts, shift procedures and task tracking lived on paper or in whoever was on shift — the same gap FriendChise's web platform was built to close for managers at a desk. FriendChise Mobile brings that task and procedure system to staff who are on the floor with a phone, not sitting at a computer.</p>
+        <p>The app is used day-to-day on a shared device at the store via TestFlight. An App Store submission is in progress (the first review round required changes; a resubmission is underway) so staff can install it on individual phones.</p>
       </div>
     </section>
 
@@ -95,29 +94,22 @@
       <div class="screenshot-grid">
         <div>
           <div class="phone-frame">
-            <img class="phone-shot" src="pictures/friendchise/mobile/task-list.gif" alt="FriendChise Mobile task list showing the organization chooser and task feed">
+            <img class="phone-shot" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task flow: task list into capture, generated draft, and review">
           </div>
-          <p class="phone-caption">Task list and organization selection.</p>
+          <p class="phone-caption">Scan-to-Task: capture → generated draft → review before saving.</p>
         </div>
         <div>
           <div class="phone-frame">
-            <img class="phone-shot" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile scan-to-task screen showing a task list and workflow details">
+            <img class="phone-shot" src="pictures/friendchise/mobile/task-list.gif" alt="FriendChise Mobile task list showing the organization chooser and task feed">
           </div>
-          <p class="phone-caption">Task browsing and scan-to-task workflow.</p>
+          <p class="phone-caption">Org-scoped task list and navigation.</p>
         </div>
         <div>
           <div class="phone-frame">
             <img class="phone-shot" src="pictures/friendchise/mobile/try-demo-button.gif" alt="FriendChise Mobile sign-in screen with Google, LinkedIn, and Try Demo actions">
           </div>
-          <p class="phone-caption">Sign-in and demo entry point.</p>
+          <p class="phone-caption">Sign-in via Google, LinkedIn, or an instant demo login open to anyone.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="mobile-section" id="problem">
-      <h2 class="section-title">Problem</h2>
-      <div class="content-section">
-        <p>In shift work, the friction is rarely a missing system. It is the time lost hunting for instructions, repeating manual steps, and retyping information that already exists elsewhere.</p>
       </div>
     </section>
 
@@ -126,41 +118,23 @@
       <div class="workflow-grid">
         <div class="workflow-card">
           <div class="workflow-index">1</div>
-          <h3>Open the right context</h3>
-          <p>Authentication and org selection land the worker in the correct workspace quickly.</p>
+          <h3>Sign in, land in context</h3>
+          <p>Google/LinkedIn OAuth or an instant demo login puts the worker in the right org without extra setup.</p>
         </div>
         <div class="workflow-card">
           <div class="workflow-index">2</div>
-          <h3>Capture workplace input</h3>
-          <p>Camera images, library photos, and PDFs can feed the scan flow.</p>
+          <h3>Capture</h3>
+          <p>Camera photo, library image, or PDF — normalized on-device before upload.</p>
         </div>
         <div class="workflow-card">
           <div class="workflow-index">3</div>
-          <h3>AI structures the draft</h3>
-          <p>Scan-to-Task turns captured input into a structured task draft.</p>
+          <h3>Draft generated</h3>
+          <p>The backend extracts content and returns a structured task draft.</p>
         </div>
         <div class="workflow-card">
           <div class="workflow-index">4</div>
-          <h3>Review and continue</h3>
-          <p>The worker edits the draft if needed, saves it, and moves on.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="mobile-section" id="ai">
-      <h2 class="section-title">AI Utilities</h2>
-      <div class="feature-scan-grid">
-        <div class="scan-card">
-          <h3>Scan-to-Task</h3>
-          <p>Workers capture a photo or PDF, the backend extracts the useful content, and the app returns a structured task draft for review before saving.</p>
-          <div class="scan-flow">
-            <p><strong>Flow:</strong> photo or document → extraction → draft → review → save.</p>
-            <p><strong>Value:</strong> less manual entry, faster handoff from paper or camera input to an actionable task.</p>
-          </div>
-        </div>
-        <div class="scan-card">
-          <h3>Why it matters</h3>
-          <p>It turns transient workplace information into something the team can track, edit, and act on without rewriting it by hand.</p>
+          <h3>Review and save</h3>
+          <p>The worker edits the draft if needed, then saves it into the shared task list.</p>
         </div>
       </div>
     </section>
@@ -176,32 +150,31 @@
           <div class="architecture-node">Shared backend logic<br><span class="architecture-node-subtle">Org scoping, validation, auth, storage</span></div>
         </div>
         <div class="architecture-chain">
-          <div class="architecture-node">SecureStore / session state<br><span class="architecture-node-subtle">Token persistence and expiry tracking</span></div>
+          <div class="architecture-node">SecureStore / session state<br><span class="architecture-node-subtle">Encrypted token + expiry tracking</span></div>
           <div class="architecture-arrow">→</div>
           <div class="architecture-node">React Query + Zustand<br><span class="architecture-node-subtle">Server state and short-lived workflow state</span></div>
           <div class="architecture-arrow">→</div>
           <div class="architecture-node">Scan-to-Task pipeline<br><span class="architecture-node-subtle">Upload URL, extraction, draft review</span></div>
         </div>
       </div>
-      <div class="content-section" style="margin-top: 16px;">
-        <p>The stack is deliberately practical: Expo Router for structure, React Query for server state, Zustand for short-lived workflow state, SecureStore for auth persistence, and the same backend that powers the web product.</p>
-      </div>
-    </section>
 
-    <section class="mobile-section" id="challenges">
-      <h2 class="section-title">Engineering Challenges</h2>
-      <div class="challenge-grid">
+      <div class="scan-card" style="margin-top: 16px;">
+        <h3>What's AI, what isn't</h3>
+        <p>OCR/vision extraction is a model call that runs server-side in the existing FriendChise backend pipeline. The mobile app's job is everything around that call: capturing and normalizing the file, uploading it, validating the returned draft's shape, and requiring a human review step before anything is saved — none of that review/validation logic is AI, and it isn't described as such.</p>
+      </div>
+
+      <div class="challenge-grid" style="margin-top: 16px;">
         <div class="challenge-card">
           <h3>OAuth on a native app</h3>
-          <p><strong>Problem →</strong> browser redirects were not enough for mobile auth.<br><strong>Decision →</strong> use an auth session, a callback route, and secure token persistence.<br><strong>Result →</strong> the app can hand off to Google / LinkedIn and return cleanly to the app.</p>
+          <p><strong>Problem →</strong> a plain browser tab can lose the "user activated" state across Google's multi-hop redirect chain, so the final redirect back into the app sometimes renders as a web page instead of returning control to it.<br><strong>Decision →</strong> use <code>ASWebAuthenticationSession</code> (via <code>expo-web-browser</code>) instead of a Linking-based browser tab, with an attempt-ID guard so a stale OAuth attempt can't resolve after a newer one has started.<br><strong>Result →</strong> Google and LinkedIn sign-in hand off back to the app reliably, including when a user restarts the flow mid-attempt.</p>
         </div>
         <div class="challenge-card">
-          <h3>Scan input that survives device quirks</h3>
-          <p><strong>Problem →</strong> iPhone photos and document uploads can arrive as HEIC, PDFs, or generic MIME types.<br><strong>Decision →</strong> normalize the file on-device, validate size, and fall back to extension-based MIME detection.<br><strong>Result →</strong> the backend receives files the vision pipeline can actually process.</p>
+          <h3>HEIC photos the backend can't decode</h3>
+          <p><strong>Problem →</strong> iPhone photos (especially Portrait/Live/Burst shots) save as HEIC with embedded auxiliary images; the backend's HEIC decoder enforces a strict limit on those and rejects some files outright.<br><strong>Decision →</strong> re-encode HEIC/HEIF to JPEG on-device with <code>expo-image-manipulator</code> before upload, and fall back to extension-based MIME detection for ambiguous file types.<br><strong>Result →</strong> the backend only ever receives a format its vision pipeline can process.</p>
         </div>
         <div class="challenge-card">
-          <h3>Fast shifts, weak patience</h3>
-          <p><strong>Problem →</strong> workers do not have time for slow screens or repeated navigation.<br><strong>Decision →</strong> keep the shell shallow and place tasks and tools in a fixed bottom bar.<br><strong>Result →</strong> the app feels like a shift utility, not a management console.</p>
+          <h3>Session expiry without decoding the token</h3>
+          <p><strong>Problem →</strong> the mobile session token is an encrypted next-auth JWE, so the client can't read its own expiry claims.<br><strong>Decision →</strong> the OAuth callback persists expiry metadata alongside the token, and a background timer force-clears the session at that boundary rather than trusting the token's contents.<br><strong>Result →</strong> session state stays consistent with the web app's session lifetime without any client-side token decoding.</p>
         </div>
       </div>
     </section>
@@ -209,27 +182,36 @@
     <section class="mobile-section" id="impact">
       <h2 class="section-title">Product Impact</h2>
       <div class="content-section">
-        <p>The mobile app extends the FriendChise workflow to the device workers already carry during a shift, reducing the need to walk back to a desktop or retype information from paper and photos.</p>
+        <p>The app runs day-to-day on a shared device at Walker's Doughnuts via TestFlight. Task creation and Scan-to-Task moved off paper and photo message threads into a task list staff already recognize from the web platform, so the record of what got done stays in one place instead of split across a phone's camera roll and a chat thread.</p>
+        <p>Per-staff installs are the next step once the App Store listing clears review, rather than everyone sharing one device.</p>
       </div>
     </section>
 
     <section class="mobile-section" id="role">
       <h2 class="section-title">My Contribution</h2>
       <div class="content-section">
-        <p>I owned the mobile product design, Expo / React Native implementation, auth flow, task and tools screens, Scan-to-Task integration, and the API wiring that keeps mobile aligned with the FriendChise backend.</p>
+        <p>I designed and built FriendChise Mobile on my own, end to end:</p>
+        <ul>
+          <li>Product scope and screen design for a shift-worker audience, reusing FriendChise's existing data model</li>
+          <li>Expo Router navigation, screens, and the shared component library</li>
+          <li>OAuth login (Google, LinkedIn), demo login, and session persistence/expiry handling</li>
+          <li>Camera/library/document capture, HEIC normalization, and the Scan-to-Task API integration</li>
+          <li>Task list, task creation, and org-scoped tools screens wired to the shared FriendChise backend</li>
+          <li>TestFlight distribution and the first App Store submission round</li>
+        </ul>
       </div>
     </section>
 
     <section class="mobile-section" id="roadmap">
-      <h2 class="section-title">Implemented / Next</h2>
+      <h2 class="section-title">Implemented / In Progress</h2>
       <div class="roadmap-grid">
         <div class="roadmap-card">
           <h3>Implemented</h3>
-          <p>OAuth sign in, secure session persistence, org-aware navigation, task browsing, task creation, tools, and Scan-to-Task v1 are in the codebase.</p>
+          <p>OAuth + demo login, session persistence and expiry handling, org-aware navigation, task list/creation, tools, and Scan-to-Task (capture → draft → review → save).</p>
         </div>
         <div class="roadmap-card">
-          <h3>In development / planned</h3>
-          <p>Public release, broader rollout, and further polish around scan workflows are the natural next steps.</p>
+          <h3>In progress</h3>
+          <p>App Store review (a resubmission is underway after the first round required changes) and per-staff distribution once that clears.</p>
         </div>
       </div>
     </section>
