@@ -24,6 +24,10 @@
   transform: translateY(-100%);
 }
 
+.navbar--scrolled {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
+}
+
 .navbar-name {
   font-size: 1em;
   font-weight: 700;
@@ -50,10 +54,73 @@
   text-transform: uppercase;
   transition: opacity 0.2s ease;
   white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 3px;
 }
 
 .navbar-links a:hover {
   opacity: 0.5;
+}
+
+.navbar-links a.active {
+  opacity: 1;
+  border-bottom-color: #000000;
+}
+
+/* Mobile "Sections" overflow menu — only rendered on pages with many anchors */
+.navbar-sections {
+  display: none;
+  position: relative;
+}
+
+.navbar-sections summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1.5px solid #000000;
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.navbar-sections summary::-webkit-details-marker { display: none; }
+
+.navbar-sections[open] summary {
+  background: #000000;
+  color: #ffffff;
+}
+
+.navbar-sections .sections-menu {
+  list-style: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #ffffff;
+  border: 1.5px solid #000000;
+  min-width: 180px;
+  padding: 6px 0;
+  z-index: 20;
+}
+
+.navbar-sections .sections-menu a {
+  display: block;
+  padding: 9px 14px;
+  font-size: 0.78em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #000000;
+  text-decoration: none;
+}
+
+.navbar-sections .sections-menu a:hover,
+.navbar-sections .sections-menu a.active {
+  background: #f4f4f4;
 }
 
 .navbar-socials {
@@ -84,6 +151,12 @@
 /* Offset anchor targets so the sticky navbar doesn't cover them */
 [id] {
   scroll-margin-top: 70px;
+}
+
+/* Tablet: tighten spacing before anything needs to move to overflow */
+@media (max-width: 900px) {
+  .navbar-links { gap: 10px; }
+  .navbar-links a { font-size: 0.7em; }
 }
 
 @media (max-width: 768px) {
@@ -121,5 +194,24 @@
   /* Taller stacked nav on mobile needs more offset */
   [id] {
     scroll-margin-top: 140px;
+  }
+
+  /* Pages with a Sections overflow menu use a single compact row instead of stacking */
+  .navbar--long {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 56px;
+    padding: 0 14px;
+    gap: 10px;
+  }
+
+  .navbar--long .navbar-links { display: none; }
+  .navbar--long .navbar-sections { display: inline-block; }
+  .navbar--long .navbar-socials { gap: 8px; }
+  .navbar--long .navbar-socials a { width: 30px; height: 30px; }
+
+  .navbar--long ~ * [id],
+  body:has(.navbar--long) [id] {
+    scroll-margin-top: 70px;
   }
 }
