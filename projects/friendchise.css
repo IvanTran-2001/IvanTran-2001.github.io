@@ -447,27 +447,6 @@ pre { background: #f4f4f4 !important; padding: 16px; overflow-x: auto; font-fami
 .flagship-role-line { font-size: 0.86em; font-weight: 600; margin-bottom: 16px; }
 .flagship-role-line .role-value { font-weight: 700; }
 
-.friendchise-logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 2px solid #2f6fd3;
-  background: #ffffff;
-  overflow: hidden;
-  flex: 0 0 auto;
-}
-
-.friendchise-logo-mark img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
 .browser-frame { border: 1px solid #000000; background: #ffffff; }
 .browser-frame-bar { display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-bottom: 1px solid #000000; }
 .browser-dot { width: 9px; height: 9px; border-radius: 50%; border: 1px solid #000000; display: inline-block; }
@@ -502,7 +481,6 @@ pre { background: #f4f4f4 !important; padding: 16px; overflow-x: auto; font-fami
   .flagship-hero-grid { grid-template-columns: 1fr; }
   .flagship-hero { text-align: center; }
   .flagship-desc { margin-left: auto; margin-right: auto; }
-  .friendchise-logo-mark { margin: 0 auto; }
   .credibility-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .showcase-row, .showcase-row.reverse { grid-template-columns: 1fr; }
   .showcase-row.reverse .showcase-media, .showcase-row.reverse .showcase-copy { order: initial; }
