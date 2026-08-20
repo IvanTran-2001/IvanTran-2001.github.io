@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="../lightbox.css">
   <link rel="stylesheet" href="friendchise.css">
   <link rel="stylesheet" href="friendchise-mobile.css">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
@@ -70,7 +71,7 @@
         </div>
         <div class="flagship-hero-media">
           <div class="phone-frame">
-            <img class="phone-shot" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task flow: task list into capture, generated draft, and review">
+            <img class="phone-shot expandable" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task flow: task list into capture, generated draft, and review" data-lightbox-caption="Scan-to-Task: capture → draft → review">
           </div>
           <p class="media-caption">Scan-to-Task: capture → draft → review</p>
         </div>
@@ -96,19 +97,19 @@
       <div class="screenshot-grid">
         <div>
           <div class="phone-frame">
-            <img class="phone-shot" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task flow: task list into capture, generated draft, and review">
+            <img class="phone-shot expandable" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task flow: task list into capture, generated draft, and review" data-lightbox-caption="Scan-to-Task: capture → generated draft → review before saving.">
           </div>
           <p class="phone-caption">Scan-to-Task: capture → generated draft → review before saving.</p>
         </div>
         <div>
           <div class="phone-frame">
-            <img class="phone-shot" src="pictures/friendchise/mobile/task-list.gif" alt="FriendChise Mobile task list showing the organization chooser and task feed">
+            <img class="phone-shot expandable" src="pictures/friendchise/mobile/task-list.gif" alt="FriendChise Mobile task list showing the organization chooser and task feed" data-lightbox-caption="Org-scoped task list and navigation.">
           </div>
           <p class="phone-caption">Org-scoped task list and navigation.</p>
         </div>
         <div>
           <div class="phone-frame">
-            <img class="phone-shot" src="pictures/friendchise/mobile/try-demo-button.gif" alt="FriendChise Mobile sign-in screen with Google, LinkedIn, and Try Demo actions">
+            <img class="phone-shot expandable" src="pictures/friendchise/mobile/try-demo-button.gif" alt="FriendChise Mobile sign-in screen with Google, LinkedIn, and Try Demo actions" data-lightbox-caption="Sign-in via Google, LinkedIn, or an instant demo login open to anyone.">
           </div>
           <p class="phone-caption">Sign-in via Google, LinkedIn, or an instant demo login open to anyone.</p>
         </div>
@@ -231,5 +232,6 @@
   </div>
 
   <script src="../navbar.js"></script>
+  <script src="../lightbox.js"></script>
 </body>
 </html>

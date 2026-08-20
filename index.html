@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="lightbox.css">
   <style>
     * {
       margin: 0;
@@ -560,7 +561,7 @@
         <div class="browser-frame-bar">
           <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
         </div>
-        <img src="projects/pictures/friendchise/GIFS-V2/demo.gif" alt="FriendChise organisation dashboard" loading="lazy" decoding="async">
+        <img src="projects/pictures/friendchise/GIFS-V2/demo.gif" alt="FriendChise organisation dashboard" class="expandable" loading="lazy" decoding="async">
       </div>
       <div class="flagship-copy">
         <div class="flagship-kicker">Flagship product · Solo Founder &amp; Lead Developer</div>
@@ -583,7 +584,7 @@
     <!-- FriendChise Mobile: secondary -->
     <div class="secondary-feature animate-on-scroll">
       <div class="phone-frame-sm">
-        <img src="projects/pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task workflow: capture, generated draft, review">
+        <img src="projects/pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task workflow: capture, generated draft, review" class="expandable">
       </div>
       <div class="secondary-copy">
         <div class="flagship-kicker">Frontline Operations App</div>
@@ -603,7 +604,7 @@
     <!-- ECHT + QA Wolf: compact rows -->
     <div class="work-row-grid">
       <div class="work-row animate-on-scroll">
-        <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image" loading="lazy" decoding="async">
+        <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image expandable" loading="lazy" decoding="async">
         <div class="work-row-copy">
           <h4>ECHT Warehouse &mdash; Process Engineering</h4>
           <p class="work-row-meta">Context: a fragmented WMS replenishment workflow required staff to cross-reference three tables and needed two operators to keep pace. Intervention: redesigned the workflow into a single-operator process and a documented technical spec (Jira THX-1373449).</p>
@@ -612,7 +613,7 @@
         </div>
       </div>
       <div class="work-row animate-on-scroll">
-        <img src="projects/pictures/QAWolf.png" alt="QA Wolf assessment" class="work-row-image" loading="lazy" decoding="async">
+        <img src="projects/pictures/QAWolf.png" alt="QA Wolf assessment" class="work-row-image expandable" loading="lazy" decoding="async">
         <div class="work-row-copy">
           <h4>QA Wolf &mdash; Paid Finalist Assessment <span class="proj-badge badge-finalist">~15 Finalists</span></h4>
           <p class="work-row-meta">Node.js + Playwright automation validating Hacker News sort order across paginated content, with deterministic checks, structured diagnostics and non-zero exit codes on failure.</p>
@@ -867,5 +868,6 @@
     }
   </script>
   <script src="navbar.js"></script>
+  <script src="lightbox.js"></script>
 </body>
 </html>
