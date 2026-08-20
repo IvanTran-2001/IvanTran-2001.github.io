@@ -29,6 +29,11 @@
       max-width: 860px;
       margin: 0 auto;
       padding: 28px 16px;
+      overflow-x: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
     }
 
     /* Navbar bottom-margin override */
@@ -38,9 +43,9 @@
     /* Hero Section */
     .hero {
       border-bottom: 2px solid #000000;
-      padding: 28px 0;
+      padding: 30px 0 34px;
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 34px;
     }
 
     .hero h1 {
@@ -56,34 +61,16 @@
       text-transform: uppercase;
       font-weight: 700;
       color: #333333;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
 
     .hero-description {
       font-size: 0.95em;
       font-weight: 600;
       color: #333333;
-      margin: 16px auto 10px;
+      margin: 0 auto 18px;
       max-width: 700px;
       line-height: 1.5;
-    }
-
-    .hero-links {
-      margin-top: 12px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-links a {
-      color: #000000;
-      font-size: 0.86em;
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .hero-links a:hover {
-      text-decoration-thickness: 2px;
     }
 
     .hero-cta {
@@ -91,427 +78,66 @@
       gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 16px;
     }
 
-    .cta-btn {
-      padding: 8px 16px;
+    /* Buttons */
+    .cta-btn, .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
       font-size: 0.85em;
       font-weight: 600;
       text-decoration: none;
       border: 2px solid #000000;
       color: #000000;
       background: #ffffff;
+      cursor: pointer;
       transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .cta-btn:hover {
+    .cta-btn:hover, .btn:hover {
       background: #000000;
       color: #ffffff;
     }
+
+    .cta-btn.primary {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    .cta-btn.primary:hover {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #000000;
+      font-size: 0.85em;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .text-link:hover { text-decoration-thickness: 2px; }
 
     /* Section Title */
     .section-title {
       font-size: 1.3em;
-      margin: 30px 0 16px 0;
+      margin: 0 0 18px 0;
       color: #000000;
       font-weight: 700;
       border-bottom: 2px solid #000000;
       padding-bottom: 8px;
+      scroll-margin-top: 80px;
     }
 
-    /* About Section */
-    .about-section {
-      margin-bottom: 28px;
-    }
+    #work, #engineering, #open-source, #about, #skills, #contact { margin-bottom: 40px; }
 
-    .about-content {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 24px;
-      margin-top: 16px;
-    }
-
-    .about-image img {
-      width: 180px;
-      height: 180px;
-      border: 2px solid #000000;
-      object-fit: cover;
-    }
-
-    .about-text h2 {
-      font-size: 1.15em;
-      margin-bottom: 12px;
-      color: #000000;
-      font-weight: 700;
-    }
-
-    .about-text p {
-      color: #333333;
-      margin-bottom: 12px;
-      line-height: 1.5;
-      font-size: 0.9em;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin: 16px 0;
-    }
-
-    .social-links a {
-      width: 32px;
-      height: 32px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #000000;
-      color: #000000;
-      text-decoration: none;
-      font-size: 0.85em;
-      font-weight: 600;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .social-links a:hover {
-      background: #000000;
-      color: #ffffff;
-    }
-
-    .resume-buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .btn {
-      padding: 7px 14px;
-      background: #000000;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.82em;
-      border: 2px solid #000000;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .btn:hover {
-      background: #ffffff;
-      color: #000000;
-    }
-
-    /* Skills Section */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin: 16px 0 28px 0;
-    }
-
-    .skill-card {
-      border: 1px solid #000000;
-      padding: 14px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 4px 4px 0 #000000;
-    }
-
-    .skill-card h4 {
-      color: #000000;
-      margin-bottom: 8px;
-      font-size: 0.95em;
-      font-weight: 700;
-    }
-
-    .skill-card p {
-      color: #333333;
-      font-size: 0.82em;
-      line-height: 1.45;
-    }
-
-    /* Projects Section */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 22px;
-      margin: 16px 0 28px 0;
-    }
-
-    /* Contributions Section */
-    .contributions-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 22px;
-      margin: 16px 0 28px 0;
-    }
-
-    .contribution-card {
-      border: 2px solid #000000;
-      display: flex;
-      flex-direction: column;
-      background: #ffffff;
-    }
-
-    .contribution-card > summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 16px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background: linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .contribution-card > summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .contribution-card > summary:hover {
-      background: linear-gradient(180deg, #fafafa 0%, #f4f4f4 100%);
-    }
-
-    .contribution-summary-head {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contribution-summary-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .contribution-summary-copy {
-      color: #333333;
-      margin: 0;
-      line-height: 1.4;
-      font-size: 0.88em;
-      max-width: 54ch;
-    }
-
-    .contribution-toggle {
-      align-self: flex-start;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.72em;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border: 1px solid #000000;
-      padding: 7px 11px;
-      background: #ffffff;
-      color: #000000;
-      white-space: nowrap;
-    }
-
-    .contribution-card[open] .contribution-toggle {
-      background: #000000;
-      color: #ffffff;
-    }
-
-    .contribution-toggle i {
-      font-size: 0.9em;
-    }
-
-    .contribution-card-content {
-      padding: 0 18px 18px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      border-top: 1px solid #dddddd;
-    }
-
-    .contribution-card-content ul {
-      margin: 12px 0 0;
-      padding-left: 22px;
-    }
-
-    .contribution-card-content li {
-      color: #333333;
-      margin-bottom: 6px;
-      line-height: 1.45;
-      padding-left: 4px;
-    }
-
-    .contribution-card h3 {
-      color: #000000;
-      margin-bottom: 8px;
-      font-size: 1.02em;
-      font-weight: 700;
-    }
-
-    .contribution-card p {
-      color: #333333;
-      margin-bottom: 8px;
-      line-height: 1.45;
-      font-size: 0.85em;
-    }
-
-    .contribution-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 8px 0 12px;
-    }
-
-    .contribution-proof {
-      font-size: 0.8em;
-      color: #555555;
-      margin-top: auto;
-      padding-top: 8px;
-      border-top: 1px solid #000000;
-    }
-
-    .contribution-proof a {
-      color: #000000;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .contribution-proof a:hover {
-      text-decoration: underline;
-    }
-
-    .project-card {
-      border: 2px solid #000000;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-card-image {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 2px solid #000000;
-    }
-
-    .project-card-content {
-      padding: 16px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-card h3 {
-      color: #000000;
-      margin-bottom: 8px;
-      font-size: 1.02em;
-      font-weight: 700;
-    }
-
-    .project-card p {
-      color: #333333;
-      margin-bottom: 8px;
-      line-height: 1.45;
-      font-size: 0.85em;
-    }
-
-    .project-card ul {
-      list-style: none;
-      margin: 8px 0;
-      flex-grow: 1;
-    }
-
-    .project-card li {
-      color: #333333;
-      margin-bottom: 4px;
-      padding-left: 15px;
-      position: relative;
-      font-size: 0.8em;
-    }
-
-    .project-card li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: #000000;
-      font-weight: bold;
-    }
-
-    /* Load More Table */
-    .loadmore-table-wrap {
-      overflow-x: auto;
-    }
-
-    .loadmore-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88em;
-    }
-
-    .loadmore-table th,
-    .loadmore-table td {
-      border: 1px solid #000000;
-      padding: 12px;
-      vertical-align: top;
-      text-align: left;
-    }
-
-    .loadmore-table th {
-      background: #f5f5f5;
-      font-weight: 700;
-      color: #000000;
-    }
-
-    .loadmore-title {
-      font-weight: 700;
-      color: #000000;
-      margin-bottom: 4px;
-    }
-
-    .loadmore-desc {
-      color: #333333;
-      line-height: 1.45;
-      margin-bottom: 6px;
-    }
-
-    .loadmore-links {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .loadmore-links .project-btn {
-      min-width: auto;
-      flex: 0 0 auto;
-      padding: 7px 10px;
-      font-size: 0.75em;
-    }
-
-    .project-buttons {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-
-    .project-btn {
-      flex: 1;
-      min-width: 100px;
-      padding: 7px 10px;
-      background: #ffffff;
-      border: 1px solid #000000;
-      color: #000000;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.74em;
-      text-align: center;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .project-btn:hover {
-      background: #000000;
-      color: #ffffff;
-    }
-
-    /* Project status badges */
+    /* Badges */
     .proj-badge {
       font-size: 0.68em;
       font-weight: 700;
@@ -526,25 +152,208 @@
     .badge-finalist { background: #f8d7da; color: #721c24; border-color: #721c24; }
     .badge-grade    { background: #fff8e1; color: #7b5800; border-color: #c8900a; }
     .badge-ongoing  { background: #d1ecf1; color: #0c5460; border-color: #0c5460; }
-    .badge-industry { background: #ede0f5; color: #5a2d82; border-color: #7b3fa0; }
 
-    .featured-banner {
-      background: #000;
-      color: #fff;
-      text-align: center;
-      font-size: 0.68em;
+    /* Flagship feature (FriendChise) */
+    .flagship-feature {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 34px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .browser-frame { border: 1px solid #000000; background: #ffffff; }
+    .browser-frame-bar { display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-bottom: 1px solid #000000; }
+    .browser-dot { width: 9px; height: 9px; border-radius: 50%; border: 1px solid #000000; display: inline-block; }
+    .browser-frame img { display: block; width: 100%; height: auto; }
+
+    .flagship-kicker {
+      font-size: 0.72em;
       font-weight: 700;
       letter-spacing: 0.1em;
-      padding: 6px 0;
       text-transform: uppercase;
+      color: #333333;
+      margin-bottom: 10px;
     }
+
+    .flagship-copy h3 {
+      font-size: 1.7em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .flagship-value {
+      font-size: 0.95em;
+      line-height: 1.55;
+      color: #333333;
+      margin-bottom: 16px;
+      max-width: 52ch;
+    }
+
+    .flagship-signals {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .signal-chip {
+      border: 1px solid #000000;
+      padding: 10px 6px;
+      text-align: center;
+    }
+
+    .signal-chip strong { display: block; font-size: 0.86em; font-weight: 700; margin-bottom: 2px; }
+    .signal-chip span { font-size: 0.66em; color: #333333; line-height: 1.25; display: block; }
+
+    .flagship-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    /* Secondary feature (FriendChise Mobile) */
+    .secondary-feature {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: center;
+      border-top: 1px solid #000000;
+      padding-top: 26px;
+      margin-bottom: 30px;
+    }
+
+    .phone-frame-sm {
+      border: 1px solid #000000;
+      max-width: 220px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .phone-frame-sm img { display: block; width: 100%; height: auto; }
+
+    .secondary-copy h3 { font-size: 1.25em; font-weight: 700; margin-bottom: 8px; }
+    .secondary-copy p { font-size: 0.9em; color: #333333; line-height: 1.5; margin-bottom: 10px; max-width: 54ch; }
+
+    .tight-list { list-style: none; margin-bottom: 16px; }
+    .tight-list li {
+      font-size: 0.85em;
+      color: #333333;
+      padding-left: 15px;
+      position: relative;
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+    .tight-list li::before { content: '•'; position: absolute; left: 0; font-weight: 700; }
+
+    /* Compact work rows (ECHT / QA Wolf) */
+    .work-row-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      border-top: 1px solid #000000;
+      padding-top: 26px;
+    }
+
+    .work-row { display: flex; flex-direction: column; border: 1px solid #000000; }
+    .work-row-image { width: 100%; height: 140px; object-fit: cover; display: block; border-bottom: 1px solid #000000; }
+    .work-row-copy { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .work-row-copy h4 { font-size: 0.98em; font-weight: 700; }
+    .work-row-meta { font-size: 0.82em; color: #333333; line-height: 1.5; }
+    .work-row-outcome { font-size: 0.82em; color: #333333; line-height: 1.5; }
+    .work-row-outcome em { font-style: normal; font-weight: 700; }
+
+    /* Engineering signal grid */
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .signal-card { border: 1px solid #000000; padding: 16px; }
+    .signal-card h4 { font-size: 0.92em; font-weight: 700; margin-bottom: 8px; }
+    .signal-card p { font-size: 0.82em; color: #333333; line-height: 1.45; }
+
+    /* Open source */
+    .oss-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .oss-card { border: 1px solid #000000; padding: 16px; }
+    .oss-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .oss-card-top h4 { font-size: 0.92em; font-weight: 700; }
+    .oss-card p { font-size: 0.84em; color: #333333; line-height: 1.5; }
+
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 24px;
+    }
+
+    .about-image img {
+      width: 150px;
+      height: 150px;
+      border: 2px solid #000000;
+      object-fit: cover;
+    }
+
+    .about-text p {
+      color: #333333;
+      margin-bottom: 12px;
+      line-height: 1.55;
+      font-size: 0.9em;
+    }
+
+    .about-note {
+      font-size: 0.78em;
+      color: #666666;
+      margin-bottom: 14px;
+    }
+
+    .resume-buttons { display: flex; gap: 10px; }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .skill-card { border: 1px solid #000000; padding: 14px; }
+    .skill-card h4 { color: #000000; margin-bottom: 8px; font-size: 0.95em; font-weight: 700; }
+    .skill-card p { color: #333333; font-size: 0.82em; line-height: 1.45; }
+
+    .skills-note { font-size: 0.82em; color: #333333; }
+    .skills-note strong { font-weight: 700; }
+
+    /* Additional Work */
+    .collapsible-section summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.1em;
+      padding: 12px 0;
+      border-bottom: 2px solid #000000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .collapsible-section summary::-webkit-details-marker { display: none; }
+
+    .compact-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid #dddddd;
+    }
+    .compact-row:last-child { border-bottom: none; }
+    .compact-row-copy h4 { font-size: 0.92em; font-weight: 700; margin-bottom: 4px; }
+    .compact-row-copy p { font-size: 0.82em; color: #333333; line-height: 1.45; max-width: 52ch; }
+    .compact-row-links { display: flex; gap: 12px; flex-shrink: 0; padding-top: 2px; }
 
     /* Footer */
     footer {
       border-top: 2px solid #000000;
       padding: 24px 0;
       text-align: center;
-      margin-top: 28px;
+      margin-top: 8px;
     }
 
     .footer-content {
@@ -555,20 +364,9 @@
       margin-bottom: 16px;
     }
 
-    .footer-item {
-      color: #333333;
-      font-size: 0.82em;
-    }
-
-    .footer-item a {
-      color: #000000;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .footer-item a:hover {
-      text-decoration: underline;
-    }
+    .footer-item { color: #333333; font-size: 0.82em; }
+    .footer-item a { color: #000000; text-decoration: none; font-weight: 600; }
+    .footer-item a:hover { text-decoration: underline; }
 
     .footer-copyright {
       padding-top: 16px;
@@ -578,31 +376,18 @@
     }
 
     /* Contact Form */
+    .contact-intro { font-size: 0.95em; color: #333333; margin-bottom: 24px; }
+
     .contact-layout {
       display: grid;
       grid-template-columns: 1fr 260px;
       gap: 24px;
-      margin: 16px 0 28px 0;
       align-items: start;
     }
 
-    .contact-form-wrapper {
-      border: 2px solid #000000;
-      padding: 28px;
-    }
-
-    .contact-sidebar {
-      border: 2px solid #000000;
-      padding: 22px;
-    }
-
-    .contact-sidebar h4 {
-      font-size: 0.95em;
-      font-weight: 700;
-      margin-bottom: 16px;
-      border-bottom: 1px solid #000000;
-      padding-bottom: 8px;
-    }
+    .contact-form-wrapper { border: 2px solid #000000; padding: 28px; }
+    .contact-sidebar { border: 2px solid #000000; padding: 22px; }
+    .contact-sidebar h4 { font-size: 0.95em; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #000000; padding-bottom: 8px; }
 
     .contact-social-link {
       display: flex;
@@ -618,47 +403,16 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .contact-social-link:last-child {
-      margin-bottom: 0;
-    }
+    .contact-social-link:last-child { margin-bottom: 0; }
+    .contact-social-link:hover { background: #000000; color: #ffffff; }
+    .contact-social-link i { font-size: 1.2em; width: 20px; text-align: center; }
 
-    .contact-social-link:hover {
-      background: #000000;
-      color: #ffffff;
-    }
+    .contact-social-desc { display: block; font-size: 0.7em; font-weight: 400; opacity: 0.6; margin-top: 2px; }
 
-    .contact-social-link i {
-      font-size: 1.2em;
-      width: 20px;
-      text-align: center;
-    }
+    .contact-form-wrapper h3 { font-size: 1.15em; font-weight: 700; margin-bottom: 20px; color: #000000; }
 
-    .contact-social-desc {
-      display: block;
-      font-size: 0.7em;
-      font-weight: 400;
-      opacity: 0.6;
-      margin-top: 2px;
-    }
-
-    .contact-form-wrapper h3 {
-      font-size: 1.15em;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #000000;
-    }
-
-    .form-group {
-      margin-bottom: 16px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.82em;
-      font-weight: 600;
-      color: #000000;
-      margin-bottom: 5px;
-    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.82em; font-weight: 600; color: #000000; margin-bottom: 5px; }
 
     .form-group input,
     .form-group textarea {
@@ -675,20 +429,10 @@
     }
 
     .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: #000000;
-      background: #ffffff;
-    }
-
+    .form-group textarea:focus { border-color: #000000; background: #ffffff; }
     .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #aaaaaa;
-    }
-
-    .form-group textarea {
-      height: 110px;
-      resize: vertical;
-    }
+    .form-group textarea::placeholder { color: #aaaaaa; }
+    .form-group textarea { height: 110px; resize: vertical; }
 
     .contact-submit {
       width: 100%;
@@ -703,11 +447,7 @@
       cursor: pointer;
       transition: background 0.2s ease, color 0.2s ease;
     }
-
-    .contact-submit:hover {
-      background: #ffffff;
-      color: #000000;
-    }
+    .contact-submit:hover { background: #ffffff; color: #000000; }
 
     .form-success {
       display: none;
@@ -720,105 +460,58 @@
     }
 
     /* Scroll Animations */
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
+    .animate-on-scroll { opacity: 0; transform: translateY(16px); transition: opacity 0.4s ease, transform 0.4s ease; }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
 
-    .animate-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
+    /* Tablet */
+    @media (max-width: 900px) {
+      .flagship-signals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .signal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.05em;
-      }
+      .hero h1 { font-size: 2.05em; }
+      .hero .title-sub { font-size: 1em; }
+      .hero-description { font-size: 0.86em; }
+      .section-title { font-size: 1.22em; }
 
-      .hero .title-sub {
-        font-size: 1em;
-      }
+      .flagship-feature,
+      .secondary-feature { grid-template-columns: 1fr; }
+      .flagship-copy h3 { font-size: 1.4em; }
+      .flagship-value { max-width: none; }
+      .phone-frame-sm { max-width: 180px; }
+      .secondary-copy p { max-width: none; }
 
-      .hero-description {
-        font-size: 0.86em;
-      }
+      .work-row-grid { grid-template-columns: 1fr; }
+      .oss-grid { grid-template-columns: 1fr; }
 
-      .section-title {
-        font-size: 1.22em;
-      }
+      .about-content { grid-template-columns: 1fr; gap: 16px; }
+      .about-image { text-align: center; }
+      .about-image img { width: 140px; height: 140px; }
 
-      .about-text p,
-      .skill-card p,
-      .project-card p,
-      .project-card li,
-      .loadmore-table {
-        font-size: 0.9em;
-      }
+      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-      .project-card h3,
-      .skill-card h4,
-      .about-text h2 {
-        font-size: 1.08em;
-      }
+      .resume-buttons { flex-direction: column; }
+      .btn { width: 100%; text-align: center; }
 
-      .about-content {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
+      .footer-content { flex-direction: column; gap: 10px; }
 
-      .about-image {
-        text-align: center;
-      }
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-form-wrapper { padding: 18px 14px; }
 
-      .about-image img {
-        width: 160px;
-        height: 160px;
-      }
+      .hero-cta { flex-direction: column; align-items: stretch; }
+      .cta-btn { text-align: center; justify-content: center; }
 
-      .social-links {
-        flex-wrap: wrap;
-      }
+      .flagship-cta { flex-direction: column; align-items: stretch; }
+      .flagship-cta .cta-btn { width: 100%; justify-content: center; }
 
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
+      .compact-row { flex-direction: column; gap: 8px; }
+    }
 
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .resume-buttons {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .footer-content {
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .contact-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-form-wrapper {
-        padding: 18px 14px;
-      }
-
-      .hero-cta {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .cta-btn {
-        text-align: center;
-      }
+    @media (max-width: 480px) {
+      .flagship-signals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .signal-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -827,10 +520,10 @@
   <nav class="navbar">
     <a href="#" class="navbar-name">IVAN TRAN</a>
     <ul class="navbar-links">
-      <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-      <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-      <li><a href="#projects"><i class="fas fa-folder-open"></i> Projects</a></li>
-      <li><a href="#contributions"><i class="fas fa-code-branch"></i> Contributions</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#engineering">Engineering</a></li>
+      <li><a href="#open-source">Open Source</a></li>
+      <li><a href="#about">About</a></li>
     </ul>
     <div class="navbar-socials">
       <a href="#contact" aria-label="Contact" title="Contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
@@ -845,314 +538,213 @@
     <p class="title-sub">Full-Stack Engineer building operational software</p>
     <p class="hero-description">TypeScript · React · Next.js · PostgreSQL</p>
     <div class="hero-cta">
-      <a href="projects/friendchise.html" class="cta-btn"><i class="fas fa-layer-group"></i> View FriendChise</a>
-      <a href="projects/friendchise-mobile.html" class="cta-btn"><i class="fas fa-mobile-screen"></i> View FriendChise Mobile</a>
-      <a href="Ivan%20Tran%20-%20Resume.pdf" class="cta-btn" target="_blank" rel="noopener"><i class="fas fa-file-alt"></i> View Resume</a>
-    </div>
-    <div class="hero-links">
-      <a href="https://github.com/IvanTran-2001" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="projects/friendchise.html" class="cta-btn primary"><i class="fas fa-layer-group"></i> View FriendChise</a>
+      <a href="Ivan%20Tran%20-%20Resume.pdf" class="cta-btn" target="_blank" rel="noopener"><i class="fas fa-file-alt"></i> Resume</a>
+      <a href="https://github.com/IvanTran-2001" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
     </div>
   </div>
 
-  <!-- About Section -->
-  <div id="about">
-    <h2 class="section-title">PROFESSIONAL SUMMARY</h2>
-    <div class="about-section">
-      <div class="about-content">
-        <div class="about-image">
-          <img src="profile.jpg" alt="Ivan Tran" fetchpriority="high" decoding="async">
+  <!-- Featured Work -->
+  <div id="work">
+    <h2 class="section-title">FEATURED WORK</h2>
+
+    <!-- FriendChise: flagship -->
+    <div class="flagship-feature animate-on-scroll">
+      <div class="browser-frame">
+        <div class="browser-frame-bar">
+          <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
         </div>
-        <div class="about-text">
-          <p>I’m a full-stack engineer based in Melbourne, building practical software for real workplace operations.</p>
-          <p>My main project is FriendChise, a multi-tenant operations platform I built and still run for a real Walker's Doughnuts location — scheduling, recurring tasks, procedures and a QR customer menu, used every day on the floor. It started from problems I saw firsthand working in hospitality, where knowledge about how to run a shift well rarely outlasted the person who had it.</p>
-          <p>I work primarily with TypeScript, React, Next.js, Node.js and PostgreSQL. My experience also includes Playwright test automation, warehouse systems consulting and maintaining an open-source project with more than 20 contributors.</p>
-          <p>I’m currently extending FriendChise across web and mobile while looking for full-stack, frontend and software quality opportunities.</p>
+        <img src="projects/pictures/friendchise/V2/ORG-HOME.png" alt="FriendChise organisation dashboard" loading="lazy" decoding="async">
+      </div>
+      <div class="flagship-copy">
+        <div class="flagship-kicker">Flagship product · Solo Founder &amp; Lead Developer</div>
+        <h3>FriendChise</h3>
+        <p class="flagship-value">A multi-tenant operations platform running scheduling, recurring tasks, procedures and a QR customer menu for a real Walker&rsquo;s Doughnuts location, every day.</p>
+        <div class="flagship-signals">
+          <div class="signal-chip"><strong>Production pilot</strong><span>Walker&rsquo;s Doughnuts</span></div>
+          <div class="signal-chip"><strong>55</strong><span>Prisma models</span></div>
+          <div class="signal-chip"><strong>440+</strong><span>Automated tests</span></div>
+          <div class="signal-chip"><strong>27</strong><span>OSS contributors</span></div>
+        </div>
+        <div class="flagship-cta">
+          <a href="projects/friendchise.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> View Case Study</a>
+          <a href="https://friendchise.app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+          <a href="https://github.com/IvanTran-2001/FriendChise" class="text-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
 
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/ivan-tran-dev" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-            <a href="https://github.com/IvanTran-2001" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-          </div>
+    <!-- FriendChise Mobile: secondary -->
+    <div class="secondary-feature animate-on-scroll">
+      <div class="phone-frame-sm">
+        <img src="projects/pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task workflow: capture, generated draft, review">
+      </div>
+      <div class="secondary-copy">
+        <div class="flagship-kicker">Frontline Operations App</div>
+        <h3>FriendChise Mobile</h3>
+        <p>Native task access and a Scan-to-Task capture flow for staff on the floor, sharing FriendChise&rsquo;s multi-tenant backend and auth.</p>
+        <ul class="tight-list">
+          <li>React Native / Expo, native Google &amp; LinkedIn auth</li>
+          <li>Camera &amp; document capture &rarr; AI-assisted structured task drafts</li>
+        </ul>
+        <div class="flagship-cta">
+          <a href="projects/friendchise-mobile.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> View Case Study</a>
+          <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="text-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </div>
 
-          <div class="resume-buttons">
-            <a href="Ivan%20Tran%20-%20Resume.pdf" class="btn" target="_blank" rel="noopener">View Resume</a>
-            <a href="Ivan%20Tran%20-%20Resume.pdf" class="btn" download="Ivan Tran - Resume.pdf">Download PDF</a>
+    <!-- ECHT + QA Wolf: compact rows -->
+    <div class="work-row-grid">
+      <div class="work-row animate-on-scroll">
+        <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image" loading="lazy" decoding="async">
+        <div class="work-row-copy">
+          <h4>ECHT Warehouse &mdash; Process Engineering</h4>
+          <p class="work-row-meta">Context: a fragmented WMS replenishment workflow required staff to cross-reference three tables and needed two operators to keep pace. Intervention: redesigned the workflow into a single-operator process and a documented technical spec (Jira THX-1373449).</p>
+          <p class="work-row-outcome"><em>Estimated:</em> 60&ndash;80% faster retrieval/movement, ~50% faster onboarding, ~40% fewer errors ahead of peak season.</p>
+          <a href="projects/echt-warehouse.html" class="text-link"><i class="fas fa-file-alt"></i> Details</a>
+        </div>
+      </div>
+      <div class="work-row animate-on-scroll">
+        <img src="projects/pictures/QAWolf.png" alt="QA Wolf assessment" class="work-row-image" loading="lazy" decoding="async">
+        <div class="work-row-copy">
+          <h4>QA Wolf &mdash; Paid Finalist Assessment <span class="proj-badge badge-finalist">~15 Finalists</span></h4>
+          <p class="work-row-meta">Node.js + Playwright automation validating Hacker News sort order across paginated content, with deterministic checks, structured diagnostics and non-zero exit codes on failure.</p>
+          <div style="display:flex; gap:12px;">
+            <a href="projects/QA-Wolf-Take-Home.html" class="text-link"><i class="fas fa-file-alt"></i> Details</a>
+            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="text-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Skills Section -->
+  <!-- Engineering Snapshot -->
+  <div id="engineering">
+    <h2 class="section-title">ENGINEERING SNAPSHOT</h2>
+    <div class="signal-grid">
+      <div class="signal-card animate-on-scroll">
+        <h4>Multi-Tenant Systems</h4>
+        <p>Organisation and role-scoped application architecture across FriendChise and an in-progress e-commerce platform.</p>
+      </div>
+      <div class="signal-card animate-on-scroll">
+        <h4>Automated Testing</h4>
+        <p>440+ unit, integration and E2E tests (Vitest, Playwright) covering FriendChise&rsquo;s web platform.</p>
+      </div>
+      <div class="signal-card animate-on-scroll">
+        <h4>Production Software</h4>
+        <p>Running daily at a real Walker&rsquo;s Doughnuts location &mdash; built around an actual operational workflow, not a demo.</p>
+      </div>
+      <div class="signal-card animate-on-scroll">
+        <h4>Open Source</h4>
+        <p>27 external contributors reviewed and merged through my own pull-request process.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Open Source -->
+  <div id="open-source">
+    <h2 class="section-title">OPEN SOURCE</h2>
+    <div class="oss-grid">
+      <div class="oss-card animate-on-scroll">
+        <div class="oss-card-top">
+          <h4>DevTasks <span class="proj-badge badge-live">PR #274</span></h4>
+          <a href="https://github.com/shamilahmdt/devtasks/pull/274" target="_blank" rel="noopener noreferrer" class="text-link">View PR</a>
+        </div>
+        <p>Added a favorites layout for Dev Utilities &mdash; starred tools move into a dedicated list, and duplicate cards collapse into unique pages.</p>
+      </div>
+      <div class="oss-card animate-on-scroll">
+        <div class="oss-card-top">
+          <h4>DevTasks <span class="proj-badge badge-live">PR #226 &middot; Merged</span></h4>
+          <a href="https://github.com/shamilahmdt/devtasks/pull/226" target="_blank" rel="noopener noreferrer" class="text-link">View PR</a>
+        </div>
+        <p>Built config-driven sidebar navigation with route-aware persistence, multi-page sections and collapse animation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div id="about">
+    <h2 class="section-title">ABOUT</h2>
+    <div class="about-content">
+      <div class="about-image">
+        <img src="profile.jpg" alt="Ivan Tran" fetchpriority="high" decoding="async">
+      </div>
+      <div class="about-text">
+        <p>I&rsquo;m a full-stack engineer based in Melbourne who likes building software for real, messy workplace operations rather than another CRUD app &mdash; the kind of problems where a process quietly breaks down the moment the one person who understood it steps away.</p>
+        <p>That instinct came from hospitality work before I moved into engineering, and it shaped FriendChise: a production platform I still build, test and run for a real store. Day to day, I split my time across full-stack product work, test automation and open-source maintenance.</p>
+        <p class="about-note">Off-screen: previously ranked #2 in Australia and #128 globally in Clash of Clans.</p>
+        <div class="resume-buttons">
+          <a href="Ivan%20Tran%20-%20Resume.pdf" class="btn" target="_blank" rel="noopener">View Resume</a>
+          <a href="Ivan%20Tran%20-%20Resume.pdf" class="btn" download="Ivan Tran - Resume.pdf">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills -->
   <div id="skills">
     <h2 class="section-title">SKILLS</h2>
     <div class="skills-grid">
-      <div class="skill-card">
-        <h4>Core</h4>
-        <p>TypeScript, JavaScript, React, Next.js, Node.js, PostgreSQL</p>
-      </div>
-      <div class="skill-card">
-        <h4>Backend & Infrastructure</h4>
-        <p>Prisma ORM, Supabase, Redis, REST APIs, Docker, Vercel</p>
-      </div>
-      <div class="skill-card">
-        <h4>Testing</h4>
-        <p>Playwright, Jest, Test Automation</p>
-      </div>
-      <div class="skill-card">
-        <h4>Engineering</h4>
-        <p>Multi-Tenant Architecture, Role-Based Access Control, System Design, Git</p>
-      </div>
+      <div class="skill-card"><h4>Core</h4><p>TypeScript, JavaScript, React, Next.js</p></div>
+      <div class="skill-card"><h4>Backend &amp; Data</h4><p>Node.js, PostgreSQL, Prisma, REST APIs</p></div>
+      <div class="skill-card"><h4>Infrastructure</h4><p>Docker, Redis, Supabase, Vercel</p></div>
+      <div class="skill-card"><h4>Testing</h4><p>Vitest, Playwright, Jest</p></div>
+      <div class="skill-card"><h4>Engineering</h4><p>Multi-Tenant Architecture, RBAC, System Design, Git</p></div>
     </div>
+    <p class="skills-note">Currently studying: <strong>AWS Certified Solutions Architect &ndash; Associate (SAA-C03)</strong></p>
   </div>
 
-  <!-- Projects Section -->
-  <div id="projects">
-    <h2 class="section-title">SELECTED WORK</h2>
-    <div class="projects-grid">
-
-      <!-- FriendChise -->
-      <div class="project-card">
-        <div class="featured-banner">&#9733; Featured Project</div>
-        <img src="projects/pictures/friendchise/V2/TIMETABLE-CALENDER.png" alt="FriendChise Dashboard" class="project-card-image" style="object-position: top;" loading="lazy" decoding="async">
-        <div class="project-card-content">
-          <h3>FriendChise &mdash; Solo Founder &amp; Maintainer</h3>
-          <p>A multi-tenant workplace operations platform built from real problems at Walker's Doughnuts &mdash; scheduling, recurring tasks, procedures and a QR customer menu, running one production location every day.</p>
-          <ul>
-            <li><strong>Used daily in production</strong> &mdash; 19 active users, ~50 documented procedures, 101 customer QR menu scans</li>
-            <li><strong>Built and maintained solo</strong>, from product discovery and Figma design through to deployment, testing and documentation</li>
-            <li><strong>Maintains an open-source project with more than 20 contributors</strong>, reviewing pull requests and keeping the architecture consistent</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/friendchise.html" class="project-btn"><i class="fas fa-file-alt"></i> Case Study</a>
-            <a href="projects/friendchise-mobile.html" class="project-btn"><i class="fas fa-mobile-screen"></i> Mobile</a>
-            <a href="projects/friendchise-lessons-challenges.html" class="project-btn"><i class="fas fa-lightbulb"></i> Lessons</a>
-            <a href="https://friendchise.app" class="project-btn" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="https://friendchise.app/doc" class="project-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-layer-group"></i> Design &amp; Engineering</a>
-            <a href="https://github.com/IvanTran-2001/FriendChise" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- FriendChise Mobile -->
-      <div class="project-card">
-        <div class="project-card-image" style="display:flex;align-items:center;justify-content:center;background:#111111;color:#ffffff;font-weight:800;letter-spacing:0.12em;font-size:0.82em;">F R I E N D C H I S E &nbsp; M O B I L E</div>
-        <div class="project-card-content">
-          <h3>FriendChise Mobile &mdash; Frontline Operations App</h3>
-          <p>A native mobile companion for workers to search tasks, review procedures, and turn camera or PDF inputs into structured task drafts during a shift.</p>
-          <ul>
-            <li><strong>Mobile-first workflow</strong> &mdash; authentication, task access, tools, and scan-to-task are tuned for quick shift-time interactions</li>
-            <li><strong>Shared with the FriendChise backend</strong> &mdash; uses the same org-scoped API, so mobile and web stay aligned</li>
-            <li><strong>AI-assisted scan flow</strong> &mdash; photo or PDF input becomes an editable task draft before it is saved</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/friendchise-mobile.html" class="project-btn"><i class="fas fa-file-alt"></i> Case Study</a>
-            <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Warehouse -->
-      <div class="project-card">
-        <img src="projects/pictures/warehouse-echt.png" alt="Warehouse" class="project-card-image" loading="lazy" decoding="async">
-        <div class="project-card-content">
-          <h3>ECHT Warehouse WMS Process Improvement</h3>
-          <p>Redesigned a fragmented warehouse replenishment workflow that required staff to cross-reference three WMS tables.</p>
-          <ul>
-            <li><strong>Enabled one operator to complete work that previously required two people at nearly the same speed</strong></li>
-            <li><strong>Estimated a 60-80% improvement in retrieval and movement efficiency</strong></li>
-            <li><strong>Estimated a 50% improvement in onboarding and training efficiency</strong>, reducing error rates by roughly 40% ahead of peak Christmas sales</li>
-            <li><strong>Produced the technical specification for Jira ticket THX-1373449</strong></li>
-            <li>Caught a live-data bug mid-day post-deployment &mdash; <code>replenResidual</code> values were static snapshots; documented root cause and escalated for a dynamic fix</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/echt-warehouse.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- QA Wolf -->
-      <div class="project-card">
-        <img src="projects/pictures/QAWolf.png" alt="QA Wolf" class="project-card-image" loading="lazy" decoding="async">
-        <div class="project-card-content">
-          <h3>QA Wolf Paid Finalist Technical Assessment</h3>
-          <p>Selected as one of approximately 15 finalists and paid AUD $220 to complete QA Wolf's final Software QA Engineer assessment.</p>
-          <ul>
-            <li><strong>Built a Node.js and Playwright automation tool</strong> to validate Hacker News article sort order</li>
-            <li>Scraped and validated data across paginated content</li>
-            <li>Added structured diagnostics and non-zero exit codes for failed validation</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/QA-Wolf-Take-Home.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-            <a href="projects/QA-Wolf-Take-Home.html#demo" class="project-btn"><i class="fas fa-play-circle"></i> Demo Video</a>
-            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-     <!-- Vending Machine Simulator -->
-      <div class="project-card">
-        <img src="projects/pictures/vendingmachine.png" alt="Vending Machine Simulator" class="project-card-image" loading="lazy" decoding="async">
-        <div class="project-card-content">
-          <h3>Vending Machine Simulator &mdash; <span class="proj-badge badge-grade">100% Grade</span></h3>
-          <p><strong>Collaborated in a 4-person team</strong> to build a C++ vending machine simulator using disciplined code structure, documentation, and design patterns.</p>
-          <ul>
-            <li><strong>Delivered efficiently</strong> and earned a <strong>100% grade</strong> with time to spare</li>
-            <li>Applied custom data structures, command-pattern design, and structured error handling</li>
-            <li>Zero memory leaks confirmed via Valgrind analysis</li>
-          </ul>
-          <div class="project-buttons">
-            <a href="projects/vendingmachine.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-            <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-          </div>
-        </div>
-      </div>
-
-     </div>
-  </div>
-
+  <!-- Additional Work -->
   <details class="collapsible-section" id="more-projects">
-    <summary><i class="fas fa-chevron-down"></i> Load More Projects</summary>
-    <div class="content-section" style="margin-top: 20px;">
-      <p style="margin-bottom: 20px; color: #333333;">Additional projects and references.</p>
-      <div class="loadmore-table-wrap">
-        <table class="loadmore-table">
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Overview</th>
-              <th>Links</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="loadmore-title">Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></div>
-                <div class="loadmore-desc">Multi-tenant SaaS e-commerce platform with tenant-scoped data isolation and role-based access control.</div>
-              </td>
-              <td>Active build focused on tenant-scoped commerce flows, permissions and infrastructure.</td>
-              <td>
-                <div class="loadmore-links">
-                  <a href="projects/multitenant-ecommerce.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-                  <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="loadmore-title">MERN Thinkboard</div>
-                <div class="loadmore-desc">Full-stack note-taking app built with React, Node.js, Express, MongoDB, JWT auth, and Redis-backed rate limiting.</div>
-              </td>
-              <td>Earlier full-stack note-taking app with authentication, persistence and rate limiting.</td>
-              <td>
-                <div class="loadmore-links">
-                  <a href="projects/mern-thinkboard.html" class="project-btn"><i class="fas fa-file-alt"></i> Details</a>
-                  <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="loadmore-title">Competitive Programming & Certifications <span class="proj-badge badge-ongoing">Ongoing</span></div>
-                <div class="loadmore-desc">Completed 200+ coding challenges and technical certifications to strengthen data structures, algorithms, API testing and software fundamentals.</div>
-              </td>
-              <td>Supporting evidence of consistency, algorithmic practice and continuous learning.</td>
-              <td>
-                <div class="loadmore-links">
-                  <a href="https://leetcode.com/u/C0XKIES/" class="project-btn" target="_blank"><i class="fas fa-code"></i> Profile</a>
-                  <a href="https://github.com/IvanTran-2001" class="project-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <summary><i class="fas fa-chevron-down"></i> Additional Work</summary>
+    <div style="margin-top: 6px;">
+      <div class="compact-row">
+        <div class="compact-row-copy">
+          <h4>Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></h4>
+          <p>Multi-tenant SaaS e-commerce build with tenant-scoped data isolation and role-based access control.</p>
+        </div>
+        <div class="compact-row-links">
+          <a href="projects/multitenant-ecommerce.html" class="text-link">Details</a>
+          <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="text-link" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="compact-row">
+        <div class="compact-row-copy">
+          <h4>MERN Thinkboard</h4>
+          <p>Full-stack note-taking app &mdash; React, Node.js, Express, MongoDB, JWT auth, Redis-backed rate limiting.</p>
+        </div>
+        <div class="compact-row-links">
+          <a href="projects/mern-thinkboard.html" class="text-link">Details</a>
+          <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="text-link" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="compact-row">
+        <div class="compact-row-copy">
+          <h4>Vending Machine Simulator <span class="proj-badge badge-grade">100% Grade</span></h4>
+          <p>4-person C++ team project &mdash; command-pattern design, custom data structures, zero memory leaks (Valgrind).</p>
+        </div>
+        <div class="compact-row-links">
+          <a href="projects/vendingmachine.html" class="text-link">Details</a>
+          <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="text-link" target="_blank">GitHub</a>
+        </div>
+      </div>
+      <div class="compact-row">
+        <div class="compact-row-copy">
+          <h4>Competitive Programming &amp; Certifications <span class="proj-badge badge-ongoing">Ongoing</span></h4>
+          <p>200+ coding challenges and certifications supporting data structures, algorithms and API-testing fundamentals.</p>
+        </div>
+        <div class="compact-row-links">
+          <a href="https://leetcode.com/u/C0XKIES/" class="text-link" target="_blank">Profile</a>
+        </div>
       </div>
     </div>
   </details>
 
-  <!-- Beyond Coding -->
-  <div id="beyond-coding">
-    <h2 class="section-title">BEYOND CODING</h2>
-    <div class="content-section">
-      <p style="margin:0; color:#333333;">Previously ranked #2 in Australia and #128 globally in Clash of Clans, reflecting sustained competitive performance, planning and iteration.</p>
-    </div>
-  </div>
-
-  <!-- Contributions Section -->
-  <div id="contributions">
-    <h2 class="section-title">OPEN SOURCE CONTRIBUTIONS</h2>
-    <div class="contributions-grid">
-      <details class="contribution-card">
-        <summary>
-          <div class="contribution-summary-head">
-              <div class="contribution-summary-top">
-                <h3>DevTasks <span class="proj-badge badge-live">Pull Request #274</span></h3>
-                <span class="contribution-toggle"><i class="fas fa-chevron-down"></i> Details</span>
-              </div>
-              <p class="contribution-summary-copy">Added a favorites layout for Dev Utilities, with starred tools moving into a dedicated list and duplicate cards collapsed into unique pages.</p>
-              <div class="contribution-meta">
-                <span class="proj-badge badge-industry">Open Source</span>
-                <span class="proj-badge badge-ongoing">React/Vite</span>
-                <span class="proj-badge badge-ongoing">Favorites Layout</span>
-              </div>
-          </div>
-        </summary>
-        <div class="contribution-card-content">
-          <ul>
-            <li>Added a favorites star for each utility card and a dedicated favorites layout for starred tools</li>
-            <li>Persisted favorites in the browser and moved cards instead of duplicating them</li>
-            <li>Deduplicated repeated pages with a unique-card array before rendering the list</li>
-            <li>Matched the project's monochrome design and tested the feature locally before submitting the PR</li>
-          </ul>
-          <p class="contribution-proof">
-            Proof: <a href="https://github.com/shamilahmdt/devtasks/pull/274" target="_blank" rel="noopener noreferrer">Pull Request #274</a>.
-          </p>
-          <div class="project-buttons">
-            <a href="https://github.com/shamilahmdt/devtasks/pull/274" class="project-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> PR Link</a>
-            <a href="https://github.com/shamilahmdt/devtasks" class="project-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Repo</a>
-          </div>
-        </div>
-      </details>
-
-      <details class="contribution-card">
-        <summary>
-          <div class="contribution-summary-head">
-              <div class="contribution-summary-top">
-                <h3>DevTasks <span class="proj-badge badge-live">Pull Request #226</span></h3>
-                <span class="contribution-toggle"><i class="fas fa-chevron-down"></i> Details</span>
-              </div>
-              <p class="contribution-summary-copy">Built config-driven sidebar navigation for a React/Vite app, with route-aware persistence, multi-page sections, and collapse animation.</p>
-              <div class="contribution-meta">
-                <span class="proj-badge badge-industry">Open Source</span>
-                <span class="proj-badge badge-ongoing">React/Vite</span>
-                <span class="proj-badge badge-ongoing">Sidebar Navigation</span>
-              </div>
-          </div>
-        </summary>
-        <div class="contribution-card-content">
-          <ul>
-            <li>Built sidebar navigation for Task Management, Snippet Vault, Resource Hub, and Dev Utilities</li>
-            <li>Added collapse/expand animation and compact state for desktop</li>
-            <li>Kept the sidebar visible on configured subpages via <code>src/config/sidebarSections.js</code></li>
-            <li>Adjusted styling to match the project theme and layout rules</li>
-          </ul>
-          <p class="contribution-proof">
-            Proof: <a href="https://github.com/shamilahmdt/devtasks/pull/226" target="_blank" rel="noopener noreferrer">Pull Request #226</a> merged into main.
-          </p>
-          <div class="project-buttons">
-            <a href="https://github.com/shamilahmdt/devtasks/pull/226" class="project-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> PR Link</a>
-            <a href="https://github.com/shamilahmdt/devtasks" class="project-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Repo</a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </div>
-
   <!-- Contact Section -->
   <div id="contact">
     <h2 class="section-title">LET'S CONNECT</h2>
-    <p style="font-size: 0.95em; color: #333; margin-bottom: 24px;">
-      Open to full-stack engineer roles — on-site (Melbourne), hybrid, and remote.
-    </p>
+    <p class="contact-intro">Open to full-stack engineer roles &mdash; on-site (Melbourne), hybrid, and remote.</p>
     <div class="contact-layout">
       <div class="contact-form-wrapper">
       <h3>Send Me a Message</h3>
@@ -1210,13 +802,12 @@
     // Smooth scroll behavior
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        if (targetId.length <= 1) return;
+        const target = document.querySelector(targetId);
         if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
@@ -1253,19 +844,21 @@
     }
 
     // Scroll-in animations
-    const scrollObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          scrollObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            scrollObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
 
-    document.querySelectorAll('.section-title, .skill-card, .project-card, .about-content').forEach(el => {
-      el.classList.add('animate-on-scroll');
-      scrollObserver.observe(el);
-    });
+      document.querySelectorAll('.animate-on-scroll').forEach(el => scrollObserver.observe(el));
+    } else {
+      document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('visible'));
+    }
   </script>
   <script src="navbar.js"></script>
 </body>
