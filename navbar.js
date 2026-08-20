@@ -64,15 +64,41 @@
     });
   }
 
-  var observer = new IntersectionObserver(function (entries) {
-    var visible = entries.filter(function (e) { return e.isIntersecting; });
-    if (visible.length) {
-      visible.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
-      setActive(visible[0].target.id);
-    }
-  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+  function getTriggerLine() {
+    return Math.min(window.innerHeight * 0.3, 240);
+  }
 
-  sections.forEach(function (entry) { observer.observe(entry.section); });
+  function updateActive() {
+    var triggerLine = getTriggerLine();
+    var currentId = sections[0].id;
+
+    for (var i = 0; i < sections.length; i += 1) {
+      var rect = sections[i].section.getBoundingClientRect();
+      if (rect.top <= triggerLine) {
+        currentId = sections[i].id;
+      } else {
+        break;
+      }
+    }
+
+    setActive(currentId);
+  }
+
+  var ticking = false;
+  function scheduleUpdate() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      updateActive();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', scheduleUpdate, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+  window.addEventListener('hashchange', scheduleUpdate);
+  window.addEventListener('load', scheduleUpdate);
+  updateActive();
 })();
 
 /* Close the mobile "Sections" menu after choosing a link or tapping outside */
