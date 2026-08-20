@@ -70,7 +70,7 @@
       visible.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
       setActive(visible[0].target.id);
     }
-  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
 
   sections.forEach(function (entry) { observer.observe(entry.section); });
 })();
