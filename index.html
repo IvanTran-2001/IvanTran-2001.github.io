@@ -1017,10 +1017,9 @@
         if (detailsLabel) detailsLabel.textContent = 'Hide additional projects';
       }
 
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
           history.replaceState(null, '', window.location.pathname + window.location.search + hash);
         });
       });

@@ -6,9 +6,8 @@ function openSectionByHash(hash) {
   if (!target) return;
   var details = target.closest('details');
   if (details) details.open = true;
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   requestAnimationFrame(function () {
-    target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
 
