@@ -6,7 +6,7 @@
   <meta name="description" content="Ivan Tran - Full-Stack Software Engineer based in Melbourne, Australia. Specialising in JavaScript, TypeScript, Next.js, MERN stack, Prisma, PostgreSQL, C++, and Python.">
   <meta name="keywords" content="Software Engineer, Full-Stack Developer, Full-Stack Engineer, MERN Stack, JavaScript, TypeScript, React, Next.js, Node.js, Express.js, Prisma, PostgreSQL, MongoDB, tRPC, PayloadCMS, Python, SQL, REST API, Test Automation, Playwright, Jest, Melbourne, Australia, Web Developer, Backend Developer, Frontend Developer, Git, Agile, OOP, Data Structures, Algorithms">
   <meta name="author" content="Ivan Tran">
-  <title>Ivan Tran — Full-Stack Engineer</title>
+  <title>Ivan Tran, Full-Stack Engineer</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -43,15 +43,18 @@
       * { transition: none !important; animation: none !important; }
     }
 
-    /* Navbar bottom-margin override — more breathing room on desktop, more compact on mobile */
-    .navbar { margin-bottom: 48px; }
-    @media (max-width: 768px) { .navbar { margin-bottom: 24px; } }
+    /* Navbar bottom-margin override, more breathing room on desktop, more compact on mobile */
+    .navbar { margin-bottom: 96px; }
+    @media (max-width: 768px) { .navbar { margin-bottom: 48px; } }
 
-    /* Hero Section */
+    /* Hero Section: same white bordered-surface language as .surface-panel / project-page cards */
     .hero {
-      padding: 52px 0 4px;
+      padding: calc(var(--space-6) * 2) var(--space-5);
       text-align: center;
       margin-bottom: 52px;
+      background: #ffffff;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-md);
     }
 
     .hero h1 {
@@ -133,7 +136,7 @@
       line-height: 1.55;
     }
 
-    /* Structural boundary between major sections — separate from the section-title accent dash */
+    /* Structural boundary between major sections, separate from the section-title accent dash */
     .section-divider {
       border: none;
       border-top: 1px solid var(--hairline);
@@ -156,7 +159,7 @@
     .badge-grade    { background: #fdf6e0; color: #8a6d1a; }
     .badge-ongoing  { background: var(--accent-tint); color: var(--accent-dark); }
 
-    /* Flagship feature (FriendChise) — only the copy column gets a white surface; the screenshot stays on the page background */
+    /* Flagship feature (FriendChise), only the copy column gets a white surface; the screenshot stays on the page background */
     .flagship-feature {
       display: grid;
       grid-template-columns: 1.05fr 1fr;
@@ -226,7 +229,7 @@
 
     .proof-dot { width: 7px; height: 7px; border-radius: 999px; background: #22a355; flex-shrink: 0; }
 
-    /* Editorial stat row — replaces four separate boxed metric chips */
+    /* Editorial stat row, replaces four separate boxed metric chips */
     .flagship-signals {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -270,7 +273,7 @@
       flex-wrap: nowrap;
     }
 
-    /* Secondary feature (FriendChise Mobile) — smaller surface on the copy column, visually subordinate to the flagship */
+    /* Secondary feature (FriendChise Mobile), smaller surface on the copy column, visually subordinate to the flagship */
     .secondary-feature {
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
@@ -314,6 +317,7 @@
     .work-row {
       display: flex;
       flex-direction: column;
+      height: 100%;
       border: 1px solid var(--hairline);
       border-radius: var(--radius-md);
       overflow: hidden;
@@ -323,20 +327,37 @@
     .work-row:hover { border-color: var(--hairline-strong); transform: translateY(-2px); box-shadow: var(--shadow-card); }
     .work-row-image { width: 100%; height: 160px; object-fit: cover; object-position: center; display: block; }
     .work-row-image--top { object-position: center top; }
-    .work-row-copy { padding: 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-    .work-row-copy h4 { font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .work-row-meta { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.55; }
-    .work-row-outcome { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.55; }
-    .work-row-outcome em { font-style: normal; font-weight: 700; color: var(--ink); }
-    .work-row-links { display: flex; gap: 10px; margin-top: 2px; }
+    .work-row-copy { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .work-row-copy h4 { font-size: 0.98rem; font-weight: 700; line-height: 1.35; }
+    .work-row-meta { font-size: 0.77rem; color: var(--ink-tertiary); line-height: 1.45; letter-spacing: 0.04em; text-transform: uppercase; }
+    .work-row-points { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .work-row-points li { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.5; padding-left: 14px; position: relative; }
+    .work-row-points li::before { content: ''; position: absolute; left: 0; top: 0.58em; width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
 
-    /* Engineering snapshot sits on a bright surface panel; 2-column grid inside, spacing does the rest */
-    .signal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-7); }
+    /* Impact/proof reads as its own block, separated from the bullets by a divider, not just spacing */
+    .work-row-impact-block { margin-top: 2px; padding-top: 10px; border-top: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 6px; }
+    .work-row-impact-label { font-size: 0.72rem; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: 0.05em; }
+    .work-row-impact-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .work-row-impact-row span { font-size: 0.74rem; color: var(--ink-secondary); background: var(--surface); border: 1px solid var(--hairline); border-radius: 999px; padding: 4px 8px; }
+    .work-row-impact-text { font-size: 0.8rem; color: var(--ink-secondary); line-height: 1.45; }
+    .work-row-impact-text strong { color: var(--ink); font-weight: 700; }
 
-    .signal-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: var(--space-2); }
-    .signal-card p { font-size: 0.85rem; color: var(--ink-secondary); line-height: 1.55; }
+    .work-row-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 2px; }
 
-    /* Open source — a concrete row list, single divider between entries */
+    /* Experience, same divided-row language as Open Source, one bordered surface with subtle dividers */
+    .experience-grid { display: flex; flex-direction: column; }
+    .experience-card { padding: var(--space-5) 0; }
+    .experience-card:first-child { padding-top: 0; }
+    .experience-card:last-child { padding-bottom: 0; }
+    .experience-card + .experience-card { border-top: 1px solid var(--hairline); }
+    .experience-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .experience-card-top h4 { font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+    .experience-role { font-size: 0.76rem; font-weight: 600; color: var(--ink-tertiary); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 3px; }
+    .experience-card .tight-list { margin-bottom: 0; }
+    .experience-verify-btn { margin-top: var(--space-4); }
+
+    /* Open source, a concrete row list, single divider between entries */
+    .oss-intro { font-size: 0.85rem; color: var(--ink-secondary); line-height: 1.55; margin-bottom: var(--space-5); max-width: 62ch; }
     .oss-grid { display: flex; flex-direction: column; }
     .oss-card { padding: var(--space-5) 0; }
     .oss-card:first-child { padding-top: 0; }
@@ -354,7 +375,7 @@
     .about-note { font-size: 0.8rem; color: var(--ink-tertiary); margin-bottom: 18px; }
     .resume-buttons { display: flex; gap: 10px; }
 
-    /* Skills Section — grouped rows on a bright surface panel */
+    /* Skills Section, grouped rows on a bright surface panel */
     .skills-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-7); }
     .skills-groups .skill-group:last-child { grid-column: 1 / -1; }
 
@@ -374,7 +395,7 @@
     .skills-study i { color: var(--accent); font-size: 0.95em; margin-top: 2px; }
     .skills-study strong { font-weight: 700; color: var(--ink); }
 
-    /* Additional Work — the toggle reads as a real compact button, not styled text */
+    /* Additional Work, the toggle reads as a real compact button, not styled text */
     .collapsible-section summary {
       list-style: none;
       cursor: pointer;
@@ -410,7 +431,7 @@
     .compact-row-copy p { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.5; max-width: 52ch; }
     .compact-row-links { display: flex; gap: 10px; flex-shrink: 0; padding-top: 2px; }
 
-    /* Footer — one clean transition, no stacked separators */
+    /* Footer, one clean transition, no stacked separators */
     footer { border-top: 1px solid var(--hairline); padding: var(--space-6) 0 var(--space-2); text-align: center; }
 
     #contact { margin-bottom: var(--space-7); }
@@ -512,15 +533,10 @@
     .animate-on-scroll { opacity: 0; transform: translateY(16px); transition: opacity 0.4s ease, transform 0.4s ease; }
     .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
 
-    /* Tablet */
-    @media (max-width: 900px) {
-      .signal-grid { gap: var(--space-5) var(--space-6); }
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       body { padding: 20px 16px 32px; }
-      .hero { padding: 28px 0 4px; margin-bottom: 40px; }
+      .hero { padding: calc(var(--space-5) * 2) var(--space-4); margin-bottom: 40px; }
       .hero h1 { font-size: 2rem; }
       .hero .title-sub { font-size: 1.02rem; }
       .hero-description { font-size: 0.78rem; margin-bottom: 26px; }
@@ -543,6 +559,7 @@
 
       .work-row-grid { grid-template-columns: 1fr; }
       .work-row-image { height: 180px; }
+      .work-row-copy { padding: 16px; }
 
       .about-content { grid-template-columns: 1fr; gap: 16px; }
       .about-image { text-align: center; }
@@ -578,7 +595,6 @@
       .flagship-signals { padding: 12px 0; }
       .signal-chip { padding: 0 6px; }
       .signal-chip span { font-size: 0.68rem; }
-      .signal-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -588,7 +604,7 @@
     <a href="#" class="navbar-name" aria-label="Ivan Tran"><img src="favicon.svg" alt="" aria-hidden="true"></a>
     <ul class="navbar-links">
       <li><a href="#work">Work</a></li>
-      <li><a href="#engineering">Engineering</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#open-source">Open Source</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -597,7 +613,7 @@
       <summary>Menu <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
       <ul class="sections-menu">
         <li><a href="#work">Work</a></li>
-        <li><a href="#engineering">Engineering</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#open-source">Open Source</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -642,7 +658,7 @@
         <div class="flagship-kicker"><span>Flagship Product</span><span class="kicker-role">Solo Founder &amp; Lead Developer</span></div>
         <h3>FriendChise</h3>
         <p class="flagship-value">A multi-tenant operations platform running scheduling, recurring tasks, procedures and a QR customer menu for a real Walker&rsquo;s Doughnuts location, every day.</p>
-        <div class="flagship-proof"><span class="proof-dot"></span> Production pilot &mdash; live daily at Walker&rsquo;s Doughnuts</div>
+        <div class="flagship-proof"><span class="proof-dot"></span> Production pilot, live daily at Walker&rsquo;s Doughnuts</div>
         <div class="flagship-signals">
           <div class="signal-chip"><strong>55</strong><span>Prisma models</span></div>
           <div class="signal-chip"><strong>440+</strong><span>Automated tests</span></div>
@@ -686,9 +702,20 @@
       <div class="work-row animate-on-scroll">
         <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image work-row-image--top expandable" loading="lazy" decoding="async">
         <div class="work-row-copy">
-          <h4>ECHT Warehouse &mdash; Process Engineering</h4>
-          <p class="work-row-meta">Context: a fragmented WMS replenishment workflow required staff to cross-reference three tables and needed two operators to keep pace. Intervention: redesigned the workflow into a single-operator process and a documented technical spec (Jira THX-1373449).</p>
-          <p class="work-row-outcome"><em>Estimated:</em> 60&ndash;80% faster retrieval/movement, ~50% faster onboarding, ~40% fewer errors ahead of peak season.</p>
+          <h4>ECHT Warehouse: Process Engineering</h4>
+          <p class="work-row-meta">Warehouse Operations · Process Redesign</p>
+          <ul class="work-row-points">
+            <li>Identified a fragmented WMS replenishment workflow that required staff to cross-reference three tables and use two operators to keep pace.</li>
+            <li>Redesigned it into a single-operator workflow and authored the technical specification submitted to the vendor.</li>
+          </ul>
+          <div class="work-row-impact-block">
+            <div class="work-row-impact-label">Estimated impact</div>
+            <div class="work-row-impact-row">
+              <span>60&ndash;80% faster retrieval</span>
+              <span>~50% faster onboarding</span>
+              <span>~40% fewer errors</span>
+            </div>
+          </div>
           <div class="work-row-links">
             <a href="projects/echt-warehouse.html" class="cta-btn sm">View Project &rarr;</a>
           </div>
@@ -697,8 +724,15 @@
       <div class="work-row animate-on-scroll">
         <img src="projects/pictures/QAWolf.png" alt="QA Wolf assessment" class="work-row-image expandable" loading="lazy" decoding="async">
         <div class="work-row-copy">
-          <h4>QA Wolf &mdash; Paid Finalist Assessment <span class="proj-badge badge-finalist">~15 Finalists</span></h4>
-          <p class="work-row-meta">Node.js + Playwright automation validating Hacker News sort order across paginated content, with deterministic checks, structured diagnostics and non-zero exit codes on failure.</p>
+          <h4>QA Wolf: Paid Finalist Assessment</h4>
+          <p class="work-row-meta">Node.js · Playwright · Test Automation</p>
+          <ul class="work-row-points">
+            <li>Built deterministic validation for Hacker News sort order across paginated content.</li>
+            <li>Added structured diagnostics and non-zero failure exit codes so automation failures are explicit and reproducible.</li>
+          </ul>
+          <div class="work-row-impact-block">
+            <p class="work-row-impact-text"><strong>Paid final-stage assessment</strong> · ~15 finalists</p>
+          </div>
           <div class="work-row-links">
             <a href="projects/QA-Wolf-Take-Home.html" class="cta-btn sm">View Project &rarr;</a>
             <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="cta-btn sm" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -710,25 +744,39 @@
 
   <hr class="section-divider">
 
-  <!-- Engineering Snapshot -->
-  <div id="engineering">
-    <h2 class="section-title">ENGINEERING SNAPSHOT</h2>
-    <div class="signal-grid surface-panel">
-      <div class="signal-card animate-on-scroll">
-        <h4>Multi-Tenant Systems</h4>
-        <p>Organisation and role-scoped application architecture across FriendChise and an in-progress e-commerce platform.</p>
-      </div>
-      <div class="signal-card animate-on-scroll">
-        <h4>Automated Testing</h4>
-        <p>440+ unit, integration and E2E tests (Vitest, Playwright) covering FriendChise&rsquo;s web platform.</p>
-      </div>
-      <div class="signal-card animate-on-scroll">
-        <h4>Production Software</h4>
-        <p>Running daily at a real Walker&rsquo;s Doughnuts location &mdash; built around an actual operational workflow, not a demo.</p>
-      </div>
-      <div class="signal-card animate-on-scroll">
-        <h4>Open Source</h4>
-        <p>31 external contributors reviewed and merged through my own pull-request process.</p>
+  <!-- Experience -->
+  <div id="experience">
+    <h2 class="section-title">EXPERIENCE</h2>
+    <div class="surface-panel">
+      <div class="experience-grid">
+        <div class="experience-card animate-on-scroll">
+          <div class="experience-card-top">
+            <div>
+              <h4>Mercor</h4>
+              <p class="experience-role">AI Quality / Evaluation Contributor</p>
+            </div>
+          </div>
+          <ul class="tight-list">
+            <li>Review AI-generated slide outputs and identify issues in structure, clarity, layout, and correctness.</li>
+            <li>Write targeted feedback and prompts explaining what worked, what failed, and how future outputs should improve, while collaborating with peers and applying reviewer feedback consistently.</li>
+            <li>Completed Mercor&rsquo;s introductory course on AI agents and agent workflows, with a publicly verifiable credential.</li>
+          </ul>
+          <a href="https://work.mercor.com/learn/verify/MRC-2026-UP55M2HU" class="cta-btn sm experience-verify-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-certificate" aria-hidden="true"></i> Verify Credential</a>
+        </div>
+        <div class="experience-card animate-on-scroll">
+          <div class="experience-card-top">
+            <div>
+              <h4>ECHT</h4>
+              <p class="experience-role">Process Improvement, Warehouse Operations</p>
+            </div>
+          </div>
+          <ul class="tight-list">
+            <li>Identified a fragmented WMS replenishment workflow and authored the full technical specification submitted directly to the vendor&rsquo;s developer.</li>
+            <li>Redesigned the process into a single-operator workflow and validated the live deployment, catching a data defect ahead of the Christmas peak.</li>
+            <li>Estimated 60&ndash;80% faster retrieval/movement and ~40% fewer errors.</li>
+          </ul>
+          <a href="projects/echt-warehouse.html" class="cta-btn sm experience-verify-btn">Case Study</a>
+        </div>
       </div>
     </div>
   </div>
@@ -739,13 +787,14 @@
   <div id="open-source">
     <h2 class="section-title">OPEN SOURCE</h2>
     <div class="surface-panel">
+      <p class="oss-intro">31 OSS contributors to FriendChise, with issues, PR reviews, implementation discussion, and contributor onboarding managed by me. Two recent examples:</p>
       <div class="oss-grid">
         <div class="oss-card animate-on-scroll">
           <div class="oss-card-top">
             <h4>DevTasks <span class="proj-badge badge-live">PR #274</span></h4>
             <a href="https://github.com/shamilahmdt/devtasks/pull/274" target="_blank" rel="noopener noreferrer" class="cta-btn sm">View PR</a>
           </div>
-          <p>Added a favorites layout for Dev Utilities &mdash; starred tools move into a dedicated list, and duplicate cards collapse into unique pages.</p>
+          <p>Added a favorites layout for Dev Utilities; starred tools move into a dedicated list, and duplicate cards collapse into unique pages.</p>
         </div>
         <div class="oss-card animate-on-scroll">
           <div class="oss-card-top">
@@ -769,7 +818,7 @@
           <img src="profile.jpg" alt="Ivan Tran" fetchpriority="high" decoding="async">
         </div>
         <div class="about-text">
-          <p>I&rsquo;m a full-stack engineer based in Melbourne who likes building software for real, messy workplace operations rather than another CRUD app &mdash; the kind of problems where a process quietly breaks down the moment the one person who understood it steps away.</p>
+          <p>I&rsquo;m a full-stack engineer based in Melbourne who likes building software for real, messy workplace operations rather than another CRUD app, the kind of problems where a process quietly breaks down the moment the one person who understood it steps away.</p>
           <p>That instinct came from hospitality work before I moved into engineering, and it shaped FriendChise: a production platform I still build, test and run for a real store. Day to day, I split my time across full-stack product work, test automation and open-source maintenance.</p>
           <p class="about-note">Off-screen: previously ranked #2 in Australia and #128 globally in Clash of Clans.</p>
           <div class="resume-buttons">
@@ -821,7 +870,7 @@
           <div class="compact-row">
             <div class="compact-row-copy">
               <h4>MERN Thinkboard</h4>
-              <p>Full-stack note-taking app &mdash; React, Node.js, Express, MongoDB, JWT auth, Redis-backed rate limiting.</p>
+              <p>Full-stack note-taking app, React, Node.js, Express, MongoDB, JWT auth, Redis-backed rate limiting.</p>
             </div>
             <div class="compact-row-links">
               <a href="projects/mern-thinkboard.html" class="cta-btn sm">View Project &rarr;</a>
@@ -831,7 +880,7 @@
           <div class="compact-row">
             <div class="compact-row-copy">
               <h4>Vending Machine Simulator <span class="proj-badge badge-grade">100% Grade</span></h4>
-              <p>4-person C++ team project &mdash; command-pattern design, custom data structures, zero memory leaks (Valgrind).</p>
+              <p>4-person C++ team project, command-pattern design, custom data structures, zero memory leaks (Valgrind).</p>
             </div>
             <div class="compact-row-links">
               <a href="projects/vendingmachine.html" class="cta-btn sm">View Project &rarr;</a>
@@ -860,7 +909,7 @@
     <div class="surface-panel contact-panel">
       <div class="contact-panel-intro">
         <h3>Send Me a Message</h3>
-        <p class="contact-intro">Open to full-stack engineer roles &mdash; on-site (Melbourne), hybrid, and remote.</p>
+        <p class="contact-intro">Open to full-stack engineer roles, on-site (Melbourne), hybrid, and remote.</p>
       </div>
       <div class="contact-layout">
         <div class="contact-form-wrapper">
@@ -882,7 +931,7 @@
           <textarea id="cf-message" name="message" placeholder="Enter your message" required></textarea>
         </div>
         <button type="submit" class="contact-submit">Send</button>
-        <div class="form-success" id="form-success">Message sent — I'll get back to you soon.</div>
+        <div class="form-success" id="form-success">Message sent, I'll get back to you soon.</div>
       </form>
       </div>
       <div class="contact-sidebar">

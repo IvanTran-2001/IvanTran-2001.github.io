@@ -7,18 +7,13 @@
   padding: 28px 0;
 }
 
-.mobile-hero {
-  border-bottom: 1px solid var(--hairline);
-  padding: 34px 0 30px;
-  margin-bottom: 0;
-  text-align: left;
-}
+/* .mobile-hero white-surface/border/padding comes from the shared .flagship-hero, .mobile-hero rule in friendchise.css */
 
 .mobile-hero-grid {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
   gap: 40px;
-  align-items: center;
+  align-items: start;
 }
 
 .mobile-hero-copy {
@@ -214,21 +209,21 @@
 }
 
 .phone-frame {
-  border: 1px solid var(--hairline-strong);
-  border-radius: 28px;
-  padding: 14px;
-  background: var(--ink);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  background: var(--surface-tint);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-card);
 }
 
 .phone-shot {
   display: block;
-  width: min(100%, 340px);
+  width: 100%;
+  max-width: 340px;
   height: auto;
-  border-radius: 20px;
+  border-radius: calc(var(--radius-md) - 4px);
   background: #ffffff;
 }
 
@@ -320,7 +315,7 @@
 
 @media (max-width: 880px) {
   .screenshot-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .challenge-grid {
@@ -334,10 +329,6 @@
   .mobile-hero-grid {
     grid-template-columns: 1fr;
     gap: 26px;
-  }
-
-  .flagship-hero-media {
-    order: -1;
   }
 
   .mobile-hero {
@@ -364,9 +355,8 @@
 }
 
 @media (max-width: 640px) {
-  .mobile-hero {
-    padding-top: 18px;
-    text-align: center;
+  .screenshot-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero-actions {

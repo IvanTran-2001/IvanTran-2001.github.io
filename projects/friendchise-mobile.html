@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FriendChise Mobile — a native Expo/React Native operations app for frontline staff, sharing FriendChise's multi-tenant backend and adding a camera-to-task (Scan-to-Task) workflow.">
+  <meta name="description" content="FriendChise Mobile, a native Expo/React Native operations app for frontline staff, sharing FriendChise's multi-tenant backend and adding a camera-to-task (Scan-to-Task) workflow.">
   <meta name="keywords" content="Expo, React Native, TypeScript, Expo Router, TanStack Query, Zustand, Mobile app, Scan-to-Task, OAuth, OCR">
   <meta name="author" content="Ivan Tran">
   <title>FriendChise Mobile | Ivan Tran</title>
@@ -58,22 +58,30 @@
   </nav>
 
   <div class="container mobile-page-shell">
+    <section class="project-intro">
+      <div class="project-intro-kicker">Frontline Operations App</div>
+      <h1 class="project-intro-title">FriendChise Mobile</h1>
+      <p class="project-intro-subtitle">Camera-to-task workflow for shift staff on the floor</p>
+      <div class="project-intro-stack">Expo Router · React Native · TypeScript · TanStack Query</div>
+      <div class="project-intro-actions">
+        <a href="https://apps.apple.com/au/app/friendchise/id6797785868" class="cta-btn primary" target="_blank" rel="noopener noreferrer">App Store</a>
+        <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://friendchise.app" class="cta-btn sm" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Web Platform</a>
+      </div>
+    </section>
+    <hr class="section-divider">
+
     <header class="hero mobile-hero">
       <div class="mobile-hero-grid">
         <div class="mobile-hero-copy">
           <div class="mobile-kicker">Frontline Operations App</div>
-          <h1 class="mobile-title">FriendChise Mobile</h1>
-          <p class="mobile-subtitle">A native Expo / React Native app that brings task management to shift staff on their phone, plus a camera-to-task workflow — backed by the same multi-tenant FriendChise API used on web.</p>
+          <h2 class="mobile-title">FriendChise Mobile</h2>
+          <p class="mobile-subtitle">A native Expo / React Native app that brings task management to shift staff on their phone, plus a camera-to-task workflow, backed by the same multi-tenant FriendChise API used on web.</p>
           <div class="flagship-role">
             <div class="flagship-role-title">Live on the App Store</div>
             <div class="flagship-role-meta">Expo Router · React Native · TypeScript · TanStack Query</div>
           </div>
-          <div class="hero-actions">
-            <a href="https://apps.apple.com/au/app/friendchise/id6797785868" class="cta-btn primary" target="_blank" rel="noopener noreferrer">App Store</a>
-            <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
           <div class="hero-links">
-            <a href="https://friendchise.app" class="cta-btn sm" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Web Platform</a>
             <a href="#screenshots" class="cta-btn sm"><i class="fas fa-camera" aria-hidden="true"></i> See it in use</a>
           </div>
         </div>
@@ -95,12 +103,13 @@
     <section class="mobile-section" id="overview">
       <h2 class="section-title">Overview</h2>
       <div class="content-section">
-        <p>At Walker's Doughnuts, shift procedures and task tracking lived on paper or in whoever was on shift — the same gap FriendChise's web platform was built to close for managers at a desk. FriendChise Mobile brings that task and procedure system to staff who are on the floor with a phone, not sitting at a computer.</p>
+        <p>At Walker's Doughnuts, shift procedures and task tracking lived on paper or in whoever was on shift, the same gap that FriendChise's web platform was built to close for managers at a desk. FriendChise Mobile brings that task and procedure system to staff who are on the floor with a phone, not sitting at a computer.</p>
         <p>The app is live on the App Store. It started on a shared device at the store via TestFlight, and staff are moving onto individual phones now that the listing is public.</p>
       </div>
     </section>
 
     <section class="mobile-section" id="screenshots">
+      <hr class="section-divider">
       <h2 class="section-title">Screenshots / Walkthrough</h2>
       <div class="screenshot-grid">
         <div>
@@ -125,6 +134,7 @@
     </section>
 
     <section class="mobile-section" id="workflow">
+      <hr class="section-divider">
       <h2 class="section-title">Mobile-First Workflow</h2>
       <div class="content-section">
         <div class="workflow-grid">
@@ -136,7 +146,7 @@
           <div class="workflow-card">
             <div class="workflow-index">2</div>
             <h3>Capture</h3>
-            <p>Camera photo, library image, or PDF — normalized on-device before upload.</p>
+            <p>Camera photo, library image, or PDF; normalized on-device before upload.</p>
           </div>
           <div class="workflow-card">
             <div class="workflow-index">3</div>
@@ -153,9 +163,10 @@
     </section>
 
     <section class="mobile-section" id="engineering">
+      <hr class="section-divider">
       <h2 class="section-title">Engineering</h2>
       <div class="content-section">
-        <p class="architecture-intro">The native app never talks to the database directly — it goes through the same shared FriendChise API and org-scoping as the web platform, with a mobile-specific pipeline for turning a photo into a task.</p>
+        <p class="architecture-intro">The native app never talks to the database directly; it goes through the same shared FriendChise API and org-scoping as the web platform, with a mobile-specific pipeline for turning a photo into a task.</p>
         <div class="architecture-diagram mobile-architecture">
           <div class="architecture-row"><div class="architecture-node architecture-node--wide">Native App<span class="architecture-node-subtle">Expo Router · Navigation / Screens</span></div></div>
           <div class="architecture-down">↓</div>
@@ -173,7 +184,7 @@
             <div class="architecture-node">Scan-to-Task Pipeline<span class="architecture-node-subtle">Extraction → structured draft</span></div>
           </div>
         </div>
-        <div class="architecture-support">What's AI, what isn't: OCR/vision extraction is a single model call that runs server-side in the existing FriendChise pipeline. Everything around it — capturing/normalizing the file, uploading, validating the returned draft's shape, and requiring a human review step before saving — is ordinary application logic, not AI.</div>
+        <div class="architecture-support">What's AI, what isn't: OCR/vision extraction is a single model call that runs server-side in the existing FriendChise pipeline. Everything around it: capturing/normalizing the file, uploading, validating the returned draft's shape, and requiring a human review step before saving, is ordinary application logic, not AI.</div>
 
         <div class="challenge-grid stack-gap-lg">
           <div class="challenge-card">
@@ -205,6 +216,7 @@
     </section>
 
     <section class="mobile-section" id="stack">
+      <hr class="section-divider">
       <h2 class="section-title">Technology Stack</h2>
       <div class="content-section">
         <div class="stack-grid">
@@ -259,6 +271,7 @@
     </section>
 
     <section class="mobile-section" id="impact">
+      <hr class="section-divider">
       <h2 class="section-title">Product Impact</h2>
       <div class="content-section">
         <p>The app started on a shared device at Walker's Doughnuts via TestFlight and is now live on the App Store. Task creation and Scan-to-Task moved off paper and photo message threads into a task list staff already recognize from the web platform, so the record of what got done stays in one place instead of split across a phone's camera roll and a chat thread.</p>
@@ -267,6 +280,7 @@
     </section>
 
     <section class="mobile-section" id="role">
+      <hr class="section-divider">
       <h2 class="section-title">My Contribution</h2>
       <div class="content-section">
         <p>I designed and built FriendChise Mobile on my own, end to end:</p>
@@ -282,6 +296,7 @@
     </section>
 
     <section class="mobile-section" id="roadmap">
+      <hr class="section-divider">
       <h2 class="section-title">Implemented / In Progress</h2>
       <div class="content-section">
         <div class="roadmap-grid">

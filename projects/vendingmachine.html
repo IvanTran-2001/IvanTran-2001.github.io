@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Vending Machine Simulator — Advanced C++14 project with custom linked lists, command pattern, and Valgrind-verified memory safety.">
+  <meta name="description" content="Vending Machine Simulator, Advanced C++14 project with custom linked lists, command pattern, and Valgrind-verified memory safety.">
   <meta name="keywords" content="C++, Vending Machine, Data Structures, Design Patterns, System Design">
   <title>Vending Machine | Ivan Tran</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -42,7 +42,7 @@
   <div class="hero">
     <a href="../index.html#work" class="back-link">&larr; Back to Portfolio</a>
     <h1>Vending Machine Simulator</h1>
-    <p class="hero-subtitle">Advanced C++14 simulator built without STL — custom linked lists, the command pattern, manual memory management, and Valgrind-verified zero leaks.</p>
+    <p class="hero-subtitle">Advanced C++14 simulator built without STL: custom linked lists, the command pattern, manual memory management, and Valgrind-verified zero leaks.</p>
     <div class="hero-badges">
       <span class="badge">C++14</span>
       <span class="badge">Custom ADTs</span>
@@ -100,8 +100,8 @@
       <div class="content-section stack-gap">
         <ul>
           <li><strong>Abstract LinkedList base class</strong> with virtual <code>printLL</code>, <code>findItem</code>, <code>saveLL</code>, <code>resetStock</code>, <code>remove</code>, <code>addLL</code>, and <code>deleteLL</code></li>
-          <li><strong>LinkedListSingle</strong> — singly-linked list for inventory traversal</li>
-          <li><strong>LinkedListDouble</strong> — doubly-linked list with prev/next pointers enabling reverse display</li>
+          <li><strong>LinkedListSingle</strong>: singly-linked list for inventory traversal</li>
+          <li><strong>LinkedListDouble</strong>: doubly-linked list with prev/next pointers enabling reverse display</li>
           <li><strong>Node / NodeD</strong> classes encapsulating product data (ID, name, description, price, on-hand quantity)</li>
           <li>Strategy-style runtime switching between the two list implementations</li>
         </ul>
@@ -126,11 +126,11 @@
       <h3 class="section-heading"><i class="fas fa-sitemap"></i> Architecture</h3>
       <div class="content-section stack-gap">
         <ul>
-          <li><strong>VendingMachine</strong> — core orchestrator managing state and command dispatch</li>
-          <li><strong>Command Pattern</strong> — eight command classes (Abort, DisplayItem, PurchaseItem, Save, AddItem, RemoveItem, DisplayCoins, ResetCoins)</li>
-          <li><strong>Menu</strong> — UI layer for command selection</li>
-          <li><strong>Coin / Price</strong> — currency representation and change calculation</li>
-          <li><strong>Helper</strong> — static validation utilities for stock/coin formats and input parsing</li>
+          <li><strong>VendingMachine</strong>: core orchestrator managing state and command dispatch</li>
+          <li><strong>Command Pattern</strong>: eight command classes (Abort, DisplayItem, PurchaseItem, Save, AddItem, RemoveItem, DisplayCoins, ResetCoins)</li>
+          <li><strong>Menu</strong>: UI layer for command selection</li>
+          <li><strong>Coin / Price</strong>: currency representation and change calculation</li>
+          <li><strong>Helper</strong>: static validation utilities for stock/coin formats and input parsing</li>
         </ul>
       </div>
     </section>
@@ -141,10 +141,10 @@
       <div class="content-section stack-gap">
         <ul>
           <li><strong>16+ test suites</strong> covering all major features and edge cases</li>
-          <li><strong>Functional &amp; purchase tests</strong> — exact change, insufficient funds, out-of-stock, invalid selection</li>
-          <li><strong>Admin tests</strong> — coin reset, restock, forward/reverse display, add/remove items</li>
-          <li><strong>Edge cases</strong> — malformed files, invalid delimiters, negative values, empty input</li>
-          <li><strong>Memory safety</strong> — zero leaks across all operations, verified by Valgrind</li>
+          <li><strong>Functional &amp; purchase tests</strong>: exact change, insufficient funds, out-of-stock, invalid selection</li>
+          <li><strong>Admin tests</strong>: coin reset, restock, forward/reverse display, add/remove items</li>
+          <li><strong>Edge cases</strong>: malformed files, invalid delimiters, negative values, empty input</li>
+          <li><strong>Memory safety</strong>: zero leaks across all operations, verified by Valgrind</li>
         </ul>
       </div>
     </section>

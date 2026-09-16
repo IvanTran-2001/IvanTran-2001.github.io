@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ECHT Warehouse WMS Process Improvement — database consolidation that improved warehouse workflow efficiency.">
+  <meta name="description" content="ECHT Warehouse WMS Process Improvement, database consolidation that improved warehouse workflow efficiency.">
   <meta name="keywords" content="Warehouse Management, SQL, Database Design, Process Improvement, Consulting">
   <title>ECHT Warehouse | Ivan Tran</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -93,7 +93,7 @@
         <h3>My Contributions</h3>
         <ul>
           <li>Identified the inefficiency and pitched the consolidation to management and the WMS vendor (Thomax Technology)</li>
-          <li>Authored the full technical specification &mdash; calculation logic for <code>replenResidual</code>, multi-condition filtering rules, edge case handling (negative &rarr; 0, bold positives), and an annotated example table &mdash; submitted directly to the vendor developer</li>
+          <li>Authored the full technical specification: calculation logic for <code>replenResidual</code>, multi-condition filtering rules, edge case handling (negative &rarr; 0, bold positives), and an annotated example table, submitted directly to the vendor developer</li>
           <li>Caught a live-data bug mid-day after go-live: <code>replenResidual</code> values were static snapshots not recalculating on BulkBinCode updates; documented root cause and escalated for a dynamic fix</li>
           <li>Trained staff on the new workflow with practical tips and best practices</li>
         </ul>
@@ -209,7 +209,7 @@
                 <td style="font-family:monospace;">OW/XXS</td>
                 <td style="text-align:center;">30</td>
                 <td>30 &minus; 0 = <strong>30</strong></td>
-                <td>TRA-FA-19 &mdash; 100</td>
+                <td>TRA-FA-19: 100</td>
                 <td style="text-align:center;color:green;">&#10004; 30 &gt; 0</td>
               </tr>
               <tr style="background:#fafafa;">
@@ -217,7 +217,7 @@
                 <td style="font-family:monospace;">OW/XS</td>
                 <td style="text-align:center;">30</td>
                 <td>30 &minus; 6 = <strong>24</strong></td>
-                <td>TABLE &mdash; 6, TRA-FA-19 &mdash; 100</td>
+                <td>TABLE: 6, TRA-FA-19: 100</td>
                 <td style="text-align:center;color:green;">&#10004; 30 &gt; 6</td>
               </tr>
               <tr>
@@ -225,7 +225,7 @@
                 <td style="font-family:monospace;">OW/S</td>
                 <td style="text-align:center;">30</td>
                 <td>30 &minus; 30 = 0</td>
-                <td>TABLE &mdash; 30, TRA-FA-19 &mdash; 100</td>
+                <td>TABLE: 30, TRA-FA-19: 100</td>
                 <td style="text-align:center;color:#c00;">&#10008; 30 &ge; 30</td>
               </tr>
               <tr style="background:#fafafa;">
@@ -233,7 +233,7 @@
                 <td style="font-family:monospace;">OW/M</td>
                 <td style="text-align:center;">30</td>
                 <td>30 &minus; 31 = 0 <small style="color:#888;">(clamped)</small></td>
-                <td>TABLE &mdash; 31, TRA-FA-19 &mdash; 100</td>
+                <td>TABLE: 31, TRA-FA-19: 100</td>
                 <td style="text-align:center;color:#c00;">&#10008; 31 &ge; 30</td>
               </tr>
               <tr>
@@ -241,7 +241,7 @@
                 <td style="font-family:monospace;">OW/L</td>
                 <td style="text-align:center;">30</td>
                 <td>30 &minus; 8 = <strong>22</strong></td>
-                <td>SUP-425 &mdash; 8, TRA-FA-19 &mdash; 100</td>
+                <td>SUP-425: 8, TRA-FA-19: 100</td>
                 <td style="text-align:center;color:green;">&#10004; 30 &gt; 8</td>
               </tr>
               <tr style="background:#fafafa;">
@@ -249,7 +249,7 @@
                 <td style="font-family:monospace;">OW/XL</td>
                 <td style="text-align:center;">30</td>
                 <td>30 &minus; (8+6) = <strong>16</strong></td>
-                <td>TABLE &mdash; 6, TRA-FA-19 &mdash; 100, SUP-425 &mdash; 8</td>
+                <td>TABLE: 6, TRA-FA-19: 100, SUP-425: 8</td>
                 <td style="text-align:center;color:green;">&#10004; 30 &gt; 14</td>
               </tr>
               <tr>
@@ -257,7 +257,7 @@
                 <td style="font-family:monospace;">OW/2XL</td>
                 <td style="text-align:center;">30</td>
                 <td>30 &minus; (23+7) = 0</td>
-                <td>SUP-865 &mdash; 23, TRA-FA-19 &mdash; 100, TABLE &mdash; 7</td>
+                <td>SUP-865: 23, TRA-FA-19: 100, TABLE: 7</td>
                 <td style="text-align:center;color:#c00;">&#10008; 30 &ge; 30</td>
               </tr>
               <tr style="background:#fafafa;">
@@ -265,13 +265,13 @@
                 <td style="font-family:monospace;">OW/3XL</td>
                 <td style="text-align:center;">30</td>
                 <td>30 &minus; (7+24) = 0 <small style="color:#888;">(clamped)</small></td>
-                <td>SUP-865 &mdash; 7, TRA-FA-19 &mdash; 100, TABLE &mdash; 24</td>
+                <td>SUP-865: 7, TRA-FA-19: 100, TABLE: 24</td>
                 <td style="text-align:center;color:#c00;">&#10008; 31 &ge; 30</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="stack-gap" style="color: var(--ink-tertiary); font-size: 0.9em;">Submitted to the WMS vendor as part of support ticket <strong>THX-1373449</strong>. The vendor deployed the implementation on <strong>11 December 2023</strong> and requested verification of output accuracy — which is when the stale-data bug was caught.</p>
+        <p class="stack-gap" style="color: var(--ink-tertiary); font-size: 0.9em;">Submitted to the WMS vendor as part of support ticket <strong>THX-1373449</strong>. The vendor deployed the implementation on <strong>11 December 2023</strong> and requested verification of output accuracy, which is when the stale-data bug was caught.</p>
       </div>
     </section>
 
@@ -294,10 +294,10 @@
         </div>
         <div class="content-section">
           <ul>
-            <li><strong>Consolidated system</strong> — three fragmented WMS views into one operational report</li>
-            <li><strong>Fewer errors</strong> — reduced manual cross-referencing, duplicated movement and the risk of missed replenishment items</li>
-            <li><strong>Faster onboarding</strong> — simplified onboarding by reducing the number of reports and rules new staff needed to learn</li>
-            <li><strong>Validation</strong> — identified a stale-data defect during live validation and escalated it before the Christmas peak</li>
+            <li><strong>Consolidated system</strong>, three fragmented WMS views into one operational report</li>
+            <li><strong>Fewer errors</strong>, reduced manual cross-referencing, duplicated movement and the risk of missed replenishment items</li>
+            <li><strong>Faster onboarding</strong>, simplified onboarding by reducing the number of reports and rules new staff needed to learn</li>
+            <li><strong>Validation</strong>, identified a stale-data defect during live validation and escalated it before the Christmas peak</li>
           </ul>
           <p class="stack-gap" style="color: var(--ink-tertiary); font-size: 0.95em;">Estimated operational outcomes included a 60&ndash;80% improvement in retrieval and stock-movement efficiency, approximately 50% faster training and roughly 40% fewer workflow errors.</p>
         </div>

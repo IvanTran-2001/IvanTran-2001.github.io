@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Multitenant E-Commerce Platform — Next.js 16, PayloadCMS, MongoDB, tRPC, TypeScript with role-based tenant isolation.">
+  <meta name="description" content="Multitenant E-Commerce Platform, Next.js 16, PayloadCMS, MongoDB, tRPC, TypeScript with role-based tenant isolation.">
   <meta name="keywords" content="Next.js, PayloadCMS, MongoDB, tRPC, TypeScript, Multi-tenant, E-Commerce, RBAC">
   <meta name="author" content="Ivan Tran">
   <title>Multitenant E-Commerce | Ivan Tran</title>
@@ -45,15 +45,15 @@
   <div class="hero">
     <a href="../index.html#work" class="back-link">&larr; Back to Portfolio</a>
     <h1>Multitenant E-Commerce</h1>
-    <p class="hero-subtitle">Multi-tenant SaaS e-commerce platform — Next.js 16, PayloadCMS, tRPC, and MongoDB — featuring role-based tenant isolation and end-to-end type safety.</p>
+    <p class="hero-subtitle">Multi-tenant SaaS e-commerce platform built with Next.js 16, PayloadCMS, tRPC, and MongoDB, featuring role-based tenant isolation and end-to-end type safety.</p>
     <div class="screenshots-grid">
       <div class="screenshot-item">
         <img src="pictures/multitenant-ecommerce1.png" alt="Main storefront with category filters">
-        <p>Main storefront — category nav, price &amp; tag filters</p>
+        <p>Main storefront: category nav, price &amp; tag filters</p>
       </div>
       <div class="screenshot-item">
         <img src="pictures/multitenant-ecommerce2.png" alt="Tenant storefront page">
-        <p>Tenant storefront — per-seller product listings</p>
+        <p>Tenant storefront: per-seller product listings</p>
       </div>
     </div>
     <div class="hero-badges">
@@ -114,7 +114,7 @@
           <p>A multi-tenant e-commerce SaaS where each seller's data and products are isolated through declarative role-based access control. <strong>PayloadCMS</strong> powers the headless backend and admin panel, <strong>Next.js 16</strong> renders the storefronts, and <strong>tRPC</strong> connects them with end-to-end type safety.</p>
           <ul>
             <li><strong>Multi-tenancy:</strong> Tenant data is scoped at the database level via PayloadCMS access control</li>
-            <li><strong>Auth:</strong> JWT stored in an <code>httpOnly</code> cookie server-side — never exposed to JavaScript</li>
+            <li><strong>Auth:</strong> JWT stored in an <code>httpOnly</code> cookie server-side, never exposed to JavaScript</li>
             <li><strong>Discovery:</strong> Hierarchical category nav, tag &amp; price filters, infinite-scroll listings</li>
             <li><strong>Library:</strong> Authenticated users access purchased products from a personal library</li>
           </ul>
@@ -158,7 +158,7 @@
       <div class="stack-gap">
         <div class="content-section">
           <h3>Tenant Data Isolation</h3>
-          <p>The <code>multiTenantPlugin</code> attaches a tenant relationship to scoped collections. PayloadCMS access control hooks then filter queries declaratively — tenant admins only see their own data, super-admins see everything. No manual access logic per collection.</p>
+          <p>The <code>multiTenantPlugin</code> attaches a tenant relationship to scoped collections. PayloadCMS access control hooks then filter queries declaratively; tenant admins only see their own data, and super-admins see everything. No manual access logic per collection.</p>
         </div>
         <div class="content-section">
           <h3>Authentication Flow</h3>
