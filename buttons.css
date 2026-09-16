@@ -1,0 +1,82 @@
+/* ============================================================
+   Shared Button System — Ivan Tran Portfolio
+   Import via: <link rel="stylesheet" href="buttons.css"> (root)
+               <link rel="stylesheet" href="../buttons.css"> (projects/)
+   Depends on colour/interaction tokens defined in navbar.css :root.
+   This file owns appearance + hover/focus/active states only —
+   layout (flex/grid/gap/wrap) stays with each page's own classes.
+   !important is used defensively so this wins over legacy
+   per-page resets (e.g. friendchise.css's universal overrides).
+   ============================================================ */
+
+.cta-btn, .btn, .button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1.5px solid var(--hairline-strong) !important;
+  border-radius: var(--radius-sm);
+  color: var(--ink) !important;
+  background: #ffffff !important;
+  cursor: pointer;
+  transition:
+    background var(--interactive-duration) ease,
+    border-color var(--interactive-duration) ease,
+    color var(--interactive-duration) ease,
+    transform var(--interactive-duration) ease,
+    box-shadow var(--interactive-duration) ease;
+}
+
+.cta-btn:hover, .btn:hover, .button:hover {
+  background: var(--surface-tint) !important;
+  border-color: var(--ink) !important;
+  color: var(--ink) !important;
+  transform: translateY(var(--interactive-lift));
+  box-shadow: var(--shadow-card);
+}
+.cta-btn:active, .btn:active, .button:active { transform: translateY(0); box-shadow: none; }
+
+/* Primary — the one blue action on a page; deepens on hover, never turns black */
+.cta-btn.primary, .button--primary {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+.cta-btn.primary:hover, .button--primary:hover,
+.cta-btn.primary:hover *, .button--primary:hover * {
+  background: var(--accent-dark) !important;
+  border-color: var(--accent-dark) !important;
+  color: #ffffff !important;
+}
+
+/* Compact / tertiary action — same interaction language, smaller footprint */
+.cta-btn.sm, .button--compact {
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  border-width: 1px;
+  border-color: var(--hairline-strong) !important;
+  color: var(--ink-secondary) !important;
+  flex-shrink: 0;
+}
+
+/* Icon-only compact action (e.g. a bare GitHub mark) — sized to match the height of sibling buttons */
+.cta-btn.icon, .button--icon {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  border-color: var(--hairline-strong) !important;
+  color: var(--ink-secondary) !important;
+  flex-shrink: 0;
+}
+.cta-btn.icon:hover, .button--icon:hover { color: var(--ink) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-btn, .btn, .button { transition: background 0.01ms, border-color 0.01ms, color 0.01ms; }
+  .cta-btn:hover, .btn:hover, .button:hover,
+  .cta-btn.primary:hover, .button--primary:hover { transform: none; }
+}

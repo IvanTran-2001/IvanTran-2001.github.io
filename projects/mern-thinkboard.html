@@ -6,12 +6,16 @@
   <meta name="description" content="MERN Thinkboard — Full-stack note-taking app with JWT auth, MongoDB, React, and Node.js.">
   <meta name="keywords" content="MERN, React, Node.js, MongoDB, Full-Stack, JWT Authentication, REST API">
   <title>MERN Thinkboard | Ivan Tran</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="../buttons.css">
   <link rel="stylesheet" href="friendchise.css">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -22,7 +26,7 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="../index.html" class="navbar-name">IVAN TRAN</a>
+    <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
     <ul class="navbar-links">
       <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
       <li><a href="#tech"><i class="fas fa-layer-group"></i> Tech Stack</a></li>
@@ -36,7 +40,7 @@
 
   <!-- Hero -->
   <div class="hero">
-    <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
+    <a href="../index.html#work" class="back-link">&larr; Back to Portfolio</a>
     <h1>MERN Thinkboard</h1>
     <p class="hero-subtitle">Full-stack note-taking app built with MongoDB, Express, React, and Node.js — JWT auth, Redis-backed rate limiting, and cloud deployment.</p>
     <div class="hero-badges">
@@ -86,7 +90,7 @@
     <!-- Overview -->
     <section class="page-section" id="overview">
       <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
-      <div class="content-section" style="margin-top: 20px;">
+      <div class="content-section stack-gap">
         <p>A production-ready note-taking application showcasing the full MERN stack with authentication, secure API design, and cloud deployment. Each user's notes are isolated server-side via owner checks on every CRUD operation.</p>
         <ul>
           <li><strong>Backend:</strong> Express REST API, JWT auth, middleware pipeline</li>
@@ -101,7 +105,7 @@
     <!-- Tech Stack -->
     <section class="page-section" id="tech">
       <h3 class="section-heading"><i class="fas fa-layer-group"></i> Technology Stack</h3>
-      <div class="tech-section" style="margin-top: 20px;">
+      <div class="tech-section stack-gap">
         <div class="tech-grid">
           <div class="tech-card"><h4>MongoDB</h4><p>NoSQL document store via Atlas + Mongoose</p></div>
           <div class="tech-card"><h4>Express.js</h4><p>RESTful API framework on Node.js</p></div>
@@ -116,7 +120,7 @@
     <!-- Key Features -->
     <section class="page-section" id="features">
       <h3 class="section-heading"><i class="fas fa-star"></i> Key Features</h3>
-      <div class="features-grid" style="margin-top: 20px;">
+      <div class="features-grid stack-gap">
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-lock"></i></div><h3>JWT Authentication</h3><p>Stateless 7-day tokens with bcrypt-hashed passwords and protected frontend/backend routes.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>User Data Isolation</h3><p>Every CRUD operation verifies ownership before reading or mutating notes.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div><h3>Rate Limiting</h3><p>Dual-layer Redis limits — IP-based on auth, user-based on API — to deter brute force and abuse.</p></div>
@@ -129,7 +133,7 @@
     <!-- Architecture -->
     <section class="page-section" id="architecture">
       <h3 class="section-heading"><i class="fas fa-sitemap"></i> Architecture &amp; Security</h3>
-      <div class="content-section" style="margin-top: 20px;">
+      <div class="content-section stack-gap">
         <ul>
           <li><strong>MVC structure:</strong> Controllers, routes, models, and middleware are cleanly separated</li>
           <li><strong>Axios interceptors:</strong> Inject JWT into request headers automatically</li>
@@ -149,7 +153,7 @@
         <a href="https://mern-thinkboard-qsrl.onrender.com" class="cta-btn primary" target="_blank"><i class="fas fa-globe"></i> Live Demo</a>
         <a href="https://www.loom.com/share/3b74959b6c4c43429d404a129b769081" class="cta-btn" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
         <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="cta-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="../index.html#projects" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <a href="../index.html#work" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
 

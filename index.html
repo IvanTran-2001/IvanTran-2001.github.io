@@ -6,7 +6,10 @@
   <meta name="description" content="Ivan Tran - Full-Stack Software Engineer based in Melbourne, Australia. Specialising in JavaScript, TypeScript, Next.js, MERN stack, Prisma, PostgreSQL, C++, and Python.">
   <meta name="keywords" content="Software Engineer, Full-Stack Developer, Full-Stack Engineer, MERN Stack, JavaScript, TypeScript, React, Next.js, Node.js, Express.js, Prisma, PostgreSQL, MongoDB, tRPC, PayloadCMS, Python, SQL, REST API, Test Automation, Playwright, Jest, Melbourne, Australia, Web Developer, Backend Developer, Frontend Developer, Git, Agile, OOP, Data Structures, Algorithms">
   <meta name="author" content="Ivan Tran">
-  <title>Ivan Tran | Full-Stack Software Engineer | Melbourne</title>
+  <title>Ivan Tran — Full-Stack Engineer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -14,6 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="buttons.css">
   <link rel="stylesheet" href="lightbox.css">
   <style>
     * {
@@ -22,14 +26,16 @@
       box-sizing: border-box;
     }
 
+    /* Colour, spacing, radius and shadow tokens are centralized in navbar.css :root. */
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #ffffff;
-      color: #000000;
+      background: var(--surface);
+      color: var(--ink);
       line-height: 1.5;
       max-width: 860px;
       margin: 0 auto;
-      padding: 28px 16px;
+      padding: 28px 16px 40px;
       overflow-x: hidden;
     }
 
@@ -37,431 +43,467 @@
       * { transition: none !important; animation: none !important; }
     }
 
-    /* Navbar bottom-margin override */
-    .navbar { margin-bottom: 28px; }
-    @media (max-width: 768px) { .navbar { margin-bottom: 22px; } }
+    /* Navbar bottom-margin override — more breathing room on desktop, more compact on mobile */
+    .navbar { margin-bottom: 48px; }
+    @media (max-width: 768px) { .navbar { margin-bottom: 24px; } }
 
     /* Hero Section */
     .hero {
-      border-bottom: 2px solid #000000;
-      padding: 30px 0 34px;
+      padding: 52px 0 4px;
       text-align: center;
-      margin-bottom: 34px;
+      margin-bottom: 52px;
     }
 
     .hero h1 {
-      font-size: 2.6em;
-      margin-bottom: 8px;
-      color: #000000;
-      font-weight: 700;
+      font-size: clamp(2.15rem, 5vw, 2.75rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-weight: 800;
     }
 
     .hero .title-sub {
-      font-size: 1.1em;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #333333;
-      margin-bottom: 12px;
+      font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+      font-weight: 500;
+      color: var(--ink-secondary);
+      max-width: 46ch;
+      margin: 0 auto 18px;
+      line-height: 1.45;
     }
 
     .hero-description {
-      font-size: 0.95em;
-      font-weight: 600;
-      color: #333333;
-      margin: 0 auto 18px;
-      max-width: 700px;
-      line-height: 1.5;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-tertiary);
+      letter-spacing: 0.04em;
+      margin: 0 auto 32px;
     }
 
     .hero-cta {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
     }
 
-    /* Buttons */
-    .cta-btn, .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 18px;
-      font-size: 0.85em;
-      font-weight: 600;
-      text-decoration: none;
-      border: 2px solid #000000;
-      color: #000000;
+    /* Desktop: flows inline with the primary button. Mobile turns this into a 2-up row. */
+    .hero-cta-secondary { display: contents; }
+
+    /* Button appearance/hover/focus is owned by buttons.css (shared across all pages).
+       Only page-specific layout (hero-cta, flagship-cta, etc.) lives here. */
+
+    /* Reusable bright content surface, used selectively for depth */
+    .surface-panel {
       background: #ffffff;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
     }
 
-    .cta-btn:hover, .btn:hover {
-      background: #000000;
-      color: #ffffff;
-    }
-
-    .cta-btn.primary {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #ffffff;
-    }
-
-    .cta-btn.primary:hover {
-      background: var(--accent-dark);
-      border-color: var(--accent-dark);
-      color: #ffffff;
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--accent);
-      font-size: 0.85em;
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .text-link:hover { text-decoration-thickness: 2px; }
-
-    /* Section Title */
+    /* Section headers */
     .section-title {
-      font-size: 1.3em;
-      margin: 0 0 18px 0;
-      color: #000000;
+      font-size: 1.02rem;
       font-weight: 700;
-      border-bottom: 2px solid #000000;
-      padding-bottom: 8px;
-      scroll-margin-top: 80px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin: 0 0 var(--space-5) 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    #work, #engineering, #open-source, #about, #skills, #contact { margin-bottom: 40px; }
+    .section-title::before {
+      content: '';
+      width: 18px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent-muted);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .section-intro {
+      font-size: 0.9rem;
+      color: var(--ink-secondary);
+      max-width: 60ch;
+      margin: 0 0 var(--space-5);
+      line-height: 1.55;
+    }
+
+    /* Structural boundary between major sections — separate from the section-title accent dash */
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--hairline);
+      margin: var(--space-6) 0;
+    }
 
     /* Badges */
     .proj-badge {
-      font-size: 0.68em;
+      font-size: 0.66rem;
       font-weight: 700;
-      padding: 2px 8px;
-      border: 1px solid;
+      padding: 3px 9px;
+      border-radius: 999px;
       vertical-align: middle;
       white-space: nowrap;
       letter-spacing: 0.02em;
     }
-    .badge-live     { background: #d4edda; color: #155724; border-color: #155724; }
-    .badge-wip      { background: #fff3cd; color: #856404; border-color: #856404; }
-    .badge-finalist { background: #f8d7da; color: #721c24; border-color: #721c24; }
-    .badge-grade    { background: #fff8e1; color: #7b5800; border-color: #c8900a; }
-    .badge-ongoing  { background: #d1ecf1; color: #0c5460; border-color: #0c5460; }
+    .badge-live     { background: #e5f6ea; color: #1a7a35; }
+    .badge-wip      { background: #fdf1d8; color: #93650a; }
+    .badge-finalist { background: #fbe8ea; color: #a13342; }
+    .badge-grade    { background: #fdf6e0; color: #8a6d1a; }
+    .badge-ongoing  { background: var(--accent-tint); color: var(--accent-dark); }
 
-    /* Flagship feature (FriendChise) */
+    /* Flagship feature (FriendChise) — only the copy column gets a white surface; the screenshot stays on the page background */
     .flagship-feature {
       display: grid;
       grid-template-columns: 1.05fr 1fr;
-      gap: 34px;
+      gap: 40px;
       align-items: center;
-      margin-bottom: 30px;
+      margin-bottom: var(--space-6);
+      background: #ffffff;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
     }
 
-    .browser-frame { border: 1px solid #000000; background: #ffffff; }
-    .browser-frame-bar { display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-bottom: 1px solid #000000; }
-    .browser-dot { width: 9px; height: 9px; border-radius: 50%; border: 1px solid #000000; display: inline-block; }
+    .flagship-copy {
+      padding: 0;
+    }
+
+    .browser-frame { border: 1px solid var(--hairline-strong); border-radius: var(--radius-md); background: #ffffff; overflow: hidden; box-shadow: var(--shadow-card); }
+    .browser-frame-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border-bottom: 1px solid var(--hairline); background: var(--surface-tint); }
+    .browser-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--hairline-strong); display: inline-block; }
     .browser-frame img { display: block; width: 100%; height: auto; }
 
     .flagship-kicker {
-      font-size: 0.72em;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 10px;
+      margin-bottom: var(--space-3);
+    }
+
+    .flagship-kicker .kicker-role {
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      color: var(--ink-tertiary);
+      font-size: 0.78rem;
     }
 
     .flagship-copy h3 {
-      font-size: 1.7em;
-      font-weight: 700;
-      margin-bottom: 10px;
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      color: var(--ink);
     }
 
     .flagship-value {
-      font-size: 0.95em;
-      line-height: 1.55;
-      color: #333333;
-      margin-bottom: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--ink-secondary);
+      margin-bottom: 14px;
       max-width: 52ch;
     }
 
+    .flagship-proof {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      margin-bottom: 16px;
+    }
+
+    .proof-dot { width: 7px; height: 7px; border-radius: 999px; background: #22a355; flex-shrink: 0; }
+
+    /* Editorial stat row — replaces four separate boxed metric chips */
     .flagship-signals {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 8px;
-      margin-bottom: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      margin-bottom: 20px;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      padding: 14px 0;
     }
 
-    .signal-chip {
-      border: 1px solid #000000;
-      padding: 10px 6px;
-      text-align: center;
+    .signal-chip { padding: 0 16px; border-left: 1px solid var(--hairline); text-align: left; }
+    .signal-chip:first-child { border-left: none; padding-left: 0; }
+
+    .signal-chip strong { display: block; font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; color: var(--ink); line-height: 1.2; }
+    .signal-chip span { font-size: 0.74rem; color: var(--ink-tertiary); line-height: 1.3; display: block; margin-top: 2px; }
+
+    .flagship-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
     }
 
-    .signal-chip strong { display: block; font-size: 0.86em; font-weight: 700; margin-bottom: 2px; color: var(--accent); }
-    .signal-chip span { font-size: 0.66em; color: #333333; line-height: 1.25; display: block; }
+    .flagship-cta .cta-btn,
+    .flagship-cta-secondary .cta-btn {
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
 
-    .flagship-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .flagship-cta .cta-btn.icon,
+    .flagship-cta-secondary .cta-btn.icon {
+      width: 34px;
+      height: 34px;
+    }
 
-    /* Secondary feature (FriendChise Mobile) */
+    /* Desktop: flows inline after the primary/secondary pair. Mobile turns this into a compact row. */
+    .flagship-cta-secondary {
+      display: flex;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+
+    /* Secondary feature (FriendChise Mobile) — smaller surface on the copy column, visually subordinate to the flagship */
     .secondary-feature {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 28px;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 32px;
       align-items: center;
-      border-top: 1px solid #000000;
-      padding-top: 26px;
-      margin-bottom: 30px;
+      margin-bottom: var(--space-6);
+      background: #ffffff;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
     }
 
-    .phone-frame-sm {
-      border: 1px solid #000000;
-      max-width: 220px;
-      margin: 0 auto;
-      overflow: hidden;
+    .secondary-copy {
+      padding: 0;
     }
 
+    .phone-frame-sm { border: 1px solid var(--hairline-strong); border-radius: var(--radius-md); max-width: 220px; margin: 0 auto; overflow: hidden; box-shadow: var(--shadow-card); }
     .phone-frame-sm img { display: block; width: 100%; height: auto; }
 
-    .secondary-copy h3 { font-size: 1.25em; font-weight: 700; margin-bottom: 8px; }
-    .secondary-copy p { font-size: 0.9em; color: #333333; line-height: 1.5; margin-bottom: 10px; max-width: 54ch; }
+    .secondary-copy h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .secondary-copy p { font-size: 0.9rem; color: var(--ink-secondary); line-height: 1.55; margin: 8px 0 12px; max-width: 54ch; }
 
-    .tight-list { list-style: none; margin-bottom: 16px; }
+    .tight-list { list-style: none; margin-bottom: 18px; }
     .tight-list li {
-      font-size: 0.85em;
-      color: #333333;
-      padding-left: 15px;
+      font-size: 0.85rem;
+      color: var(--ink-secondary);
+      padding-left: 16px;
       position: relative;
-      margin-bottom: 5px;
-      line-height: 1.4;
+      margin-bottom: 6px;
+      line-height: 1.45;
     }
-    .tight-list li::before { content: '•'; position: absolute; left: 0; font-weight: 700; }
+    .tight-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
 
     /* Compact work rows (ECHT / QA Wolf) */
     .work-row-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
-      border-top: 1px solid #000000;
-      padding-top: 26px;
     }
 
-    .work-row { display: flex; flex-direction: column; border: 1px solid #000000; transition: border-color 0.2s ease; }
-    .work-row:hover { border-color: var(--accent); }
-    .work-row-image { width: 100%; height: 140px; object-fit: cover; display: block; border-bottom: 1px solid #000000; }
-    .work-row-copy { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-    .work-row-copy h4 { font-size: 0.98em; font-weight: 700; }
-    .work-row-meta { font-size: 0.82em; color: #333333; line-height: 1.5; }
-    .work-row-outcome { font-size: 0.82em; color: #333333; line-height: 1.5; }
-    .work-row-outcome em { font-style: normal; font-weight: 700; }
-
-    /* Engineering signal grid */
-    .signal-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+    .work-row {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #ffffff;
+      transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     }
+    .work-row:hover { border-color: var(--hairline-strong); transform: translateY(-2px); box-shadow: var(--shadow-card); }
+    .work-row-image { width: 100%; height: 160px; object-fit: cover; object-position: center; display: block; }
+    .work-row-image--top { object-position: center top; }
+    .work-row-copy { padding: 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .work-row-copy h4 { font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .work-row-meta { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.55; }
+    .work-row-outcome { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.55; }
+    .work-row-outcome em { font-style: normal; font-weight: 700; color: var(--ink); }
+    .work-row-links { display: flex; gap: 10px; margin-top: 2px; }
 
-    .signal-card { border: 1px solid #000000; padding: 16px; transition: border-color 0.2s ease; }
-    .signal-card:hover { border-color: var(--accent); }
-    .signal-card h4 { font-size: 0.92em; font-weight: 700; margin-bottom: 8px; }
-    .signal-card p { font-size: 0.82em; color: #333333; line-height: 1.45; }
+    /* Engineering snapshot sits on a bright surface panel; 2-column grid inside, spacing does the rest */
+    .signal-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-7); }
 
-    /* Open source */
-    .oss-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-    .oss-card { border: 1px solid #000000; padding: 16px; transition: border-color 0.2s ease; }
-    .oss-card:hover { border-color: var(--accent); }
-    .oss-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
-    .oss-card-top h4 { font-size: 0.92em; font-weight: 700; }
-    .oss-card p { font-size: 0.84em; color: #333333; line-height: 1.5; }
+    .signal-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: var(--space-2); }
+    .signal-card p { font-size: 0.85rem; color: var(--ink-secondary); line-height: 1.55; }
+
+    /* Open source — a concrete row list, single divider between entries */
+    .oss-grid { display: flex; flex-direction: column; }
+    .oss-card { padding: var(--space-5) 0; }
+    .oss-card:first-child { padding-top: 0; }
+    .oss-card:last-child { padding-bottom: 0; }
+    .oss-card + .oss-card { border-top: 1px solid var(--hairline); }
+    .oss-card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+    .oss-card-top h4 { font-size: 0.92rem; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .oss-card p { font-size: 0.84rem; color: var(--ink-secondary); line-height: 1.55; max-width: 62ch; }
 
     /* About Section */
-    .about-content {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 24px;
-    }
+    .about-content { display: grid; grid-template-columns: 130px 1fr; gap: 28px; }
 
-    .about-image img {
-      width: 150px;
-      height: 150px;
-      border: 2px solid #000000;
-      object-fit: cover;
-    }
-
-    .about-text p {
-      color: #333333;
-      margin-bottom: 12px;
-      line-height: 1.55;
-      font-size: 0.9em;
-    }
-
-    .about-note {
-      font-size: 0.78em;
-      color: #666666;
-      margin-bottom: 14px;
-    }
-
+    .about-image img { width: 120px; height: 120px; border-radius: var(--radius-md); object-fit: cover; }
+    .about-text p { color: var(--ink-secondary); margin-bottom: 14px; line-height: 1.6; font-size: 0.9rem; }
+    .about-note { font-size: 0.8rem; color: var(--ink-tertiary); margin-bottom: 18px; }
     .resume-buttons { display: flex; gap: 10px; }
 
-    /* Skills Section */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 12px;
-      margin-bottom: 16px;
+    /* Skills Section — grouped rows on a bright surface panel */
+    .skills-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5) var(--space-7); }
+    .skills-groups .skill-group:last-child { grid-column: 1 / -1; }
+
+    .skill-group h4 { color: var(--ink-tertiary); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+    .skill-group p { color: var(--ink); font-size: 0.88rem; line-height: 1.5; }
+
+    .skills-study {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: var(--space-5);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--hairline);
+      font-size: 0.82rem;
+      color: var(--ink-secondary);
     }
+    .skills-study i { color: var(--accent); font-size: 0.95em; margin-top: 2px; }
+    .skills-study strong { font-weight: 700; color: var(--ink); }
 
-    .skill-card { border: 1px solid #000000; padding: 14px; transition: border-color 0.2s ease; }
-    .skill-card:hover { border-color: var(--accent); }
-    .skill-card h4 { color: #000000; margin-bottom: 8px; font-size: 0.95em; font-weight: 700; }
-    .skill-card p { color: #333333; font-size: 0.82em; line-height: 1.45; }
-
-    .skills-note { font-size: 0.82em; color: #333333; }
-    .skills-note strong { font-weight: 700; }
-
-    /* Additional Work */
+    /* Additional Work — the toggle reads as a real compact button, not styled text */
     .collapsible-section summary {
       list-style: none;
       cursor: pointer;
-      font-weight: 700;
-      font-size: 1.1em;
-      padding: 12px 0;
-      border-bottom: 2px solid #000000;
-      display: flex;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 8px 14px;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
+      color: var(--ink-secondary);
+      background: #ffffff;
+      border: 1px solid var(--hairline-strong);
+      border-radius: var(--radius-sm);
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform var(--interactive-duration) ease, box-shadow var(--interactive-duration) ease;
     }
+    .collapsible-section summary i { font-size: 0.75em; color: var(--ink-tertiary); transition: transform 0.18s ease; }
+    .collapsible-section[open] summary i { transform: rotate(180deg); }
+    .collapsible-section summary:hover { border-color: var(--ink-secondary); color: var(--ink); background: var(--surface-tint); transform: translateY(var(--interactive-lift)); box-shadow: var(--shadow-card); }
     .collapsible-section summary::-webkit-details-marker { display: none; }
+    .collapsible-section[open] summary { margin-bottom: var(--space-4); }
+    .compact-row-list .compact-row:first-child { padding-top: 0; }
 
     .compact-row {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      padding: 14px 0;
-      border-bottom: 1px solid #dddddd;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--hairline);
     }
     .compact-row:last-child { border-bottom: none; }
-    .compact-row-copy h4 { font-size: 0.92em; font-weight: 700; margin-bottom: 4px; }
-    .compact-row-copy p { font-size: 0.82em; color: #333333; line-height: 1.45; max-width: 52ch; }
-    .compact-row-links { display: flex; gap: 12px; flex-shrink: 0; padding-top: 2px; }
+    .compact-row-copy h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .compact-row-copy p { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.5; max-width: 52ch; }
+    .compact-row-links { display: flex; gap: 10px; flex-shrink: 0; padding-top: 2px; }
 
-    /* Footer */
-    footer {
-      border-top: 2px solid #000000;
-      padding: 24px 0;
-      text-align: center;
-      margin-top: 8px;
-    }
+    /* Footer — one clean transition, no stacked separators */
+    footer { border-top: 1px solid var(--hairline); padding: var(--space-6) 0 var(--space-2); text-align: center; }
 
-    .footer-content {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
+    #contact { margin-bottom: var(--space-7); }
 
-    .footer-item { color: #333333; font-size: 0.82em; }
-    .footer-item a { color: #000000; text-decoration: none; font-weight: 600; }
-    .footer-item a:hover { text-decoration: underline; }
+    .footer-content { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-3); }
 
-    .footer-copyright {
-      padding-top: 16px;
-      border-top: 1px solid #000000;
-      color: #333333;
-      font-size: 0.78em;
-    }
+    .footer-item { color: var(--ink-tertiary); font-size: 0.82rem; }
+    .footer-item a { color: var(--ink); text-decoration: none; font-weight: 600; }
+    .footer-item a:hover { color: var(--accent); }
+
+    .footer-copyright { color: var(--ink-tertiary); font-size: 0.78rem; }
 
     /* Contact Form */
-    .contact-intro { font-size: 0.95em; color: #333333; margin-bottom: 24px; }
+    .contact-panel-intro { margin-bottom: var(--space-5); }
+    .contact-panel-intro h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: var(--space-2); color: var(--ink); }
+    .contact-intro { font-size: 0.95rem; color: var(--ink-secondary); margin: 0 0 var(--space-6); max-width: 56ch; }
 
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 260px;
-      gap: 24px;
-      align-items: start;
-    }
+    .contact-layout { display: grid; grid-template-columns: 1fr 260px; gap: 0; align-items: start; }
 
-    .contact-form-wrapper { border: 2px solid #000000; padding: 28px; }
-    .contact-sidebar { border: 2px solid #000000; padding: 22px; }
-    .contact-sidebar h4 { font-size: 0.95em; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid #000000; padding-bottom: 8px; }
+    .contact-form-wrapper { padding-right: 28px; border-right: 1px solid var(--hairline); }
+    .contact-sidebar { padding-left: 28px; }
+    .contact-sidebar h4 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-tertiary); margin-bottom: 16px; }
 
     .contact-social-link {
       display: flex;
       align-items: center;
       gap: 12px;
       padding: 12px 14px;
-      border: 1.5px solid #000000;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-sm);
       text-decoration: none;
-      color: #000000;
+      color: var(--ink);
       font-weight: 600;
-      font-size: 0.82em;
+      font-size: 0.82rem;
       margin-bottom: 10px;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: background 0.18s ease, border-color 0.18s ease, transform var(--interactive-duration) ease, box-shadow var(--interactive-duration) ease;
     }
 
     .contact-social-link:last-child { margin-bottom: 0; }
-    .contact-social-link:hover { background: #000000; color: #ffffff; }
-    .contact-social-link i { font-size: 1.2em; width: 20px; text-align: center; }
+    .contact-social-link:hover { background: var(--surface-tint); border-color: var(--hairline-strong); transform: translateY(var(--interactive-lift)); box-shadow: var(--shadow-card); }
+    .contact-social-link i { font-size: 1.2em; width: 20px; text-align: center; color: var(--ink-tertiary); }
 
-    .contact-social-desc { display: block; font-size: 0.7em; font-weight: 400; opacity: 0.6; margin-top: 2px; }
-
-    .contact-form-wrapper h3 { font-size: 1.15em; font-weight: 700; margin-bottom: 20px; color: #000000; }
+    .contact-social-desc { display: block; font-size: 0.7em; font-weight: 400; color: var(--ink-tertiary); margin-top: 2px; }
 
     .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 0.82em; font-weight: 600; color: #000000; margin-bottom: 5px; }
+    .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink-secondary); margin-bottom: 6px; }
 
     .form-group input,
     .form-group textarea {
       width: 100%;
-      padding: 10px 12px;
-      border: 1.5px solid #cccccc;
+      padding: 11px 13px;
+      border: 1px solid var(--hairline-strong);
+      border-radius: var(--radius-sm);
       font-family: inherit;
-      font-size: 0.82em;
-      color: #000000;
+      font-size: 0.88rem;
+      color: var(--ink);
       background: #fafafa;
       outline: none;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
       box-sizing: border-box;
     }
 
     .form-group input:focus,
-    .form-group textarea:focus { border-color: #000000; background: #ffffff; }
+    .form-group textarea:focus { border-color: var(--accent); background: #ffffff; box-shadow: 0 0 0 3px var(--accent-tint); }
     .form-group input::placeholder,
-    .form-group textarea::placeholder { color: #aaaaaa; }
+    .form-group textarea::placeholder { color: #aeb0b6; }
     .form-group textarea { height: 110px; resize: vertical; }
 
     .contact-submit {
       width: 100%;
-      padding: 12px;
-      background: #000000;
+      padding: 13px;
+      background: var(--ink);
       color: #ffffff;
-      border: 2px solid #000000;
+      border: 1.5px solid var(--ink);
+      border-radius: var(--radius-sm);
       font-family: inherit;
-      font-size: 0.85em;
+      font-size: 0.85rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
       cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: background 0.18s ease, border-color 0.18s ease, transform var(--interactive-duration) ease, box-shadow var(--interactive-duration) ease;
     }
-    .contact-submit:hover { background: #ffffff; color: #000000; }
+    .contact-submit:hover { background: var(--ink-hover); border-color: var(--ink-hover); transform: translateY(var(--interactive-lift)); box-shadow: var(--shadow-card); }
+    .contact-submit:active { transform: translateY(0); box-shadow: none; }
+    .contact-submit:disabled { opacity: 0.7; cursor: default; }
 
     .form-success {
       display: none;
       padding: 12px;
-      border: 1.5px solid #000000;
-      font-size: 0.82em;
+      border: 1px solid var(--hairline-strong);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
       font-weight: 600;
+      color: var(--ink);
       text-align: center;
       margin-top: 14px;
     }
@@ -472,68 +514,97 @@
 
     /* Tablet */
     @media (max-width: 900px) {
-      .flagship-signals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .signal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .signal-grid { gap: var(--space-5) var(--space-6); }
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.05em; }
-      .hero .title-sub { font-size: 1em; }
-      .hero-description { font-size: 0.86em; }
-      .section-title { font-size: 1.22em; }
+      body { padding: 20px 16px 32px; }
+      .hero { padding: 28px 0 4px; margin-bottom: 40px; }
+      .hero h1 { font-size: 2rem; }
+      .hero .title-sub { font-size: 1.02rem; }
+      .hero-description { font-size: 0.78rem; margin-bottom: 26px; }
+      .section-title { font-size: 0.92rem; }
+      .section-divider { margin: var(--space-5) 0; }
 
       .flagship-feature,
-      .secondary-feature { grid-template-columns: 1fr; }
+      .secondary-feature { grid-template-columns: 1fr; gap: 22px; }
+      .flagship-feature { padding: var(--space-5); }
+      .secondary-feature { padding: var(--space-5); }
+      .flagship-copy, .secondary-copy { padding: 0; }
       .flagship-copy h3 { font-size: 1.4em; }
       .flagship-value { max-width: none; }
-      .phone-frame-sm { max-width: 180px; }
+      .phone-frame-sm { max-width: 200px; }
       .secondary-copy p { max-width: none; }
 
+      .flagship-signals { padding: 14px 0; }
+      .signal-chip { padding: 0 8px; }
+      .signal-chip strong { font-size: 1rem; }
+
       .work-row-grid { grid-template-columns: 1fr; }
-      .oss-grid { grid-template-columns: 1fr; }
+      .work-row-image { height: 180px; }
 
       .about-content { grid-template-columns: 1fr; gap: 16px; }
       .about-image { text-align: center; }
-      .about-image img { width: 140px; height: 140px; }
+      .about-image img { width: 110px; height: 110px; }
 
-      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .skills-groups { grid-template-columns: 1fr; gap: var(--space-4); }
+      .surface-panel { padding: var(--space-5); }
 
       .resume-buttons { flex-direction: column; }
-      .btn { width: 100%; text-align: center; }
+      .btn { width: 100%; text-align: center; justify-content: center; }
 
       .footer-content { flex-direction: column; gap: 10px; }
 
-      .contact-layout { grid-template-columns: 1fr; }
-      .contact-form-wrapper { padding: 18px 14px; }
+      .contact-layout { grid-template-columns: 1fr; gap: var(--space-5); }
+      .contact-form-wrapper { padding-right: 0; border-right: none; border-bottom: 1px solid var(--hairline); padding-bottom: var(--space-5); }
+      .contact-sidebar { padding-left: 0; }
 
-      .hero-cta { flex-direction: column; align-items: stretch; }
-      .cta-btn { text-align: center; justify-content: center; }
+      .hero-cta { flex-direction: column; align-items: stretch; gap: 10px; }
+      .hero-cta > .cta-btn.primary { width: 100%; justify-content: center; }
+      .hero-cta-secondary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .hero-cta-secondary .cta-btn { width: 100%; justify-content: center; }
 
-      .flagship-cta { flex-direction: column; align-items: stretch; }
-      .flagship-cta .cta-btn { width: 100%; justify-content: center; }
+      .flagship-cta { flex-direction: column; align-items: stretch; gap: 10px; flex-wrap: nowrap; }
+      .flagship-cta > .cta-btn.primary { width: 100%; justify-content: center; }
+      .flagship-cta-secondary { display: flex; gap: 10px; }
+      .flagship-cta-secondary .cta-btn:not(.icon) { flex: 1 1 auto; justify-content: center; }
 
       .compact-row { flex-direction: column; gap: 8px; }
+      .compact-row-links { padding-top: 0; }
     }
 
     @media (max-width: 480px) {
-      .flagship-signals { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flagship-signals { padding: 12px 0; }
+      .signal-chip { padding: 0 6px; }
+      .signal-chip span { font-size: 0.68rem; }
       .signal-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar">
-    <a href="#" class="navbar-name">IVAN TRAN</a>
+  <nav class="navbar navbar--long">
+    <a href="#" class="navbar-name" aria-label="Ivan Tran"><img src="favicon.svg" alt="" aria-hidden="true"></a>
     <ul class="navbar-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#engineering">Engineering</a></li>
       <li><a href="#open-source">Open Source</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+    <details class="navbar-sections">
+      <summary>Menu <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+      <ul class="sections-menu">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#engineering">Engineering</a></li>
+        <li><a href="#open-source">Open Source</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </details>
     <div class="navbar-socials">
-      <a href="#contact" aria-label="Contact" title="Contact"><i class="fas fa-envelope" aria-hidden="true"></i></a>
       <a href="https://www.linkedin.com/in/ivan-tran-dev" target="_blank" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
       <a href="https://github.com/IvanTran-2001" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
     </div>
@@ -546,10 +617,14 @@
     <p class="hero-description">TypeScript · React · Next.js · PostgreSQL</p>
     <div class="hero-cta">
       <a href="projects/friendchise.html" class="cta-btn primary"><i class="fas fa-layer-group"></i> View FriendChise</a>
-      <a href="Ivan%20Tran%20-%20Resume.pdf" class="cta-btn" target="_blank" rel="noopener"><i class="fas fa-file-alt"></i> Resume</a>
-      <a href="https://github.com/IvanTran-2001" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+      <div class="hero-cta-secondary">
+        <a href="Ivan%20Tran%20-%20Resume.pdf" class="cta-btn" target="_blank" rel="noopener"><i class="fas fa-file-alt"></i> Resume</a>
+        <a href="https://github.com/IvanTran-2001" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+      </div>
     </div>
   </div>
+
+  <hr class="section-divider">
 
   <!-- Featured Work -->
   <div id="work">
@@ -564,19 +639,21 @@
         <img src="projects/pictures/friendchise/GIFS-V2/demo.gif" alt="FriendChise organisation dashboard" class="expandable" loading="lazy" decoding="async">
       </div>
       <div class="flagship-copy">
-        <div class="flagship-kicker">Flagship product · Solo Founder &amp; Lead Developer</div>
+        <div class="flagship-kicker"><span>Flagship Product</span><span class="kicker-role">Solo Founder &amp; Lead Developer</span></div>
         <h3>FriendChise</h3>
         <p class="flagship-value">A multi-tenant operations platform running scheduling, recurring tasks, procedures and a QR customer menu for a real Walker&rsquo;s Doughnuts location, every day.</p>
+        <div class="flagship-proof"><span class="proof-dot"></span> Production pilot &mdash; live daily at Walker&rsquo;s Doughnuts</div>
         <div class="flagship-signals">
-          <div class="signal-chip"><strong>Production pilot</strong><span>Walker&rsquo;s Doughnuts</span></div>
           <div class="signal-chip"><strong>55</strong><span>Prisma models</span></div>
           <div class="signal-chip"><strong>440+</strong><span>Automated tests</span></div>
-          <div class="signal-chip"><strong>27</strong><span>OSS contributors</span></div>
+          <div class="signal-chip"><strong>31</strong><span>Contributors</span></div>
         </div>
         <div class="flagship-cta">
-          <a href="projects/friendchise.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> View Case Study</a>
-          <a href="https://friendchise.app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-          <a href="https://github.com/IvanTran-2001/FriendChise" class="text-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+          <a href="projects/friendchise.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> Case Study</a>
+          <div class="flagship-cta-secondary">
+            <a href="https://friendchise.app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><i class="fab fa-github"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -587,16 +664,19 @@
         <img src="projects/pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task workflow: capture, generated draft, review" class="expandable">
       </div>
       <div class="secondary-copy">
-        <div class="flagship-kicker">Frontline Operations App</div>
-        <h3>FriendChise Mobile</h3>
+        <div class="flagship-kicker"><span>Frontline Operations App</span></div>
+        <h3>FriendChise Mobile <span class="proj-badge badge-live">Live on the App Store</span></h3>
         <p>Native task access and a Scan-to-Task capture flow for staff on the floor, sharing FriendChise&rsquo;s multi-tenant backend and auth.</p>
         <ul class="tight-list">
           <li>React Native / Expo, native Google &amp; LinkedIn auth</li>
           <li>Camera &amp; document capture &rarr; AI-assisted structured task drafts</li>
         </ul>
         <div class="flagship-cta">
-          <a href="projects/friendchise-mobile.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> View Case Study</a>
-          <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="text-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+          <a href="projects/friendchise-mobile.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> Case Study</a>
+          <div class="flagship-cta-secondary">
+            <a href="https://apps.apple.com/au/app/friendchise/id6797785868" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-app-store-ios"></i> App Store</a>
+            <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository"><i class="fab fa-github"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -604,12 +684,14 @@
     <!-- ECHT + QA Wolf: compact rows -->
     <div class="work-row-grid">
       <div class="work-row animate-on-scroll">
-        <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image expandable" loading="lazy" decoding="async">
+        <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image work-row-image--top expandable" loading="lazy" decoding="async">
         <div class="work-row-copy">
           <h4>ECHT Warehouse &mdash; Process Engineering</h4>
           <p class="work-row-meta">Context: a fragmented WMS replenishment workflow required staff to cross-reference three tables and needed two operators to keep pace. Intervention: redesigned the workflow into a single-operator process and a documented technical spec (Jira THX-1373449).</p>
           <p class="work-row-outcome"><em>Estimated:</em> 60&ndash;80% faster retrieval/movement, ~50% faster onboarding, ~40% fewer errors ahead of peak season.</p>
-          <a href="projects/echt-warehouse.html" class="text-link"><i class="fas fa-file-alt"></i> Details</a>
+          <div class="work-row-links">
+            <a href="projects/echt-warehouse.html" class="cta-btn sm">View Project &rarr;</a>
+          </div>
         </div>
       </div>
       <div class="work-row animate-on-scroll">
@@ -617,19 +699,21 @@
         <div class="work-row-copy">
           <h4>QA Wolf &mdash; Paid Finalist Assessment <span class="proj-badge badge-finalist">~15 Finalists</span></h4>
           <p class="work-row-meta">Node.js + Playwright automation validating Hacker News sort order across paginated content, with deterministic checks, structured diagnostics and non-zero exit codes on failure.</p>
-          <div style="display:flex; gap:12px;">
-            <a href="projects/QA-Wolf-Take-Home.html" class="text-link"><i class="fas fa-file-alt"></i> Details</a>
-            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="text-link" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <div class="work-row-links">
+            <a href="projects/QA-Wolf-Take-Home.html" class="cta-btn sm">View Project &rarr;</a>
+            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="cta-btn sm" target="_blank"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
+  <hr class="section-divider">
+
   <!-- Engineering Snapshot -->
   <div id="engineering">
     <h2 class="section-title">ENGINEERING SNAPSHOT</h2>
-    <div class="signal-grid">
+    <div class="signal-grid surface-panel">
       <div class="signal-card animate-on-scroll">
         <h4>Multi-Tenant Systems</h4>
         <p>Organisation and role-scoped application architecture across FriendChise and an in-progress e-commerce platform.</p>
@@ -644,117 +728,142 @@
       </div>
       <div class="signal-card animate-on-scroll">
         <h4>Open Source</h4>
-        <p>27 external contributors reviewed and merged through my own pull-request process.</p>
+        <p>31 external contributors reviewed and merged through my own pull-request process.</p>
       </div>
     </div>
   </div>
+
+  <hr class="section-divider">
 
   <!-- Open Source -->
   <div id="open-source">
     <h2 class="section-title">OPEN SOURCE</h2>
-    <div class="oss-grid">
-      <div class="oss-card animate-on-scroll">
-        <div class="oss-card-top">
-          <h4>DevTasks <span class="proj-badge badge-live">PR #274</span></h4>
-          <a href="https://github.com/shamilahmdt/devtasks/pull/274" target="_blank" rel="noopener noreferrer" class="text-link">View PR</a>
+    <div class="surface-panel">
+      <div class="oss-grid">
+        <div class="oss-card animate-on-scroll">
+          <div class="oss-card-top">
+            <h4>DevTasks <span class="proj-badge badge-live">PR #274</span></h4>
+            <a href="https://github.com/shamilahmdt/devtasks/pull/274" target="_blank" rel="noopener noreferrer" class="cta-btn sm">View PR</a>
+          </div>
+          <p>Added a favorites layout for Dev Utilities &mdash; starred tools move into a dedicated list, and duplicate cards collapse into unique pages.</p>
         </div>
-        <p>Added a favorites layout for Dev Utilities &mdash; starred tools move into a dedicated list, and duplicate cards collapse into unique pages.</p>
-      </div>
-      <div class="oss-card animate-on-scroll">
-        <div class="oss-card-top">
-          <h4>DevTasks <span class="proj-badge badge-live">PR #226 &middot; Merged</span></h4>
-          <a href="https://github.com/shamilahmdt/devtasks/pull/226" target="_blank" rel="noopener noreferrer" class="text-link">View PR</a>
+        <div class="oss-card animate-on-scroll">
+          <div class="oss-card-top">
+            <h4>DevTasks <span class="proj-badge badge-live">PR #226 &middot; Merged</span></h4>
+            <a href="https://github.com/shamilahmdt/devtasks/pull/226" target="_blank" rel="noopener noreferrer" class="cta-btn sm">View PR</a>
+          </div>
+          <p>Built config-driven sidebar navigation with route-aware persistence, multi-page sections and collapse animation.</p>
         </div>
-        <p>Built config-driven sidebar navigation with route-aware persistence, multi-page sections and collapse animation.</p>
       </div>
     </div>
   </div>
+
+  <hr class="section-divider">
 
   <!-- About -->
   <div id="about">
     <h2 class="section-title">ABOUT</h2>
-    <div class="about-content">
-      <div class="about-image">
-        <img src="profile.jpg" alt="Ivan Tran" fetchpriority="high" decoding="async">
-      </div>
-      <div class="about-text">
-        <p>I&rsquo;m a full-stack engineer based in Melbourne who likes building software for real, messy workplace operations rather than another CRUD app &mdash; the kind of problems where a process quietly breaks down the moment the one person who understood it steps away.</p>
-        <p>That instinct came from hospitality work before I moved into engineering, and it shaped FriendChise: a production platform I still build, test and run for a real store. Day to day, I split my time across full-stack product work, test automation and open-source maintenance.</p>
-        <p class="about-note">Off-screen: previously ranked #2 in Australia and #128 globally in Clash of Clans.</p>
-        <div class="resume-buttons">
-          <a href="Ivan%20Tran%20-%20Resume.pdf" class="btn" target="_blank" rel="noopener">View Resume</a>
-          <a href="Ivan%20Tran%20-%20Resume.pdf" class="btn" download="Ivan Tran - Resume.pdf">Download PDF</a>
+    <div class="surface-panel">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="profile.jpg" alt="Ivan Tran" fetchpriority="high" decoding="async">
+        </div>
+        <div class="about-text">
+          <p>I&rsquo;m a full-stack engineer based in Melbourne who likes building software for real, messy workplace operations rather than another CRUD app &mdash; the kind of problems where a process quietly breaks down the moment the one person who understood it steps away.</p>
+          <p>That instinct came from hospitality work before I moved into engineering, and it shaped FriendChise: a production platform I still build, test and run for a real store. Day to day, I split my time across full-stack product work, test automation and open-source maintenance.</p>
+          <p class="about-note">Off-screen: previously ranked #2 in Australia and #128 globally in Clash of Clans.</p>
+          <div class="resume-buttons">
+            <a href="Ivan%20Tran%20-%20Resume.pdf" class="btn" target="_blank" rel="noopener">View Resume</a>
+            <a href="Ivan%20Tran%20-%20Resume.pdf" class="btn" download="Ivan Tran - Resume.pdf">Download PDF</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <hr class="section-divider">
 
   <!-- Skills -->
   <div id="skills">
     <h2 class="section-title">SKILLS</h2>
-    <div class="skills-grid">
-      <div class="skill-card"><h4>Core</h4><p>TypeScript, JavaScript, React, Next.js</p></div>
-      <div class="skill-card"><h4>Backend &amp; Data</h4><p>Node.js, PostgreSQL, Prisma, REST APIs</p></div>
-      <div class="skill-card"><h4>Infrastructure</h4><p>Docker, Redis, Supabase, Vercel</p></div>
-      <div class="skill-card"><h4>Testing</h4><p>Vitest, Playwright, Jest</p></div>
-      <div class="skill-card"><h4>Engineering</h4><p>Multi-Tenant Architecture, RBAC, System Design, Git</p></div>
+    <div class="surface-panel">
+      <div class="skills-groups">
+        <div class="skill-group"><h4>Core</h4><p>TypeScript, JavaScript, React, Next.js</p></div>
+        <div class="skill-group"><h4>Backend &amp; Data</h4><p>Node.js, PostgreSQL, Prisma, REST APIs</p></div>
+        <div class="skill-group"><h4>Infrastructure</h4><p>Docker, Redis, Supabase, Vercel</p></div>
+        <div class="skill-group"><h4>Testing</h4><p>Vitest, Playwright, Jest</p></div>
+        <div class="skill-group"><h4>Engineering</h4><p>Multi-Tenant Architecture, RBAC, System Design, Git</p></div>
+      </div>
+      <div class="skills-study"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span>Currently studying: <strong>AWS Certified Solutions Architect &ndash; Associate (SAA-C03)</strong></span></div>
     </div>
-    <p class="skills-note">Currently studying: <strong>AWS Certified Solutions Architect &ndash; Associate (SAA-C03)</strong></p>
   </div>
 
+  <hr class="section-divider">
+
   <!-- Additional Work -->
-  <details class="collapsible-section" id="more-projects">
-    <summary><i class="fas fa-chevron-down"></i> Additional Work</summary>
-    <div style="margin-top: 6px;">
-      <div class="compact-row">
-        <div class="compact-row-copy">
-          <h4>Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></h4>
-          <p>Multi-tenant SaaS e-commerce build with tenant-scoped data isolation and role-based access control.</p>
+  <div id="more-work">
+    <h2 class="section-title">ADDITIONAL WORK</h2>
+    <div class="surface-panel">
+      <p class="section-intro">Smaller projects, experiments and coursework that show additional breadth across full-stack development, systems and algorithms.</p>
+      <details class="collapsible-section" id="more-projects">
+        <summary><span class="summary-label">Show additional projects</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+        <div class="compact-row-list">
+          <div class="compact-row">
+            <div class="compact-row-copy">
+              <h4>Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></h4>
+              <p>Multi-tenant SaaS e-commerce build with tenant-scoped data isolation and role-based access control.</p>
+            </div>
+            <div class="compact-row-links">
+              <a href="projects/multitenant-ecommerce.html" class="cta-btn sm">View Project &rarr;</a>
+              <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="cta-btn sm" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="compact-row">
+            <div class="compact-row-copy">
+              <h4>MERN Thinkboard</h4>
+              <p>Full-stack note-taking app &mdash; React, Node.js, Express, MongoDB, JWT auth, Redis-backed rate limiting.</p>
+            </div>
+            <div class="compact-row-links">
+              <a href="projects/mern-thinkboard.html" class="cta-btn sm">View Project &rarr;</a>
+              <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="cta-btn sm" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="compact-row">
+            <div class="compact-row-copy">
+              <h4>Vending Machine Simulator <span class="proj-badge badge-grade">100% Grade</span></h4>
+              <p>4-person C++ team project &mdash; command-pattern design, custom data structures, zero memory leaks (Valgrind).</p>
+            </div>
+            <div class="compact-row-links">
+              <a href="projects/vendingmachine.html" class="cta-btn sm">View Project &rarr;</a>
+              <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="cta-btn sm" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+          <div class="compact-row">
+            <div class="compact-row-copy">
+              <h4>Competitive Programming &amp; Certifications <span class="proj-badge badge-ongoing">Ongoing</span></h4>
+              <p>200+ coding challenges and certifications supporting data structures, algorithms and API-testing fundamentals.</p>
+            </div>
+            <div class="compact-row-links">
+              <a href="https://leetcode.com/u/C0XKIES/" class="cta-btn sm" target="_blank">Profile &rarr;</a>
+            </div>
+          </div>
         </div>
-        <div class="compact-row-links">
-          <a href="projects/multitenant-ecommerce.html" class="text-link">Details</a>
-          <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="text-link" target="_blank">GitHub</a>
-        </div>
-      </div>
-      <div class="compact-row">
-        <div class="compact-row-copy">
-          <h4>MERN Thinkboard</h4>
-          <p>Full-stack note-taking app &mdash; React, Node.js, Express, MongoDB, JWT auth, Redis-backed rate limiting.</p>
-        </div>
-        <div class="compact-row-links">
-          <a href="projects/mern-thinkboard.html" class="text-link">Details</a>
-          <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="text-link" target="_blank">GitHub</a>
-        </div>
-      </div>
-      <div class="compact-row">
-        <div class="compact-row-copy">
-          <h4>Vending Machine Simulator <span class="proj-badge badge-grade">100% Grade</span></h4>
-          <p>4-person C++ team project &mdash; command-pattern design, custom data structures, zero memory leaks (Valgrind).</p>
-        </div>
-        <div class="compact-row-links">
-          <a href="projects/vendingmachine.html" class="text-link">Details</a>
-          <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="text-link" target="_blank">GitHub</a>
-        </div>
-      </div>
-      <div class="compact-row">
-        <div class="compact-row-copy">
-          <h4>Competitive Programming &amp; Certifications <span class="proj-badge badge-ongoing">Ongoing</span></h4>
-          <p>200+ coding challenges and certifications supporting data structures, algorithms and API-testing fundamentals.</p>
-        </div>
-        <div class="compact-row-links">
-          <a href="https://leetcode.com/u/C0XKIES/" class="text-link" target="_blank">Profile</a>
-        </div>
-      </div>
+      </details>
     </div>
-  </details>
+  </div>
+
+  <hr class="section-divider">
 
   <!-- Contact Section -->
   <div id="contact">
     <h2 class="section-title">LET'S CONNECT</h2>
-    <p class="contact-intro">Open to full-stack engineer roles &mdash; on-site (Melbourne), hybrid, and remote.</p>
-    <div class="contact-layout">
-      <div class="contact-form-wrapper">
-      <h3>Send Me a Message</h3>
+    <div class="surface-panel contact-panel">
+      <div class="contact-panel-intro">
+        <h3>Send Me a Message</h3>
+        <p class="contact-intro">Open to full-stack engineer roles &mdash; on-site (Melbourne), hybrid, and remote.</p>
+      </div>
+      <div class="contact-layout">
+        <div class="contact-form-wrapper">
       <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
         <div class="form-group">
           <label for="cf-name">Full Name</label>
@@ -792,6 +901,7 @@
         </a>
         <div style="margin-top:12px; font-size:0.82em; font-weight:600; color:#000000;">Melbourne, Australia</div>
       </div>
+      </div>
     </div>
   </div>
 
@@ -818,6 +928,15 @@
         }
       });
     });
+
+    // Additional Work toggle label swap
+    const moreProjects = document.getElementById('more-projects');
+    if (moreProjects) {
+      const label = moreProjects.querySelector('.summary-label');
+      moreProjects.addEventListener('toggle', () => {
+        label.textContent = moreProjects.open ? 'Hide additional projects' : 'Show additional projects';
+      });
+    }
 
     // Contact form submission
     const contactForm = document.getElementById('contact-form');

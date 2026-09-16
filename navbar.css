@@ -5,11 +5,45 @@
    ============================================================ */
 
 :root {
-  /* Restrained blue accent — used for active/selected states, primary CTAs,
-     inline links and metric emphasis only. Black/white remain primary. */
-  --accent: #2563eb;
-  --accent-dark: #1d4ed8;
-  --accent-tint: #eff6ff;
+  /* Centralized design tokens shared by every page on the site. */
+
+  /* Blue system — navy anchors important/selected text, accent drives CTAs
+     and interactive states, muted/tint are restrained supporting shades.
+     Blue is a hierarchy tool here, not a fill colour. */
+  --navy: #14265c;
+  --accent: #2953c4;
+  --accent-dark: #1e3f9e;
+  --accent-muted: #7488c0;
+  --accent-tint: #eef2fb;
+
+  /* Neutral ink/slate scale for text and surfaces. */
+  --ink: #12151b;
+  --ink-hover: #262b34;
+  --ink-secondary: #4b5160;
+  --ink-tertiary: #6f7684;
+  --surface: #fcfcfb;
+  --surface-tint: #f6f6f5;
+  --hairline: #e6e5e3;
+  --hairline-strong: #d6d5d2;
+
+  /* Shape + elevation. */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --shadow-card: 0 1px 2px rgba(18, 21, 27, 0.05);
+
+  /* Spacing scale — used for the site's structural vertical rhythm. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Interaction language shared by every button/control on the site. */
+  --interactive-lift: -2px;
+  --interactive-duration: 180ms;
 }
 
 a:focus-visible,
@@ -26,7 +60,7 @@ textarea:focus-visible {
   top: 0;
   z-index: 100;
   background: #ffffff;
-  border-bottom: 2px solid #000000;
+  border-bottom: 1px solid var(--hairline-strong);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,10 +82,20 @@ textarea:focus-visible {
 .navbar-name {
   font-size: 1em;
   font-weight: 700;
-  color: #000000;
+  color: var(--ink);
   text-decoration: none;
   white-space: nowrap;
   flex: 1;
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.navbar-name img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
 }
 
 .navbar-links {
@@ -64,24 +108,23 @@ textarea:focus-visible {
 
 .navbar-links a {
   position: relative;
-  color: #000000;
+  color: var(--ink-secondary);
   text-decoration: none;
   font-size: 0.75em;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  transition: opacity 0.2s ease;
+  transition: color 0.2s ease;
   white-space: nowrap;
   padding-bottom: 4px;
 }
 
 .navbar-links a:hover {
-  opacity: 0.5;
+  color: var(--ink);
 }
 
 .navbar-links a.active {
-  opacity: 1;
-  color: var(--accent);
+  color: var(--navy);
 }
 
 .navbar-links a.active::after {
@@ -108,20 +151,30 @@ textarea:focus-visible {
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  border: 1.5px solid #000000;
+  color: var(--ink-secondary);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-sm);
   padding: 6px 10px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   white-space: nowrap;
+  transition: border-color var(--interactive-duration) ease, color var(--interactive-duration) ease, background var(--interactive-duration) ease, transform var(--interactive-duration) ease;
 }
 
 .navbar-sections summary::-webkit-details-marker { display: none; }
 
+.navbar-sections summary:hover {
+  background: var(--surface-tint);
+  border-color: var(--ink);
+  color: var(--ink);
+  transform: translateY(var(--interactive-lift));
+}
+
 .navbar-sections[open] summary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #ffffff;
+  background: var(--surface-tint);
+  border-color: var(--ink);
+  color: var(--ink);
 }
 
 .navbar-sections .sections-menu {
@@ -130,11 +183,13 @@ textarea:focus-visible {
   top: calc(100% + 8px);
   right: 0;
   background: #ffffff !important;
-  border: 1.5px solid #000000;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 28px rgba(18, 21, 27, 0.1);
   min-width: 180px;
   padding: 6px 0;
   z-index: 20;
+  overflow: hidden;
 }
 
 .navbar-sections .sections-menu a {
@@ -144,17 +199,18 @@ textarea:focus-visible {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: #000000;
+  color: var(--ink-secondary);
   text-decoration: none;
   background: #ffffff !important;
 }
 
 .navbar-sections .sections-menu a:hover {
-  background: #f4f4f4;
+  background: var(--surface-tint);
+  color: var(--ink);
 }
 
 .navbar-sections .sections-menu a.active {
-  color: var(--accent);
+  color: var(--navy);
   background: var(--accent-tint);
 }
 
@@ -167,20 +223,23 @@ textarea:focus-visible {
 }
 
 .navbar-socials a {
-  color: #000000;
+  color: var(--ink-secondary);
   text-decoration: none;
-  border: 1.5px solid #000000;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-sm);
   width: 34px;
   height: 34px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background var(--interactive-duration) ease, color var(--interactive-duration) ease, border-color var(--interactive-duration) ease, transform var(--interactive-duration) ease;
 }
 
 .navbar-socials a:hover {
-  background: #000000 !important;
-  color: #ffffff !important;
+  background: var(--surface-tint) !important;
+  border-color: var(--ink);
+  color: var(--ink) !important;
+  transform: translateY(var(--interactive-lift));
 }
 
 /* Offset anchor targets so the sticky navbar doesn't cover them */
@@ -248,5 +307,12 @@ textarea:focus-visible {
   .navbar--long ~ * [id],
   body:has(.navbar--long) [id] {
     scroll-margin-top: 70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-sections summary:hover,
+  .navbar-socials a:hover {
+    transform: none;
   }
 }

@@ -6,12 +6,16 @@
   <meta name="description" content="FriendChise — a multi-tenant operations platform for repetitive, multi-location workplaces, founded and led by Ivan Tran, running in production at Walker's Doughnuts.">
   <meta name="keywords" content="Next.js, TypeScript, Prisma, PostgreSQL, Multi-tenant, RBAC, workplace operations, case study, founder">
   <title>FriendChise | Ivan Tran</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="../buttons.css">
   <link rel="stylesheet" href="../lightbox.css">
   <link rel="stylesheet" href="friendchise.css">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,7 +27,7 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar--long">
-    <a href="../index.html" class="navbar-name">IVAN TRAN</a>
+    <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
     <ul class="navbar-links">
       <li><a href="#overview">Overview</a></li>
       <li><a href="#product">Product</a></li>
@@ -63,15 +67,15 @@
         <p class="flagship-desc">A multi-tenant operations platform for repetitive, multi-location workplaces, running in real production use at Walker's Doughnuts — not a demo environment.</p>
         <div class="flagship-role">
           <div class="flagship-role-title">Founder &amp; Lead Developer</div>
-          <div class="flagship-role-meta">Solo-designed and built · maintained with 27 OSS contributors</div>
+          <div class="flagship-role-meta">Solo-designed and built · maintained with 31 OSS contributors</div>
         </div>
         <div class="hero-actions">
           <a href="https://friendchise.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
           <a href="#impact" class="cta-btn">View Real-World Usage</a>
         </div>
         <div class="hero-links">
-          <a href="https://github.com/IvanTran-2001/FriendChise" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-          <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler" aria-hidden="true"></i> Figma</a>
+          <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn sm" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+          <a href="https://www.figma.com/design/Zrdvvw3lTPOGiBOwZR2ZaR/FriendChise-V2?node-id=0-1&t=gf9qnktHuHhKfhjD-0" class="cta-btn sm" target="_blank" rel="noopener noreferrer"><i class="fas fa-pencil-ruler" aria-hidden="true"></i> Figma</a>
         </div>
       </div>
       <div class="flagship-hero-media">
@@ -91,13 +95,13 @@
     <div class="credibility-strip">
       <div class="credibility-item"><div class="credibility-value">Production</div><div class="credibility-label">Real-world pilot at Walker's Doughnuts</div></div>
       <div class="credibility-item"><div class="credibility-value">440+</div><div class="credibility-label">Automated tests</div></div>
-      <div class="credibility-item"><div class="credibility-value">27</div><div class="credibility-label">OSS contributors</div></div>
+      <div class="credibility-item"><div class="credibility-value">31</div><div class="credibility-label">OSS contributors</div></div>
       <div class="credibility-item"><div class="credibility-value">Multi-tenant</div><div class="credibility-label">Organisation-scoped architecture</div></div>
     </div>
 
     <!-- Overview: Problem + Solution -->
     <h2 class="section-title" id="overview">Overview</h2>
-    <div class="content-section plain">
+    <div class="content-section">
       <p>At Walker's Doughnuts, the things that made a shift run well were rarely written down. A manager knew how to handle a rush; a senior staff member knew the fastest way to prep for the morning — and none of it survived when that person wasn't rostered on. Our store slid from one of the better performers in the franchise toward the bottom of the leaderboard, and a lot of that traced back to turnover and knowledge that never outlived the person who had it.</p>
       <div class="problem-grid" style="grid-template-columns: 1fr 1fr;">
         <div class="problem-item"><strong>Problem</strong>Operational knowledge, standards, training, and workflows fragment across locations and staff, and disappear when someone leaves.</div>
@@ -175,81 +179,95 @@
 
     <!-- Engineering Challenges -->
     <h2 class="section-title" id="engineering">Engineering Challenges</h2>
-    <div class="challenge-grid">
-      <div class="challenge-card">
-        <h3>Franchise hierarchy vs. tenant isolation</h3>
-        <p><strong>Problem →</strong> the platform needed to support both an independent single store and a franchise network, without one org ever seeing another's data by default.<br><strong>Decision →</strong> a self-referencing <code>parentId</code> relation on <code>Organization</code> lets a parent connect multiple franchisees and share brand-level resources, while every query is still scoped by <code>orgId</code> rather than relying on the UI to hide things correctly.<br><strong>Result →</strong> one data model supports both a single independent location and a multi-location franchise, with tenant boundaries that don't depend on the interface behaving correctly.</p>
+    <div class="content-section">
+      <div class="challenge-grid">
+        <div class="challenge-card">
+          <h3>Franchise hierarchy vs. tenant isolation</h3>
+          <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>The platform needed to support both an independent single store and a franchise network, without one org ever seeing another's data by default.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>A self-referencing <code>parentId</code> relation on <code>Organization</code> lets a parent connect multiple franchisees and share brand-level resources, while every query is still scoped by <code>orgId</code> rather than relying on the UI to hide things correctly.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Result</span><p>One data model supports both a single independent location and a multi-location franchise, with tenant boundaries that don't depend on the interface behaving correctly.</p></div>
+        </div>
+        <div class="challenge-card">
+          <h3>Role-based access at org scale</h3>
+          <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>Owners, managers, and staff need different tools from the same system, and permission logic scattered across screens is exactly where multi-tenant bugs hide.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>Permissions are modelled as org-scoped <code>Role</code> → <code>Permission</code> → <code>MemberRole</code> join tables, checked centrally in a shared <code>authz</code> layer rather than per-page.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Result</span><p>Each role only sees the tools relevant to its job, and permission checks are covered directly by the largest slice of the test suite (151 server-action tests) instead of being trusted to the UI.</p></div>
+        </div>
+        <div class="challenge-card">
+          <h3>Making overlapping schedules readable</h3>
+          <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>Once multiple people, frequencies, and roles overlap on one timetable, five stacked task cards in the same slot become unreadable on a phone mid-shift.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>I introduced grouped timetable cards so overlapping entries render as one group that expands into individual items on demand, instead of exposing every entry at once.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Result</span><p>A tired staff member can glance at their phone and understand the day in seconds — complexity is handled by the system, not passed to the user.</p></div>
+        </div>
+        <div class="challenge-card">
+          <h3>Shared UI state for a contextual sidebar</h3>
+          <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>The ActionSidebar renders different content depending on the current action (grouped timetable cards, conversion workflows) and could stay open while the underlying data changed, leaving it tied to a stale snapshot.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>Rather than patching individual state updates, I moved to a controlled re-render function that reopens the sidebar with fresh content whenever its source data changes.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Result</span><p>A single reusable pattern for one shared UI surface depending on many parts of the app, instead of one-off fixes per screen.</p></div>
+        </div>
       </div>
-      <div class="challenge-card">
-        <h3>Role-based access at org scale</h3>
-        <p><strong>Problem →</strong> owners, managers, and staff need different tools from the same system, and permission logic scattered across screens is exactly where multi-tenant bugs hide.<br><strong>Decision →</strong> permissions are modelled as org-scoped <code>Role</code> → <code>Permission</code> → <code>MemberRole</code> join tables, checked centrally in a shared <code>authz</code> layer rather than per-page.<br><strong>Result →</strong> each role only sees the tools relevant to its job, and permission checks are covered directly by the largest slice of the test suite (151 server-action tests) instead of being trusted to the UI.</p>
+      <div class="challenge-more">
+        <a href="friendchise-lessons-challenges.html" class="cta-btn sm">Read Engineering Lessons</a>
       </div>
-      <div class="challenge-card">
-        <h3>Making overlapping schedules readable</h3>
-        <p><strong>Problem →</strong> once multiple people, frequencies, and roles overlap on one timetable, five stacked task cards in the same slot become unreadable on a phone mid-shift.<br><strong>Decision →</strong> I introduced grouped timetable cards so overlapping entries render as one group that expands into individual items on demand, instead of exposing every entry at once.<br><strong>Result →</strong> a tired staff member can glance at their phone and understand the day in seconds — complexity is handled by the system, not passed to the user.</p>
-      </div>
-      <div class="challenge-card">
-        <h3>Shared UI state for a contextual sidebar</h3>
-        <p><strong>Problem →</strong> the ActionSidebar renders different content depending on the current action (grouped timetable cards, conversion workflows) and could stay open while the underlying data changed, leaving it tied to a stale snapshot.<br><strong>Decision →</strong> rather than patching individual state updates, I moved to a controlled re-render function that reopens the sidebar with fresh content whenever its source data changes.<br><strong>Result →</strong> a single reusable pattern for one shared UI surface depending on many parts of the app, instead of one-off fixes per screen.</p>
-      </div>
-    </div>
-    <div class="content-section" style="margin-top:16px;">
-      <p style="margin-bottom:0;"><a href="friendchise-lessons-challenges.html" style="font-weight:600; text-decoration:underline;">Read the full engineering lessons and challenges write-up &rarr;</a></p>
     </div>
 
     <!-- Architecture -->
     <h2 class="section-title" id="architecture">Architecture</h2>
-    <div class="architecture-diagram">
-      <div class="architecture-stack">
-        <div class="architecture-node architecture-root">Client<br><span class="architecture-node-subtle">Next.js 16 / React 19</span></div>
+    <div class="content-section">
+      <p class="architecture-intro">Every request passes through one authorization boundary before it ever reaches the database — organisation scoping is enforced at the data layer, not left to the UI.</p>
+      <div class="architecture-diagram">
+        <div class="architecture-row"><div class="architecture-node architecture-node--wide">Client<span class="architecture-node-subtle">Next.js 16 / React 19</span></div></div>
         <div class="architecture-down">↓</div>
-        <div class="architecture-node architecture-root">Application<br><span class="architecture-node-subtle">Server actions, API routes, service layer, Zod validation</span></div>
+        <div class="architecture-row"><div class="architecture-node architecture-node--wide">Application Layer<span class="architecture-node-subtle">Server actions, API routes, service layer, Zod validation</span></div></div>
         <div class="architecture-down">↓</div>
-        <div class="architecture-node architecture-root">Auth &amp; Access<br><span class="architecture-node-subtle">Auth.js, RBAC, organisation scoping</span></div>
+        <div class="architecture-branch-row">
+          <div class="architecture-node">Auth &amp; RBAC<span class="architecture-node-subtle">Auth.js, organisation scoping</span></div>
+          <div class="architecture-node">Rate Limiting<span class="architecture-node-subtle">Upstash Redis</span></div>
+        </div>
         <div class="architecture-down">↓</div>
-        <div class="architecture-node architecture-root">Data<br><span class="architecture-node-subtle">Prisma ORM, PostgreSQL on Supabase</span></div>
+        <div class="architecture-row"><div class="architecture-node architecture-node--wide">Data<span class="architecture-node-subtle">Prisma ORM · PostgreSQL on Supabase</span></div></div>
       </div>
-      <div class="architecture-node" style="margin-top:6px;">Supporting: Upstash Redis rate limiting · Sentry error monitoring · GitHub Actions CI · Vercel deployment</div>
-    </div>
+      <div class="architecture-support">Supporting: Sentry error monitoring · GitHub Actions CI · Vercel deployment</div>
 
-    <h3 class="subsection-title" style="margin-top:26px;">Multi-tenant model</h3>
-    <div class="architecture-tree-grid">
-      <div class="architecture-branch-card"><strong>Franchise hierarchy</strong><span>Organization ↔ parent/child Organizations, so a franchisee stays independent while a parent can connect and manage multiple locations.</span></div>
-      <div class="architecture-branch-card"><strong>Access control</strong><span>Membership → MemberRole → Role → Permission, all scoped to one Organization, so access never crosses tenant boundaries.</span></div>
-      <div class="architecture-branch-card"><strong>Org-scoped resources</strong><span>Tasks, timetables, rosters, tools, and menus each carry an <code>orgId</code>, so every query is scoped at the data layer, not the UI.</span></div>
-      <div class="architecture-branch-card"><strong>55 Prisma models</strong><span>Covering auth, organisations, tasks, scheduling, rostering, tools, menus, comments, and admin/audit data.</span></div>
+      <h3 class="subsection-title">Multi-Tenant Model</h3>
+      <div class="architecture-tree-grid">
+        <div class="architecture-branch-card"><strong>Franchise hierarchy</strong><span>Organization ↔ parent/child Organizations, so a franchisee stays independent while a parent can connect and manage multiple locations.</span></div>
+        <div class="architecture-branch-card"><strong>Access control</strong><span>Membership → MemberRole → Role → Permission, all scoped to one Organization, so access never crosses tenant boundaries.</span></div>
+        <div class="architecture-branch-card"><strong>Org-scoped resources</strong><span>Tasks, timetables, rosters, tools, and menus each carry an <code>orgId</code>, so every query is scoped at the data layer, not the UI.</span></div>
+        <div class="architecture-branch-card"><strong>55 Prisma models</strong><span>Covering auth, organisations, tasks, scheduling, rostering, tools, menus, comments, and admin/audit data.</span></div>
+      </div>
     </div>
 
     <!-- Testing -->
     <h2 class="section-title" id="testing">Testing &amp; Reliability</h2>
-    <div class="testing-grid">
-      <div class="testing-card">
-        <div class="testing-count">219</div>
-        <h3>Business logic &amp; validation</h3>
-        <p>Service-layer and Zod validator tests covering scheduling rules, tenant-scoped data validation, and permission logic.</p>
+    <div class="content-section">
+      <div class="testing-grid">
+        <div class="testing-card">
+          <div class="testing-count">219</div>
+          <h3>Business logic &amp; validation</h3>
+          <p>Service-layer and Zod validator tests covering scheduling rules, tenant-scoped data validation, and permission logic.</p>
+        </div>
+        <div class="testing-card">
+          <div class="testing-count">151</div>
+          <h3>Server actions</h3>
+          <p>Permission-gated mutations for tasks, timetables, rosters, and organisation changes — the surface where an authorization bug would matter most.</p>
+        </div>
+        <div class="testing-card">
+          <div class="testing-count">66</div>
+          <h3>Integration (real Postgres)</h3>
+          <p>Runs against an actual Postgres instance in CI to catch issues unit tests with mocked data can't.</p>
+        </div>
+        <div class="testing-card">
+          <h3>CI pipeline</h3>
+          <p>GitHub Actions runs type-check + lint, unit tests, integration tests against Postgres, and Playwright end-to-end tests as separate gated stages on every pull request.</p>
+        </div>
       </div>
-      <div class="testing-card">
-        <div class="testing-count">151</div>
-        <h3>Server actions</h3>
-        <p>Permission-gated mutations for tasks, timetables, rosters, and organisation changes — the surface where an authorization bug would matter most.</p>
-      </div>
-      <div class="testing-card">
-        <div class="testing-count">66</div>
-        <h3>Integration (real Postgres)</h3>
-        <p>Runs against an actual Postgres instance in CI to catch issues unit tests with mocked data can't.</p>
-      </div>
-      <div class="testing-card">
-        <h3>CI pipeline</h3>
-        <p>GitHub Actions runs type-check + lint, unit tests, integration tests against Postgres, and Playwright end-to-end tests as separate gated stages on every pull request.</p>
-      </div>
-    </div>
-    <div class="content-section plain">
-      <p style="margin-bottom:0;">This isn't full coverage of the codebase — it's concentrated on the paths where a bug wouldn't just look bad, it would leak one organisation's data into another's view or let someone do something their role shouldn't allow.</p>
+      <p class="stack-gap" style="padding-top:var(--space-5); border-top:1px solid var(--hairline);">This isn't full coverage of the codebase — it's concentrated on the paths where a bug wouldn't just look bad, it would leak one organisation's data into another's view or let someone do something their role shouldn't allow.</p>
     </div>
 
     <!-- My Role -->
     <h2 class="section-title" id="role">My Role</h2>
-    <div class="content-section plain">
+    <div class="content-section">
       <p>I built and maintain FriendChise on my own. There's no team handing me a spec — I own the product direction, the architecture, and every decision described on this page:</p>
       <ul>
         <li>Product discovery and requirements gathering directly with the staff who use the system</li>
@@ -259,23 +277,21 @@
         <li>Test strategy across unit, integration, and end-to-end suites</li>
         <li>Deployment, CI/CD, error monitoring, and rate limiting</li>
       </ul>
-      <p>The project has also picked up 27 open-source contributors over time. I review every pull request and own the architecture and product decisions myself — contributors extend the codebase, they don't set its direction, and every contribution still goes through me before it ships.</p>
+      <p>The project has also picked up 31 open-source contributors over time. I review every pull request and own the architecture and product decisions myself — contributors extend the codebase, they don't set its direction, and every contribution still goes through me before it ships.</p>
     </div>
 
     <!-- Real-World Impact -->
     <h2 class="section-title" id="impact">Real-World Impact</h2>
-    <div class="content-section plain" style="margin-bottom: 18px;">
-      <p style="margin-bottom: 0;">These are the actual numbers from the one production location running FriendChise today, plus interest from the public demo — not projections.</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-card"><div class="stat-number">20+</div><div class="stat-label">Active Users (pilot)</div></div>
-      <div class="stat-card"><div class="stat-number">~50</div><div class="stat-label">Documented Procedures</div></div>
-      <div class="stat-card"><div class="stat-number">200+</div><div class="stat-label">Customer QR Menu Scans</div></div>
-      <div class="stat-card"><div class="stat-number">71</div><div class="stat-label">Public Demo Tries</div></div>
-      <div class="stat-card"><div class="stat-number">27</div><div class="stat-label">Open-Source Contributors</div></div>
-    </div>
-    <div class="content-section plain">
-      <p>QR Menu and Task Management are the two most used features day to day at the pilot location, which tells me the product is solving problems people actually have rather than sitting unused. The store now runs completely paperless — schedules, tasks, and procedures all live in the system instead of on printed sheets taped to a wall. The 71 demo tries are separate from that — public visitors trying the guided demo, not pilot-location usage.</p>
+    <div class="content-section">
+      <p>These are the actual numbers from the one production location running FriendChise today, plus interest from the public demo — not projections.</p>
+      <div class="stats-grid stack-gap">
+        <div class="stat-card"><div class="stat-number">20+</div><div class="stat-label">Active Users (pilot)</div></div>
+        <div class="stat-card"><div class="stat-number">~50</div><div class="stat-label">Documented Procedures</div></div>
+        <div class="stat-card"><div class="stat-number">200+</div><div class="stat-label">Customer QR Menu Scans</div></div>
+        <div class="stat-card"><div class="stat-number">71</div><div class="stat-label">Public Demo Tries</div></div>
+        <div class="stat-card"><div class="stat-number">31</div><div class="stat-label">Open-Source Contributors</div></div>
+      </div>
+      <p style="margin-top:0;">QR Menu and Task Management are the two most used features day to day at the pilot location, which tells me the product is solving problems people actually have rather than sitting unused. The store now runs completely paperless — schedules, tasks, and procedures all live in the system instead of on printed sheets taped to a wall. The 71 demo tries are separate from that — public visitors trying the guided demo, not pilot-location usage.</p>
     </div>
 
     <!-- Technologies Used -->
@@ -298,7 +314,7 @@
         <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://friendchise.app/doc" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Docs</a>
       </div>
-      <a href="../index.html#projects" class="tertiary-link">&larr; Back to Portfolio</a>
+      <a href="../index.html#work" class="cta-btn sm">&larr; Back to Portfolio</a>
     </div>
 
   </div>

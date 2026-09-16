@@ -6,12 +6,16 @@
   <meta name="description" content="QA Wolf Technical Assessment — Hacker News sort validator built with Playwright and Node.js.">
   <meta name="keywords" content="QA, Test Automation, Playwright, Node.js, Web Scraping, JavaScript">
   <title>QA Wolf Technical Assessment | Ivan Tran</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="../buttons.css">
   <link rel="stylesheet" href="friendchise.css">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,7 +27,7 @@
 
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="../index.html" class="navbar-name">IVAN TRAN</a>
+    <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
     <ul class="navbar-links">
       <li><a href="#outcome"><i class="fas fa-trophy"></i> Outcome</a></li>
       <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
@@ -37,7 +41,7 @@
 
   <!-- Hero -->
   <div class="hero">
-    <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
+    <a href="../index.html#work" class="back-link">&larr; Back to Portfolio</a>
     <h1>QA Wolf Technical Assessment</h1>
     <p class="hero-subtitle">Take-home technical assessment for QA Wolf's hiring process — applications screened on submitted projects, no resume required. Built a Hacker News sort validator with Node.js + Playwright. <strong>Reached the paid final round (AUD $220)</strong> and completed a live Playwright assessment in QA Wolf's platform.</p>
     <div class="hero-badges">
@@ -64,11 +68,11 @@
     <!-- Hiring Outcome -->
     <section class="page-section" id="outcome">
       <h3 class="section-heading"><i class="fas fa-trophy"></i> Hiring Outcome</h3>
-      <div style="margin-top: 20px;">
+      <div class="stack-gap">
         <div class="outcome-card">
           <p><strong>Reached the final round of QA Wolf's hiring process</strong> — a paid live Playwright assessment (AUD $220) in QA Wolf's own platform, January 21, 2026.</p>
         </div>
-        <div class="content-section" style="margin-top: 16px;">
+        <div class="content-section stack-gap">
           <h3>How QA Wolf Hires</h3>
           <p>QA Wolf's process is entirely project-based — no resume required at any stage. Candidates submit their existing projects and are evaluated purely on the quality of their work. Passing the take-home moves you to a final live coding round in QA Wolf's platform where you write automated tests in real time.</p>
           <h3>Timeline</h3>
@@ -109,7 +113,7 @@
     <!-- Overview -->
     <section class="page-section" id="overview">
       <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
-      <div class="content-section" style="margin-top: 20px;">
+      <div class="content-section stack-gap">
         <p>Submitted as a take-home technical assessment for QA Wolf — a company that screens candidates on submitted projects alone, with no resume required at any stage. This tool scrapes the first 100 articles from <strong>Hacker News/newest</strong> and validates they are sorted newest-to-oldest by timestamp, reporting any out-of-order articles with detailed context.</p>
         <ul>
           <li>Multi-page Playwright navigation across paginated results</li>
@@ -124,7 +128,7 @@
     <!-- Tech Stack -->
     <section class="page-section" id="tech">
       <h3 class="section-heading"><i class="fas fa-layer-group"></i> Technology Stack</h3>
-      <div class="tech-section" style="margin-top: 20px;">
+      <div class="tech-section stack-gap">
         <div class="tech-grid">
           <div class="tech-card"><h4>Node.js</h4><p>JavaScript runtime for the CLI and scraper</p></div>
           <div class="tech-card"><h4>Playwright</h4><p>Browser automation for scraping and tests</p></div>
@@ -137,7 +141,7 @@
     <!-- Key Features -->
     <section class="page-section" id="features">
       <h3 class="section-heading"><i class="fas fa-star"></i> Key Features</h3>
-      <div class="features-grid" style="margin-top: 20px;">
+      <div class="features-grid stack-gap">
         <div class="feature-card"><h3><i class="fas fa-spider"></i> Playwright Scraping</h3><p>Multi-page navigation with dynamic content extraction.</p></div>
         <div class="feature-card"><h3><i class="fas fa-check-double"></i> Sort Validation</h3><p>ISO timestamp parsing with precise out-of-order detection.</p></div>
         <div class="feature-card"><h3><i class="fas fa-terminal"></i> CLI Interface</h3><p>Flags, defaults, and built-in help documentation.</p></div>
@@ -150,7 +154,7 @@
     <!-- Usage -->
     <section class="page-section" id="usage">
       <h3 class="section-heading"><i class="fas fa-code"></i> Usage</h3>
-      <div class="content-section" style="margin-top: 20px;">
+      <div class="content-section stack-gap">
 <pre># Fetch and validate 100 articles
 node index.js
 
@@ -171,7 +175,7 @@ node index.js --help</pre>
     <!-- Testing -->
     <section class="page-section" id="testing">
       <h3 class="section-heading"><i class="fas fa-vial"></i> Testing</h3>
-      <div class="content-section" style="margin-top: 20px;">
+      <div class="content-section stack-gap">
         <p>Run the suite with <code>npx playwright test</code>:</p>
         <ul>
           <li><strong>CLI parser tests</strong> — argument parsing, defaults, flag handling</li>
@@ -190,7 +194,7 @@ node index.js --help</pre>
       <div class="button-group">
         <a href="https://www.loom.com/share/d3b55a224db6491ab0369a05233862a7" class="cta-btn primary" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
         <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="cta-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="../index.html#projects" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <a href="../index.html#work" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
 

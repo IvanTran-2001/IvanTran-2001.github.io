@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ECHT Warehouse WMS Process Improvement — database consolidation that improved warehouse workflow efficiency.">
   <meta name="keywords" content="Warehouse Management, SQL, Database Design, Process Improvement, Consulting">
-  <title>ECHT Warehouse WMS Process Improvement | Ivan Tran</title>
+  <title>ECHT Warehouse | Ivan Tran</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../navbar.css">
+  <link rel="stylesheet" href="../buttons.css">
   <link rel="stylesheet" href="friendchise.css">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -22,7 +26,7 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <a href="../index.html" class="navbar-name">IVAN TRAN</a>
+    <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
     <ul class="navbar-links">
       <li><a href="#problem"><i class="fas fa-exclamation-circle"></i> Problem</a></li>
       <li><a href="#solution"><i class="fas fa-lightbulb"></i> Solution</a></li>
@@ -30,13 +34,13 @@
       <li><a href="#docs"><i class="fas fa-file-alt"></i> Docs</a></li>
     </ul>
     <div class="navbar-socials">
-      <a href="../index.html#projects" aria-label="Back to portfolio" title="Back to portfolio"><i class="fas fa-arrow-left"></i></a>
+      <a href="../index.html#work" aria-label="Back to portfolio" title="Back to portfolio"><i class="fas fa-arrow-left"></i></a>
     </div>
   </nav>
 
   <!-- Hero -->
   <div class="hero">
-    <a href="../index.html#projects" class="back-link">&larr; Back to Portfolio</a>
+    <a href="../index.html#work" class="back-link">&larr; Back to Portfolio</a>
     <h1>ECHT Warehouse WMS Process Improvement</h1>
     <p class="hero-subtitle">Redesigned a fragmented warehouse replenishment workflow by consolidating three WMS reports into one operational view.</p>
     <p class="hero-subtitle" style="font-size:0.96em;line-height:1.6;max-width:860px;">I translated warehouse requirements into a technical specification, coordinated implementation with a third-party WMS provider and identified a live-data defect during deployment validation.</p>
@@ -54,7 +58,7 @@
 
   <div class="container">
 
-    <div style="margin-bottom: 40px;">
+    <div class="page-section">
       <img src="pictures/warehouse-echt.png" alt="Warehouse Management System" style="width:100%;height:auto;display:block;border:1px solid #000;">
     </div>
 
@@ -82,7 +86,7 @@
     <!-- Overview -->
     <section class="page-section" id="overview">
       <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
-      <div class="content-section" style="margin-top: 20px;">
+      <div class="content-section stack-gap">
         <p>Identified an inefficiency on the warehouse floor and worked with a third-party WMS vendor to consolidate three fragmented inventory tables into a single intuitive view, reducing cognitive load and bridging the skill gap between experienced and new staff.</p>
         <h3>My Role</h3>
         <p>I acted as the operational subject-matter expert and liaison between ECHT management and the third-party WMS provider. I defined the required business logic, documented the solution, validated the live implementation and trained staff on the updated workflow.</p>
@@ -267,7 +271,7 @@
             </tbody>
           </table>
         </div>
-        <p style="margin-top:16px;color:#555;font-size:0.9em;">Submitted to the WMS vendor as part of support ticket <strong>THX-1373449</strong>. The vendor deployed the implementation on <strong>11 December 2023</strong> and requested verification of output accuracy — which is when the stale-data bug was caught.</p>
+        <p class="stack-gap" style="color: var(--ink-tertiary); font-size: 0.9em;">Submitted to the WMS vendor as part of support ticket <strong>THX-1373449</strong>. The vendor deployed the implementation on <strong>11 December 2023</strong> and requested verification of output accuracy — which is when the stale-data bug was caught.</p>
       </div>
     </section>
 
@@ -284,7 +288,7 @@
     <!-- Results -->
     <section class="page-section" id="results">
       <h3 class="section-heading"><i class="fas fa-chart-line"></i> Results &amp; Impact</h3>
-      <div style="margin-top: 20px;">
+      <div class="stack-gap">
         <div class="outcome-card">
           <p><strong>Primary impact:</strong> Enabled one operator to coordinate work that had previously required two separate workflows at nearly the same speed.</p>
         </div>
@@ -295,7 +299,7 @@
             <li><strong>Faster onboarding</strong> — simplified onboarding by reducing the number of reports and rules new staff needed to learn</li>
             <li><strong>Validation</strong> — identified a stale-data defect during live validation and escalated it before the Christmas peak</li>
           </ul>
-          <p style="margin-top: 16px; color: #555; font-size: 0.95em;">Estimated operational outcomes included a 60&ndash;80% improvement in retrieval and stock-movement efficiency, approximately 50% faster training and roughly 40% fewer workflow errors.</p>
+          <p class="stack-gap" style="color: var(--ink-tertiary); font-size: 0.95em;">Estimated operational outcomes included a 60&ndash;80% improvement in retrieval and stock-movement efficiency, approximately 50% faster training and roughly 40% fewer workflow errors.</p>
         </div>
       </div>
     </section>
@@ -303,7 +307,7 @@
     <!-- Technical Report -->
     <section class="page-section" id="docs">
       <h3 class="section-heading"><i class="fas fa-file-alt"></i> Technical Report</h3>
-      <div style="margin-top: 20px;">
+      <div class="stack-gap">
         <p style="color: #333; margin-bottom: 15px;">Detailed technical analysis and recommendations provided to the WMS development team:</p>
         <iframe src="report.pdf" style="width: 100%; height: 700px; border: 1px solid #000; display: block;"></iframe>
       </div>
@@ -324,7 +328,7 @@
         </ul>
       </div>
       <div class="button-group">
-        <a href="../index.html#projects" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <a href="../index.html#work" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
 
