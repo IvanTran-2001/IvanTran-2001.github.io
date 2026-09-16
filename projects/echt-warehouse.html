@@ -25,72 +25,68 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar">
+    <nav class="navbar navbar--long">
     <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
+    <site-navbar-back href="../index.html#project-echt" label="Back to Portfolio" title="Back to Portfolio"></site-navbar-back>
     <ul class="navbar-links">
       <li><a href="#problem"><i class="fas fa-exclamation-circle"></i> Problem</a></li>
       <li><a href="#solution"><i class="fas fa-lightbulb"></i> Solution</a></li>
       <li><a href="#results"><i class="fas fa-chart-line"></i> Results</a></li>
       <li><a href="#docs"><i class="fas fa-file-alt"></i> Docs</a></li>
     </ul>
+    <details class="navbar-sections">
+      <summary>Sections <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+      <ul class="sections-menu">
+      <li><a href="#problem"><i class="fas fa-exclamation-circle"></i> Problem</a></li>
+      <li><a href="#solution"><i class="fas fa-lightbulb"></i> Solution</a></li>
+      <li><a href="#results"><i class="fas fa-chart-line"></i> Results</a></li>
+      <li><a href="#docs"><i class="fas fa-file-alt"></i> Docs</a></li>
+    </ul>
+    </details>
     <div class="navbar-socials">
-      <a href="../index.html#work" aria-label="Back to portfolio" title="Back to portfolio"><i class="fas fa-arrow-left"></i></a>
+      <a href="#docs" aria-label="Technical Report" title="Technical Report"><i class="fas fa-file-alt" aria-hidden="true"></i></a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <div class="hero">
-    <a href="../index.html#work" class="back-link">&larr; Back to Portfolio</a>
-    <h1>ECHT Warehouse WMS Process Improvement</h1>
-    <p class="hero-subtitle">Redesigned a fragmented warehouse replenishment workflow by consolidating three WMS reports into one operational view.</p>
-    <p class="hero-subtitle" style="font-size:0.96em;line-height:1.6;max-width:860px;">I translated warehouse requirements into a technical specification, coordinated implementation with a third-party WMS provider and identified a live-data defect during deployment validation.</p>
-    <p class="hero-subtitle" style="font-size:0.88em;color:#444;margin-top:-6px;">The change was deployed on 11 December 2023, approximately two weeks before the Christmas peak, when replenishment accuracy and avoidable downtime carried significant operational risk.</p>
-    <div class="hero-badges">
-      <span class="badge">WMS Consulting</span>
-      <span class="badge">Requirements Analysis</span>
-      <span class="badge">User Acceptance Testing</span>
-      <span class="badge">Process Improvement</span>
-    </div>
-    <div class="hero-cta">
+  <!-- Title -->
+  <section class="project-intro">
+    <h1 class="project-intro-title">ECHT Warehouse</h1>
+    <p class="project-intro-subtitle">Process Engineering for a Fragmented WMS Workflow</p>
+    <p class="project-intro-desc">Consolidated three separate warehouse inventory reports into one operational view, cutting cross-referencing and enabling single-operator throughput ahead of the Christmas peak.</p>
+    <div class="project-intro-stack">Warehouse Operations · Process Redesign · WMS Consulting</div>
+    <div class="project-intro-actions">
       <a href="#docs" class="cta-btn primary"><i class="fas fa-file-alt"></i> Technical Report</a>
     </div>
-  </div>
+  </section>
+  <hr class="section-divider">
 
   <div class="container">
 
     <div class="page-section">
-      <img src="pictures/warehouse-echt.png" alt="Warehouse Management System" style="width:100%;height:auto;display:block;border:1px solid #000;">
-    </div>
-
-    <!-- TOC -->
-    <div class="content-section" id="jump">
-      <h3>Jump to Section</h3>
-      <div class="toc-grid">
-        <a href="#overview" class="toc-link"><i class="fas fa-info-circle"></i><span>Project Overview</span></a>
-        <a href="#problem" class="toc-link"><i class="fas fa-exclamation-circle"></i><span>The Problem</span></a>
-        <a href="#solution" class="toc-link"><i class="fas fa-lightbulb"></i><span>Solution</span></a>
-        <a href="#spec" class="toc-link"><i class="fas fa-code"></i><span>Technical Spec</span></a>
-        <a href="#results" class="toc-link"><i class="fas fa-chart-line"></i><span>Results &amp; Impact</span></a>
-        <a href="#docs" class="toc-link"><i class="fas fa-file-alt"></i><span>Technical Report</span></a>
-      </div>
+      <img src="pictures/warehouse-echt.png" alt="Warehouse Management System" style="width:100%;height:auto;display:block;border:1px solid var(--hairline-strong);border-radius:var(--radius-md);">
     </div>
 
     <!-- Stats -->
-    <div class="stats-grid">
-      <div class="stat-card"><div class="stat-number">3→1</div><div class="stat-label">Tables Consolidated</div></div>
-      <div class="stat-card"><div class="stat-number">Estimated</div><div class="stat-label">Efficiency Gain</div></div>
-      <div class="stat-card"><div class="stat-number">↓</div><div class="stat-label">Error Rate</div></div>
-      <div class="stat-card"><div class="stat-number">↓</div><div class="stat-label">Onboarding Time</div></div>
+    <div class="content-section">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">3→1</div><div class="stat-label">Tables Consolidated</div></div>
+        <div class="stat-card"><div class="stat-number">Estimated</div><div class="stat-label">Efficiency Gain</div></div>
+        <div class="stat-card"><div class="stat-number">↓</div><div class="stat-label">Error Rate</div></div>
+        <div class="stat-card"><div class="stat-number">↓</div><div class="stat-label">Onboarding Time</div></div>
+      </div>
     </div>
+
+    <hr class="section-divider">
 
     <!-- Overview -->
     <section class="page-section" id="overview">
-      <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
+      <h3 class="section-heading">Project Overview</h3>
       <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">Summary</h3>
         <p>Identified an inefficiency on the warehouse floor and worked with a third-party WMS vendor to consolidate three fragmented inventory tables into a single intuitive view, reducing cognitive load and bridging the skill gap between experienced and new staff.</p>
-        <h3>My Role</h3>
+        <h3 class="subsection-title">My Role</h3>
         <p>I acted as the operational subject-matter expert and liaison between ECHT management and the third-party WMS provider. I defined the required business logic, documented the solution, validated the live implementation and trained staff on the updated workflow.</p>
-        <h3>My Contributions</h3>
+        <h3 class="subsection-title">My Contributions</h3>
         <ul>
           <li>Identified the inefficiency and pitched the consolidation to management and the WMS vendor (Thomax Technology)</li>
           <li>Authored the full technical specification: calculation logic for <code>replenResidual</code>, multi-condition filtering rules, edge case handling (negative &rarr; 0, bold positives), and an annotated example table, submitted directly to the vendor developer</li>
@@ -100,10 +96,13 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Problem -->
     <section class="page-section" id="problem">
-      <h3 class="section-heading"><i class="fas fa-exclamation-circle"></i> The Problem</h3>
-      <div class="content-section soft-panel">
+      <h3 class="section-heading">The Problem</h3>
+      <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Fragmented Warehouse Workflow</h3>
         <p>The warehouse relied on <strong>three separate tables</strong> that staff had to cross-reference simultaneously:</p>
         <ol>
           <li>Inventory pallet contents (what items are where)</li>
@@ -114,82 +113,42 @@
       </div>
     </section>
 
-    <!-- Workflow Diagram -->
-    <section class="page-section" id="workflow">
-      <h3 class="section-heading"><i class="fas fa-code-branch"></i> Before-and-After Workflow</h3>
-      <div class="content-section soft-panel">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:start;">
-          <div style="border:1px solid #000;padding:18px;background:#fafafa;">
-            <p style="margin:0 0 12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;">Before</p>
-            <div style="font-family:monospace;line-height:1.7;color:#222;">
-              Inventory contents<br>
-              <div style="text-align:center;font-size:1.2em;line-height:1;">+</div>
-              Collection status<br>
-              <div style="text-align:center;font-size:1.2em;line-height:1;">+</div>
-              Customer order tracking<br>
-              <div style="text-align:center;font-size:1.2em;line-height:1.2;">↓</div>
-              Manual cross-referencing by staff
-            </div>
-          </div>
-          <div style="border:1px solid #000;padding:18px;">
-            <p style="margin:0 0 12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;">After</p>
-            <div style="font-family:monospace;line-height:1.7;color:#222;">
-              Consolidated WMS report<br>
-              <div style="text-align:center;font-size:1.2em;line-height:1.2;">↓</div>
-              Calculated <code>replenResidual</code><br>
-              <div style="text-align:center;font-size:1.2em;line-height:1.2;">↓</div>
-              Only actionable replenishment records shown
-            </div>
-          </div>
-        </div>
-        <div class="workflow-row">
-          Warehouse problem<br>
-          <div style="text-align:center;font-size:1.15em;line-height:1;">→</div>
-          Requirements analysis<br>
-          <div style="text-align:center;font-size:1.15em;line-height:1;">→</div>
-          Technical specification<br>
-          <div style="text-align:center;font-size:1.15em;line-height:1;">→</div>
-          Vendor implementation<br>
-          <div style="text-align:center;font-size:1.15em;line-height:1;">→</div>
-          Live validation<br>
-          <div style="text-align:center;font-size:1.15em;line-height:1;">→</div>
-          Defect diagnosis and escalation
-        </div>
-      </div>
-    </section>
+    <hr class="section-divider">
 
     <!-- Solution -->
     <section class="page-section" id="solution">
-      <h3 class="section-heading"><i class="fas fa-lightbulb"></i> Solution</h3>
-      <div class="content-section soft-panel">
-        <p>I proposed replacing the three-report workflow with one consolidated operational view.</p>
-        <p>I worked with ECHT management and Thomax Technology to translate the warehouse process into clear technical requirements. The specification defined which inventory locations should affect replenishment quantities and how edge cases should be displayed.</p>
-        <p>The vendor deployed the implementation on 11 December 2023 and requested live verification.</p>
+      <h3 class="section-heading">Solution</h3>
+      <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Consolidated Operational View</h3>
+        <p>I proposed replacing the three-report workflow with one consolidated operational view, and worked with ECHT management and Thomax Technology to translate the process into clear technical requirements ahead of the vendor's 11 December 2023 deployment.</p>
         <ul>
           <li>Mapped variables and dependencies to understand the full data landscape</li>
           <li>Identified essential vs. redundant fields to reduce cognitive load</li>
-          <li>Coordinated tight deadlines via documentation, calls, and detailed PDFs</li>
+          <li>Coordinated specification and vendor delivery across tight deadlines</li>
         </ul>
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Technical Spec -->
     <section class="page-section" id="spec">
-      <h3 class="section-heading"><i class="fas fa-code"></i> Technical Spec</h3>
-      <div class="content-section soft-panel">
+      <h3 class="section-heading">Technical Spec</h3>
+      <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Replenishment Logic</h3>
         <p>The spec I authored and submitted to the vendor defined the logic for a new <code>replenResidual</code> column:</p>
         <div class="outcome-card" style="font-family: monospace; font-size: 0.95em; line-height: 1.6;">
           replenResidual = ReplenQuantity<br>
           &minus; SUM(InventoryQuantity where BulkBinCode starts with &ldquo;SUP&rdquo; or equals &ldquo;TABLE&rdquo;)
         </div>
-        <h3>Display Rules</h3>
+        <h3 class="subsection-title">Display Rules</h3>
         <ol>
           <li>Calculate the residual.</li>
           <li>Clamp negative values to zero.</li>
           <li>Hide records where the final residual equals zero.</li>
           <li>Bold positive values.</li>
         </ol>
-        <h3>Annotated Example <small style="font-weight:400;color:#666;">(Search input: TRA-FA-19%)</small></h3>
+        <h3 class="subsection-title">Annotated Example <small style="font-weight:400;color:#666;">(Search input: TRA-FA-19%)</small></h3>
         <p style="color:#555;font-size:0.9em;margin-bottom:12px;">The table is horizontally scrollable on smaller screens. Codes use monospace formatting and the visible/hidden column shows the final display state after the residual rules are applied.</p>
         <div style="overflow-x:auto;">
           <table class="spec-example-table" style="width:100%;border-collapse:collapse;font-size:0.875em;">
@@ -277,47 +236,52 @@
 
     <!-- Deployment Defect -->
     <section class="page-section" id="diagnosis">
-      <h3 class="section-heading"><i class="fas fa-bug"></i> Deployment Defect and Diagnosis</h3>
-      <div class="content-section soft-panel">
+      <h3 class="section-heading">Deployment Defect and Diagnosis</h3>
+      <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Live Validation &amp; Defect Diagnosis</h3>
         <p>During validation, I found records showing replenishment quantities that should already have resolved to zero.</p>
         <p>I traced the behaviour to values being calculated as static snapshots rather than recalculating after inventory-location updates.</p>
         <p>I documented the observed behaviour and likely root cause, then escalated it to the vendor for correction before the Christmas peak.</p>
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Results -->
     <section class="page-section" id="results">
-      <h3 class="section-heading"><i class="fas fa-chart-line"></i> Results &amp; Impact</h3>
-      <div class="stack-gap">
-        <div class="outcome-card">
-          <p><strong>Primary impact:</strong> Enabled one operator to coordinate work that had previously required two separate workflows at nearly the same speed.</p>
-        </div>
-        <div class="content-section">
-          <ul>
-            <li><strong>Consolidated system</strong>, three fragmented WMS views into one operational report</li>
-            <li><strong>Fewer errors</strong>, reduced manual cross-referencing, duplicated movement and the risk of missed replenishment items</li>
-            <li><strong>Faster onboarding</strong>, simplified onboarding by reducing the number of reports and rules new staff needed to learn</li>
-            <li><strong>Validation</strong>, identified a stale-data defect during live validation and escalated it before the Christmas peak</li>
-          </ul>
-          <p class="stack-gap" style="color: var(--ink-tertiary); font-size: 0.95em;">Estimated operational outcomes included a 60&ndash;80% improvement in retrieval and stock-movement efficiency, approximately 50% faster training and roughly 40% fewer workflow errors.</p>
-        </div>
+      <h3 class="section-heading">Results &amp; Impact</h3>
+      <div class="content-section stack-gap">
+        <p><strong>Primary impact:</strong> Enabled one operator to coordinate work that had previously required two separate workflows at nearly the same speed.</p>
+        <h3 class="subsection-title" style="margin-top:0;">What Changed</h3>
+        <ul>
+          <li><strong>Consolidated system</strong>, three fragmented WMS views into one operational report</li>
+          <li><strong>Fewer errors</strong>, reduced manual cross-referencing, duplicated movement and the risk of missed replenishment items</li>
+          <li><strong>Faster onboarding</strong>, simplified onboarding by reducing the number of reports and rules new staff needed to learn</li>
+          <li><strong>Validation</strong>, identified a stale-data defect during live validation and escalated it before the Christmas peak</li>
+        </ul>
+        <p class="stack-gap" style="color: var(--ink-tertiary); font-size: 0.95em;">Estimated operational outcomes included a 60&ndash;80% improvement in retrieval and stock-movement efficiency, approximately 50% faster training and roughly 40% fewer workflow errors.</p>
       </div>
     </section>
+
+    <hr class="section-divider">
 
     <!-- Technical Report -->
     <section class="page-section" id="docs">
-      <h3 class="section-heading"><i class="fas fa-file-alt"></i> Technical Report</h3>
-      <div class="stack-gap">
-        <p style="color: #333; margin-bottom: 15px;">Detailed technical analysis and recommendations provided to the WMS development team:</p>
-        <iframe src="report.pdf" style="width: 100%; height: 700px; border: 1px solid #000; display: block;"></iframe>
+      <h3 class="section-heading">Technical Report</h3>
+      <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Implementation Specification</h3>
+        <p>Detailed technical analysis and recommendations provided to the WMS development team:</p>
+        <iframe src="report.pdf" style="width: 100%; height: 640px; max-height: 80vh; border: 1px solid var(--hairline); border-radius: var(--radius-sm); display: block;"></iframe>
       </div>
     </section>
 
-    <!-- Footer CTA -->
-    <div class="footer-cta">
-      <h2>What This Project Demonstrates</h2>
-      <p>A real-world consulting project combining warehouse process analysis, technical specification writing, validation and staff adoption.</p>
-      <div class="content-section" style="text-align:left;max-width:920px;margin:0 auto 24px;">
+    <hr class="section-divider">
+
+    <!-- What This Project Demonstrates -->
+    <section class="page-section" id="demonstrates">
+      <h3 class="section-heading">What This Project Demonstrates</h3>
+      <div class="content-section">
+        <p>A real-world consulting project combining warehouse process analysis, technical specification writing, validation and staff adoption.</p>
         <ul>
           <li>Operational requirements analysis</li>
           <li>WMS and vendor coordination</li>
@@ -327,33 +291,21 @@
           <li>Staff training and process adoption</li>
         </ul>
       </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <div class="footer-cta footer-cta--compact">
+      <h2>Explore This Project</h2>
+      <p>Read the full technical specification or head back to the portfolio.</p>
       <div class="button-group">
-        <a href="../index.html#work" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <a href="#docs" class="cta-btn primary"><i class="fas fa-file-alt"></i> Technical Report</a>
+        <a href="../index.html#project-echt" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
 
   </div>
 
-  <script>
-    function openSectionByHash(hash) {
-      if (!hash) return;
-      const target = document.querySelector(hash);
-      if (!target) return;
-      const details = target.closest('details');
-      if (details) details.open = true;
-      requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
-    }
-    openSectionByHash(window.location.hash);
-    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        var hash = this.getAttribute('href');
-        if (!hash || hash === '#') return;
-        e.preventDefault();
-        openSectionByHash(hash);
-        history.pushState(null, '', hash);
-      });
-    });
-  </script>
+  <script src="../navbar-back-icon.js"></script>
   <script src="../navbar.js"></script>
 </body>
 </html>

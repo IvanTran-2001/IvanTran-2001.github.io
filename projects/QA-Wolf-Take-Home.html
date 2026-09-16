@@ -26,83 +26,59 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
+    <nav class="navbar navbar--long">
     <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
+    <site-navbar-back href="../index.html#project-qa-wolf" label="Back to Portfolio" title="Back to Portfolio"></site-navbar-back>
     <ul class="navbar-links">
       <li><a href="#outcome"><i class="fas fa-trophy"></i> Outcome</a></li>
       <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
       <li><a href="#tech"><i class="fas fa-layer-group"></i> Tech Stack</a></li>
       <li><a href="#testing"><i class="fas fa-vial"></i> Testing</a></li>
     </ul>
+    <details class="navbar-sections">
+      <summary>Sections <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+      <ul class="sections-menu">
+      <li><a href="#outcome"><i class="fas fa-trophy"></i> Outcome</a></li>
+      <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
+      <li><a href="#tech"><i class="fas fa-layer-group"></i> Tech Stack</a></li>
+      <li><a href="#testing"><i class="fas fa-vial"></i> Testing</a></li>
+    </ul>
+    </details>
     <div class="navbar-socials">
       <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <div class="hero">
-    <a href="../index.html#work" class="back-link">&larr; Back to Portfolio</a>
-    <h1>QA Wolf Technical Assessment</h1>
-    <p class="hero-subtitle">Take-home technical assessment for QA Wolf's hiring process: applications screened on submitted projects, no resume required. Built a Hacker News sort validator with Node.js + Playwright. <strong>Reached the paid final round (AUD $220)</strong> and completed a live Playwright assessment in QA Wolf's platform.</p>
-    <div class="hero-badges">
-      <span class="badge"><i class="fas fa-vial"></i> Test Automation</span>
-      <span class="badge"><i class="fas fa-spider"></i> Web Scraping</span>
-      <span class="badge"><i class="fas fa-terminal"></i> CLI Tool</span>
-    </div>
-    <div class="hero-cta">
+  <!-- Title -->
+  <section class="project-intro">
+    <h1 class="project-intro-title">QA Wolf Technical Assessment</h1>
+    <p class="project-intro-subtitle">Paid Final-Stage Hiring Assessment</p>
+    <p class="project-intro-desc">Built a Hacker News sort-order validator with Node.js and Playwright as a take-home assessment for QA Wolf's project-only hiring process.</p>
+    <div class="project-intro-stack">Node.js · Playwright · Test Automation</div>
+    <div class="project-intro-actions">
       <a href="https://www.loom.com/share/d3b55a224db6491ab0369a05233862a7" class="cta-btn primary" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
       <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="cta-btn" target="_blank"><i class="fab fa-github"></i> View Code</a>
     </div>
-  </div>
+  </section>
+  <hr class="section-divider">
 
   <div class="container">
 
-    <!-- Stats -->
-    <div class="stats-grid">
-      <div class="stat-card"><div class="stat-number">Final Round</div><div class="stat-label">Stage Reached</div></div>
-      <div class="stat-card"><div class="stat-number">AUD $220</div><div class="stat-label">Paid Assessment</div></div>
-      <div class="stat-card"><div class="stat-number">No Resume</div><div class="stat-label">Project-Only Screening</div></div>
-      <div class="stat-card"><div class="stat-number">Jan 2026</div><div class="stat-label">Date</div></div>
-    </div>
-
     <!-- Hiring Outcome -->
     <section class="page-section" id="outcome">
-      <h3 class="section-heading"><i class="fas fa-trophy"></i> Hiring Outcome</h3>
-      <div class="stack-gap">
-        <div class="outcome-card">
-          <p><strong>Reached the final round of QA Wolf's hiring process</strong>: a paid live Playwright assessment (AUD $220) in QA Wolf's own platform, January 21, 2026.</p>
-        </div>
-        <div class="content-section stack-gap">
-          <h3>How QA Wolf Hires</h3>
-          <p>QA Wolf's process is entirely project-based: no resume required at any stage. Candidates submit their existing projects and are evaluated purely on the quality of their work. Passing the take-home moves you to a final live coding round in QA Wolf's platform where you write automated tests in real time.</p>
-          <h3>Timeline</h3>
-          <ul>
-            <li><strong>Submitted projects</strong>: application screened on GitHub work, no resume</li>
-            <li><strong>Take-home assessment</strong>: built this Hacker News validator in Node.js + Playwright</li>
-            <li><strong>Jan 16, 2026</strong>: received final round invitation (email on file)</li>
-            <li><strong>Jan 21, 2026</strong>: completed paid live Playwright assessment (AUD $220) in QA Wolf's platform</li>
-          </ul>
-        </div>
+      <h3 class="section-heading">Hiring Outcome</h3>
+      <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Assessment Result</h3>
+        <p>Reached QA Wolf's paid final-stage assessment and completed a live Playwright assessment in QA Wolf's own platform.</p>
+        <p class="stack-gap" style="color: var(--ink-tertiary); font-size: 0.85em;">Final Round · AUD $220 Paid Assessment · Jan 2026</p>
+        <h3 class="subsection-title arch-section-divider">How QA Wolf Hires</h3>
+        <p>QA Wolf's process is entirely project-based: no resume required at any stage. Candidates submit their existing projects and are evaluated purely on the quality of their work. Passing the take-home moves you to a final live coding round in QA Wolf's platform where you write automated tests in real time.</p>
       </div>
     </section>
 
-    <!-- TOC -->
-    <div class="content-section" id="jump">
-      <h3>Jump to Section</h3>
-      <div class="toc-grid">
-        <a href="#outcome" class="toc-link"><i class="fas fa-trophy"></i><span>Hiring Outcome</span></a>
-        <a href="#demo" class="toc-link"><i class="fas fa-play-circle"></i><span>Demo Video</span></a>
-        <a href="#overview" class="toc-link"><i class="fas fa-info-circle"></i><span>Project Overview</span></a>
-        <a href="#tech" class="toc-link"><i class="fas fa-layer-group"></i><span>Technology Stack</span></a>
-        <a href="#features" class="toc-link"><i class="fas fa-star"></i><span>Key Features</span></a>
-        <a href="#usage" class="toc-link"><i class="fas fa-code"></i><span>Usage</span></a>
-        <a href="#testing" class="toc-link"><i class="fas fa-vial"></i><span>Testing</span></a>
-      </div>
-    </div>
-
     <!-- Demo Video -->
     <section class="page-section" id="demo">
-      <h3 class="section-heading"><i class="fas fa-play-circle"></i> Demo Video</h3>
+      <h3 class="section-heading">Demo Video</h3>
       <div class="content-section" style="padding: 0; overflow: hidden; margin-top: 20px;">
         <div class="video-wrapper">
           <iframe src="https://www.loom.com/embed/d3b55a224db6491ab0369a05233862a7" frameborder="0" allowfullscreen></iframe>
@@ -112,8 +88,9 @@
 
     <!-- Overview -->
     <section class="page-section" id="overview">
-      <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
+      <h3 class="section-heading">Project Overview</h3>
       <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">What It Does</h3>
         <p>Submitted as a take-home technical assessment for QA Wolf, a company that screens candidates on submitted projects alone, with no resume required at any stage. This tool scrapes the first 100 articles from <strong>Hacker News/newest</strong> and validates they are sorted newest-to-oldest by timestamp, reporting any out-of-order articles with detailed context.</p>
         <ul>
           <li>Multi-page Playwright navigation across paginated results</li>
@@ -127,20 +104,19 @@
 
     <!-- Tech Stack -->
     <section class="page-section" id="tech">
-      <h3 class="section-heading"><i class="fas fa-layer-group"></i> Technology Stack</h3>
+      <h3 class="section-heading">Technology Stack</h3>
       <div class="tech-section stack-gap">
-        <div class="tech-grid">
-          <div class="tech-card"><h4>Node.js</h4><p>JavaScript runtime for the CLI and scraper</p></div>
-          <div class="tech-card"><h4>Playwright</h4><p>Browser automation for scraping and tests</p></div>
-          <div class="tech-card"><h4>JavaScript ES6+</h4><p>Async/await, modules, destructuring</p></div>
-          <div class="tech-card"><h4>@playwright/test</h4><p>Built-in test runner</p></div>
+        <h3 class="subsection-title" style="margin-top:0;">Core Technologies</h3>
+        <div class="tech-categories">
+          <div class="tech-category"><h5>Runtime &amp; Language</h5><p>Node.js · JavaScript ES6+</p></div>
+          <div class="tech-category"><h5>Automation</h5><p>Playwright · @playwright/test</p></div>
         </div>
       </div>
     </section>
 
     <!-- Key Features -->
     <section class="page-section" id="features">
-      <h3 class="section-heading"><i class="fas fa-star"></i> Key Features</h3>
+      <h3 class="section-heading">Key Features</h3>
       <div class="features-grid stack-gap">
         <div class="feature-card"><h3><i class="fas fa-spider"></i> Playwright Scraping</h3><p>Multi-page navigation with dynamic content extraction.</p></div>
         <div class="feature-card"><h3><i class="fas fa-check-double"></i> Sort Validation</h3><p>ISO timestamp parsing with precise out-of-order detection.</p></div>
@@ -151,31 +127,11 @@
       </div>
     </section>
 
-    <!-- Usage -->
-    <section class="page-section" id="usage">
-      <h3 class="section-heading"><i class="fas fa-code"></i> Usage</h3>
-      <div class="content-section stack-gap">
-<pre># Fetch and validate 100 articles
-node index.js
-
-# Show first 5 article titles
-node index.js 100 5
-
-# Verbose output
-node index.js 100 5 --verbose
-
-# Test mode with intentional sorting errors
-node index.js 100 0 --test-error
-
-# Help
-node index.js --help</pre>
-      </div>
-    </section>
-
     <!-- Testing -->
     <section class="page-section" id="testing">
-      <h3 class="section-heading"><i class="fas fa-vial"></i> Testing</h3>
+      <h3 class="section-heading">Testing</h3>
       <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">Test Suite</h3>
         <p>Run the suite with <code>npx playwright test</code>:</p>
         <ul>
           <li><strong>CLI parser tests</strong>: argument parsing, defaults, flag handling</li>
@@ -188,38 +144,19 @@ node index.js --help</pre>
     </section>
 
     <!-- CTA -->
-    <div class="footer-cta">
+    <div class="footer-cta footer-cta--compact">
       <h2>Reached the Paid Final Round</h2>
       <p>This take-home assessment earned a final round invitation from QA Wolf. Watch the walkthrough or explore the source code.</p>
       <div class="button-group">
         <a href="https://www.loom.com/share/d3b55a224db6491ab0369a05233862a7" class="cta-btn primary" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
         <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="cta-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="../index.html#work" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <a href="../index.html#project-qa-wolf" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
 
   </div>
 
-  <script>
-    function openSectionByHash(hash) {
-      if (!hash) return;
-      const target = document.querySelector(hash);
-      if (!target) return;
-      const details = target.closest('details');
-      if (details) details.open = true;
-      requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
-    }
-    openSectionByHash(window.location.hash);
-    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        var hash = this.getAttribute('href');
-        if (!hash || hash === '#') return;
-        e.preventDefault();
-        openSectionByHash(hash);
-        history.pushState(null, '', hash);
-      });
-    });
-  </script>
+  <script src="../navbar-back-icon.js"></script>
   <script src="../navbar.js"></script>
 </body>
 </html>

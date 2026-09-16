@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Strip an incoming project hash before the browser can instantly jump to it;
+    // our script below smooth-scrolls there once the page and dropdown state are ready.
+    (function () {
+      if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+      if (window.location.hash) {
+        window.__pendingHash = window.location.hash;
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    })();
+  </script>
   <meta name="description" content="Ivan Tran - Full-Stack Software Engineer based in Melbourne, Australia. Specialising in JavaScript, TypeScript, Next.js, MERN stack, Prisma, PostgreSQL, C++, and Python.">
   <meta name="keywords" content="Software Engineer, Full-Stack Developer, Full-Stack Engineer, MERN Stack, JavaScript, TypeScript, React, Next.js, Node.js, Express.js, Prisma, PostgreSQL, MongoDB, tRPC, PayloadCMS, Python, SQL, REST API, Test Automation, Playwright, Jest, Melbourne, Australia, Web Developer, Backend Developer, Frontend Developer, Git, Agile, OOP, Data Structures, Algorithms">
   <meta name="author" content="Ivan Tran">
@@ -58,7 +69,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.15rem, 5vw, 2.75rem);
+      font-size: clamp(2.1rem, 4.5vw, 2.7rem);
       line-height: 1.08;
       letter-spacing: -0.03em;
       margin-bottom: 12px;
@@ -135,6 +146,10 @@
       margin: 0 0 var(--space-5);
       line-height: 1.55;
     }
+
+    /* Internal white-surface heading, smaller and quieter than .section-title, always black */
+    .subsection-title { font-size: 1.05em; margin: 20px 0 10px 0; font-weight: 700; color: var(--ink); }
+    .subsection-title:first-child { margin-top: 0; }
 
     /* Structural boundary between major sections, separate from the section-title accent dash */
     .section-divider {
@@ -307,42 +322,42 @@
     }
     .tight-list li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
 
-    /* Compact work rows (ECHT / QA Wolf) */
-    .work-row-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
+    /* Editorial project rows (ECHT / QA Wolf), stacked, image/copy alternate sides, height driven by content */
+    .work-row-list { display: flex; flex-direction: column; gap: 20px; }
 
-    .work-row {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
+    .work-row-editorial {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
       border: 1px solid var(--hairline);
       border-radius: var(--radius-md);
-      overflow: hidden;
       background: #ffffff;
+      padding: var(--space-5);
       transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     }
-    .work-row:hover { border-color: var(--hairline-strong); transform: translateY(-2px); box-shadow: var(--shadow-card); }
-    .work-row-image { width: 100%; height: 160px; object-fit: cover; object-position: center; display: block; }
-    .work-row-image--top { object-position: center top; }
-    .work-row-copy { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-    .work-row-copy h4 { font-size: 0.98rem; font-weight: 700; line-height: 1.35; }
-    .work-row-meta { font-size: 0.77rem; color: var(--ink-tertiary); line-height: 1.45; letter-spacing: 0.04em; text-transform: uppercase; }
-    .work-row-points { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-    .work-row-points li { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.5; padding-left: 14px; position: relative; }
-    .work-row-points li::before { content: ''; position: absolute; left: 0; top: 0.58em; width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
+    .work-row-editorial:hover { border-color: var(--hairline-strong); transform: translateY(-2px); box-shadow: var(--shadow-card); }
 
-    /* Impact/proof reads as its own block, separated from the bullets by a divider, not just spacing */
-    .work-row-impact-block { margin-top: 2px; padding-top: 10px; border-top: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 6px; }
+    .work-row-editorial--reverse .work-row-media { order: 2; }
+    .work-row-editorial--reverse .work-row-copy { order: 1; }
+
+    .work-row-media { display: flex; }
+    .work-row-image { width: 100%; max-height: 260px; border-radius: var(--radius-sm); object-fit: cover; object-position: center; display: block; }
+
+    .work-row-copy { display: flex; flex-direction: column; gap: 10px; }
+    .work-row-copy h4 { font-size: 1.05rem; font-weight: 700; line-height: 1.3; color: var(--ink); }
+    .work-row-meta { font-size: 0.77rem; color: var(--ink-tertiary); letter-spacing: 0.04em; text-transform: uppercase; }
+    .work-row-points { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .work-row-points li { font-size: 0.85rem; color: var(--ink-secondary); line-height: 1.5; padding-left: 14px; position: relative; }
+    .work-row-points li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
+
+    /* Impact/proof reads as a plain text line under a divider, no chips or nested cards */
+    .work-row-impact-block { padding-top: 8px; border-top: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 4px; }
     .work-row-impact-label { font-size: 0.72rem; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: 0.05em; }
-    .work-row-impact-row { display: flex; flex-wrap: wrap; gap: 6px; }
-    .work-row-impact-row span { font-size: 0.74rem; color: var(--ink-secondary); background: var(--surface); border: 1px solid var(--hairline); border-radius: 999px; padding: 4px 8px; }
-    .work-row-impact-text { font-size: 0.8rem; color: var(--ink-secondary); line-height: 1.45; }
+    .work-row-impact-text { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.5; }
     .work-row-impact-text strong { color: var(--ink); font-weight: 700; }
 
-    .work-row-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 2px; }
+    .work-row-links { display: flex; flex-wrap: wrap; gap: 10px; }
 
     /* Experience, same divided-row language as Open Source, one bordered surface with subtle dividers */
     .experience-grid { display: flex; flex-direction: column; }
@@ -368,8 +383,10 @@
     .oss-card p { font-size: 0.84rem; color: var(--ink-secondary); line-height: 1.55; max-width: 62ch; }
 
     /* About Section */
-    .about-content { display: grid; grid-template-columns: 130px 1fr; gap: 28px; }
+    .about-content { display: grid; grid-template-columns: 1fr 130px; gap: 28px; align-items: start; }
 
+    .about-text { grid-column: 1; grid-row: 1; }
+    .about-image { grid-column: 2; grid-row: 1; justify-self: end; align-self: start; }
     .about-image img { width: 120px; height: 120px; border-radius: var(--radius-md); object-fit: cover; }
     .about-text p { color: var(--ink-secondary); margin-bottom: 14px; line-height: 1.6; font-size: 0.9rem; }
     .about-note { font-size: 0.8rem; color: var(--ink-tertiary); margin-bottom: 18px; }
@@ -557,12 +574,15 @@
       .signal-chip { padding: 0 8px; }
       .signal-chip strong { font-size: 1rem; }
 
-      .work-row-grid { grid-template-columns: 1fr; }
-      .work-row-image { height: 180px; }
-      .work-row-copy { padding: 16px; }
+      .work-row-editorial,
+      .work-row-editorial--reverse { grid-template-columns: 1fr; gap: 14px; padding: var(--space-4); }
+      .work-row-editorial--reverse .work-row-media { order: 1; }
+      .work-row-editorial--reverse .work-row-copy { order: 2; }
+      .work-row-image { max-height: 200px; }
 
       .about-content { grid-template-columns: 1fr; gap: 16px; }
-      .about-image { text-align: center; }
+      .about-text, .about-image { grid-column: auto; grid-row: auto; }
+      .about-image { justify-self: center; text-align: center; }
       .about-image img { width: 110px; height: 110px; }
 
       .skills-groups { grid-template-columns: 1fr; gap: var(--space-4); }
@@ -598,7 +618,7 @@
     }
   </style>
 </head>
-<body>
+<body data-manual-hash-scroll>
   <!-- Navbar -->
   <nav class="navbar navbar--long">
     <a href="#" class="navbar-name" aria-label="Ivan Tran"><img src="favicon.svg" alt="" aria-hidden="true"></a>
@@ -647,7 +667,7 @@
     <h2 class="section-title">FEATURED WORK</h2>
 
     <!-- FriendChise: flagship -->
-    <div class="flagship-feature animate-on-scroll">
+    <div id="project-friendchise" class="flagship-feature animate-on-scroll">
       <div class="browser-frame">
         <div class="browser-frame-bar">
           <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
@@ -662,7 +682,7 @@
         <div class="flagship-signals">
           <div class="signal-chip"><strong>55</strong><span>Prisma models</span></div>
           <div class="signal-chip"><strong>440+</strong><span>Automated tests</span></div>
-          <div class="signal-chip"><strong>31</strong><span>Contributors</span></div>
+          <div class="signal-chip"><strong data-contributor-count></strong><span>Contributors</span></div>
         </div>
         <div class="flagship-cta">
           <a href="projects/friendchise.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> Case Study</a>
@@ -675,7 +695,7 @@
     </div>
 
     <!-- FriendChise Mobile: secondary -->
-    <div class="secondary-feature animate-on-scroll">
+    <div id="project-friendchise-mobile" class="secondary-feature animate-on-scroll">
       <div class="phone-frame-sm">
         <img src="projects/pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task workflow: capture, generated draft, review" class="expandable">
       </div>
@@ -697,10 +717,12 @@
       </div>
     </div>
 
-    <!-- ECHT + QA Wolf: compact rows -->
-    <div class="work-row-grid">
-      <div class="work-row animate-on-scroll">
-        <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image work-row-image--top expandable" loading="lazy" decoding="async">
+    <!-- ECHT + QA Wolf: stacked editorial project rows -->
+    <div class="work-row-list">
+      <div id="project-echt" class="work-row-editorial animate-on-scroll">
+        <div class="work-row-media">
+          <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image expandable" loading="lazy" decoding="async">
+        </div>
         <div class="work-row-copy">
           <h4>ECHT Warehouse: Process Engineering</h4>
           <p class="work-row-meta">Warehouse Operations · Process Redesign</p>
@@ -710,19 +732,17 @@
           </ul>
           <div class="work-row-impact-block">
             <div class="work-row-impact-label">Estimated impact</div>
-            <div class="work-row-impact-row">
-              <span>60&ndash;80% faster retrieval</span>
-              <span>~50% faster onboarding</span>
-              <span>~40% fewer errors</span>
-            </div>
+            <p class="work-row-impact-text">60&ndash;80% faster retrieval &middot; ~50% faster onboarding &middot; ~40% fewer errors</p>
           </div>
           <div class="work-row-links">
             <a href="projects/echt-warehouse.html" class="cta-btn sm">View Project &rarr;</a>
           </div>
         </div>
       </div>
-      <div class="work-row animate-on-scroll">
-        <img src="projects/pictures/QAWolf.png" alt="QA Wolf assessment" class="work-row-image expandable" loading="lazy" decoding="async">
+      <div id="project-qa-wolf" class="work-row-editorial work-row-editorial--reverse animate-on-scroll">
+        <div class="work-row-media">
+          <img src="projects/pictures/QAWolf.png" alt="QA Wolf assessment" class="work-row-image expandable" loading="lazy" decoding="async">
+        </div>
         <div class="work-row-copy">
           <h4>QA Wolf: Paid Finalist Assessment</h4>
           <p class="work-row-meta">Node.js · Playwright · Test Automation</p>
@@ -731,7 +751,7 @@
             <li>Added structured diagnostics and non-zero failure exit codes so automation failures are explicit and reproducible.</li>
           </ul>
           <div class="work-row-impact-block">
-            <p class="work-row-impact-text"><strong>Paid final-stage assessment</strong> · ~15 finalists</p>
+            <p class="work-row-impact-text"><strong>Paid final-stage assessment</strong> &middot; ~15 finalists</p>
           </div>
           <div class="work-row-links">
             <a href="projects/QA-Wolf-Take-Home.html" class="cta-btn sm">View Project &rarr;</a>
@@ -787,7 +807,8 @@
   <div id="open-source">
     <h2 class="section-title">OPEN SOURCE</h2>
     <div class="surface-panel">
-      <p class="oss-intro">31 OSS contributors to FriendChise, with issues, PR reviews, implementation discussion, and contributor onboarding managed by me. Two recent examples:</p>
+      <h3 class="subsection-title" style="margin-top:0;">Community Contributions</h3>
+      <p class="oss-intro"><span data-contributor-count></span> OSS contributors to FriendChise, with issues, PR reviews, implementation discussion, and contributor onboarding managed by me. Two recent examples:</p>
       <div class="oss-grid">
         <div class="oss-card animate-on-scroll">
           <div class="oss-card-top">
@@ -813,6 +834,7 @@
   <div id="about">
     <h2 class="section-title">ABOUT</h2>
     <div class="surface-panel">
+      <h3 class="subsection-title" style="margin-top:0;">Profile</h3>
       <div class="about-content">
         <div class="about-image">
           <img src="profile.jpg" alt="Ivan Tran" fetchpriority="high" decoding="async">
@@ -836,6 +858,7 @@
   <div id="skills">
     <h2 class="section-title">SKILLS</h2>
     <div class="surface-panel">
+      <h3 class="subsection-title" style="margin-top:0;">Technical Stack</h3>
       <div class="skills-groups">
         <div class="skill-group"><h4>Core</h4><p>TypeScript, JavaScript, React, Next.js</p></div>
         <div class="skill-group"><h4>Backend &amp; Data</h4><p>Node.js, PostgreSQL, Prisma, REST APIs</p></div>
@@ -853,11 +876,12 @@
   <div id="more-work">
     <h2 class="section-title">ADDITIONAL WORK</h2>
     <div class="surface-panel">
+      <h3 class="subsection-title" style="margin-top:0;">Selected Projects</h3>
       <p class="section-intro">Smaller projects, experiments and coursework that show additional breadth across full-stack development, systems and algorithms.</p>
       <details class="collapsible-section" id="more-projects">
         <summary><span class="summary-label">Show additional projects</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
         <div class="compact-row-list">
-          <div class="compact-row">
+          <div id="project-multitenant" class="compact-row">
             <div class="compact-row-copy">
               <h4>Multitenant E-Commerce <span class="proj-badge badge-wip">In Progress</span></h4>
               <p>Multi-tenant SaaS e-commerce build with tenant-scoped data isolation and role-based access control.</p>
@@ -867,7 +891,7 @@
               <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="cta-btn sm" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
           </div>
-          <div class="compact-row">
+          <div id="project-thinkboard" class="compact-row">
             <div class="compact-row-copy">
               <h4>MERN Thinkboard</h4>
               <p>Full-stack note-taking app, React, Node.js, Express, MongoDB, JWT auth, Redis-backed rate limiting.</p>
@@ -877,7 +901,7 @@
               <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="cta-btn sm" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
           </div>
-          <div class="compact-row">
+          <div id="project-vending-machine" class="compact-row">
             <div class="compact-row-copy">
               <h4>Vending Machine Simulator <span class="proj-badge badge-grade">100% Grade</span></h4>
               <p>4-person C++ team project, command-pattern design, custom data structures, zero memory leaks (Valgrind).</p>
@@ -965,19 +989,6 @@
   </footer>
 
   <script>
-    // Smooth scroll behavior
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        if (targetId.length <= 1) return;
-        const target = document.querySelector(targetId);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
     // Additional Work toggle label swap
     const moreProjects = document.getElementById('more-projects');
     if (moreProjects) {
@@ -986,6 +997,34 @@
         label.textContent = moreProjects.open ? 'Hide additional projects' : 'Show additional projects';
       });
     }
+
+    // Resolve an incoming project hash (e.g. returning from a project's Back button):
+    // open its parent Additional Work dropdown if needed, then smooth-scroll it into view.
+    (function () {
+      const hash = window.__pendingHash;
+      if (!hash) return;
+      let target;
+      try { target = document.querySelector(hash); } catch (err) { return; }
+      if (!target) {
+        history.replaceState(null, '', window.location.pathname + window.location.search + hash);
+        return;
+      }
+
+      const details = target.closest('details');
+      if (details) {
+        details.open = true;
+        const detailsLabel = details.querySelector('.summary-label');
+        if (detailsLabel) detailsLabel.textContent = 'Hide additional projects';
+      }
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+          history.replaceState(null, '', window.location.pathname + window.location.search + hash);
+        });
+      });
+    })();
 
     // Contact form submission
     const contactForm = document.getElementById('contact-form');
@@ -1037,5 +1076,55 @@
   </script>
   <script src="navbar.js"></script>
   <script src="lightbox.js"></script>
+  <script>
+    const contributorTargets = Array.from(document.querySelectorAll('[data-contributor-count]'));
+
+    async function loadContributorCount() {
+      const perPage = 100;
+      let page = 1;
+      let total = 0;
+
+      while (true) {
+        const response = await fetch(`https://api.github.com/repos/IvanTran-2001/FriendChise/contributors?per_page=${perPage}&anon=1&page=${page}`, {
+          headers: { Accept: 'application/vnd.github+json' },
+        });
+
+        if (!response.ok) {
+          throw new Error(`GitHub contributors request failed: ${response.status}`);
+        }
+
+        const contributors = await response.json();
+
+        if (!Array.isArray(contributors) || contributors.length === 0) {
+          break;
+        }
+
+        total += contributors.length;
+
+        if (contributors.length < perPage) {
+          break;
+        }
+
+        page += 1;
+      }
+
+      return total;
+    }
+
+    async function syncContributorCounts() {
+      try {
+        const count = await loadContributorCount();
+        contributorTargets.forEach((element) => {
+          element.textContent = String(count);
+        });
+      } catch {
+        contributorTargets.forEach((element) => {
+          element.textContent = '0';
+        });
+      }
+    }
+
+    syncContributorCounts();
+  </script>
 </body>
 </html>

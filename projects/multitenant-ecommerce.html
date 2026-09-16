@@ -27,75 +27,60 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
+    <nav class="navbar navbar--long">
     <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
+    <site-navbar-back href="../index.html#project-multitenant" label="Back to Portfolio" title="Back to Portfolio"></site-navbar-back>
     <ul class="navbar-links">
       <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
       <li><a href="#tech"><i class="fas fa-layer-group"></i> Tech Stack</a></li>
       <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
       <li><a href="#architecture"><i class="fas fa-sitemap"></i> Architecture</a></li>
     </ul>
+    <details class="navbar-sections">
+      <summary>Sections <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+      <ul class="sections-menu">
+      <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
+      <li><a href="#tech"><i class="fas fa-layer-group"></i> Tech Stack</a></li>
+      <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+      <li><a href="#architecture"><i class="fas fa-sitemap"></i> Architecture</a></li>
+    </ul>
+    </details>
     <div class="navbar-socials">
       <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
       <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" target="_blank" aria-label="Demo" title="Demo"><i class="fas fa-play-circle" aria-hidden="true"></i></a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <div class="hero">
-    <a href="../index.html#work" class="back-link">&larr; Back to Portfolio</a>
-    <h1>Multitenant E-Commerce</h1>
-    <p class="hero-subtitle">Multi-tenant SaaS e-commerce platform built with Next.js 16, PayloadCMS, tRPC, and MongoDB, featuring role-based tenant isolation and end-to-end type safety.</p>
-    <div class="screenshots-grid">
-      <div class="screenshot-item">
-        <img src="pictures/multitenant-ecommerce1.png" alt="Main storefront with category filters">
-        <p>Main storefront: category nav, price &amp; tag filters</p>
-      </div>
-      <div class="screenshot-item">
-        <img src="pictures/multitenant-ecommerce2.png" alt="Tenant storefront page">
-        <p>Tenant storefront: per-seller product listings</p>
-      </div>
-    </div>
-    <div class="hero-badges">
-      <span class="badge">Next.js 16</span>
-      <span class="badge">PayloadCMS</span>
-      <span class="badge">TypeScript</span>
-      <span class="badge">Multi-Tenant</span>
-      <span class="badge">tRPC</span>
-      <span class="badge wip">In Progress</span>
-    </div>
-    <div class="hero-cta">
+  <!-- Title -->
+  <section class="project-intro">
+    <h1 class="project-intro-title">Multitenant E-Commerce</h1>
+    <p class="project-intro-subtitle">Role-Based Multi-Tenant SaaS Platform</p>
+    <p class="project-intro-desc">A multi-tenant e-commerce SaaS with per-seller data isolation, built with Next.js 16, PayloadCMS, and tRPC for end-to-end type safety. In progress.</p>
+    <div class="project-intro-stack">Next.js 16 · PayloadCMS · tRPC · MongoDB</div>
+    <div class="project-intro-actions">
       <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" class="cta-btn primary" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
       <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="cta-btn" target="_blank"><i class="fab fa-github"></i> View Code</a>
     </div>
-  </div>
+  </section>
+  <hr class="section-divider">
 
   <div class="container">
 
-    <!-- TOC -->
-    <div class="content-section" id="jump">
-      <h3>Jump to Section</h3>
-      <div class="toc-grid">
-        <a href="#demo" class="toc-link"><i class="fas fa-play-circle"></i><span>Demo Video</span></a>
-        <a href="#overview" class="toc-link"><i class="fas fa-info-circle"></i><span>Project Overview</span></a>
-        <a href="#tech" class="toc-link"><i class="fas fa-layer-group"></i><span>Technology Stack</span></a>
-        <a href="#features" class="toc-link"><i class="fas fa-star"></i><span>Key Features</span></a>
-        <a href="#architecture" class="toc-link"><i class="fas fa-sitemap"></i><span>Architecture</span></a>
-        <a href="#learned" class="toc-link"><i class="fas fa-graduation-cap"></i><span>What I Learned</span></a>
+    <!-- Stats -->
+    <div class="content-section">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Payload Collections</div></div>
+        <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Admin Role Levels</div></div>
+        <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">Tenants Supported</div></div>
+        <div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">TypeScript Coverage</div></div>
       </div>
     </div>
 
-    <!-- Stats -->
-    <div class="stats-grid">
-      <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Payload Collections</div></div>
-      <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Admin Role Levels</div></div>
-      <div class="stat-card"><div class="stat-number">∞</div><div class="stat-label">Tenants Supported</div></div>
-      <div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">TypeScript Coverage</div></div>
-    </div>
+    <hr class="section-divider">
 
     <!-- Demo Video -->
     <section class="page-section" id="demo">
-      <h3 class="section-heading"><i class="fas fa-play-circle"></i> Demo Video</h3>
+      <h3 class="section-heading">Demo Video</h3>
       <div class="content-section" style="padding: 0; overflow: hidden; margin-top: 20px;">
         <div class="video-wrapper">
           <iframe src="https://www.loom.com/embed/00a62fe246f9453ba770e8f43ac52696" frameborder="0" allowfullscreen></iframe>
@@ -103,45 +88,56 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Overview -->
     <section class="page-section" id="overview">
-      <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
-      <div class="stack-gap">
-        <div class="learning-note">
-          <p><strong>Learning project (in progress):</strong> Built by following a structured tutorial to explore advanced Next.js patterns, multi-tenant architecture, and headless CMS integration.</p>
-        </div>
-        <div class="content-section">
-          <p>A multi-tenant e-commerce SaaS where each seller's data and products are isolated through declarative role-based access control. <strong>PayloadCMS</strong> powers the headless backend and admin panel, <strong>Next.js 16</strong> renders the storefronts, and <strong>tRPC</strong> connects them with end-to-end type safety.</p>
-          <ul>
-            <li><strong>Multi-tenancy:</strong> Tenant data is scoped at the database level via PayloadCMS access control</li>
-            <li><strong>Auth:</strong> JWT stored in an <code>httpOnly</code> cookie server-side, never exposed to JavaScript</li>
-            <li><strong>Discovery:</strong> Hierarchical category nav, tag &amp; price filters, infinite-scroll listings</li>
-            <li><strong>Library:</strong> Authenticated users access purchased products from a personal library</li>
-          </ul>
+      <h3 class="section-heading">Project Overview</h3>
+      <div class="content-section stack-gap">
+        <p><strong>Learning project (in progress):</strong> Built by following a structured tutorial to explore advanced Next.js patterns, multi-tenant architecture, and headless CMS integration.</p>
+        <h3 class="subsection-title" style="margin-top:0;">How It Works</h3>
+        <p>A multi-tenant e-commerce SaaS where each seller's data and products are isolated through declarative role-based access control. <strong>PayloadCMS</strong> powers the headless backend and admin panel, <strong>Next.js 16</strong> renders the storefronts, and <strong>tRPC</strong> connects them with end-to-end type safety.</p>
+        <ul>
+          <li><strong>Multi-tenancy:</strong> Tenant data is scoped at the database level via PayloadCMS access control</li>
+          <li><strong>Auth:</strong> JWT stored in an <code>httpOnly</code> cookie server-side, never exposed to JavaScript</li>
+          <li><strong>Discovery:</strong> Hierarchical category nav, tag &amp; price filters, infinite-scroll listings</li>
+          <li><strong>Library:</strong> Authenticated users access purchased products from a personal library</li>
+        </ul>
+        <h3 class="subsection-title arch-section-divider">Product Screenshots</h3>
+        <div class="screenshots-grid">
+          <div class="screenshot-item">
+            <img src="pictures/multitenant-ecommerce1.png" alt="Main storefront with category filters">
+            <p>Main storefront: category nav, price &amp; tag filters</p>
+          </div>
+          <div class="screenshot-item">
+            <img src="pictures/multitenant-ecommerce2.png" alt="Tenant storefront page">
+            <p>Tenant storefront: per-seller product listings</p>
+          </div>
         </div>
       </div>
     </section>
+
+    <hr class="section-divider">
 
     <!-- Tech Stack -->
     <section class="page-section" id="tech">
-      <h3 class="section-heading"><i class="fas fa-layer-group"></i> Technology Stack</h3>
+      <h3 class="section-heading">Technology Stack</h3>
       <div class="tech-section stack-gap">
-        <div class="tech-grid">
-          <div class="tech-card"><h4>Next.js 16</h4><p>App Router, server components, middleware</p></div>
-          <div class="tech-card"><h4>PayloadCMS</h4><p>Headless CMS with multi-tenant plugin</p></div>
-          <div class="tech-card"><h4>TypeScript</h4><p>End-to-end typing from Payload to tRPC</p></div>
-          <div class="tech-card"><h4>MongoDB</h4><p>Document database via Mongoose adapter</p></div>
-          <div class="tech-card"><h4>tRPC 11</h4><p>Type-safe API layer, no codegen</p></div>
-          <div class="tech-card"><h4>TanStack Query 5</h4><p>Caching &amp; infinite scroll</p></div>
-          <div class="tech-card"><h4>React Hook Form + Zod</h4><p>Schema-based form validation</p></div>
-          <div class="tech-card"><h4>Tailwind + shadcn/ui</h4><p>Accessible primitives on Radix UI</p></div>
+        <h3 class="subsection-title" style="margin-top:0;">Core Technologies</h3>
+        <div class="tech-categories">
+          <div class="tech-category"><h5>Frontend</h5><p>Next.js 16 · App Router · TypeScript</p></div>
+          <div class="tech-category"><h5>Backend</h5><p>PayloadCMS · MongoDB (Mongoose)</p></div>
+          <div class="tech-category"><h5>API Layer</h5><p>tRPC 11 · TanStack Query 5</p></div>
+          <div class="tech-category"><h5>Forms &amp; UI</h5><p>React Hook Form + Zod · Tailwind + shadcn/ui</p></div>
         </div>
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Key Features -->
     <section class="page-section" id="features">
-      <h3 class="section-heading"><i class="fas fa-star"></i> Key Features</h3>
+      <h3 class="section-heading">Key Features</h3>
       <div class="features-grid stack-gap">
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-globe"></i></div><h3>Role-Based Multi-Tenancy</h3><p>Each tenant's data is isolated via PayloadCMS access control hooks; super-admins have unrestricted access.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-lock"></i></div><h3>Secure Cookie Auth</h3><p>JWT lives in an <code>httpOnly</code> cookie set server-side, protecting against XSS token theft.</p></div>
@@ -152,28 +148,26 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Architecture -->
     <section class="page-section" id="architecture">
-      <h3 class="section-heading"><i class="fas fa-sitemap"></i> Architecture</h3>
-      <div class="stack-gap">
-        <div class="content-section">
-          <h3>Tenant Data Isolation</h3>
-          <p>The <code>multiTenantPlugin</code> attaches a tenant relationship to scoped collections. PayloadCMS access control hooks then filter queries declaratively; tenant admins only see their own data, and super-admins see everything. No manual access logic per collection.</p>
-        </div>
-        <div class="content-section">
-          <h3>Authentication Flow</h3>
-          <p>The tRPC <code>login</code> mutation invokes Payload's local auth API server-side. The JWT is written to an <code>httpOnly</code> cookie and sent automatically on every request, while remaining unreadable to client JavaScript. <code>queryClient.invalidateQueries</code> refreshes session state on login/logout.</p>
-        </div>
-        <div class="content-section">
-          <h3>Data Layer</h3>
-          <p>tRPC routers (<code>products</code>, <code>categories</code>, <code>tenants</code>) expose Payload data with full type inference. TanStack Query 5 handles caching, background refetch, and infinite scroll; the first page is server-prefetched.</p>
-        </div>
+      <h3 class="section-heading">Architecture</h3>
+      <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Tenant Data Isolation</h3>
+        <p>The <code>multiTenantPlugin</code> attaches a tenant relationship to scoped collections. PayloadCMS access control hooks then filter queries declaratively; tenant admins only see their own data, and super-admins see everything. No manual access logic per collection.</p>
+        <h3 class="subsection-title arch-section-divider">Authentication Flow</h3>
+        <p>The tRPC <code>login</code> mutation invokes Payload's local auth API server-side. The JWT is written to an <code>httpOnly</code> cookie and sent automatically on every request, while remaining unreadable to client JavaScript. <code>queryClient.invalidateQueries</code> refreshes session state on login/logout.</p>
+        <h3 class="subsection-title arch-section-divider">Data Layer</h3>
+        <p>tRPC routers (<code>products</code>, <code>categories</code>, <code>tenants</code>) expose Payload data with full type inference. TanStack Query 5 handles caching, background refetch, and infinite scroll; the first page is server-prefetched.</p>
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- What I Learned -->
     <section class="page-section" id="learned">
-      <h3 class="section-heading"><i class="fas fa-graduation-cap"></i> What I Learned</h3>
+      <h3 class="section-heading">What I Learned</h3>
       <div class="features-grid stack-gap">
         <div class="feature-card"><h3>Multi-Tenant Patterns</h3><p>Designing a single codebase that isolates data per tenant via scoped queries and declarative access control.</p></div>
         <div class="feature-card"><h3>Headless CMS Architecture</h3><p>Using PayloadCMS as both backend API and admin UI in place of custom dashboards.</p></div>
@@ -185,38 +179,19 @@
     </section>
 
     <!-- Footer CTA -->
-    <div class="footer-cta">
+    <div class="footer-cta footer-cta--compact">
       <h2>Explore the Source</h2>
       <p>Browse the repo to see the multi-tenant routing, PayloadCMS config, and tRPC routers.</p>
       <div class="button-group">
         <a href="https://www.loom.com/share/00a62fe246f9453ba770e8f43ac52696" class="cta-btn primary" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
         <a href="https://github.com/IvanTran-2001/multitenant-ecommerce" class="cta-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="../index.html#work" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <a href="../index.html#project-multitenant" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
 
   </div>
 
-  <script>
-    function openSectionByHash(hash) {
-      if (!hash) return;
-      const target = document.querySelector(hash);
-      if (!target) return;
-      const details = target.closest('details');
-      if (details) details.open = true;
-      requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
-    }
-    openSectionByHash(window.location.hash);
-    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        var hash = this.getAttribute('href');
-        if (!hash || hash === '#') return;
-        e.preventDefault();
-        openSectionByHash(hash);
-        history.pushState(null, '', hash);
-      });
-    });
-  </script>
+  <script src="../navbar-back-icon.js"></script>
   <script src="../navbar.js"></script>
 </body>
 </html>

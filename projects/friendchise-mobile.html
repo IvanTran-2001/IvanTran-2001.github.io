@@ -27,12 +27,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" crossorigin="anonymous">
 </head>
 <body>
-  <nav class="navbar navbar--long">
+    <nav class="navbar navbar--long">
     <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
+    <site-navbar-back href="../index.html#project-friendchise-mobile" label="Back to Portfolio" title="Back to Portfolio"></site-navbar-back>
     <ul class="navbar-links">
       <li><a href="#overview">Overview</a></li>
       <li><a href="#screenshots">Screenshots</a></li>
-      <li><a href="#workflow">Workflow</a></li>
       <li><a href="#engineering">Engineering</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#impact">Impact</a></li>
@@ -40,15 +40,12 @@
     <details class="navbar-sections">
       <summary>Sections <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
       <ul class="sections-menu">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#screenshots">Screenshots</a></li>
-        <li><a href="#workflow">Workflow</a></li>
-        <li><a href="#engineering">Engineering</a></li>
-        <li><a href="#stack">Stack</a></li>
-        <li><a href="#impact">Impact</a></li>
-        <li><a href="#role">Role</a></li>
-        <li><a href="#roadmap">Roadmap</a></li>
-      </ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#engineering">Engineering</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#impact">Impact</a></li>
+    </ul>
     </details>
     <div class="navbar-socials">
       <a href="https://apps.apple.com/au/app/friendchise/id6797785868" target="_blank" aria-label="App Store" title="App Store"><i class="fab fa-app-store-ios" aria-hidden="true"></i></a>
@@ -59,50 +56,23 @@
 
   <div class="container mobile-page-shell">
     <section class="project-intro">
-      <div class="project-intro-kicker">Frontline Operations App</div>
       <h1 class="project-intro-title">FriendChise Mobile</h1>
-      <p class="project-intro-subtitle">Camera-to-task workflow for shift staff on the floor</p>
-      <div class="project-intro-stack">Expo Router · React Native · TypeScript · TanStack Query</div>
+      <p class="project-intro-subtitle">Mobile access to FriendChise for frontline staff</p>
+      <p class="project-intro-desc">React Native companion to FriendChise for frontline staff, with org-scoped tasks, tools, and Scan-to-Task drafts.</p>
+      <div class="project-intro-stack">React Native · Expo · TypeScript · TanStack Query</div>
+      <p style="color: var(--ink-tertiary); font-size: 0.82em; margin-bottom: 14px;">Live on the App Store</p>
       <div class="project-intro-actions">
         <a href="https://apps.apple.com/au/app/friendchise/id6797785868" class="cta-btn primary" target="_blank" rel="noopener noreferrer">App Store</a>
         <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://friendchise.app" class="cta-btn sm" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Web Platform</a>
+        <a href="friendchise.html" class="cta-btn sm"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> View FriendChise Web</a>
       </div>
     </section>
     <hr class="section-divider">
 
-    <header class="hero mobile-hero">
-      <div class="mobile-hero-grid">
-        <div class="mobile-hero-copy">
-          <div class="mobile-kicker">Frontline Operations App</div>
-          <h2 class="mobile-title">FriendChise Mobile</h2>
-          <p class="mobile-subtitle">A native Expo / React Native app that brings task management to shift staff on their phone, plus a camera-to-task workflow, backed by the same multi-tenant FriendChise API used on web.</p>
-          <div class="flagship-role">
-            <div class="flagship-role-title">Live on the App Store</div>
-            <div class="flagship-role-meta">Expo Router · React Native · TypeScript · TanStack Query</div>
-          </div>
-          <div class="hero-links">
-            <a href="#screenshots" class="cta-btn sm"><i class="fas fa-camera" aria-hidden="true"></i> See it in use</a>
-          </div>
-        </div>
-        <div class="flagship-hero-media">
-          <div class="phone-frame">
-            <img class="phone-shot expandable" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task flow: task list into capture, generated draft, and review" data-lightbox-caption="Scan-to-Task: capture → draft → review">
-          </div>
-          <p class="media-caption">Scan-to-Task: capture → draft → review</p>
-        </div>
-      </div>
-    </header>
-
-    <div class="mobile-fit-strip">
-      <div class="mobile-fit-item"><strong>Task list &amp; tools</strong><span>Org-scoped tasks and utilities, no desktop dashboard required.</span></div>
-      <div class="mobile-fit-item"><strong>Capture → structured task</strong><span>Photo or PDF in, editable task draft out, via Scan-to-Task.</span></div>
-      <div class="mobile-fit-item"><strong>Shared backend</strong><span>Same API, auth, and org-scoping as the web platform.</span></div>
-    </div>
-
     <section class="mobile-section" id="overview">
       <h2 class="section-title">Overview</h2>
       <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Mobile context</h3>
         <p>At Walker's Doughnuts, shift procedures and task tracking lived on paper or in whoever was on shift, the same gap that FriendChise's web platform was built to close for managers at a desk. FriendChise Mobile brings that task and procedure system to staff who are on the floor with a phone, not sitting at a computer.</p>
         <p>The app is live on the App Store. It started on a shared device at the store via TestFlight, and staff are moving onto individual phones now that the listing is public.</p>
       </div>
@@ -111,52 +81,25 @@
     <section class="mobile-section" id="screenshots">
       <hr class="section-divider">
       <h2 class="section-title">Screenshots / Walkthrough</h2>
-      <div class="screenshot-grid">
-        <div>
-          <div class="phone-frame">
-            <img class="phone-shot expandable" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task flow: task list into capture, generated draft, and review" data-lightbox-caption="Scan-to-Task: capture → generated draft → review before saving.">
-          </div>
-          <p class="phone-caption">Scan-to-Task: capture → generated draft → review before saving.</p>
-        </div>
-        <div>
-          <div class="phone-frame">
-            <img class="phone-shot expandable" src="pictures/friendchise/mobile/task-list.gif" alt="FriendChise Mobile task list showing the organization chooser and task feed" data-lightbox-caption="Org-scoped task list and navigation.">
-          </div>
-          <p class="phone-caption">Org-scoped task list and navigation.</p>
-        </div>
-        <div>
-          <div class="phone-frame">
-            <img class="phone-shot expandable" src="pictures/friendchise/mobile/try-demo-button.gif" alt="FriendChise Mobile sign-in screen with Google, LinkedIn, and Try Demo actions" data-lightbox-caption="Sign-in via Google, LinkedIn, or an instant demo login open to anyone.">
-          </div>
-          <p class="phone-caption">Sign-in via Google, LinkedIn, or an instant demo login open to anyone.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="mobile-section" id="workflow">
-      <hr class="section-divider">
-      <h2 class="section-title">Mobile-First Workflow</h2>
       <div class="content-section">
-        <div class="workflow-grid">
-          <div class="workflow-card">
-            <div class="workflow-index">1</div>
-            <h3>Sign in, land in context</h3>
-            <p>Google/LinkedIn OAuth or an instant demo login puts the worker in the right org without extra setup.</p>
+        <div class="screenshot-grid">
+          <div>
+            <div class="phone-frame">
+              <img class="phone-shot expandable" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task flow: task list into capture, generated draft, and review" data-lightbox-caption="Scan-to-Task: capture → generated draft → review before saving.">
+            </div>
+            <p class="phone-caption">Scan-to-Task: capture → generated draft → review before saving.</p>
           </div>
-          <div class="workflow-card">
-            <div class="workflow-index">2</div>
-            <h3>Capture</h3>
-            <p>Camera photo, library image, or PDF; normalized on-device before upload.</p>
+          <div>
+            <div class="phone-frame">
+              <img class="phone-shot expandable" src="pictures/friendchise/mobile/task-list.gif" alt="FriendChise Mobile task list showing the organization chooser and task feed" data-lightbox-caption="Org-scoped task list and navigation.">
+            </div>
+            <p class="phone-caption">Org-scoped task list and navigation.</p>
           </div>
-          <div class="workflow-card">
-            <div class="workflow-index">3</div>
-            <h3>Draft generated</h3>
-            <p>The backend extracts content and returns a structured task draft.</p>
-          </div>
-          <div class="workflow-card">
-            <div class="workflow-index">4</div>
-            <h3>Review and save</h3>
-            <p>The worker edits the draft if needed, then saves it into the shared task list.</p>
+          <div>
+            <div class="phone-frame">
+              <img class="phone-shot expandable" src="pictures/friendchise/mobile/try-demo-button.gif" alt="FriendChise Mobile sign-in screen with Google, LinkedIn, and Try Demo actions" data-lightbox-caption="Sign-in via Google, LinkedIn, or an instant demo login open to anyone.">
+            </div>
+            <p class="phone-caption">Sign-in via Google, LinkedIn, or an instant demo login open to anyone.</p>
           </div>
         </div>
       </div>
@@ -166,26 +109,17 @@
       <hr class="section-divider">
       <h2 class="section-title">Engineering</h2>
       <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Application Architecture</h3>
         <p class="architecture-intro">The native app never talks to the database directly; it goes through the same shared FriendChise API and org-scoping as the web platform, with a mobile-specific pipeline for turning a photo into a task.</p>
-        <div class="architecture-diagram mobile-architecture">
-          <div class="architecture-row"><div class="architecture-node architecture-node--wide">Native App<span class="architecture-node-subtle">Expo Router · Navigation / Screens</span></div></div>
-          <div class="architecture-down">↓</div>
-          <div class="architecture-branch-row">
-            <div class="architecture-node">Capture Layer<span class="architecture-node-subtle">Camera · Photo Library · Document Picker</span></div>
-            <div class="architecture-node">Session / SecureStore<span class="architecture-node-subtle">Encrypted token + expiry tracking</span></div>
-            <div class="architecture-node">API Client<span class="architecture-node-subtle">TanStack Query · Zustand</span></div>
-          </div>
-          <div class="architecture-down">↓</div>
-          <div class="architecture-row"><div class="architecture-node architecture-node--wide">Shared FriendChise Backend<span class="architecture-node-subtle">Same Next.js API and org scoping as web</span></div></div>
-          <div class="architecture-down">↓</div>
-          <div class="architecture-branch-row">
-            <div class="architecture-node">Auth / Org Scoping<span class="architecture-node-subtle">Session validation, tenant boundaries</span></div>
-            <div class="architecture-node">Task API<span class="architecture-node-subtle">CRUD, upload, confirm</span></div>
-            <div class="architecture-node">Scan-to-Task Pipeline<span class="architecture-node-subtle">Extraction → structured draft</span></div>
-          </div>
+        <div class="arch-flow">
+          <div class="arch-flow-step">Mobile App<span>Navigation · Capture · Session State</span></div>
+          <div class="arch-flow-arrow">&rarr;</div>
+          <div class="arch-flow-step">Shared API<span>Authenticated · Org-scoped requests</span></div>
+          <div class="arch-flow-arrow">&rarr;</div>
+          <div class="arch-flow-step">Backend Services<span>Tasks · Scan-to-Task · Storage</span></div>
         </div>
-        <div class="architecture-support">What's AI, what isn't: OCR/vision extraction is a single model call that runs server-side in the existing FriendChise pipeline. Everything around it: capturing/normalizing the file, uploading, validating the returned draft's shape, and requiring a human review step before saving, is ordinary application logic, not AI.</div>
 
+        <h3 class="subsection-title arch-section-divider">Reliability &amp; Session Handling</h3>
         <div class="challenge-grid stack-gap-lg">
           <div class="challenge-card">
             <h3>OAuth on a native app</h3>
@@ -219,53 +153,14 @@
       <hr class="section-divider">
       <h2 class="section-title">Technology Stack</h2>
       <div class="content-section">
-        <div class="stack-grid">
-        <div class="stack-card">
-          <h3>Mobile</h3>
-          <ul>
-            <li>React Native + Expo (new architecture)</li>
-            <li>Expo Router (file-based navigation)</li>
-            <li>TypeScript</li>
-          </ul>
-        </div>
-        <div class="stack-card">
-          <h3>Authentication</h3>
-          <ul>
-            <li>Native Sign in with Apple, exchanged for a backend session</li>
-            <li>Google &amp; LinkedIn OAuth via <code>ASWebAuthenticationSession</code></li>
-            <li>Expo SecureStore for encrypted token persistence</li>
-          </ul>
-        </div>
-        <div class="stack-card">
-          <h3>Data &amp; State</h3>
-          <ul>
-            <li>TanStack Query for server state and caching</li>
-            <li>Zustand, with AsyncStorage-backed session persistence</li>
-          </ul>
-        </div>
-        <div class="stack-card">
-          <h3>Capture &amp; Media</h3>
-          <ul>
-            <li>expo-image-picker (camera &amp; library)</li>
-            <li>expo-document-picker (PDF)</li>
-            <li>expo-image-manipulator (on-device HEIC → JPEG)</li>
-          </ul>
-        </div>
-        <div class="stack-card">
-          <h3>Backend / Platform</h3>
-          <ul>
-            <li>Shared FriendChise Next.js API, same org-scoped endpoints as web</li>
-            <li>Signed upload URLs for Scan-to-Task file storage</li>
-          </ul>
-        </div>
-        <div class="stack-card">
-          <h3>Quality &amp; Release</h3>
-          <ul>
-            <li>ESLint, strict TypeScript</li>
-            <li>Vitest for unit tests</li>
-            <li>EAS Build/Submit for iOS App Store releases</li>
-          </ul>
-        </div>
+        <h3 class="subsection-title" style="margin-top:0;">Technical Stack</h3>
+        <div class="skills-groups">
+          <div class="skill-group"><h5>Mobile</h5><p>React Native + Expo, Expo Router, TypeScript</p></div>
+          <div class="skill-group"><h5>Authentication</h5><p>Sign in with Apple, Google &amp; LinkedIn OAuth, Expo SecureStore</p></div>
+          <div class="skill-group"><h5>Data &amp; State</h5><p>TanStack Query, Zustand / AsyncStorage</p></div>
+          <div class="skill-group"><h5>Capture &amp; Media</h5><p>expo-image-picker, expo-document-picker, expo-image-manipulator</p></div>
+          <div class="skill-group"><h5>Backend / Platform</h5><p>Shared FriendChise API, signed upload URLs</p></div>
+          <div class="skill-group"><h5>Quality &amp; Release</h5><p>ESLint / strict TypeScript, Vitest, EAS Build / Submit</p></div>
         </div>
       </div>
     </section>
@@ -274,6 +169,7 @@
       <hr class="section-divider">
       <h2 class="section-title">Product Impact</h2>
       <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Production Usage</h3>
         <p>The app started on a shared device at Walker's Doughnuts via TestFlight and is now live on the App Store. Task creation and Scan-to-Task moved off paper and photo message threads into a task list staff already recognize from the web platform, so the record of what got done stays in one place instead of split across a phone's camera roll and a chat thread.</p>
         <p>Per-staff installs are rolling out now that the App Store listing is public, replacing the single shared device.</p>
       </div>
@@ -283,6 +179,7 @@
       <hr class="section-divider">
       <h2 class="section-title">My Contribution</h2>
       <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Ownership &amp; Responsibilities</h3>
         <p>I designed and built FriendChise Mobile on my own, end to end:</p>
         <ul>
           <li>Product scope and screen design for a shift-worker audience, reusing FriendChise's existing data model</li>
@@ -295,36 +192,19 @@
       </div>
     </section>
 
-    <section class="mobile-section" id="roadmap">
-      <hr class="section-divider">
-      <h2 class="section-title">Implemented / In Progress</h2>
-      <div class="content-section">
-        <div class="roadmap-grid">
-          <div class="roadmap-card">
-            <h3>Implemented</h3>
-            <p>OAuth + demo login, session persistence and expiry handling, org-aware navigation, task list/creation, tools, Scan-to-Task (capture → draft → review → save), and a published App Store release.</p>
-          </div>
-          <div class="roadmap-card">
-            <h3>In progress</h3>
-            <p>Rolling out per-staff installs across the team, replacing the single shared TestFlight device.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer-cta">
+    <div class="footer-cta footer-cta--compact">
       <h2>Explore the Mobile Repo</h2>
       <p>See the Expo Router structure, auth flow, task screens, and scan-to-task pipeline in the source.</p>
       <div class="button-group">
         <a href="https://apps.apple.com/au/app/friendchise/id6797785868" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-app-store-ios"></i> App Store</a>
         <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://friendchise.app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Web platform</a>
-        <a href="friendchise.html" class="cta-btn"><i class="fas fa-arrow-left"></i> Main FriendChise case study</a>
+        <a href="friendchise.html" class="cta-btn"><i class="fas fa-arrow-up-right-from-square"></i> View FriendChise Web</a>
+        <a href="../index.html#project-friendchise-mobile" class="cta-btn sm"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
-      <a href="../index.html#work" class="cta-btn sm">&larr; Back to Portfolio</a>
     </div>
   </div>
 
+  <script src="../navbar-back-icon.js"></script>
   <script src="../navbar.js"></script>
   <script src="../lightbox.js"></script>
 </body>

@@ -11,14 +11,30 @@
 
 .mobile-hero-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 40px;
-  align-items: start;
+  grid-template-columns: 1.05fr 0.85fr;
+  gap: 32px;
+  align-items: center;
 }
 
 .mobile-hero-copy {
   display: flex;
   flex-direction: column;
+}
+
+.flagship-hero-media {
+  justify-self: center;
+  width: 100%;
+  max-width: 290px;
+}
+
+.mobile-hero .phone-frame {
+  max-width: 290px;
+  margin: 0 auto;
+}
+
+.mobile-hero .phone-shot {
+  width: 100%;
+  max-width: 290px;
 }
 
 .mobile-kicker {
@@ -44,16 +60,21 @@
   margin-bottom: 18px;
 }
 
-.mobile-fit-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
+.mobile-fit-panel {
+  background: #ffffff;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
   margin: 26px 0 34px;
 }
 
+.mobile-fit-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .mobile-fit-item {
-  padding: 16px;
+  padding: 0 16px;
   border-left: 1px solid var(--hairline);
 }
 
@@ -89,6 +110,35 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
+}
+
+.mobile-steps {
+  display: grid;
+  gap: 12px;
+}
+
+.mobile-step {
+  border-top: 1px solid var(--hairline);
+  padding-top: 12px;
+}
+
+.mobile-step:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.mobile-step strong {
+  display: block;
+  font-size: 0.88em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.mobile-step p {
+  color: var(--ink-secondary);
+  font-size: 0.84em;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .challenge-grid {
@@ -188,6 +238,40 @@
 
 .mobile-architecture .architecture-node--wide {
   text-align: center;
+}
+
+.mobile-arch-flow {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.mobile-arch-step {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  background: #ffffff;
+}
+
+.mobile-arch-step strong {
+  display: block;
+  font-size: 0.88em;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.mobile-arch-step span {
+  display: block;
+  font-size: 0.82em;
+  line-height: 1.45;
+  color: var(--ink-secondary);
+}
+
+.mobile-arch-arrow {
+  text-align: center;
+  color: var(--ink-tertiary);
+  font-weight: 700;
 }
 
 .mobile-note {
@@ -313,6 +397,28 @@
   font-size: 0.92em;
 }
 
+/* Technical Stack: grey uppercase label + plain text, matches the homepage Skills format, no cards */
+.skills-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5) var(--space-7);
+}
+
+.skill-group h5 {
+  color: var(--ink-tertiary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.skill-group p {
+  color: var(--ink);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
 @media (max-width: 880px) {
   .screenshot-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -340,21 +446,41 @@
     margin-right: auto;
   }
 
+  .mobile-fit-panel {
+    padding: var(--space-5);
+  }
+
   .mobile-fit-strip {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .mobile-fit-item {
+    padding: 14px 0 0;
     border-left: none;
     border-top: 1px solid var(--hairline);
   }
 
   .mobile-fit-item:first-child {
+    padding-top: 0;
     border-top: none;
+  }
+
+  .flagship-hero-media {
+    max-width: 260px;
+  }
+
+  .mobile-hero .phone-frame,
+  .mobile-hero .phone-shot {
+    max-width: 260px;
   }
 }
 
 @media (max-width: 640px) {
+  .skills-groups {
+    grid-template-columns: 1fr;
+  }
+
   .screenshot-grid {
     grid-template-columns: 1fr;
   }

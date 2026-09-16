@@ -85,7 +85,7 @@ textarea:focus-visible {
   color: var(--ink);
   text-decoration: none;
   white-space: nowrap;
-  flex: 1;
+  flex: none;
   display: inline-flex;
   align-items: center;
   line-height: 0;
@@ -98,12 +98,39 @@ textarea:focus-visible {
   border-radius: 6px;
 }
 
+.navbar-back-icon {
+  color: var(--ink-secondary);
+  text-decoration: none;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-sm);
+  width: 34px;
+  height: 34px;
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  transition: background var(--interactive-duration) ease, color var(--interactive-duration) ease, border-color var(--interactive-duration) ease, transform var(--interactive-duration) ease;
+}
+
+.navbar-back-icon:hover {
+  background: var(--surface-tint) !important;
+  border-color: var(--ink);
+  color: var(--ink) !important;
+  transform: translateY(var(--interactive-lift));
+}
+
 .navbar-links {
   display: flex;
   gap: 16px;
   list-style: none;
-  flex: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   justify-content: center;
+  width: max-content;
+  max-width: calc(100% - 220px);
 }
 
 .navbar-links a {
@@ -136,6 +163,32 @@ textarea:focus-visible {
   height: 2px;
   background: var(--accent);
   border-radius: 999px;
+}
+
+.navbar--dropdown-only {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 56px;
+  padding: 0 14px;
+  gap: 8px;
+}
+
+.navbar--dropdown-only .navbar-links { display: none; }
+.navbar--dropdown-only .navbar-sections {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.navbar--dropdown-only .navbar-socials { gap: 8px; }
+.navbar--dropdown-only .navbar-socials a {
+  width: 30px;
+  height: 30px;
+}
+.navbar--dropdown-only .navbar-back-icon {
+  width: 34px;
+  height: 34px;
 }
 
 /* Mobile "Sections" overflow menu — only rendered on pages with many anchors */
@@ -253,12 +306,31 @@ textarea:focus-visible {
   .navbar-links a { font-size: 0.7em; }
 }
 
+@media (max-width: 1024px) {
+  .navbar--long {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 56px;
+    padding: 0 14px;
+    gap: 8px;
+  }
+
+  .navbar--long .navbar-links { display: none; }
+  .navbar--long .navbar-sections { display: inline-block; }
+  .navbar--long .navbar-socials { gap: 8px; }
+  .navbar--long .navbar-socials a,
+  .navbar--long .navbar-back-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     height: auto;
-    padding: 12px 16px;
-    gap: 6px;
+    padding: 14px 16px 16px;
+    gap: 8px;
     align-items: center;
     margin: -40px -16px 0 -16px;
   }
@@ -266,6 +338,12 @@ textarea:focus-visible {
   .navbar-name { flex: none; }
 
   .navbar-links {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: auto;
+    max-width: 100%;
     flex: none;
     gap: 16px;
     justify-content: flex-start;
@@ -295,14 +373,31 @@ textarea:focus-visible {
     flex-direction: row;
     flex-wrap: nowrap;
     height: 56px;
-    padding: 0 14px;
-    gap: 10px;
+    padding: 10px 14px;
+    gap: 6px;
+    justify-content: flex-start;
   }
 
   .navbar--long .navbar-links { display: none; }
-  .navbar--long .navbar-sections { display: inline-block; }
-  .navbar--long .navbar-socials { gap: 8px; }
+  .navbar--long .navbar-sections {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .navbar--long .navbar-socials {
+    flex: none;
+    margin-left: auto;
+    gap: 8px;
+  }
   .navbar--long .navbar-socials a { width: 30px; height: 30px; }
+
+  .navbar--dropdown-only {
+    height: auto;
+    min-height: 56px;
+    padding: 10px 14px;
+  }
 
   .navbar--long ~ * [id],
   body:has(.navbar--long) [id] {
@@ -312,7 +407,8 @@ textarea:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .navbar-sections summary:hover,
-  .navbar-socials a:hover {
+  .navbar-socials a:hover,
+  .navbar-back-icon:hover {
     transform: none;
   }
 }

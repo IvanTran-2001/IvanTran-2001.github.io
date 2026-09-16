@@ -25,61 +25,59 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar">
+    <nav class="navbar navbar--long">
     <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
+    <site-navbar-back href="../index.html#project-thinkboard" label="Back to Portfolio" title="Back to Portfolio"></site-navbar-back>
     <ul class="navbar-links">
       <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
       <li><a href="#tech"><i class="fas fa-layer-group"></i> Tech Stack</a></li>
       <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
     </ul>
+    <details class="navbar-sections">
+      <summary>Sections <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+      <ul class="sections-menu">
+      <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
+      <li><a href="#tech"><i class="fas fa-layer-group"></i> Tech Stack</a></li>
+      <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+    </ul>
+    </details>
     <div class="navbar-socials">
       <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
       <a href="https://mern-thinkboard-qsrl.onrender.com" target="_blank" aria-label="Live Site" title="Live Site"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <div class="hero">
-    <a href="../index.html#work" class="back-link">&larr; Back to Portfolio</a>
-    <h1>MERN Thinkboard</h1>
-    <p class="hero-subtitle">Full-stack note-taking app built with MongoDB, Express, React, and Node.js; JWT auth, Redis-backed rate limiting, and cloud deployment.</p>
-    <div class="hero-badges">
-      <span class="badge"><i class="fas fa-code"></i> Full-Stack</span>
-      <span class="badge"><i class="fas fa-lock"></i> Secure</span>
-      <span class="badge"><i class="fas fa-rocket"></i> Production-Ready</span>
-    </div>
-    <div class="hero-cta">
+  <!-- Title -->
+  <section class="project-intro">
+    <h1 class="project-intro-title">MERN Thinkboard</h1>
+    <p class="project-intro-subtitle">Full-Stack Note-Taking Application</p>
+    <p class="project-intro-desc">A production-ready MERN note-taking app with JWT authentication, Redis-backed rate limiting, and cloud deployment.</p>
+    <div class="project-intro-stack">MongoDB · Express · React · Node.js</div>
+    <div class="project-intro-actions">
       <a href="https://mern-thinkboard-qsrl.onrender.com" class="cta-btn primary" target="_blank"><i class="fas fa-globe"></i> Live Demo</a>
       <a href="https://www.loom.com/share/3b74959b6c4c43429d404a129b769081" class="cta-btn" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
       <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="cta-btn" target="_blank"><i class="fab fa-github"></i> View Code</a>
     </div>
-  </div>
+  </section>
+  <hr class="section-divider">
 
   <div class="container">
 
-    <!-- TOC -->
-    <div class="content-section" id="jump">
-      <h3>Jump to Section</h3>
-      <div class="toc-grid">
-        <a href="#demo" class="toc-link"><i class="fas fa-play-circle"></i><span>Demo Video</span></a>
-        <a href="#overview" class="toc-link"><i class="fas fa-info-circle"></i><span>Project Overview</span></a>
-        <a href="#tech" class="toc-link"><i class="fas fa-layer-group"></i><span>Technology Stack</span></a>
-        <a href="#features" class="toc-link"><i class="fas fa-star"></i><span>Key Features</span></a>
-        <a href="#architecture" class="toc-link"><i class="fas fa-sitemap"></i><span>Architecture &amp; Security</span></a>
+    <!-- Stats -->
+    <div class="content-section">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">2K+</div><div class="stat-label">Lines of Code</div></div>
+        <div class="stat-card"><div class="stat-number">8+</div><div class="stat-label">REST Endpoints</div></div>
+        <div class="stat-card"><div class="stat-number">JWT</div><div class="stat-label">Stateless Auth</div></div>
+        <div class="stat-card"><div class="stat-number">Redis</div><div class="stat-label">Rate Limiting</div></div>
       </div>
     </div>
 
-    <!-- Stats -->
-    <div class="stats-grid">
-      <div class="stat-card"><div class="stat-number">2K+</div><div class="stat-label">Lines of Code</div></div>
-      <div class="stat-card"><div class="stat-number">8+</div><div class="stat-label">REST Endpoints</div></div>
-      <div class="stat-card"><div class="stat-number">JWT</div><div class="stat-label">Stateless Auth</div></div>
-      <div class="stat-card"><div class="stat-number">Redis</div><div class="stat-label">Rate Limiting</div></div>
-    </div>
+    <hr class="section-divider">
 
     <!-- Demo Video -->
     <section class="page-section" id="demo">
-      <h3 class="section-heading"><i class="fas fa-play-circle"></i> Demo Video</h3>
+      <h3 class="section-heading">Demo Video</h3>
       <div class="content-section" style="padding: 0; overflow: hidden; margin-top: 20px;">
         <div class="video-wrapper">
           <iframe src="https://www.loom.com/embed/3b74959b6c4c43429d404a129b769081" frameborder="0" allowfullscreen></iframe>
@@ -87,10 +85,13 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Overview -->
     <section class="page-section" id="overview">
-      <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
+      <h3 class="section-heading">Project Overview</h3>
       <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">What It Does</h3>
         <p>A production-ready note-taking application showcasing the full MERN stack with authentication, secure API design, and cloud deployment. Each user's notes are isolated server-side via owner checks on every CRUD operation.</p>
         <ul>
           <li><strong>Backend:</strong> Express REST API, JWT auth, middleware pipeline</li>
@@ -102,24 +103,27 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Tech Stack -->
     <section class="page-section" id="tech">
-      <h3 class="section-heading"><i class="fas fa-layer-group"></i> Technology Stack</h3>
+      <h3 class="section-heading">Technology Stack</h3>
       <div class="tech-section stack-gap">
-        <div class="tech-grid">
-          <div class="tech-card"><h4>MongoDB</h4><p>NoSQL document store via Atlas + Mongoose</p></div>
-          <div class="tech-card"><h4>Express.js</h4><p>RESTful API framework on Node.js</p></div>
-          <div class="tech-card"><h4>React 18</h4><p>Hooks, protected routes, Vite build</p></div>
-          <div class="tech-card"><h4>JWT + bcrypt</h4><p>Stateless auth with hashed passwords</p></div>
-          <div class="tech-card"><h4>Upstash Redis</h4><p>Cloud Redis for rate limiting</p></div>
-          <div class="tech-card"><h4>TailwindCSS + DaisyUI</h4><p>Utility-first responsive styling</p></div>
+        <h3 class="subsection-title" style="margin-top:0;">Core Technologies</h3>
+        <div class="tech-categories">
+          <div class="tech-category"><h5>Database</h5><p>MongoDB (Atlas + Mongoose)</p></div>
+          <div class="tech-category"><h5>Backend</h5><p>Express.js · JWT + bcrypt · Upstash Redis</p></div>
+          <div class="tech-category"><h5>Frontend</h5><p>React 18 (Hooks) · Vite</p></div>
+          <div class="tech-category"><h5>Styling</h5><p>TailwindCSS + DaisyUI</p></div>
         </div>
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Key Features -->
     <section class="page-section" id="features">
-      <h3 class="section-heading"><i class="fas fa-star"></i> Key Features</h3>
+      <h3 class="section-heading">Key Features</h3>
       <div class="features-grid stack-gap">
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-lock"></i></div><h3>JWT Authentication</h3><p>Stateless 7-day tokens with bcrypt-hashed passwords and protected frontend/backend routes.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>User Data Isolation</h3><p>Every CRUD operation verifies ownership before reading or mutating notes.</p></div>
@@ -130,10 +134,13 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Architecture -->
     <section class="page-section" id="architecture">
-      <h3 class="section-heading"><i class="fas fa-sitemap"></i> Architecture &amp; Security</h3>
+      <h3 class="section-heading">Architecture &amp; Security</h3>
       <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">Security &amp; Structure</h3>
         <ul>
           <li><strong>MVC structure:</strong> Controllers, routes, models, and middleware are cleanly separated</li>
           <li><strong>Axios interceptors:</strong> Inject JWT into request headers automatically</li>
@@ -146,39 +153,20 @@
     </section>
 
     <!-- Footer CTA -->
-    <div class="footer-cta">
+    <div class="footer-cta footer-cta--compact">
       <h2>See It in Action</h2>
       <p>Try the live demo or browse the source code on GitHub.</p>
       <div class="button-group">
         <a href="https://mern-thinkboard-qsrl.onrender.com" class="cta-btn primary" target="_blank"><i class="fas fa-globe"></i> Live Demo</a>
         <a href="https://www.loom.com/share/3b74959b6c4c43429d404a129b769081" class="cta-btn" target="_blank"><i class="fas fa-play"></i> Watch Demo</a>
         <a href="https://github.com/IvanTran-2001/MERN-Thinkboard" class="cta-btn" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="../index.html#work" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <a href="../index.html#project-thinkboard" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
 
   </div>
 
-  <script>
-    function openSectionByHash(hash) {
-      if (!hash) return;
-      const target = document.querySelector(hash);
-      if (!target) return;
-      const details = target.closest('details');
-      if (details) details.open = true;
-      requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
-    }
-    openSectionByHash(window.location.hash);
-    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        var hash = this.getAttribute('href');
-        if (!hash || hash === '#') return;
-        e.preventDefault();
-        openSectionByHash(hash);
-        history.pushState(null, '', hash);
-      });
-    });
-  </script>
+  <script src="../navbar-back-icon.js"></script>
   <script src="../navbar.js"></script>
 </body>
 </html>

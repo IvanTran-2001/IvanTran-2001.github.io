@@ -1,3 +1,33 @@
+/* Shared smooth in-page anchor scrolling — reused by every page instead of per-page duplicates */
+function openSectionByHash(hash) {
+  if (!hash || hash === '#') return;
+  var target;
+  try { target = document.querySelector(hash); } catch (err) { return; }
+  if (!target) return;
+  var details = target.closest('details');
+  if (details) details.open = true;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(function () {
+    target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  });
+}
+
+(function () {
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var hash = this.getAttribute('href');
+      if (!hash || hash === '#' || !document.querySelector(hash)) return;
+      e.preventDefault();
+      openSectionByHash(hash);
+      history.pushState(null, '', hash);
+    });
+  });
+
+  if (window.location.hash && !document.body.hasAttribute('data-manual-hash-scroll')) {
+    openSectionByHash(window.location.hash);
+  }
+})();
+
 /* Navbar scroll-hide behaviour — mobile only */
 (function () {
   var lastY = window.scrollY;
@@ -37,6 +67,7 @@
 
   // Always reset collapsible sections to closed on page show (handles bfcache restore)
   window.addEventListener('pageshow', function () {
+    if (document.body.hasAttribute('data-manual-hash-scroll')) return;
     document.querySelectorAll('details').forEach(function (d) {
       d.removeAttribute('open');
     });

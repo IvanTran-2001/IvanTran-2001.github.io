@@ -25,65 +25,66 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar">
+    <nav class="navbar navbar--long">
     <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
+    <site-navbar-back href="../index.html#project-vending-machine" label="Back to Portfolio" title="Back to Portfolio"></site-navbar-back>
     <ul class="navbar-links">
       <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
       <li><a href="#data-structures"><i class="fas fa-project-diagram"></i> Data Structures</a></li>
       <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
       <li><a href="#testing"><i class="fas fa-vial"></i> Testing</a></li>
     </ul>
+    <details class="navbar-sections">
+      <summary>Sections <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+      <ul class="sections-menu">
+      <li><a href="#overview"><i class="fas fa-info-circle"></i> Overview</a></li>
+      <li><a href="#data-structures"><i class="fas fa-project-diagram"></i> Data Structures</a></li>
+      <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+      <li><a href="#testing"><i class="fas fa-vial"></i> Testing</a></li>
+    </ul>
+    </details>
     <div class="navbar-socials">
       <a href="https://github.com/IvanTran-2001/vending-machine-simulator" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <div class="hero">
-    <a href="../index.html#work" class="back-link">&larr; Back to Portfolio</a>
-    <h1>Vending Machine Simulator</h1>
-    <p class="hero-subtitle">Advanced C++14 simulator built without STL: custom linked lists, the command pattern, manual memory management, and Valgrind-verified zero leaks.</p>
-    <div class="hero-badges">
-      <span class="badge">C++14</span>
-      <span class="badge">Custom ADTs</span>
-      <span class="badge">Command Pattern</span>
-      <span class="badge">Valgrind Verified</span>
-    </div>
-    <div class="hero-cta">
+  <!-- Title -->
+  <section class="project-intro">
+    <h1 class="project-intro-title">Vending Machine Simulator</h1>
+    <p class="project-intro-subtitle">C++14 Console Simulator Built Without STL</p>
+    <p class="project-intro-desc">Advanced C++ simulator using custom linked lists, the command pattern, and manual memory management verified leak-free with Valgrind.</p>
+    <div class="project-intro-stack">C++14 · Custom Data Structures · Command Pattern</div>
+    <div class="project-intro-actions">
       <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="cta-btn primary" target="_blank"><i class="fab fa-github"></i> View Code</a>
     </div>
-  </div>
+  </section>
+  <hr class="section-divider">
 
   <div class="container">
 
     <div class="page-section">
-      <img src="pictures/vendingmachine.png" alt="Vending Machine Project" style="width:100%;height:auto;display:block;border:1px solid #000;">
+      <img src="pictures/vendingmachine.png" alt="Vending Machine Project" style="width:100%;height:auto;display:block;border:1px solid var(--hairline-strong);border-radius:var(--radius-md);">
     </div>
 
-    <!-- TOC -->
-    <div class="content-section" id="jump">
-      <h3>Jump to Section</h3>
-      <div class="toc-grid">
-        <a href="#overview" class="toc-link"><i class="fas fa-info-circle"></i><span>Project Overview</span></a>
-        <a href="#data-structures" class="toc-link"><i class="fas fa-project-diagram"></i><span>Custom Data Structures</span></a>
-        <a href="#features" class="toc-link"><i class="fas fa-star"></i><span>Core Features</span></a>
-        <a href="#architecture" class="toc-link"><i class="fas fa-sitemap"></i><span>Architecture</span></a>
-        <a href="#testing" class="toc-link"><i class="fas fa-vial"></i><span>Testing &amp; QA</span></a>
+    <hr class="section-divider">
+
+    <!-- Stats -->
+    <div class="content-section">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-number">16+</div><div class="stat-label">Test Suites</div></div>
+        <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Command Classes</div></div>
+        <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Coin Denominations</div></div>
+        <div class="stat-card"><div class="stat-number">0</div><div class="stat-label">Memory Leaks (Valgrind)</div></div>
       </div>
     </div>
 
-    <!-- Stats -->
-    <div class="stats-grid">
-      <div class="stat-card"><div class="stat-number">16+</div><div class="stat-label">Test Suites</div></div>
-      <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Command Classes</div></div>
-      <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Coin Denominations</div></div>
-      <div class="stat-card"><div class="stat-number">0</div><div class="stat-label">Memory Leaks (Valgrind)</div></div>
-    </div>
+    <hr class="section-divider">
 
     <!-- Overview -->
     <section class="page-section" id="overview">
-      <h3 class="section-heading"><i class="fas fa-info-circle"></i> Project Overview</h3>
+      <h3 class="section-heading">Project Overview</h3>
       <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">What It Does</h3>
         <p>A fully-functional C++14 vending machine for a fictional pastry company, focused on <strong>robust programming, clean code, and dynamic memory management</strong>. Operates entirely in a console environment with persistent file-backed storage.</p>
         <ul>
           <li>Product display, purchases, stock management, coin handling, and admin operations</li>
@@ -94,10 +95,13 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Custom Data Structures -->
     <section class="page-section" id="data-structures">
-      <h3 class="section-heading"><i class="fas fa-project-diagram"></i> Custom Data Structures</h3>
+      <h3 class="section-heading">Custom Data Structures</h3>
       <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">Data Structure Design</h3>
         <ul>
           <li><strong>Abstract LinkedList base class</strong> with virtual <code>printLL</code>, <code>findItem</code>, <code>saveLL</code>, <code>resetStock</code>, <code>remove</code>, <code>addLL</code>, and <code>deleteLL</code></li>
           <li><strong>LinkedListSingle</strong>: singly-linked list for inventory traversal</li>
@@ -108,9 +112,11 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Core Features -->
     <section class="page-section" id="features">
-      <h3 class="section-heading"><i class="fas fa-star"></i> Core Features</h3>
+      <h3 class="section-heading">Core Features</h3>
       <div class="features-grid stack-gap">
         <div class="feature-card"><h3><i class="fas fa-box"></i> Product Management</h3><p>Display inventory ascending/descending, add items, remove stock, and track availability.</p></div>
         <div class="feature-card"><h3><i class="fas fa-shopping-cart"></i> Transactions</h3><p>Exact-change, insufficient-funds detection, out-of-stock handling, and transaction abort.</p></div>
@@ -121,10 +127,13 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Architecture -->
     <section class="page-section" id="architecture">
-      <h3 class="section-heading"><i class="fas fa-sitemap"></i> Architecture</h3>
+      <h3 class="section-heading">Architecture</h3>
       <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">System Components</h3>
         <ul>
           <li><strong>VendingMachine</strong>: core orchestrator managing state and command dispatch</li>
           <li><strong>Command Pattern</strong>: eight command classes (Abort, DisplayItem, PurchaseItem, Save, AddItem, RemoveItem, DisplayCoins, ResetCoins)</li>
@@ -135,10 +144,13 @@
       </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Testing -->
     <section class="page-section" id="testing">
-      <h3 class="section-heading"><i class="fas fa-vial"></i> Testing &amp; Quality Assurance</h3>
+      <h3 class="section-heading">Testing &amp; Quality Assurance</h3>
       <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">Coverage</h3>
         <ul>
           <li><strong>16+ test suites</strong> covering all major features and edge cases</li>
           <li><strong>Functional &amp; purchase tests</strong>: exact change, insufficient funds, out-of-stock, invalid selection</li>
@@ -150,37 +162,18 @@
     </section>
 
     <!-- Footer CTA -->
-    <div class="footer-cta">
+    <div class="footer-cta footer-cta--compact">
       <h2>View the Source Code</h2>
       <p>Explore the full implementation including custom data structures, command classes, and tests.</p>
       <div class="button-group">
         <a href="https://github.com/IvanTran-2001/vending-machine-simulator" class="cta-btn primary" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
-        <a href="../index.html#work" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <a href="../index.html#project-vending-machine" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
 
   </div>
 
-  <script>
-    function openSectionByHash(hash) {
-      if (!hash) return;
-      const target = document.querySelector(hash);
-      if (!target) return;
-      const details = target.closest('details');
-      if (details) details.open = true;
-      requestAnimationFrame(function() { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
-    }
-    openSectionByHash(window.location.hash);
-    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        var hash = this.getAttribute('href');
-        if (!hash || hash === '#') return;
-        e.preventDefault();
-        openSectionByHash(hash);
-        history.pushState(null, '', hash);
-      });
-    });
-  </script>
+  <script src="../navbar-back-icon.js"></script>
   <script src="../navbar.js"></script>
 </body>
 </html>
