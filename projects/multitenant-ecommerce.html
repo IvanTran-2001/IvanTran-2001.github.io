@@ -17,6 +17,7 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../navbar.css">
   <link rel="stylesheet" href="../buttons.css">
+  <link rel="stylesheet" href="../dropdowns.css">
   <link rel="stylesheet" href="friendchise.css">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -139,7 +140,7 @@
     <section class="page-section" id="features">
       <h3 class="section-heading">Key Features</h3>
       <div class="features-grid stack-gap">
-        <div class="feature-card"><div class="feature-icon"><i class="fas fa-globe"></i></div><h3>Role-Based Multi-Tenancy</h3><p>Each tenant's data is isolated via PayloadCMS access control hooks; super-admins have unrestricted access.</p></div>
+        <div class="feature-card"><div class="feature-icon"><i class="fas fa-globe"></i></div><h3>Role-Based Multi-Tenancy</h3><p>Each tenant's data is isolated via PayloadCMS access control hooks, while super-admins retain unrestricted access.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-lock"></i></div><h3>Secure Cookie Auth</h3><p>JWT lives in an <code>httpOnly</code> cookie set server-side, protecting against XSS token theft.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-scroll"></i></div><h3>Infinite Scroll</h3><p>TanStack Query's <code>useInfiniteQuery</code> with server-side prefetching for fast first paint.</p></div>
         <div class="feature-card"><div class="feature-icon"><i class="fas fa-code"></i></div><h3>Type-Safe tRPC API</h3><p>Compile-time guarantees end-to-end using Payload's auto-generated TypeScript types.</p></div>
@@ -155,7 +156,7 @@
       <h3 class="section-heading">Architecture</h3>
       <div class="content-section">
         <h3 class="subsection-title" style="margin-top:0;">Tenant Data Isolation</h3>
-        <p>The <code>multiTenantPlugin</code> attaches a tenant relationship to scoped collections. PayloadCMS access control hooks then filter queries declaratively; tenant admins only see their own data, and super-admins see everything. No manual access logic per collection.</p>
+        <p>The <code>multiTenantPlugin</code> attaches a tenant relationship to scoped collections. PayloadCMS access control hooks then filter queries declaratively, so tenant admins only see their own data, and super-admins see everything. No manual access logic per collection.</p>
         <h3 class="subsection-title arch-section-divider">Authentication Flow</h3>
         <p>The tRPC <code>login</code> mutation invokes Payload's local auth API server-side. The JWT is written to an <code>httpOnly</code> cookie and sent automatically on every request, while remaining unreadable to client JavaScript. <code>queryClient.invalidateQueries</code> refreshes session state on login/logout.</p>
         <h3 class="subsection-title arch-section-divider">Data Layer</h3>

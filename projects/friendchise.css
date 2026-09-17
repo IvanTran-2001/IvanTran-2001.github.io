@@ -309,7 +309,7 @@ pre code { background: none; border: none; padding: 0; }
   text-decoration: none;
   transition: background var(--interactive-duration) ease, border-color var(--interactive-duration) ease, color var(--interactive-duration) ease, transform var(--interactive-duration) ease;
 }
-.toc-link:hover { background: var(--surface-tint); border-color: var(--ink); color: var(--ink); transform: translateY(var(--interactive-lift)); }
+.toc-link:hover { background: var(--surface-tint); color: var(--ink); transform: translateY(var(--interactive-lift)); }
 .toc-link i { color: var(--accent); width: 16px; text-align: center; }
 
 /* Hero (compact project pages: QA Wolf, ECHT, smaller projects) */
@@ -444,7 +444,7 @@ pre code { background: none; border: none; padding: 0; }
   box-shadow: var(--shadow-card);
   transition: transform var(--interactive-duration) ease, border-color var(--interactive-duration) ease;
 }
-#back-to-top:hover { border-color: var(--ink); transform: translateY(var(--interactive-lift)); }
+#back-to-top:hover { transform: translateY(var(--interactive-lift)); }
 
 @media (max-width: 768px) {
   .flagship-hero-grid, .mobile-hero-grid { grid-template-columns: 1fr; gap: 22px; }

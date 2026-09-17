@@ -33,7 +33,6 @@
 
 .cta-btn:hover, .btn:hover, .button:hover {
   background: var(--surface-tint) !important;
-  border-color: var(--ink) !important;
   color: var(--ink) !important;
   transform: translateY(var(--interactive-lift));
   box-shadow: var(--shadow-card);
@@ -77,6 +76,4 @@
 
 @media (prefers-reduced-motion: reduce) {
   .cta-btn, .btn, .button { transition: background 0.01ms, border-color 0.01ms, color 0.01ms; }
-  .cta-btn:hover, .btn:hover, .button:hover,
-  .cta-btn.primary:hover, .button--primary:hover { transform: none; }
 }

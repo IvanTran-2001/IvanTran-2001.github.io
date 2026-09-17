@@ -16,6 +16,7 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../navbar.css">
   <link rel="stylesheet" href="../buttons.css">
+  <link rel="stylesheet" href="../dropdowns.css">
   <link rel="stylesheet" href="friendchise.css">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -89,8 +90,8 @@
         <h3 class="subsection-title">My Contributions</h3>
         <ul>
           <li>Identified the inefficiency and pitched the consolidation to management and the WMS vendor (Thomax Technology)</li>
-          <li>Authored the full technical specification: calculation logic for <code>replenResidual</code>, multi-condition filtering rules, edge case handling (negative &rarr; 0, bold positives), and an annotated example table, submitted directly to the vendor developer</li>
-          <li>Caught a live-data bug mid-day after go-live: <code>replenResidual</code> values were static snapshots not recalculating on BulkBinCode updates; documented root cause and escalated for a dynamic fix</li>
+          <li>Authored the full technical specification: calculation logic for <code>replenResidual</code>, multi-condition filtering rules, edge case handling (negative values become 0, positives are bolded), and an annotated example table, submitted directly to the vendor developer</li>
+          <li>Caught a live-data bug mid-day after go-live: <code>replenResidual</code> values were static snapshots not recalculating on BulkBinCode updates, then documented the root cause and escalated it for a dynamic fix</li>
           <li>Trained staff on the new workflow with practical tips and best practices</li>
         </ul>
       </div>

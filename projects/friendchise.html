@@ -16,7 +16,9 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../navbar.css">
   <link rel="stylesheet" href="../buttons.css">
+  <link rel="stylesheet" href="../dropdowns.css">
   <link rel="stylesheet" href="../lightbox.css">
+  <link rel="stylesheet" href="../images.css">
   <link rel="stylesheet" href="friendchise.css">
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -79,7 +81,7 @@
             <div class="flagship-role-meta">Solo-designed and built, maintained with <span data-contributor-count></span> OSS contributors</div>
           </div>
           <p>A shared system for tasks, scheduling, procedures, and tools, replacing paper and tribal knowledge with one org-scoped platform.</p>
-          <p class="stack-gap">Running in real production use at Walker's Doughnuts, not a demo environment.</p>
+          <p class="stack-gap">Running in real production use at Walker's Doughnuts.</p>
         </div>
         <div class="project-summary-media">
           <div class="browser-frame">
@@ -88,7 +90,6 @@
             </div>
             <img src="pictures/friendchise/GIFS-V2/admin.gif" alt="FriendChise organisation home dashboard showing tasks, timetable, and tools for one location" class="expandable" data-lightbox-caption="Production organisation overview">
           </div>
-          <p class="media-caption">Production organisation overview</p>
         </div>
       </div>
     </div>
@@ -108,7 +109,7 @@
     <h2 class="section-title" id="overview">Overview</h2>
     <div class="content-section overview-section">
       <h3 class="subsection-title" style="margin-top:0;">Background</h3>
-      <p>At Walker's Doughnuts, the things that made a shift run well were rarely written down. A manager knew how to handle a rush; a senior staff member knew the fastest way to prep for the morning, and none of it survived when that person wasn't rostered on. Our store slid from one of the better performers in the franchise toward the bottom of the leaderboard, and a lot of that traced to turnover and knowledge that never outlived the person who had it.</p>
+      <p>At Walker's Doughnuts, the things that made a shift run well were rarely written down. A manager knew how to handle a rush, and a senior staff member knew the fastest way to prep for the morning, and none of it survived when that person wasn't rostered on. Our store slid from one of the better performers in the franchise toward the bottom of the leaderboard, and a lot of that traced to turnover and knowledge that never outlived the person who had it.</p>
 
       <h3 class="subsection-title">Problem</h3>
       <p>Operational knowledge, standards, training, and workflows fragment across locations and staff, and disappear when someone leaves.</p>
@@ -188,7 +189,7 @@
           <h3>Making overlapping schedules readable</h3>
           <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>Once multiple people, frequencies, and roles overlap on one timetable, five stacked task cards in the same slot become unreadable on a phone mid-shift.</p></div>
           <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>I introduced grouped timetable cards so overlapping entries render as one group that expands into individual items on demand, instead of exposing every entry at once.</p></div>
-          <div class="challenge-step"><span class="challenge-step-label">Result</span><p>A tired staff member can glance at their phone and understand the day in seconds; complexity is handled by the system, not passed to the user.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Result</span><p>A tired staff member can glance at their phone and understand the day in seconds. Complexity is handled by the system, not passed to the user.</p></div>
         </div>
         <div class="challenge-card">
           <h3>Shared UI state for a contextual sidebar</h3>
@@ -207,7 +208,7 @@
     <h2 class="section-title" id="architecture">Architecture</h2>
     <div class="content-section">
       <h3 class="subsection-title" style="margin-top:0;">Request Flow</h3>
-      <p class="architecture-intro">Every request passes through one authorization boundary before it ever reaches the database; organisation scoping is enforced at the data layer, not left to the UI.</p>
+      <p class="architecture-intro">Every request passes through one authorization boundary before it ever reaches the database. Organisation scoping is enforced at the data layer, not left to the UI.</p>
       <div class="arch-flow">
         <div class="arch-flow-step">Client<span>Next.js 16 / React 19</span></div>
         <div class="arch-flow-arrow">&rarr;</div>
@@ -218,12 +219,12 @@
         <div class="arch-flow-step">Data<span>Prisma &middot; PostgreSQL (Supabase)</span></div>
       </div>
       <p class="arch-note"><strong>Also enforced per request:</strong> rate limiting (Upstash Redis), alongside authorization, not as a separate step in the same sequence.</p>
-      <p class="arch-note arch-note--muted"><strong>Supporting infrastructure:</strong> Sentry &middot; GitHub Actions CI &middot; Vercel</p>
+      <p class="arch-note arch-note--muted"><strong>Supporting infrastructure:</strong> Sentry, GitHub Actions CI, Vercel</p>
 
       <h3 class="subsection-title arch-section-divider">Multi-Tenant Model</h3>
       <div class="arch-model-list">
-        <div class="arch-model-item"><strong>Franchise hierarchy</strong><p>Organization &harr; parent/child Organizations, so a franchisee stays independent while a parent can connect and manage multiple locations.</p></div>
-        <div class="arch-model-item"><strong>Access control</strong><p>Membership &rarr; MemberRole &rarr; Role &rarr; Permission, all scoped to one Organization, so access never crosses tenant boundaries.</p></div>
+        <div class="arch-model-item"><strong>Franchise hierarchy</strong><p>Organizations connect directly with their parent/child Organizations, so a franchisee stays independent while a parent can connect and manage multiple locations.</p></div>
+        <div class="arch-model-item"><strong>Access control</strong><p>Access flows from Membership to MemberRole to Role to Permission, all scoped to one Organization, so access never crosses tenant boundaries.</p></div>
         <div class="arch-model-item"><strong>Org-scoped resources</strong><p>Tasks, timetables, rosters, tools, and menus each carry an <code>orgId</code>, so every query is scoped at the data layer, not the UI.</p></div>
         <div class="arch-model-item"><strong>Data model</strong><p>55 Prisma models covering auth, organisations, tasks, scheduling, rostering, tools, menus, comments, and admin/audit data.</p></div>
       </div>

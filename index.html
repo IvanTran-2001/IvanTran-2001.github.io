@@ -29,7 +29,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="navbar.css">
   <link rel="stylesheet" href="buttons.css">
+  <link rel="stylesheet" href="dropdowns.css">
   <link rel="stylesheet" href="lightbox.css">
+  <link rel="stylesheet" href="images.css">
   <style>
     * {
       margin: 0;
@@ -205,7 +207,7 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: var(--space-3);
+      margin-bottom: 4px;
     }
 
     .flagship-kicker .kicker-role {
@@ -214,6 +216,10 @@
       text-transform: none;
       color: var(--ink-tertiary);
       font-size: 0.78rem;
+    }
+    .qa-wolf-kicker {
+      font-size: 0.68rem;
+      margin-bottom: 3px;
     }
 
     .flagship-copy h3 {
@@ -255,7 +261,7 @@
       padding: 14px 0;
     }
 
-    .signal-chip { padding: 0 16px; border-left: 1px solid var(--hairline); text-align: left; }
+    .signal-chip { padding: 0 16px; border-left: 1px solid var(--hairline); text-align: center; }
     .signal-chip:first-child { border-left: none; padding-left: 0; }
 
     .signal-chip strong { display: block; font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; color: var(--ink); line-height: 1.2; }
@@ -264,21 +270,14 @@
     .flagship-cta {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       flex-wrap: nowrap;
     }
 
     .flagship-cta .cta-btn,
     .flagship-cta-secondary .cta-btn {
-      padding: 8px 14px;
-      font-size: 0.8rem;
       white-space: nowrap;
-    }
-
-    .flagship-cta .cta-btn.icon,
-    .flagship-cta-secondary .cta-btn.icon {
-      width: 34px;
-      height: 34px;
     }
 
     /* Desktop: flows inline after the primary/secondary pair. Mobile turns this into a compact row. */
@@ -343,6 +342,7 @@
 
     .work-row-media { display: flex; }
     .work-row-image { width: 100%; max-height: 260px; border-radius: var(--radius-sm); object-fit: cover; object-position: center; display: block; }
+    .qa-wolf-image { clip-path: inset(0 15% 0 0 round 16px); }
 
     .work-row-copy { display: flex; flex-direction: column; gap: 10px; }
     .work-row-copy h4 { font-size: 1.05rem; font-weight: 700; line-height: 1.3; color: var(--ink); }
@@ -350,14 +350,61 @@
     .work-row-points { list-style: none; display: flex; flex-direction: column; gap: 6px; }
     .work-row-points li { font-size: 0.85rem; color: var(--ink-secondary); line-height: 1.5; padding-left: 14px; position: relative; }
     .work-row-points li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
+    .qa-wolf-copy { gap: 8px; }
+    .qa-wolf-copy .work-row-points { gap: 4px; }
+    .qa-wolf-copy .work-row-points li { font-size: 0.82rem; line-height: 1.42; }
 
-    /* Impact/proof reads as a plain text line under a divider, no chips or nested cards */
-    .work-row-impact-block { padding-top: 8px; border-top: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 4px; }
+    /* Impact/proof uses the same three-column stat strip style as FriendChise */
+    .work-row-impact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+      margin-bottom: 10px;
+    }
     .work-row-impact-label { font-size: 0.72rem; font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: 0.05em; }
-    .work-row-impact-text { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.5; }
-    .work-row-impact-text strong { color: var(--ink); font-weight: 700; }
+    .work-row-impact-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      padding: 14px 0;
+    }
+    .work-row-impact-stat { padding: 0 16px; border-left: 1px solid var(--hairline); text-align: center; }
+    .work-row-impact-stat:first-child { border-left: none; padding-left: 0; }
+    .work-row-impact-value { display: block; font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; color: var(--ink); line-height: 1.2; }
+    .work-row-impact-caption { font-size: 0.74rem; color: var(--ink-tertiary); line-height: 1.3; display: block; margin-top: 2px; }
 
-    .work-row-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .work-row-cta { justify-content: center; margin-top: 2px; }
+
+    /* Shared 2-column layout for Experience + Open Source: fixed logo column, aligned content column */
+    .entry-row {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      column-gap: 14px;
+      align-items: start;
+    }
+    .entry-logo {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      object-fit: cover;
+      border: 1px solid var(--hairline);
+      box-shadow: var(--shadow-card);
+      background: #ffffff;
+    }
+    .entry-content {
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .entry-content h4 { font-size: 1.05rem; font-weight: 700; color: var(--ink); line-height: 1.25; }
+    .entry-meta { font-size: 0.76rem; font-weight: 600; color: var(--ink-tertiary); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 3px; margin-bottom: 12px; }
+    .entry-desc { font-size: 0.85rem; color: var(--ink-secondary); line-height: 1.55; margin: 0 0 14px; }
+    .entry-content .tight-list { margin-bottom: 0; }
+    .entry-cta { margin-top: var(--space-4); }
 
     /* Experience, same divided-row language as Open Source, one bordered surface with subtle dividers */
     .experience-grid { display: flex; flex-direction: column; }
@@ -365,11 +412,6 @@
     .experience-card:first-child { padding-top: 0; }
     .experience-card:last-child { padding-bottom: 0; }
     .experience-card + .experience-card { border-top: 1px solid var(--hairline); }
-    .experience-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
-    .experience-card-top h4 { font-size: 0.95rem; font-weight: 700; color: var(--ink); }
-    .experience-role { font-size: 0.76rem; font-weight: 600; color: var(--ink-tertiary); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 3px; }
-    .experience-card .tight-list { margin-bottom: 0; }
-    .experience-verify-btn { margin-top: var(--space-4); }
 
     /* Open source, a concrete row list, single divider between entries */
     .oss-intro { font-size: 0.85rem; color: var(--ink-secondary); line-height: 1.55; margin-bottom: var(--space-5); max-width: 62ch; }
@@ -378,9 +420,82 @@
     .oss-card:first-child { padding-top: 0; }
     .oss-card:last-child { padding-bottom: 0; }
     .oss-card + .oss-card { border-top: 1px solid var(--hairline); }
-    .oss-card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
-    .oss-card-top h4 { font-size: 0.92rem; font-weight: 700; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .oss-card p { font-size: 0.84rem; color: var(--ink-secondary); line-height: 1.55; max-width: 62ch; }
+    .oss-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .oss-card-toggle i { transition: transform 0.18s ease; }
+    .oss-card-toggle[aria-expanded="false"] i { transform: rotate(-90deg); }
+    .oss-card-toggle {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .oss-card-actions > .cta-btn.sm,
+    .oss-card-actions > .oss-card-toggle {
+      height: 34px;
+    }
+    .oss-contrib-table.is-hidden { display: none; }
+    .oss-contrib-table {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      margin-top: 18px;
+      border-top: 1px solid var(--hairline);
+    }
+    .oss-contrib-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--hairline);
+      min-width: 0;
+    }
+    .oss-contrib-row:last-child { border-bottom: none; }
+    .oss-contrib-row h5 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--ink);
+    }
+    .oss-contrib-row .tight-list { margin-bottom: 0; }
+    .oss-contrib-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+    .oss-pr-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 2px 0 0;
+      min-width: 0;
+    }
+    .oss-pr-list a {
+      display: inline-flex;
+      justify-content: flex-start;
+      width: fit-content;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-secondary);
+      background: #ffffff;
+      border: 1px solid var(--hairline-strong);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      text-decoration: none;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform var(--interactive-duration) ease, box-shadow var(--interactive-duration) ease;
+    }
+    .oss-pr-list a:hover { border-color: var(--ink-secondary); color: var(--ink); background: var(--surface-tint); transform: translateY(var(--interactive-lift)); box-shadow: var(--shadow-card); }
 
     /* About Section */
     .about-content { display: grid; grid-template-columns: 1fr 130px; gap: 28px; align-items: start; }
@@ -412,27 +527,7 @@
     .skills-study i { color: var(--accent); font-size: 0.95em; margin-top: 2px; }
     .skills-study strong { font-weight: 700; color: var(--ink); }
 
-    /* Additional Work, the toggle reads as a real compact button, not styled text */
-    .collapsible-section summary {
-      list-style: none;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.8rem;
-      padding: 8px 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--ink-secondary);
-      background: #ffffff;
-      border: 1px solid var(--hairline-strong);
-      border-radius: var(--radius-sm);
-      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform var(--interactive-duration) ease, box-shadow var(--interactive-duration) ease;
-    }
-    .collapsible-section summary i { font-size: 0.75em; color: var(--ink-tertiary); transition: transform 0.18s ease; }
-    .collapsible-section[open] summary i { transform: rotate(180deg); }
-    .collapsible-section summary:hover { border-color: var(--ink-secondary); color: var(--ink); background: var(--surface-tint); transform: translateY(var(--interactive-lift)); box-shadow: var(--shadow-card); }
-    .collapsible-section summary::-webkit-details-marker { display: none; }
-    .collapsible-section[open] summary { margin-bottom: var(--space-4); }
+    /* Additional Work, the toggle reads as a real compact button — appearance/hover lives in dropdowns.css */
     .compact-row-list .compact-row:first-child { padding-top: 0; }
 
     .compact-row {
@@ -446,7 +541,7 @@
     .compact-row:last-child { border-bottom: none; }
     .compact-row-copy h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .compact-row-copy p { font-size: 0.82rem; color: var(--ink-secondary); line-height: 1.5; max-width: 52ch; }
-    .compact-row-links { display: flex; gap: 10px; flex-shrink: 0; padding-top: 2px; }
+    .compact-row-links { display: flex; justify-content: center; gap: 10px; flex: 1; flex-shrink: 0; padding-top: 2px; }
 
     /* Footer, one clean transition, no stacked separators */
     footer { border-top: 1px solid var(--hairline); padding: var(--space-6) 0 var(--space-2); text-align: center; }
@@ -609,6 +704,12 @@
 
       .compact-row { flex-direction: column; gap: 8px; }
       .compact-row-links { padding-top: 0; }
+
+      .entry-row { grid-template-columns: 40px minmax(0, 1fr); column-gap: 10px; }
+      .entry-logo { width: 40px; height: 40px; border-radius: 10px; }
+      .oss-card-actions { gap: 8px; }
+      .oss-card-actions > .cta-btn.sm,
+      .oss-card-actions > .oss-card-toggle { flex: 1 1 auto; justify-content: center; }
     }
 
     @media (max-width: 480px) {
@@ -675,9 +776,9 @@
         <img src="projects/pictures/friendchise/GIFS-V2/demo.gif" alt="FriendChise organisation dashboard" class="expandable" loading="lazy" decoding="async">
       </div>
       <div class="flagship-copy">
-        <div class="flagship-kicker"><span>Flagship Product</span><span class="kicker-role">Solo Founder &amp; Lead Developer</span></div>
+        <div class="flagship-kicker"><span>Main Project</span></div>
         <h3>FriendChise</h3>
-        <p class="flagship-value">A multi-tenant operations platform running scheduling, recurring tasks, procedures and a QR customer menu for a real Walker&rsquo;s Doughnuts location, every day.</p>
+        <p class="flagship-value">A frontline operations platform that makes day to day work easier by centralising tasks, procedures and scheduling, reducing onboarding friction and turning staff knowledge into reusable processes.</p>
         <div class="flagship-proof"><span class="proof-dot"></span> Production pilot, live daily at Walker&rsquo;s Doughnuts</div>
         <div class="flagship-signals">
           <div class="signal-chip"><strong>55</strong><span>Prisma models</span></div>
@@ -700,12 +801,13 @@
         <img src="projects/pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task workflow: capture, generated draft, review" class="expandable">
       </div>
       <div class="secondary-copy">
-        <div class="flagship-kicker"><span>Frontline Operations App</span></div>
-        <h3>FriendChise Mobile <span class="proj-badge badge-live">Live on the App Store</span></h3>
-        <p>Native task access and a Scan-to-Task capture flow for staff on the floor, sharing FriendChise&rsquo;s multi-tenant backend and auth.</p>
+        <div class="flagship-kicker"><span>Live on App Store</span></div>
+        <h1>FriendChise Mobile</h1>
+        <p>A mobile companion to FriendChise for everyday frontline use in the doughnut kitchen. Staff can access tasks and operational information on the floor, with AI-assisted document capture that helps turn photos and PDFs into reliable, editable tasks.</p>
         <ul class="tight-list">
-          <li>React Native / Expo, native Google &amp; LinkedIn auth</li>
-          <li>Camera &amp; document capture &rarr; AI-assisted structured task drafts</li>
+          <li>Built with React Native and Expo for day to day frontline use</li>
+          <li>AI-assisted document capture converts photos and PDFs into structured, editable task drafts</li>
+          <li>Shares FriendChise’s existing backend, authentication and organisation data</li>
         </ul>
         <div class="flagship-cta">
           <a href="projects/friendchise-mobile.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> Case Study</a>
@@ -721,41 +823,57 @@
     <div class="work-row-list">
       <div id="project-echt" class="work-row-editorial animate-on-scroll">
         <div class="work-row-media">
-          <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image expandable" loading="lazy" decoding="async">
+          <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image expandable" style="border-radius: 16px;" loading="lazy" decoding="async">
         </div>
         <div class="work-row-copy">
-          <h4>ECHT Warehouse: Process Engineering</h4>
-          <p class="work-row-meta">Warehouse Operations · Process Redesign</p>
+          <div class="flagship-kicker"><span>Data Logic · Technical Specification</span></div>
+          <h3>ECHT Warehouse: Process Engineering</h3>
           <ul class="work-row-points">
-            <li>Identified a fragmented WMS replenishment workflow that required staff to cross-reference three tables and use two operators to keep pace.</li>
-            <li>Redesigned it into a single-operator workflow and authored the technical specification submitted to the vendor.</li>
+            <li>Analysed three WMS data tables and defined the field relationships, calculation logic and filtering rules needed to consolidate them into one operational view.</li>
+            <li>Authored the vendor technical specification and later diagnosed a live stale-data defect when calculated replenishment values failed to refresh correctly.</li>
           </ul>
           <div class="work-row-impact-block">
             <div class="work-row-impact-label">Estimated impact</div>
-            <p class="work-row-impact-text">60&ndash;80% faster retrieval &middot; ~50% faster onboarding &middot; ~40% fewer errors</p>
+            <div class="work-row-impact-strip">
+            <div class="work-row-impact-stat">
+              <span class="work-row-impact-value">60&ndash;80%</span>
+              <span class="work-row-impact-caption">faster retrieval</span>
+            </div>
+            <div class="work-row-impact-stat">
+              <span class="work-row-impact-value">~50%</span>
+              <span class="work-row-impact-caption">faster onboarding</span>
+            </div>
+            <div class="work-row-impact-stat">
+              <span class="work-row-impact-value">~40%</span>
+              <span class="work-row-impact-caption">fewer errors</span>
+            </div>
+            </div>
           </div>
-          <div class="work-row-links">
-            <a href="projects/echt-warehouse.html" class="cta-btn sm">View Project &rarr;</a>
+          <div class="flagship-cta work-row-cta">
+            <a href="projects/echt-warehouse.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> View Project</a>
+            <div class="flagship-cta-secondary">
+              <a href="projects/report.pdf" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Technical Report</a>
+            </div>
           </div>
         </div>
       </div>
       <div id="project-qa-wolf" class="work-row-editorial work-row-editorial--reverse animate-on-scroll">
         <div class="work-row-media">
-          <img src="projects/pictures/QAWolf.png" alt="QA Wolf assessment" class="work-row-image expandable" loading="lazy" decoding="async">
+          <img src="projects/pictures/QAWolf.png" alt="QA Wolf assessment" class="work-row-image qa-wolf-image expandable" loading="lazy" decoding="async">
         </div>
-        <div class="work-row-copy">
-          <h4>QA Wolf: Paid Finalist Assessment</h4>
-          <p class="work-row-meta">Node.js · Playwright · Test Automation</p>
+        <div class="work-row-copy qa-wolf-copy">
+          <div class="flagship-kicker qa-wolf-kicker"><span>Node.js · Playwright · Test Automation</span></div>
+          <h3>QA Wolf Technical Assessment</h3>
           <ul class="work-row-points">
+            <li>Selected for QA Wolf’s paid final-stage assessment, joining ~15 finalists and receiving A$220 for the technical evaluation.</li>
             <li>Built deterministic validation for Hacker News sort order across paginated content.</li>
-            <li>Added structured diagnostics and non-zero failure exit codes so automation failures are explicit and reproducible.</li>
+            <li>Added structured diagnostics and explicit failure handling so automation errors were reproducible and easy to inspect.</li>
           </ul>
-          <div class="work-row-impact-block">
-            <p class="work-row-impact-text"><strong>Paid final-stage assessment</strong> &middot; ~15 finalists</p>
-          </div>
-          <div class="work-row-links">
-            <a href="projects/QA-Wolf-Take-Home.html" class="cta-btn sm">View Project &rarr;</a>
-            <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="cta-btn sm" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <div class="flagship-cta work-row-cta qa-wolf-cta">
+            <a href="projects/QA-Wolf-Take-Home.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> View Project</a>
+            <div class="flagship-cta-secondary">
+              <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+            </div>
           </div>
         </div>
       </div>
@@ -769,33 +887,31 @@
     <h2 class="section-title">EXPERIENCE</h2>
     <div class="surface-panel">
       <div class="experience-grid">
-        <div class="experience-card animate-on-scroll">
-          <div class="experience-card-top">
-            <div>
-              <h4>Mercor</h4>
-              <p class="experience-role">AI Quality / Evaluation Contributor</p>
-            </div>
+        <div class="experience-card entry-row animate-on-scroll">
+          <img src="pictures/Mercor-square-logo.png" alt="Mercor logo" class="entry-logo" loading="lazy" decoding="async">
+          <div class="entry-content">
+            <h4>Mercor</h4>
+            <p class="entry-meta">AI Quality / Evaluation Contributor</p>
+            <ul class="tight-list">
+              <li>Review AI-generated slide outputs and identify issues in structure, clarity, layout, and correctness.</li>
+              <li>Write targeted feedback and prompts explaining what worked, what failed, and how future outputs should improve, while collaborating with peers and applying reviewer feedback consistently.</li>
+              <li>Completed Mercor&rsquo;s introductory course on AI agents and agent workflows, with a publicly verifiable credential.</li>
+            </ul>
+            <a href="https://work.mercor.com/learn/verify/MRC-2026-UP55M2HU" class="cta-btn sm entry-cta" target="_blank" rel="noopener noreferrer"><i class="fas fa-certificate" aria-hidden="true"></i> Verify Credential</a>
           </div>
-          <ul class="tight-list">
-            <li>Review AI-generated slide outputs and identify issues in structure, clarity, layout, and correctness.</li>
-            <li>Write targeted feedback and prompts explaining what worked, what failed, and how future outputs should improve, while collaborating with peers and applying reviewer feedback consistently.</li>
-            <li>Completed Mercor&rsquo;s introductory course on AI agents and agent workflows, with a publicly verifiable credential.</li>
-          </ul>
-          <a href="https://work.mercor.com/learn/verify/MRC-2026-UP55M2HU" class="cta-btn sm experience-verify-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-certificate" aria-hidden="true"></i> Verify Credential</a>
         </div>
-        <div class="experience-card animate-on-scroll">
-          <div class="experience-card-top">
-            <div>
-              <h4>ECHT</h4>
-              <p class="experience-role">Process Improvement, Warehouse Operations</p>
-            </div>
+        <div class="experience-card entry-row animate-on-scroll">
+          <img src="pictures/echt-square-logo.png" alt="ECHT logo" class="entry-logo" loading="lazy" decoding="async">
+          <div class="entry-content">
+            <h4>ECHT</h4>
+            <p class="entry-meta">DATA LOGIC · PROCESS REDESIGN · TECHNICAL SPECIFICATION</p>
+            <ul class="tight-list">
+              <li>Analysed three WMS data tables and mapped the field relationships, calculation logic and filtering rules needed to consolidate them into one operational view.</li>
+              <li>Authored the technical specification for the vendor developer and later diagnosed a stale-data defect where calculated replenishment values failed to refresh correctly.</li>
+              <li>Redesigned the workflow from two operators to one, with an estimated 60&ndash;80% faster retrieval and ~40% fewer errors.</li>
+            </ul>
+            <a href="projects/echt-warehouse.html" class="cta-btn sm entry-cta">Case Study</a>
           </div>
-          <ul class="tight-list">
-            <li>Identified a fragmented WMS replenishment workflow and authored the full technical specification submitted directly to the vendor&rsquo;s developer.</li>
-            <li>Redesigned the process into a single-operator workflow and validated the live deployment, catching a data defect ahead of the Christmas peak.</li>
-            <li>Estimated 60&ndash;80% faster retrieval/movement and ~40% fewer errors.</li>
-          </ul>
-          <a href="projects/echt-warehouse.html" class="cta-btn sm experience-verify-btn">Case Study</a>
         </div>
       </div>
     </div>
@@ -805,24 +921,44 @@
 
   <!-- Open Source -->
   <div id="open-source">
-    <h2 class="section-title">OPEN SOURCE</h2>
+    <h2 class="section-title">OPEN SOURCE CONTRIBUTIONS</h2>
     <div class="surface-panel">
-      <h3 class="subsection-title" style="margin-top:0;">Community Contributions</h3>
-      <p class="oss-intro"><span data-contributor-count></span> OSS contributors to FriendChise, with issues, PR reviews, implementation discussion, and contributor onboarding managed by me. Two recent examples:</p>
       <div class="oss-grid">
-        <div class="oss-card animate-on-scroll">
-          <div class="oss-card-top">
-            <h4>DevTasks <span class="proj-badge badge-live">PR #274</span></h4>
-            <a href="https://github.com/shamilahmdt/devtasks/pull/274" target="_blank" rel="noopener noreferrer" class="cta-btn sm">View PR</a>
+        <div class="oss-card entry-row animate-on-scroll">
+          <img src="pictures/devtasks-square-logo.png" alt="DevTasks logo" class="entry-logo" loading="lazy" decoding="async">
+          <div class="entry-content">
+            <h4>DevTasks</h4>
+            <p class="entry-meta">2 merged Contributions</p>
+            <p class="entry-desc">A minimalist engineering command center for developer workflows.</p>
+            <div class="oss-card-actions">
+              <a href="https://github.com/shamilahmdt/devtasks" target="_blank" rel="noopener noreferrer" class="cta-btn sm"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+              <button type="button" class="cta-btn sm oss-card-toggle" data-oss-toggle="devtasks" aria-expanded="true" aria-controls="devtasks-contrib">What I contributed <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+            </div>
+            <div id="devtasks-contrib" class="oss-contrib-table">
+              <div class="oss-contrib-row">
+                <h5>Favorites layout for Dev Utilities <span class="proj-badge badge-live">PR #274</span></h5>
+                <ul class="tight-list">
+                  <li>Added a favorites system backed by <code>localStorage</code></li>
+                  <li>Designed reusable state logic so additional utility types can adopt the same pattern</li>
+                  <li>Added JSDoc/documentation so future contributors can extend it safely</li>
+                </ul>
+                <div class="oss-contrib-actions">
+                  <a href="https://github.com/shamilahmdt/devtasks/pull/274" target="_blank" rel="noopener noreferrer" class="cta-btn sm">View PR</a>
+                </div>
+              </div>
+              <div class="oss-contrib-row">
+                <h5>Sidebar navigation with route persistence <span class="proj-badge badge-live">PR #226</span></h5>
+                <ul class="tight-list">
+                  <li>Built a config-driven sidebar so new sections register without touching layout code</li>
+                  <li>Added route-aware persistence so the active section survives navigation and reloads</li>
+                  <li>Implemented collapse animation and multi-page grouping for deeper navigation trees</li>
+                </ul>
+                <div class="oss-contrib-actions">
+                  <a href="https://github.com/shamilahmdt/devtasks/pull/226" target="_blank" rel="noopener noreferrer" class="cta-btn sm">View PR</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <p>Added a favorites layout for Dev Utilities; starred tools move into a dedicated list, and duplicate cards collapse into unique pages.</p>
-        </div>
-        <div class="oss-card animate-on-scroll">
-          <div class="oss-card-top">
-            <h4>DevTasks <span class="proj-badge badge-live">PR #226 &middot; Merged</span></h4>
-            <a href="https://github.com/shamilahmdt/devtasks/pull/226" target="_blank" rel="noopener noreferrer" class="cta-btn sm">View PR</a>
-          </div>
-          <p>Built config-driven sidebar navigation with route-aware persistence, multi-page sections and collapse animation.</p>
         </div>
       </div>
     </div>
@@ -879,7 +1015,7 @@
       <h3 class="subsection-title" style="margin-top:0;">Selected Projects</h3>
       <p class="section-intro">Smaller projects, experiments and coursework that show additional breadth across full-stack development, systems and algorithms.</p>
       <details class="collapsible-section" id="more-projects">
-        <summary><span class="summary-label">Show additional projects</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+        <summary>Additional projects <i class="fas fa-chevron-right" aria-hidden="true"></i></summary>
         <div class="compact-row-list">
           <div id="project-multitenant" class="compact-row">
             <div class="compact-row-copy">
@@ -989,15 +1125,6 @@
   </footer>
 
   <script>
-    // Additional Work toggle label swap
-    const moreProjects = document.getElementById('more-projects');
-    if (moreProjects) {
-      const label = moreProjects.querySelector('.summary-label');
-      moreProjects.addEventListener('toggle', () => {
-        label.textContent = moreProjects.open ? 'Hide additional projects' : 'Show additional projects';
-      });
-    }
-
     // Resolve an incoming project hash (e.g. returning from a project's Back button):
     // open its parent Additional Work dropdown if needed, then smooth-scroll it into view.
     (function () {
@@ -1013,8 +1140,6 @@
       const details = target.closest('details');
       if (details) {
         details.open = true;
-        const detailsLabel = details.querySelector('.summary-label');
-        if (detailsLabel) detailsLabel.textContent = 'Hide additional projects';
       }
 
       requestAnimationFrame(() => {
@@ -1124,6 +1249,16 @@
     }
 
     syncContributorCounts();
+
+    const devtasksToggle = document.querySelector('[data-oss-toggle="devtasks"]');
+    const devtasksContrib = document.getElementById('devtasks-contrib');
+    if (devtasksToggle && devtasksContrib) {
+      devtasksToggle.addEventListener('click', () => {
+        const isExpanded = devtasksToggle.getAttribute('aria-expanded') === 'true';
+        devtasksToggle.setAttribute('aria-expanded', String(!isExpanded));
+        devtasksContrib.classList.toggle('is-hidden', isExpanded);
+      });
+    }
   </script>
 </body>
 </html>
