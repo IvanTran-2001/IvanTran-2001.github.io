@@ -59,7 +59,7 @@
     <img src="pictures/friendchise/MINI-LOGO.png" alt="FriendChise logo" class="project-intro-logo">
     <h1 class="project-intro-title">FriendChise</h1>
     <p class="project-intro-subtitle">Make every location run like your best one.</p>
-    <p class="project-intro-desc">A multi-tenant operations platform for repetitive, multi-location workplaces.</p>
+    <p class="project-intro-desc">Operations platform for multi-location retail teams. Tasks, scheduling, and procedures in one place, live in production at Walker's Doughnuts.</p>
     <div class="project-intro-stack">Next.js · TypeScript · PostgreSQL · Prisma</div>
     <div class="project-intro-actions">
       <a href="https://friendchise.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer">Live Demo</a>
@@ -72,29 +72,6 @@
 
   <div class="container" id="jump">
 
-    <h2 class="section-title" id="summary">Project Summary</h2>
-    <div class="content-section project-summary-card">
-      <div class="project-summary-grid">
-        <div class="project-summary-copy">
-          <div class="flagship-role">
-            <div class="flagship-role-title">Founder &amp; Lead Developer</div>
-            <div class="flagship-role-meta">Solo-designed and built, maintained with <span data-contributor-count></span> OSS contributors</div>
-          </div>
-          <p>A shared system for tasks, scheduling, procedures, and tools, replacing paper and tribal knowledge with one org-scoped platform.</p>
-          <p class="stack-gap">Running in real production use at Walker's Doughnuts.</p>
-        </div>
-        <div class="project-summary-media">
-          <div class="browser-frame">
-            <div class="browser-frame-bar">
-              <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
-            </div>
-            <img src="pictures/friendchise/GIFS-V2/admin.gif" alt="FriendChise organisation home dashboard showing tasks, timetable, and tools for one location" class="expandable" data-lightbox-caption="Production organisation overview">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <hr class="section-divider">
     <div class="content-section credibility-panel">
       <div class="credibility-strip">
         <div class="credibility-item"><div class="credibility-value">Production</div><div class="credibility-label">Real-world pilot at Walker's Doughnuts</div></div>
@@ -168,6 +145,28 @@
       </div>
     </div>
 
+    <!-- My Role -->
+    <hr class="section-divider">
+    <h2 class="section-title" id="role">My Role</h2>
+    <div class="content-section">
+      <div class="flagship-role">
+        <div class="flagship-role-title">Founder &amp; Lead Developer</div>
+        <div class="flagship-role-meta">Solo-designed, built, and maintained &mdash; extended by <span data-contributor-count></span> open-source contributors</div>
+      </div>
+      <h3 class="subsection-title" style="margin-top:0;">Ownership &amp; Responsibilities</h3>
+      <p>I built and maintain FriendChise on my own. There's no team handing me a spec, I own the product direction, the architecture, and every decision described on this page:</p>
+      <ul>
+        <li>Product discovery and requirements gathering directly with the staff who use the system</li>
+        <li>UI/UX design in Figma, full-stack development, and API design</li>
+        <li>Database modelling, the 55-model Prisma data schema and its migrations</li>
+        <li>Multi-tenant architecture, RBAC, and permission design</li>
+        <li>Test strategy across unit, integration, and end-to-end suites</li>
+        <li>Deployment, CI/CD, error monitoring, and rate limiting</li>
+      </ul>
+      <h3 class="subsection-title arch-section-divider">Open Source Maintenance</h3>
+      <p>The project has also picked up <span data-contributor-count></span> open-source contributors over time. I review every pull request and own the architecture and product decisions myself, contributors extend the codebase, they don't set its direction, and every contribution still goes through me before it ships.</p>
+    </div>
+
     <!-- Engineering Challenges -->
     <hr class="section-divider">
     <h2 class="section-title" id="engineering">Engineering Challenges</h2>
@@ -226,7 +225,7 @@
         <div class="arch-model-item"><strong>Franchise hierarchy</strong><p>Organizations connect directly with their parent/child Organizations, so a franchisee stays independent while a parent can connect and manage multiple locations.</p></div>
         <div class="arch-model-item"><strong>Access control</strong><p>Access flows from Membership to MemberRole to Role to Permission, all scoped to one Organization, so access never crosses tenant boundaries.</p></div>
         <div class="arch-model-item"><strong>Org-scoped resources</strong><p>Tasks, timetables, rosters, tools, and menus each carry an <code>orgId</code>, so every query is scoped at the data layer, not the UI.</p></div>
-        <div class="arch-model-item"><strong>Data model</strong><p>55 Prisma models covering auth, organisations, tasks, scheduling, rostering, tools, menus, comments, and admin/audit data.</p></div>
+        <div class="arch-model-item"><strong>Data model</strong><p>55 Prisma data models covering auth, organisations, tasks, scheduling, rostering, tools, menus, comments, and admin/audit data.</p></div>
       </div>
     </div>
 
@@ -240,28 +239,10 @@
         <div class="testing-stat"><span class="testing-stat-number">66</span><span class="testing-stat-label">Integration (real Postgres)</span></div>
       </div>
 
+      <p class="stack-gap">This isn't full coverage of the codebase; it's concentrated on the paths where a bug wouldn't just look bad, it would leak one organisation's data into another's view or let someone do something their role shouldn't allow.</p>
+
       <h3 class="subsection-title arch-section-divider">CI Pipeline</h3>
-      <p>GitHub Actions runs type-check + lint, unit tests, integration tests against Postgres, and Playwright end-to-end tests as separate gated stages on every pull request.</p>
-
-      <p class="stack-gap" style="padding-top:var(--space-5); border-top:1px solid var(--hairline);">This isn't full coverage of the codebase; it's concentrated on the paths where a bug wouldn't just look bad, it would leak one organisation's data into another's view or let someone do something their role shouldn't allow.</p>
-    </div>
-
-    <!-- My Role -->
-    <hr class="section-divider">
-    <h2 class="section-title" id="role">My Role</h2>
-    <div class="content-section">
-      <h3 class="subsection-title" style="margin-top:0;">Ownership &amp; Responsibilities</h3>
-      <p>I built and maintain FriendChise on my own. There's no team handing me a spec, I own the product direction, the architecture, and every decision described on this page:</p>
-      <ul>
-        <li>Product discovery and requirements gathering directly with the staff who use the system</li>
-        <li>UI/UX design in Figma, full-stack development, and API design</li>
-        <li>Database modelling, the 55-model Prisma schema and its migrations</li>
-        <li>Multi-tenant architecture, RBAC, and permission design</li>
-        <li>Test strategy across unit, integration, and end-to-end suites</li>
-        <li>Deployment, CI/CD, error monitoring, and rate limiting</li>
-      </ul>
-      <h3 class="subsection-title arch-section-divider">Open Source Maintenance</h3>
-      <p>The project has also picked up <span data-contributor-count></span> open-source contributors over time. I review every pull request and own the architecture and product decisions myself, contributors extend the codebase, they don't set its direction, and every contribution still goes through me before it ships.</p>
+      <p style="margin-bottom:0;">GitHub Actions runs type-check + lint, unit tests, integration tests against Postgres, and Playwright end-to-end tests as separate gated stages on every pull request.</p>
     </div>
 
     <!-- Real-World Impact -->
@@ -269,13 +250,12 @@
     <h2 class="section-title" id="impact">Real-World Impact</h2>
     <div class="content-section">
       <h3 class="subsection-title" style="margin-top:0;">Production Usage</h3>
-      <p>These are the actual numbers from the one production location running FriendChise today, plus interest from the public demo, not projections.</p>
+      <p>Numbers from the pilot location, plus public demo interest &mdash; not projections.</p>
       <div class="stats-grid stack-gap">
         <div class="stat-card"><div class="stat-number">20+</div><div class="stat-label">Active Users (pilot)</div></div>
         <div class="stat-card"><div class="stat-number">~50</div><div class="stat-label">Documented Procedures</div></div>
         <div class="stat-card"><div class="stat-number">200+</div><div class="stat-label">Customer QR Menu Scans</div></div>
         <div class="stat-card"><div class="stat-number">71</div><div class="stat-label">Public Demo Tries</div></div>
-        <div class="stat-card"><div class="stat-number" data-contributor-count></div><div class="stat-label">Open-Source Contributors</div></div>
       </div>
       <p style="margin-top:0;">QR Menu and Task Management are the two most used features day to day at the pilot location, which tells me the product is solving problems people actually have rather than sitting unused. The store now runs completely paperless, schedules, tasks, and procedures all live in the system instead of on printed sheets taped to a wall. The 71 demo tries are separate from that, public visitors trying the guided demo, not pilot-location usage.</p>
     </div>

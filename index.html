@@ -217,6 +217,8 @@
       color: var(--ink-tertiary);
       font-size: 0.78rem;
     }
+    /* Muted metadata variant, technical/process labels that aren't a proof or accent state */
+    .flagship-kicker.kicker-meta { color: var(--ink-tertiary); }
     .qa-wolf-kicker {
       font-size: 0.68rem;
       margin-bottom: 3px;
@@ -559,7 +561,7 @@
     /* Contact Form */
     .contact-panel-intro { margin-bottom: var(--space-5); }
     .contact-panel-intro h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: var(--space-2); color: var(--ink); }
-    .contact-intro { font-size: 0.95rem; color: var(--ink-secondary); margin: 0 0 var(--space-6); max-width: 56ch; }
+    .contact-intro { font-size: 0.95rem; color: var(--ink-secondary); margin: 0 0 var(--space-6); max-width: 100%; }
 
     .contact-layout { display: grid; grid-template-columns: 1fr 260px; gap: 0; align-items: start; }
 
@@ -776,12 +778,12 @@
         <img src="projects/pictures/friendchise/GIFS-V2/demo.gif" alt="FriendChise organisation dashboard" class="expandable" loading="lazy" decoding="async">
       </div>
       <div class="flagship-copy">
-        <div class="flagship-kicker"><span>Main Project</span></div>
+        <div class="flagship-kicker"><span>Featured Project</span></div>
         <h3>FriendChise</h3>
         <p class="flagship-value">A frontline operations platform that makes day to day work easier by centralising tasks, procedures and scheduling, reducing onboarding friction and turning staff knowledge into reusable processes.</p>
         <div class="flagship-proof"><span class="proof-dot"></span> Production pilot, live daily at Walker&rsquo;s Doughnuts</div>
         <div class="flagship-signals">
-          <div class="signal-chip"><strong>55</strong><span>Prisma models</span></div>
+          <div class="signal-chip"><strong>55</strong><span>Prisma data models</span></div>
           <div class="signal-chip"><strong>440+</strong><span>Automated tests</span></div>
           <div class="signal-chip"><strong data-contributor-count></strong><span>Contributors</span></div>
         </div>
@@ -802,11 +804,10 @@
       </div>
       <div class="secondary-copy">
         <div class="flagship-kicker"><span>Live on App Store</span></div>
-        <h1>FriendChise Mobile</h1>
-        <p>A mobile companion to FriendChise for everyday frontline use in the doughnut kitchen. Staff can access tasks and operational information on the floor, with AI-assisted document capture that helps turn photos and PDFs into reliable, editable tasks.</p>
+        <h3>FriendChise Mobile</h3>
+        <p>A mobile companion to FriendChise for everyday frontline use in the doughnut kitchen. Staff can access tasks and operational information on the floor, with AI-assisted document capture that converts photos and PDFs into structured, editable task drafts.</p>
         <ul class="tight-list">
           <li>Built with React Native and Expo for day to day frontline use</li>
-          <li>AI-assisted document capture converts photos and PDFs into structured, editable task drafts</li>
           <li>Shares FriendChise’s existing backend, authentication and organisation data</li>
         </ul>
         <div class="flagship-cta">
@@ -826,7 +827,7 @@
           <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image expandable" style="border-radius: 16px;" loading="lazy" decoding="async">
         </div>
         <div class="work-row-copy">
-          <div class="flagship-kicker"><span>Data Logic · Technical Specification</span></div>
+          <div class="flagship-kicker kicker-meta"><span>Data Logic · Technical Specification</span></div>
           <h3>ECHT Warehouse: Process Engineering</h3>
           <ul class="work-row-points">
             <li>Analysed three WMS data tables and defined the field relationships, calculation logic and filtering rules needed to consolidate them into one operational view.</li>
@@ -862,7 +863,7 @@
           <img src="projects/pictures/QAWolf.png" alt="QA Wolf assessment" class="work-row-image qa-wolf-image expandable" loading="lazy" decoding="async">
         </div>
         <div class="work-row-copy qa-wolf-copy">
-          <div class="flagship-kicker qa-wolf-kicker"><span>Node.js · Playwright · Test Automation</span></div>
+          <div class="flagship-kicker qa-wolf-kicker kicker-meta"><span>Node.js · Playwright · Test Automation</span></div>
           <h3>QA Wolf Technical Assessment</h3>
           <ul class="work-row-points">
             <li>Selected for QA Wolf’s paid final-stage assessment, joining ~15 finalists and receiving A$220 for the technical evaluation.</li>
@@ -894,7 +895,7 @@
             <p class="entry-meta">AI Quality / Evaluation Contributor</p>
             <ul class="tight-list">
               <li>Review AI-generated slide outputs and identify issues in structure, clarity, layout, and correctness.</li>
-              <li>Write targeted feedback and prompts explaining what worked, what failed, and how future outputs should improve, while collaborating with peers and applying reviewer feedback consistently.</li>
+              <li>Write targeted prompts and feedback explaining what worked, what failed and how outputs should improve, while collaborating with peers and applying reviewer feedback consistently.</li>
               <li>Completed Mercor&rsquo;s introductory course on AI agents and agent workflows, with a publicly verifiable credential.</li>
             </ul>
             <a href="https://work.mercor.com/learn/verify/MRC-2026-UP55M2HU" class="cta-btn sm entry-cta" target="_blank" rel="noopener noreferrer"><i class="fas fa-certificate" aria-hidden="true"></i> Verify Credential</a>
@@ -928,7 +929,7 @@
           <img src="pictures/devtasks-square-logo.png" alt="DevTasks logo" class="entry-logo" loading="lazy" decoding="async">
           <div class="entry-content">
             <h4>DevTasks</h4>
-            <p class="entry-meta">2 merged Contributions</p>
+            <p class="entry-meta">2 merged PRs</p>
             <p class="entry-desc">A minimalist engineering command center for developer workflows.</p>
             <div class="oss-card-actions">
               <a href="https://github.com/shamilahmdt/devtasks" target="_blank" rel="noopener noreferrer" class="cta-btn sm"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
@@ -976,7 +977,7 @@
           <img src="profile.jpg" alt="Ivan Tran" fetchpriority="high" decoding="async">
         </div>
         <div class="about-text">
-          <p>I&rsquo;m a full-stack engineer based in Melbourne who likes building software for real, messy workplace operations rather than another CRUD app, the kind of problems where a process quietly breaks down the moment the one person who understood it steps away.</p>
+          <p>I&rsquo;m a full-stack engineer based in Melbourne who likes solving messy, real-world workplace problems and turning fragile processes into software that teams can rely on.</p>
           <p>That instinct came from hospitality work before I moved into engineering, and it shaped FriendChise: a production platform I still build, test and run for a real store. Day to day, I split my time across full-stack product work, test automation and open-source maintenance.</p>
           <p class="about-note">Off-screen: previously ranked #2 in Australia and #128 globally in Clash of Clans.</p>
           <div class="resume-buttons">
@@ -997,7 +998,7 @@
       <h3 class="subsection-title" style="margin-top:0;">Technical Stack</h3>
       <div class="skills-groups">
         <div class="skill-group"><h4>Core</h4><p>TypeScript, JavaScript, React, Next.js</p></div>
-        <div class="skill-group"><h4>Backend &amp; Data</h4><p>Node.js, PostgreSQL, Prisma, REST APIs</p></div>
+        <div class="skill-group"><h4>Backend &amp; Data</h4><p>Node.js, PostgreSQL, SQL, Prisma, REST APIs</p></div>
         <div class="skill-group"><h4>Infrastructure</h4><p>Docker, Redis, Supabase, Vercel</p></div>
         <div class="skill-group"><h4>Testing</h4><p>Vitest, Playwright, Jest</p></div>
         <div class="skill-group"><h4>Engineering</h4><p>Multi-Tenant Architecture, RBAC, System Design, Git</p></div>
@@ -1069,11 +1070,12 @@
     <div class="surface-panel contact-panel">
       <div class="contact-panel-intro">
         <h3>Send Me a Message</h3>
-        <p class="contact-intro">Open to full-stack engineer roles, on-site (Melbourne), hybrid, and remote.</p>
+        <p class="contact-intro">Open to full-stack and software engineering roles in Melbourne, hybrid or remote.</p>
       </div>
       <div class="contact-layout">
         <div class="contact-form-wrapper">
-      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+      <!-- Replace YOUR_FORM_ID with the form ID generated by Formspree -->
+      <form id="contact-form" action="https://formspree.io/f/mgaveajk" method="POST" novalidate>
         <div class="form-group">
           <label for="cf-name">Full Name</label>
           <input type="text" id="cf-name" name="name" placeholder="What's your full name?" required>
