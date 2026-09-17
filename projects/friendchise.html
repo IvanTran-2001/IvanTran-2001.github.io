@@ -34,7 +34,7 @@
     <ul class="navbar-links">
       <li><a href="#overview">Overview</a></li>
       <li><a href="#product">Product</a></li>
-      <li><a href="#engineering">Engineering</a></li>
+        <li><a href="#engineering">Challenges</a></li>
       <li><a href="#architecture">Architecture</a></li>
       <li><a href="#impact">Impact</a></li>
     </ul>
@@ -43,7 +43,7 @@
       <ul class="sections-menu">
       <li><a href="#overview">Overview</a></li>
       <li><a href="#product">Product</a></li>
-      <li><a href="#engineering">Engineering</a></li>
+        <li><a href="#engineering">Challenges</a></li>
       <li><a href="#architecture">Architecture</a></li>
       <li><a href="#impact">Impact</a></li>
     </ul>
@@ -75,7 +75,7 @@
     <div class="content-section credibility-panel">
       <div class="credibility-strip">
         <div class="credibility-item"><div class="credibility-value">Production</div><div class="credibility-label">Real-world pilot at Walker's Doughnuts</div></div>
-        <div class="credibility-item"><div class="credibility-value">440+</div><div class="credibility-label">Automated tests</div></div>
+        <div class="credibility-item"><div class="credibility-value">400+</div><div class="credibility-label">Automated tests</div></div>
         <div class="credibility-item"><div class="credibility-value" data-contributor-count></div><div class="credibility-label">OSS contributors</div></div>
         <div class="credibility-item"><div class="credibility-value">Multi-tenant</div><div class="credibility-label">Organisation-scoped architecture</div></div>
       </div>
@@ -193,7 +193,7 @@
         </div>
       </div>
       <div class="challenge-more">
-        <a href="friendchise-lessons-challenges.html" class="cta-btn sm">Read Engineering Lessons</a>
+        <a href="friendchise-lessons-challenges.html" class="cta-btn sm">What I Learned</a>
       </div>
     </div>
 
@@ -219,11 +219,11 @@
       </div>
 
       <h3 class="subsection-title arch-section-divider">Frontend Architecture</h3>
-      <p>Initial page data is loaded on the server so the page can render with the information it needs. Once the page is interactive, client components can request additional data through API routes for features such as pagination, infinite scroll and on-demand updates.</p>
-      <div class="arch-model-list cols-3">
-        <div class="arch-model-item"><strong>Page / Server Components</strong><p>Act as composition boundaries, fetch the primary data needed to render the page, and pass only the relevant slice to each child component.</p></div>
-        <div class="arch-model-item"><strong>Feature / Client Components</strong><p>Focus on presentation and local interaction, and fetch their own data when an interaction needs it, pagination, infinite scroll, or auth-derived UI state such as <code>isParent</code>.</p></div>
-        <div class="arch-model-item"><strong>Shared UI Components</strong><p>Repeated patterns, navbars, sidebars, dialogs, controls, are implemented once for consistency, less duplicated code, and easier changes across pages.</p></div>
+      <p>Each page acts as the main coordinator for its feature. It loads the primary data needed for the initial render on the server, then passes only the relevant data into smaller components responsible for presentation and interaction. When a component needs additional data after the page has loaded, such as for pagination, infinite scroll or on-demand updates, it can request that data through an API route.</p>
+      <div class="arch-model-list arch-model-list--vertical">
+        <div class="arch-model-item"><strong>Page / Server Components</strong><ul class="role-bullets"><li>Load the main data needed for the initial render.</li><li>Structure the page.</li><li>Pass only the relevant data into feature components.</li></ul></div>
+        <div class="arch-model-item"><strong>Feature / Client Components</strong><ul class="role-bullets"><li>Turn that data into interactive UI.</li><li>Handle local interaction and presentation.</li><li>Can request additional data when needed.</li><li>Examples: pagination, infinite scroll, refreshes, on-demand requests, auth-derived UI state such as <code>isParent</code>.</li></ul></div>
+        <div class="arch-model-item"><strong>Shared UI Components</strong><ul class="role-bullets"><li>Reusable navigation, sidebars, dialogs, controls and repeated UI patterns.</li><li>Implemented once and reused across pages.</li><li>Keep behaviour and styling consistent.</li><li>Reduce duplicated code and make future changes easier.</li></ul></div>
       </div>
 
       <h3 class="subsection-title arch-section-divider">Design Before Implementation</h3>
@@ -269,30 +269,48 @@
     <h2 class="section-title" id="testing">Testing &amp; Reliability</h2>
     <div class="content-section">
       <div class="testing-stats">
-        <div class="testing-stat"><span class="testing-stat-number">219</span><span class="testing-stat-label">Business logic &amp; validation</span></div>
-        <div class="testing-stat"><span class="testing-stat-number">151</span><span class="testing-stat-label">Server actions</span></div>
-        <div class="testing-stat"><span class="testing-stat-number">66</span><span class="testing-stat-label">Integration (real Postgres)</span></div>
+        <div class="testing-stat"><span class="testing-stat-number">200+</span><span class="testing-stat-label">Business logic &amp; validation</span></div>
+        <div class="testing-stat"><span class="testing-stat-number">150+</span><span class="testing-stat-label">Server actions</span></div>
+        <div class="testing-stat"><span class="testing-stat-number">60+</span><span class="testing-stat-label">Integration tests with PostgreSQL</span></div>
       </div>
 
-      <p class="stack-gap">This isn't full coverage of the codebase, it's concentrated on the paths where a bug wouldn't just look bad, it would leak one organisation's data into another's view or let someone do something their role shouldn't allow.</p>
+      <p class="stack-gap">FriendChise uses automated testing and CI checks to protect critical workflows, access control, and production quality. Testing is concentrated on areas where failures could expose organisation data, bypass role permissions, or break important workflows.</p>
 
-      <h3 class="subsection-title arch-section-divider">CI Pipeline</h3>
-      <p style="margin-bottom:0;">GitHub Actions runs type-check + lint, unit tests, integration tests against Postgres, and Playwright end-to-end tests as separate gated stages on every pull request.</p>
+      <h3 class="subsection-title arch-section-divider">Quality Gates</h3>
+      <p style="margin-bottom:10px;">Every pull request runs automated checks through GitHub Actions, helping maintain the same quality standard for my own changes and external contributions.</p>
+      <div class="quality-gates-table">
+        <div class="quality-gates-row quality-gates-head"><div>Check</div><div>Purpose</div></div>
+        <div class="quality-gates-row"><div>TypeScript type checking</div><div>Catches invalid assumptions before runtime</div></div>
+        <div class="quality-gates-row"><div>Linting</div><div>Maintains consistent code quality</div></div>
+        <div class="quality-gates-row"><div>Vitest</div><div>Tests business logic, validation, helpers and server behaviour</div></div>
+        <div class="quality-gates-row"><div>Integration tests</div><div>Verify behaviour against a real PostgreSQL database</div></div>
+        <div class="quality-gates-row"><div>Playwright</div><div>Tests critical user workflows end-to-end</div></div>
+        <div class="quality-gates-row"><div>Access-control tests</div><div>Verify protected routes, organisation boundaries and role-specific permissions</div></div>
+      </div>
+      <p class="stack-gap">Particular attention is given to role-protected features, protected routes, organisation-scoped data, and actions that should only be available to authorised users.</p>
     </div>
 
     <!-- Real-World Impact -->
     <hr class="section-divider">
     <h2 class="section-title" id="impact">Real-World Impact</h2>
     <div class="content-section">
-      <h3 class="subsection-title" style="margin-top:0;">Production Usage</h3>
-      <p>Numbers from the pilot location, plus public demo interest, not projections.</p>
+      <h3 class="subsection-title" style="margin-top:0;">Pilot Metrics</h3>
+      <p>Real usage across staff workflows, customer interactions, and public product exploration. Beyond the usage numbers, FriendChise has made everyday operations easier to maintain, teach, and share across the team.</p>
       <div class="stats-grid production-usage-grid">
         <div class="stat-card"><div class="stat-number">40+</div><div class="stat-label">Unique Users (pilot)</div></div>
         <div class="stat-card"><div class="stat-number">300+</div><div class="stat-label">Customer QR Scans (in a month)</div></div>
         <div class="stat-card"><div class="stat-number">100+</div><div class="stat-label">Public Demo Tries</div></div>
         <div class="stat-card"><div class="stat-number">30+</div><div class="stat-label">Paper Processes Replaced</div></div>
       </div>
-      <p style="margin-top:var(--space-5);">QR Menu and Task Management are the two most used features day to day at the pilot location, which tells me the product is solving problems people actually have rather than sitting unused. The store now runs completely paperless, over 30 paper processes replaced with tasks tracked in the system instead of on printed sheets taped to a wall. The 100+ demo tries are separate from that, public visitors trying the guided demo, not pilot-location usage.</p>
+      <dl class="runtime-table">
+        <div class="runtime-row runtime-row--head"><dt>Impact area</dt><dd>What changed day to day</dd></div>
+        <div class="runtime-row"><dt>Less paper to maintain</dt><dd>Tasks, procedures and recipes are stored digitally instead of relying on printed sheets that can be lost, damaged or become outdated.</dd></div>
+        <div class="runtime-row"><dt>Version history</dt><dd>Older versions of procedures and recipes can still be reviewed when needed, giving staff a reference point when processes change.</dd></div>
+        <div class="runtime-row"><dt>Easier onboarding</dt><dd>New staff can access procedures, recipes and task instructions directly instead of depending entirely on another staff member being available to explain them.</dd></div>
+        <div class="runtime-row"><dt>Shared questions and knowledge</dt><dd>Comments let staff ask questions against the relevant task or procedure, allowing useful answers to remain visible for other staff who may have the same question later.</dd></div>
+        <div class="runtime-row"><dt>Customer self-service</dt><dd>The QR menu gives customers a simple way to view menu items from their own device.</dd></div>
+        <div class="runtime-row"><dt>Safe product exploration</dt><dd>The public demo has improved over time so visitors can explore FriendChise workflows and understand the product without affecting production data.</dd></div>
+      </dl>
     </div>
 
     <!-- Technologies Used -->
@@ -311,11 +329,12 @@
     <!-- Footer CTA -->
     <div class="footer-cta footer-cta--compact">
       <h2>See It in Action</h2>
-      <p>Explore the live product, the source code, or the docs.</p>
+      <p>Explore the live product, the mobile app version, the source code, or the docs.</p>
       <div class="button-group">
         <a href="https://friendchise.app" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
         <a href="https://github.com/IvanTran-2001/FriendChise" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://friendchise.app/doc" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-book"></i> Docs</a>
+        <a href="friendchise-mobile.html" class="cta-btn"><i class="fas fa-mobile-alt"></i> Mobile</a>
       </div>
     </div>
 

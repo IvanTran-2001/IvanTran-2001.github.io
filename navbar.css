@@ -215,6 +215,14 @@ textarea:focus-visible {
   position: relative;
 }
 
+.navbar--long .navbar-sections,
+.navbar--dropdown-only .navbar-sections {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .navbar-socials {
   display: flex;
   gap: 12px;
@@ -267,7 +275,13 @@ textarea:focus-visible {
   }
 
   .navbar--long .navbar-links { display: none; }
-  .navbar--long .navbar-sections { display: inline-block; }
+  .navbar--long .navbar-sections {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
   .navbar--long .navbar-socials { gap: 8px; }
   .navbar--long .navbar-socials a,
   .navbar--long .navbar-back-icon {

@@ -232,11 +232,12 @@ blockquote p:last-child { margin-bottom: 0; }
 .arch-design-actions { display: flex; justify-content: flex-start; margin-top: var(--space-4); }
 
 /* Runtime Controls: light two-column definition list, not a boxed spreadsheet */
-.runtime-table { margin-top: var(--space-2); }
-.runtime-row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: var(--space-4); padding: 9px 0; border-top: 1px solid var(--hairline); }
-.runtime-row:first-child { border-top: none; }
-.runtime-row dt { font-size: 0.82em; font-weight: 700; color: var(--ink); margin: 0; }
+.runtime-table { margin-top: var(--space-4); padding-top: var(--space-2); }
+.runtime-row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: var(--space-4); padding: 9px 0; }
+.runtime-row dt { font-size: 0.68rem; font-weight: 700; color: var(--ink-tertiary); margin: 0; text-transform: uppercase; letter-spacing: 0.06em; }
 .runtime-row dd { font-size: 0.84em; color: var(--ink-secondary); margin: 0; line-height: 1.5; }
+.runtime-row--head { padding-top: 0; padding-bottom: 10px; }
+.runtime-row--head dt, .runtime-row--head dd { font-size: 1rem; font-weight: 800; text-transform: none; letter-spacing: 0; color: var(--ink); font-family: inherit; }
 @media (max-width: 768px) {
   .runtime-row { grid-template-columns: 1fr; gap: 2px; }
 }
@@ -246,6 +247,8 @@ blockquote p:last-child { margin-bottom: 0; }
 @media (max-width: 768px) {
   .arch-model-list.cols-3 { grid-template-columns: 1fr; }
 }
+.arch-model-list--vertical { grid-template-columns: 1fr; }
+.arch-model-item .role-bullets { margin-top: 8px; margin-bottom: 0; }
 
 /* Compact composition-flow line, no boxes or large arrows */
 .mini-flow { font-size: 0.84em; color: var(--ink-secondary); margin-top: var(--space-3); }
@@ -332,7 +335,7 @@ blockquote p:last-child { margin-bottom: 0; }
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);
   padding: var(--space-4) 0;
-  margin-bottom: 0;
+  margin-bottom: var(--space-5);
   text-align: center;
 }
 
@@ -446,6 +449,7 @@ pre code { background: none; border: none; padding: 0; }
 
 /* Testing & Reliability: editorial stat columns with subtle separators, not full bordered cards */
 .testing-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+.content-section .testing-stats { border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); padding: var(--space-4) 0; margin-bottom: var(--space-4); }
 .testing-stat { padding: 0 var(--space-5); border-left: 1px solid var(--hairline); }
 .testing-stat:first-child { border-left: none; padding-left: 0; }
 .testing-stat { text-align: center; }
@@ -455,6 +459,17 @@ pre code { background: none; border: none; padding: 0; }
   .testing-stats { grid-template-columns: 1fr; gap: var(--space-4); }
   .testing-stat { border-left: none; padding: 0 0 var(--space-4); border-bottom: 1px solid var(--hairline); }
   .testing-stat:last-child { border-bottom: none; padding-bottom: 0; }
+}
+
+.quality-gates-table { display: grid; gap: 0; margin-top: 8px; margin-bottom: 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+.quality-gates-row { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.45fr); gap: var(--space-4); padding: 10px 0; }
+.quality-gates-head { padding-top: 8px; padding-bottom: 10px; font-size: 1rem; font-weight: 800; color: var(--ink); }
+.quality-gates-head > div { font-family: inherit; }
+.quality-gates-row:not(.quality-gates-head) > div { font-size: 0.86rem; line-height: 1.45; }
+.quality-gates-row:not(.quality-gates-head) > div:first-child { color: var(--ink-tertiary); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-family: inherit; }
+.quality-gates-row:not(.quality-gates-head) > div:last-child { color: var(--ink-secondary); }
+@media (max-width: 768px) {
+  .quality-gates-row { grid-template-columns: 1fr; gap: 4px; }
 }
 
 /* Workflow / mobile-specific cards (FriendChise Mobile) */
