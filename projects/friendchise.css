@@ -75,6 +75,9 @@ body {
 .project-intro-stack { font-size: 0.8em; color: var(--ink-tertiary); font-weight: 600; letter-spacing: 0.02em; margin-bottom: 12px; }
 .project-intro-actions { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
 
+/* Muted kicker style, matches the QA Wolf metadata treatment used on the index page */
+.flagship-kicker.kicker-meta { color: var(--ink-tertiary); }
+
 .project-intro + .section-divider { margin-top: var(--space-7); margin-bottom: var(--space-6); }
 
 /* Project Summary card: role/production context left, screenshot right, no logo repeated */
@@ -125,6 +128,10 @@ body {
 .content-section li { color: var(--ink-secondary); margin-bottom: 8px; line-height: 1.5; overflow-wrap: break-word; word-break: break-word; font-size: 0.88em; }
 .content-section strong { color: var(--ink); font-weight: 600; }
 
+.role-bullets { list-style: none; padding-left: 0; margin-bottom: 12px; }
+.role-bullets li { position: relative; padding-left: 16px; }
+.role-bullets li::before { content: ''; position: absolute; left: 0; top: 0.75em; width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+
 .soft-panel { background: var(--surface-tint); border: 1px solid var(--hairline); border-radius: var(--radius-sm); padding: var(--space-5); margin-top: var(--space-5); }
 
 .problem-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
@@ -164,7 +171,7 @@ blockquote p:last-child { margin-bottom: 0; }
 .architecture-arrow { font-size: 1em; font-weight: 700; color: var(--ink-tertiary); }
 .architecture-down { text-align: center; color: var(--ink-tertiary); font-size: 1.1em; margin: 2px 0; }
 .architecture-root, .architecture-tree-root, .architecture-tree-child { text-align: center; }
-.architecture-intro { color: var(--ink-secondary); font-size: 0.9em; line-height: 1.55; max-width: 64ch; margin-bottom: var(--space-5); }
+.architecture-intro { color: var(--ink-secondary); font-size: 0.9em; line-height: 1.55; max-width: none; margin-bottom: var(--space-5); }
 .architecture-row { display: flex; justify-content: center; }
 .architecture-branch-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .architecture-branch-row .architecture-node { flex: 1 1 200px; max-width: 260px; }
@@ -180,6 +187,11 @@ blockquote p:last-child { margin-bottom: 0; }
 .arch-flow-step { flex: 1 1 150px; border: 1px solid var(--hairline); border-radius: var(--radius-sm); background: #ffffff; padding: 12px 14px; text-align: center; font-size: 0.82em; font-weight: 700; color: var(--ink); display: flex; flex-direction: column; justify-content: center; gap: 4px; }
 .arch-flow-step span { display: block; font-size: 0.72em; font-weight: 600; color: var(--ink-tertiary); }
 .arch-flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--ink-tertiary); font-weight: 700; font-size: 1em; flex: 0 0 auto; }
+
+@media (min-width: 769px) {
+  .arch-flow { margin-top: var(--space-5); margin-bottom: var(--space-5); }
+}
+
 .arch-note { font-size: 0.82em; color: var(--ink-secondary); line-height: 1.5; margin-top: 6px; }
 .arch-note strong { color: var(--ink); font-weight: 700; }
 .arch-note--muted { color: var(--ink-tertiary); }
@@ -189,9 +201,56 @@ blockquote p:last-child { margin-bottom: 0; }
 .arch-model-item p { font-size: 0.84em; color: var(--ink-secondary); line-height: 1.5; margin: 0; }
 @media (max-width: 768px) {
   .arch-flow { flex-direction: column; }
-  .arch-flow-arrow { transform: rotate(90deg); }
+  .arch-flow-step { flex: 0 1 auto; flex-direction: row; justify-content: space-between; align-items: center; text-align: left; padding: 10px 12px; gap: 10px; }
+  .arch-flow-step span { font-size: 0.7em; text-align: right; }
+  .arch-flow-arrow { transform: rotate(90deg); font-size: 0.85em; margin: -4px 0; }
   .arch-model-list { grid-template-columns: 1fr; }
 }
+
+/* Request Flow chart image: keep the SVG rounded and aligned with the section rhythm */
+.req-flow-figure {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-5);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #ffffff;
+}
+.req-flow-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Architecture Principle: short prose + a tight bulleted breakdown of layer responsibility */
+.arch-principle > p { color: var(--ink-secondary); font-size: 0.88em; line-height: 1.6; margin-bottom: 10px; }
+.arch-principle ul { list-style: none; padding: 0; margin: 0; }
+.arch-principle li { position: relative; padding-left: 16px; font-size: 0.86em; color: var(--ink-secondary); line-height: 1.55; margin-bottom: 8px; }
+.arch-principle li:last-child { margin-bottom: 0; }
+.arch-principle li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+.arch-principle strong { color: var(--ink); font-weight: 700; }
+.arch-design-actions { display: flex; justify-content: flex-start; margin-top: var(--space-4); }
+
+/* Runtime Controls: light two-column definition list, not a boxed spreadsheet */
+.runtime-table { margin-top: var(--space-2); }
+.runtime-row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: var(--space-4); padding: 9px 0; border-top: 1px solid var(--hairline); }
+.runtime-row:first-child { border-top: none; }
+.runtime-row dt { font-size: 0.82em; font-weight: 700; color: var(--ink); margin: 0; }
+.runtime-row dd { font-size: 0.84em; color: var(--ink-secondary); margin: 0; line-height: 1.5; }
+@media (max-width: 768px) {
+  .runtime-row { grid-template-columns: 1fr; gap: 2px; }
+}
+
+/* Frontend Architecture: reuses the Multi-Tenant Model item pattern at three columns instead of two */
+.arch-model-list.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 768px) {
+  .arch-model-list.cols-3 { grid-template-columns: 1fr; }
+}
+
+/* Compact composition-flow line, no boxes or large arrows */
+.mini-flow { font-size: 0.84em; color: var(--ink-secondary); margin-top: var(--space-3); }
+.mini-flow strong { color: var(--ink); font-weight: 700; }
+
 
 /* Feature / persona / story / outcome / testing / capability / workflow / scan / stack cards —
    one shared "editorial card" language: white surface, hairline border, no drama on hover (non-interactive). */
@@ -223,16 +282,21 @@ blockquote p:last-child { margin-bottom: 0; }
 .story-card p { font-size: 0.82em; color: var(--ink-secondary); line-height: 1.45; }
 
 /* Engineering challenges — one shared surface, no per-card border; Problem/Decision/Result read as a quiet internal structure */
-.challenge-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-6); }
+.challenge-grid { display: flex; flex-direction: column; gap: var(--space-6); }
 .challenge-card { padding: 0; }
-.challenge-card h3 { font-size: 0.98em; font-weight: 700; margin-bottom: 12px; color: var(--ink); }
-.challenge-step { margin-bottom: 10px; }
+.challenge-card + .challenge-card { border-top: 1px solid var(--hairline); padding-top: var(--space-5); }
+.challenge-card h3 { font-size: 1.08em; font-weight: 700; line-height: 1.3; margin-bottom: 14px; color: var(--ink); }
+.challenge-step { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 12px; align-items: start; margin-bottom: 12px; }
 .challenge-step:last-child { margin-bottom: 0; }
-.challenge-step-label { display: block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-bottom: 3px; }
-.challenge-step p { color: var(--ink-secondary); font-size: 0.85em; line-height: 1.55; margin: 0; }
+.challenge-step-label { display: block; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-tertiary); margin-top: 3px; }
+.challenge-step p { color: var(--ink-secondary); font-size: 0.86em; line-height: 1.6; margin: 0; }
 .challenge-more { margin-top: var(--space-5); padding-top: var(--space-5); border-top: 1px solid var(--hairline); }
 .learning-note p { color: var(--ink-secondary); font-size: 0.95em; }
 .outcome-card p { color: var(--ink-secondary); font-size: 0.95em; }
+
+@media (max-width: 768px) {
+  .challenge-step { grid-template-columns: 1fr; gap: 6px; }
+}
 
 /* Editorial stat rows — divided columns, no boxed grid (matches index flagship-signals) */
 .stats-grid, .credibility-strip, .hero-stats {
@@ -252,6 +316,7 @@ blockquote p:last-child { margin-bottom: 0; }
 .stat-number, .credibility-value { display: block; font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; color: var(--ink); line-height: 1.2; margin-bottom: 2px; }
 .stat-label, .credibility-label { font-size: 0.74rem; color: var(--ink-tertiary); line-height: 1.3; display: block; }
 .hero-stats .stat-number { font-size: 0.95rem; }
+.credibility-item { text-align: center; }
 
 /* When a stat row sits inside a white content-section, the surface border is the only boundary needed */
 .credibility-panel .credibility-strip,
@@ -260,6 +325,24 @@ blockquote p:last-child { margin-bottom: 0; }
   border-bottom: none;
   padding: 0;
   margin-bottom: 0;
+}
+
+/* Production usage keeps the bordered strip treatment so it reads like the FriendChise impact row */
+.content-section .stats-grid.production-usage-grid {
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: var(--space-4) 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.content-section .stats-grid.production-usage-grid .stat-card {
+  padding: 0 16px;
+  text-align: center;
+}
+
+.content-section .stats-grid.production-usage-grid .stat-card:first-child {
+  padding-left: 0;
 }
 
 /* Editorial Before/After comparison: two columns, one subtle divider, no per-side card borders */
@@ -365,6 +448,7 @@ pre code { background: none; border: none; padding: 0; }
 .testing-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
 .testing-stat { padding: 0 var(--space-5); border-left: 1px solid var(--hairline); }
 .testing-stat:first-child { border-left: none; padding-left: 0; }
+.testing-stat { text-align: center; }
 .testing-stat-number { display: block; font-size: 1.3rem; font-weight: 800; color: var(--ink); line-height: 1.2; margin-bottom: 4px; }
 .testing-stat-label { display: block; font-size: 0.8rem; color: var(--ink-secondary); line-height: 1.4; }
 @media (max-width: 768px) {

@@ -2,29 +2,16 @@
    Shared Zoomable Image Interaction — Ivan Tran Portfolio
    Import via: <link rel="stylesheet" href="images.css"> (root)
                <link rel="stylesheet" href="../images.css"> (projects/)
-   Depends on colour/interaction tokens defined in navbar.css :root.
-   Gives every zoomable image (class="expandable", see lightbox.css)
-   the same hover-lift feedback as buttons/dropdowns across the site.
+   Mark any <img> as expandable with: class="expandable" (see lightbox.css)
+   Subtle hover scale signals an image can be opened, without affecting
+   surrounding layout or the existing click-to-zoom lightbox behaviour.
    ============================================================ */
 
 img.expandable {
-  transition:
-    transform var(--interactive-duration) ease,
-    box-shadow var(--interactive-duration) ease;
+  cursor: zoom-in;
+  transition: transform 180ms ease;
 }
 
 img.expandable:hover {
-  transform: translateY(var(--interactive-lift));
-  box-shadow: var(--shadow-card);
-}
-
-img.expandable:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  img.expandable {
-    transition: box-shadow 0.01ms;
-  }
+  transform: scale(1.025);
 }
