@@ -104,8 +104,14 @@
       flex-wrap: wrap;
     }
 
-    /* Desktop: flows inline with the primary button. Mobile turns this into a 2-up row. */
-    .hero-cta-secondary { display: contents; }
+    /* Secondary actions stay grouped, but visually lighter than the primary project CTA */
+    .hero-cta-secondary {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
     /* Button appearance/hover/focus is owned by buttons.css (shared across all pages).
        Only page-specific layout (hero-cta, flagship-cta, etc.) lives here. */
@@ -148,6 +154,8 @@
       margin: 0 0 var(--space-5);
       line-height: 1.55;
     }
+
+      #more-work .section-intro { max-width: none; }
 
     /* Internal white-surface heading, smaller and quieter than .section-title, always black */
     .subsection-title { font-size: 1.05em; margin: 20px 0 10px 0; font-weight: 700; color: var(--ink); }
@@ -696,8 +704,9 @@
 
       .hero-cta { flex-direction: column; align-items: stretch; gap: 10px; }
       .hero-cta > .cta-btn.primary { width: 100%; justify-content: center; }
-      .hero-cta-secondary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-      .hero-cta-secondary .cta-btn { width: 100%; justify-content: center; }
+      .hero-cta-secondary { width: 100%; }
+      .hero-cta-secondary .cta-btn.secondary { flex: 1 1 170px; justify-content: center; }
+      .hero-cta-secondary .cta-btn.icon { flex: 0 0 40px; }
 
       .flagship-cta { flex-direction: column; align-items: stretch; gap: 10px; flex-wrap: nowrap; }
       .flagship-cta > .cta-btn.primary { width: 100%; justify-content: center; }
@@ -733,7 +742,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
     <details class="navbar-sections">
-      <summary>Menu <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+      <summary><span class="navbar-more-label">Menu</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
       <ul class="sections-menu">
         <li><a href="#work">Work</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -757,8 +766,9 @@
     <div class="hero-cta">
       <a href="projects/friendchise.html" class="cta-btn primary"><i class="fas fa-layer-group"></i> View FriendChise</a>
       <div class="hero-cta-secondary">
-        <a href="Ivan%20Tran%20-%20Resume.pdf" class="cta-btn" target="_blank" rel="noopener"><i class="fas fa-file-alt"></i> Resume</a>
-        <a href="https://github.com/IvanTran-2001" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+        <a href="Ivan%20Tran%20-%20Resume.pdf" class="cta-btn secondary" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> View Resume</a>
+        <a href="https://github.com/IvanTran-2001" class="cta-btn icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/ivan-tran-dev" class="cta-btn icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>

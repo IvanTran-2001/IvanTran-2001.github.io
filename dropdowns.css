@@ -76,8 +76,9 @@
 .collapsible-section[open] summary i { transform: rotate(90deg); }
 .collapsible-section[open] summary { margin-bottom: var(--space-4); }
 
-/* Menu panel opened by .navbar-sections (mobile "Sections" overflow) */
-.navbar-sections .sections-menu {
+/* Menu panel opened by .navbar-sections (mobile "Sections" overflow) or .navbar-more (desktop overflow) */
+.navbar-sections .sections-menu,
+.navbar-more .sections-menu {
   list-style: none;
   position: absolute;
   top: calc(100% + 8px);
@@ -92,7 +93,8 @@
   overflow: hidden;
 }
 
-.navbar-sections .sections-menu a {
+.navbar-sections .sections-menu a,
+.navbar-more .sections-menu a {
   display: block;
   padding: 9px 14px;
   font-size: 0.78em;
@@ -104,14 +106,28 @@
   background: #ffffff !important;
 }
 
-.navbar-sections .sections-menu a:hover {
+.navbar-sections .sections-menu a:hover,
+.navbar-more .sections-menu a:hover {
   background: var(--surface-tint);
   color: var(--ink);
 }
 
-.navbar-sections .sections-menu a.active {
+.navbar-sections .sections-menu a.active,
+.navbar-more .sections-menu a.active {
   color: var(--navy);
-  background: var(--accent-tint);
+}
+
+.navbar-sections .sections-menu a.active,
+.navbar-more .sections-menu a.active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--accent);
+}
+
+.navbar-sections .sections-menu a.active::after,
+.navbar-more .sections-menu a.active::after {
+  content: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -68,6 +68,9 @@ body {
   border-radius: var(--radius-md);
 }
 .project-intro-logo { width: 56px; height: 56px; object-fit: cover; border-radius: var(--radius-sm); display: block; margin: 0 auto 16px; }
+.project-intro-header { display: flex; align-items: center; justify-content: center; gap: 14px; width: 100%; margin-bottom: 6px; }
+.project-intro-header .project-intro-logo { margin: 0; }
+.project-intro-header .project-intro-title { margin-bottom: 0; }
 .project-intro-kicker { font-size: 0.72em; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
 .project-intro-title { font-size: clamp(2.1rem, 4.5vw, 2.7rem); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 6px; }
 .project-intro-subtitle { font-size: clamp(1.1rem, 2.3vw, 1.35rem); font-weight: 600; color: var(--ink-secondary); margin-bottom: 10px; line-height: 1.3; }
@@ -551,6 +554,7 @@ pre code { background: none; border: none; padding: 0; }
   .flagship-hero, .mobile-hero { text-align: center; padding: var(--space-5); }
   .project-intro { width: 100%; max-width: 100%; margin-top: var(--space-6); padding: var(--space-5) var(--space-4) var(--space-5); }
   .project-intro-logo { width: 44px; height: 44px; margin-bottom: 12px; }
+  .project-intro-header { gap: 10px; }
   .project-intro-title { font-size: 2rem; }
   .project-intro-subtitle { font-size: 0.98rem; }
   .project-intro-desc { font-size: 0.85em; }

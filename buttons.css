@@ -52,6 +52,13 @@
   color: #ffffff !important;
 }
 
+/* Secondary outlined action — keeps the white surface but reads lighter than the primary CTA */
+.cta-btn.secondary, .button--secondary {
+  background: #ffffff !important;
+  border-color: var(--hairline-strong) !important;
+  color: var(--ink) !important;
+}
+
 /* Compact / tertiary action — same interaction language, smaller footprint */
 .cta-btn.sm, .button--compact {
   padding: 6px 14px;
@@ -73,6 +80,21 @@
   flex-shrink: 0;
 }
 .cta-btn.icon:hover, .button--icon:hover { color: var(--ink) !important; }
+
+/* Brand mark button — reusable logo-style CTA with the standard button interaction language */
+.cta-btn.brand-mark, .button--brand-mark {
+  padding: 0;
+  width: 56px;
+  height: 56px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cta-btn.brand-mark .project-intro-logo, .button--brand-mark .project-intro-logo {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .cta-btn, .btn, .button { transition: background 0.01ms, border-color 0.01ms, color 0.01ms; }

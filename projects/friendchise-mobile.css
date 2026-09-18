@@ -7,6 +7,23 @@
   padding: 28px 0;
 }
 
+.mobile-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.mobile-title-row .project-intro-logo {
+  margin: 0;
+}
+
+.mobile-title-row .project-intro-title {
+  margin: 0;
+}
+
 /* .mobile-hero white-surface/border/padding comes from the shared .flagship-hero, .mobile-hero rule in friendchise.css */
 
 .mobile-hero-grid {
@@ -143,7 +160,7 @@
 
 .challenge-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-6);
 }
 
@@ -316,6 +333,16 @@
   font-size: 0.8em;
   text-align: center;
   margin-top: 8px;
+}
+
+.workflow-screenshot-label {
+  color: var(--ink-tertiary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 auto 6px;
+  text-align: center;
 }
 
 .mobile-roadmap-list {

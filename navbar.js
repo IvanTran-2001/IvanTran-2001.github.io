@@ -78,19 +78,38 @@ function openSectionByHash(hash) {
 
 /* Active-section highlight for navbar links (scrollspy) */
 (function () {
-  var navLinks = document.querySelectorAll('.navbar-links a[href^="#"], .navbar-sections a[href^="#"]');
+  var navLinks = document.querySelectorAll('.navbar-links a[href^="#"], .navbar-sections a[href^="#"], .navbar-more a[href^="#"]');
   if (!navLinks.length) return;
 
+  // Dedupe by id (the same anchor can appear in .navbar-links, .navbar-more, and the mobile .navbar-sections
+  // menu), then sort by actual position in the page — nav link order doesn't always match document order.
+  var seen = {};
   var sections = [];
   navLinks.forEach(function (link) {
     var section = document.getElementById(link.getAttribute('href').slice(1));
-    if (section) sections.push({ id: section.id, section: section });
+    if (section && !seen[section.id]) {
+      seen[section.id] = true;
+      sections.push({ id: section.id, section: section });
+    }
   });
   if (!sections.length) return;
+
+  sections.sort(function (a, b) {
+    var position = a.section.compareDocumentPosition(b.section);
+    if (position & Node.DOCUMENT_POSITION_FOLLOWING) return -1;
+    if (position & Node.DOCUMENT_POSITION_PRECEDING) return 1;
+    return 0;
+  });
+
+  var dropdownSummaries = document.querySelectorAll('.navbar-more > summary');
 
   function setActive(id) {
     navLinks.forEach(function (link) {
       link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+    });
+    dropdownSummaries.forEach(function (summary) {
+      var hasActiveChild = summary.parentElement.querySelector('a.active');
+      summary.classList.toggle('active', !!hasActiveChild);
     });
   }
 
@@ -131,18 +150,22 @@ function openSectionByHash(hash) {
   updateActive();
 })();
 
-/* Close the mobile "Sections" menu after choosing a link or tapping outside */
+/* Close the "Sections"/"More" overflow menus after choosing a link or tapping outside */
 (function () {
-  var sectionsMenu = document.querySelector('.navbar-sections');
-  if (!sectionsMenu) return;
+  var menus = document.querySelectorAll('.navbar-sections, .navbar-more');
+  if (!menus.length) return;
 
-  sectionsMenu.addEventListener('click', function (e) {
-    if (e.target.closest('a')) sectionsMenu.removeAttribute('open');
+  menus.forEach(function (menu) {
+    menu.addEventListener('click', function (e) {
+      if (e.target.closest('a')) menu.removeAttribute('open');
+    });
   });
 
   document.addEventListener('click', function (e) {
-    if (sectionsMenu.hasAttribute('open') && !sectionsMenu.contains(e.target)) {
-      sectionsMenu.removeAttribute('open');
-    }
+    menus.forEach(function (menu) {
+      if (menu.hasAttribute('open') && !menu.contains(e.target)) {
+        menu.removeAttribute('open');
+      }
+    });
   });
 })();

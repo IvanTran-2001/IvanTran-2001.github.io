@@ -34,19 +34,30 @@
     <site-navbar-back href="../index.html#project-friendchise-mobile" label="Back to Portfolio" title="Back to Portfolio"></site-navbar-back>
     <ul class="navbar-links">
       <li><a href="#overview">Overview</a></li>
-      <li><a href="#screenshots">Screenshots</a></li>
-      <li><a href="#engineering">Challenges</a></li>
-      <li><a href="#stack">Stack</a></li>
+      <li><a href="#workflows">Workflows</a></li>
+      <li><a href="#architecture">Architecture</a></li>
       <li><a href="#impact">Impact</a></li>
+      <li>
+        <details class="navbar-more">
+          <summary><span class="navbar-more-label">More</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></summary>
+          <ul class="sections-menu">
+            <li><a href="#engineering">Engineering Challenges</a></li>
+            <li><a href="#stack">Stack</a></li>
+            <li><a href="#role">My Contribution</a></li>
+          </ul>
+        </details>
+      </li>
     </ul>
     <details class="navbar-sections">
-      <summary>Sections <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
+      <summary><span class="navbar-more-label">Sections</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
       <ul class="sections-menu">
       <li><a href="#overview">Overview</a></li>
-      <li><a href="#screenshots">Screenshots</a></li>
-      <li><a href="#engineering">Challenges</a></li>
+      <li><a href="#workflows">Workflows</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#engineering">Engineering Challenges</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#impact">Impact</a></li>
+      <li><a href="#role">My Contribution</a></li>
     </ul>
     </details>
     <div class="navbar-socials">
@@ -58,14 +69,19 @@
 
   <div class="container mobile-page-shell">
     <section class="project-intro">
-      <h1 class="project-intro-title">FriendChise Mobile</h1>
+      <div class="mobile-title-row">
+        <a href="https://friendchise.app" class="cta-btn brand-mark" target="_blank" rel="noopener noreferrer" aria-label="FriendChise live site" title="FriendChise live site">
+          <img src="pictures/friendchise/MINI-LOGO.png" alt="FriendChise logo" class="project-intro-logo">
+        </a>
+        <h1 class="project-intro-title">FriendChise Mobile</h1>
+      </div>
       <p class="project-intro-subtitle">Mobile access to FriendChise for frontline staff</p>
       <p class="project-intro-desc">React Native companion to FriendChise for frontline staff, with org-scoped tasks, tools, and Scan-to-Task drafts.</p>
       <div class="project-intro-stack">React Native · Expo · TypeScript · TanStack Query</div>
       <p style="color: var(--ink-tertiary); font-size: 0.82em; margin-bottom: 14px;">Live on the App Store</p>
       <div class="project-intro-actions">
-        <a href="https://apps.apple.com/au/app/friendchise/id6797785868" class="cta-btn primary" target="_blank" rel="noopener noreferrer">App Store</a>
-        <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://apps.apple.com/au/app/friendchise/id6797785868" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-app-store-ios" aria-hidden="true"></i> App Store</a>
+        <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
         <a href="friendchise.html" class="cta-btn sm"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> View FriendChise Web</a>
       </div>
     </section>
@@ -74,30 +90,61 @@
     <section class="mobile-section" id="overview">
       <h2 class="section-title">Overview</h2>
       <div class="content-section">
-        <h3 class="subsection-title" style="margin-top:0;">Mobile context</h3>
-        <p>At Walker's Doughnuts, shift procedures and task tracking lived on paper or in whoever was on shift, the same gap that FriendChise's web platform was built to close for managers at a desk. FriendChise Mobile brings that task and procedure system to staff who are on the floor with a phone, not sitting at a computer.</p>
-        <p>The app is live on the App Store. It started on a shared device at the store via TestFlight, and staff are moving onto individual phones now that the listing is public.</p>
+        <h3 class="subsection-title" style="margin-top:0;">Project Overview</h3>
+        <p>FriendChise Mobile brings FriendChise's operational knowledge and task workflows directly to staff working on the floor. Instead of adapting the desktop management experience to a smaller screen, the app focuses on quick access to tasks, recipes, procedures, and workplace knowledge during a shift.</p>
+        <p>The goal is to reduce the number of interactions required to find or record information, while making native mobile capabilities, such as the camera, part of everyday operational workflows.</p>
+
+        <h3 class="subsection-title">Why Mobile?</h3>
+        <p>The web platform is better suited to planning, administration, scheduling, and managing operations from a larger screen. Mobile serves a different environment: staff may be moving around the store, checking a recipe mid-task, working with one hand, or capturing information directly from the physical workplace.</p>
+        <p>This led to a separate mobile experience built around shorter interactions, persistent state, higher information visibility, and native device capabilities, rather than simply reproducing the desktop interface.</p>
       </div>
     </section>
 
-    <section class="mobile-section" id="screenshots">
+    <section class="mobile-section" id="workflows">
       <hr class="section-divider">
-      <h2 class="section-title">Screenshots / Walkthrough</h2>
+      <h2 class="section-title">Workflows</h2>
       <div class="content-section">
-        <div class="screenshot-grid">
+        <div class="challenge-grid">
+          <div class="challenge-card">
+            <h3>Feed-style task list</h3>
+            <div class="challenge-step"><span class="challenge-step-label">Need</span><p>Staff need to understand tasks quickly while working without repeatedly opening detail pages.</p></div>
+            <div class="challenge-step"><span class="challenge-step-label">Approach</span><p>Descriptions and important details are surfaced directly in the task list, making it behave more like an information feed.</p></div>
+            <div class="challenge-step"><span class="challenge-step-label">Benefit</span><p>Staff can scan and act on tasks with fewer taps and less navigation during a shift.</p></div>
+          </div>
+          <div class="challenge-card">
+            <h3>Context-preserving interactions</h3>
+            <div class="challenge-step"><span class="challenge-step-label">Need</span><p>Mobile work happens in short bursts, and staff should not lose their place every time they return to the app.</p></div>
+            <div class="challenge-step"><span class="challenge-step-label">Approach</span><p>The app remembers where the user left off, and in selected workflows the keyboard dismisses after inactivity so screen space returns to the task, recipe, or procedure being viewed.</p></div>
+            <div class="challenge-step"><span class="challenge-step-label">Benefit</span><p>The interface stays focused on the content, reducing interaction friction on a constrained mobile viewport.</p></div>
+          </div>
+          <div class="challenge-card">
+            <h3>Camera-assisted knowledge capture</h3>
+            <div class="challenge-step"><span class="challenge-step-label">Need</span><p>Printed procedures, recipes, documents, and other operational material still need to become structured knowledge inside FriendChise.</p></div>
+            <div class="challenge-step"><span class="challenge-step-label">Approach</span><p>Staff can photograph that material and pass it through Scan-to-Task, which extracts the information into a task draft or knowledge entry.</p></div>
+            <div class="challenge-step"><span class="challenge-step-label">Benefit</span><p>Useful operational information can be captured on the floor and fed back into FriendChise without switching to a desktop workflow.</p></div>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <h3 class="subsection-title">Workflow Walkthroughs</h3>
+        <div class="screenshot-grid workflow-screenshots stack-gap-lg">
           <div>
+            <h5 class="workflow-screenshot-label">Task Feed</h5>
+            <div class="phone-frame">
+              <img class="phone-shot expandable" src="pictures/friendchise/mobile/task-list.gif" alt="FriendChise Mobile task list showing a scrollable feed with instant search" data-lightbox-caption="Scrollable task feed with instant search.">
+            </div>
+            <p class="phone-caption">Scrollable task feed with instant search.</p>
+          </div>
+          <div>
+            <h5 class="workflow-screenshot-label">AI-Assisted Tool</h5>
             <div class="phone-frame">
               <img class="phone-shot expandable" src="pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task flow: task list into capture, generated draft, and review" data-lightbox-caption="Scan-to-Task: capture, generate a draft, then review before saving.">
             </div>
-            <p class="phone-caption">Scan-to-Task: capture → generated draft → review before saving.</p>
+            <p class="phone-caption">AI-assisted capture adds info to the list fast.</p>
           </div>
           <div>
-            <div class="phone-frame">
-              <img class="phone-shot expandable" src="pictures/friendchise/mobile/task-list.gif" alt="FriendChise Mobile task list showing the organization chooser and task feed" data-lightbox-caption="Org-scoped task list and navigation.">
-            </div>
-            <p class="phone-caption">Org-scoped task list and navigation.</p>
-          </div>
-          <div>
+            <h5 class="workflow-screenshot-label">Demo Access</h5>
             <div class="phone-frame">
               <img class="phone-shot expandable" src="pictures/friendchise/mobile/try-demo-button.gif" alt="FriendChise Mobile sign-in screen with Google, LinkedIn, and Try Demo actions" data-lightbox-caption="Sign-in via Google, LinkedIn, or an instant demo login open to anyone.">
             </div>
@@ -107,44 +154,90 @@
       </div>
     </section>
 
+    <section class="mobile-section" id="architecture">
+      <hr class="section-divider">
+      <h2 class="section-title">Architecture</h2>
+      <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">System Overview</h3>
+        <p class="architecture-intro" style="margin-top:0;">FriendChise Mobile is a separate native client built on the same backend, organisation model, permissions, and business rules as the web application. The mobile layer focuses on native interaction and smaller-screen workflows without duplicating core application logic.</p>
+
+        <h3 class="subsection-title">Shared Backend</h3>
+        <p>The mobile app is a different client, not a separate product backend. It consumes the same core application rules and organisation-scoped data as the web application, while presenting those workflows in a form better suited to frontline mobile use.</p>
+        <ul class="role-bullets">
+          <li>Mobile and web share the same organisations, users, tasks, procedures, and business rules</li>
+          <li>The mobile app does not implement a separate version of the core product logic</li>
+          <li>Differences are mainly in presentation, interaction, and native capabilities</li>
+        </ul>
+
+        <h3 class="subsection-title arch-section-divider">Authentication</h3>
+        <p>Web sessions and mobile requests reach the backend differently but resolve to the same place. The web client uses session-based authentication, while mobile uses a bearer token issued after OAuth. Both resolve to the same backend user, membership, and organisation context, so the same permissions and business rules apply regardless of which client made the request.</p>
+        <p class="mini-flow"><strong>Mobile OAuth</strong> &rarr; <strong>Bearer token</strong> &rarr; <strong>Shared backend authorization context</strong></p>
+
+        <h3 class="subsection-title arch-section-divider">Client State &amp; Data</h3>
+        <p>Server data is fetched and cached through a query layer, so screens request only the data they need rather than loading the entire product state up front. Local component state handles interactions specific to a screen, and the session is persisted securely on-device between launches. When data goes stale or the app reconnects, the affected screens refetch rather than trusting an old snapshot.</p>
+
+        <h3 class="subsection-title arch-section-divider">Native Integrations</h3>
+        <p>Native device concerns are handled by the mobile client, while validation, permissions, and product rules remain shared with the backend.</p>
+        <ul class="role-bullets">
+          <li>Camera access and photo/document capture</li>
+          <li>Document and file selection for uploads</li>
+          <li>Deep linking and OAuth handoff back into the app</li>
+          <li>Native secure storage for session persistence</li>
+        </ul>
+
+        <h3 class="subsection-title arch-section-divider">Scan-to-Task Pipeline</h3>
+        <p>The strongest mobile-specific workflow turns a photo into structured FriendChise data instead of an unstructured attachment.</p>
+        <div class="arch-flow">
+          <div class="arch-flow-step">Capture<span>Camera · Library · Document</span></div>
+          <div class="arch-flow-arrow">&rarr;</div>
+          <div class="arch-flow-step">Normalise<span>Validate · Convert format</span></div>
+          <div class="arch-flow-arrow">&rarr;</div>
+          <div class="arch-flow-step">Upload<span>Existing storage pipeline</span></div>
+          <div class="arch-flow-arrow">&rarr;</div>
+          <div class="arch-flow-step">Process<span>Backend-assisted extraction</span></div>
+          <div class="arch-flow-arrow">&rarr;</div>
+          <div class="arch-flow-step">Structured Draft<span>Mapped to task fields</span></div>
+          <div class="arch-flow-arrow">&rarr;</div>
+          <div class="arch-flow-step">Review &amp; Edit<span>User confirms before saving</span></div>
+        </div>
+        <div class="arch-model-list arch-model-list--vertical">
+          <div class="arch-model-item"><strong>Capture</strong><p>The user provides a photo from the camera, photo library, or a document file.</p></div>
+          <div class="arch-model-item"><strong>Normalise</strong><p>The file's type and size are validated, and unsupported formats are converted before upload.</p></div>
+          <div class="arch-model-item"><strong>Upload</strong><p>The normalised file is sent through the existing FriendChise backend and storage pipeline.</p></div>
+          <div class="arch-model-item"><strong>Process</strong><p>Backend-assisted processing extracts the useful task information from the image.</p></div>
+          <div class="arch-model-item"><strong>Structured Draft</strong><p>The extracted result is mapped into FriendChise task fields rather than left as unstructured text.</p></div>
+          <div class="arch-model-item"><strong>Review &amp; Edit</strong><p>The user reviews and edits the generated draft before it becomes normal application data.</p></div>
+        </div>
+      </div>
+    </section>
+
     <section class="mobile-section" id="engineering">
       <hr class="section-divider">
-      <h2 class="section-title">Engineering</h2>
+      <h2 class="section-title">Engineering Challenges</h2>
       <div class="content-section">
-        <h3 class="subsection-title" style="margin-top:0;">Application Architecture</h3>
-        <p class="architecture-intro">The native app never talks to the database directly. It goes through the same shared FriendChise API and org-scoping as the web platform, with a mobile-specific pipeline for turning a photo into a task.</p>
-        <div class="arch-flow">
-          <div class="arch-flow-step">Mobile App<span>Navigation · Capture · Session State</span></div>
-          <div class="arch-flow-arrow">&rarr;</div>
-          <div class="arch-flow-step">Shared API<span>Authenticated · Org-scoped requests</span></div>
-          <div class="arch-flow-arrow">&rarr;</div>
-          <div class="arch-flow-step">Backend Services<span>Tasks · Scan-to-Task · Storage</span></div>
-        </div>
-
-        <h3 class="subsection-title arch-section-divider">Reliability &amp; Session Handling</h3>
         <div class="challenge-grid stack-gap-lg">
           <div class="challenge-card">
-            <h3>OAuth on a native app</h3>
+            <h3>OAuth handoff on a native app</h3>
             <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>A plain browser tab can lose the "user activated" state across Google's multi-hop redirect chain, so the final redirect back into the app sometimes renders as a web page instead of returning control to it.</p></div>
             <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>Use <code>ASWebAuthenticationSession</code> (via <code>expo-web-browser</code>) instead of a Linking-based browser tab, with an attempt-ID guard so a stale OAuth attempt can't resolve after a newer one has started.</p></div>
             <div class="challenge-step"><span class="challenge-step-label">Result</span><p>Google and LinkedIn sign-in hand off back to the app reliably, including when a user restarts the flow mid-attempt.</p></div>
           </div>
           <div class="challenge-card">
-            <h3>HEIC photos the backend can't decode</h3>
-            <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>iPhone photos (especially Portrait/Live/Burst shots) save as HEIC with embedded auxiliary images, and the backend's HEIC decoder enforces a strict limit on those, rejecting some files outright.</p></div>
+            <h3>HEIC compatibility in the scan pipeline</h3>
+            <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>iPhone photos (especially Portrait/Live/Burst shots) save as HEIC with embedded auxiliary images, and some variants aren't reliably decoded by the backend's processing pipeline.</p></div>
             <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>Re-encode HEIC/HEIF to JPEG on-device with <code>expo-image-manipulator</code> before upload, and fall back to extension-based MIME detection for ambiguous file types.</p></div>
-            <div class="challenge-step"><span class="challenge-step-label">Result</span><p>The backend only ever receives a format its vision pipeline can process.</p></div>
+            <div class="challenge-step"><span class="challenge-step-label">Result</span><p>The backend only ever receives a format its processing pipeline can handle.</p></div>
           </div>
           <div class="challenge-card">
-            <h3>Session expiry without decoding the token</h3>
-            <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>The mobile session token is an encrypted next-auth JWE, so the client can't read its own expiry claims.</p></div>
-            <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>The OAuth callback persists expiry metadata alongside the token, and a background timer force-clears the session at that boundary rather than trusting the token's contents.</p></div>
-            <div class="challenge-step"><span class="challenge-step-label">Result</span><p>Session state stays consistent with the web app's session lifetime without any client-side token decoding.</p></div>
+            <h3>Synchronising mobile session expiry</h3>
+            <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>The mobile session is a signed server token the client has no reason to decode, so the app needs another way to know when to sign the user out.</p></div>
+            <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>The OAuth callback supplies an <code>expiresAt</code> timestamp separately, stored alongside the token in the auth store, and a session watcher schedules a single timer to clear the session at that boundary.</p></div>
+            <div class="challenge-step"><span class="challenge-step-label">Result</span><p>Session state stays consistent with the server-issued token's lifetime without any client-side token decoding.</p></div>
           </div>
           <div class="challenge-card">
             <h3>Network resilience on mobile connections</h3>
             <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>Uploads and scan requests can hang or get abandoned mid-flow on a spotty store Wi-Fi connection, and large files waste time if they're rejected only after a slow upload finishes.</p></div>
-            <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>Every API call goes through a shared fetch wrapper with a distinct <code>AbortController</code> reason for timeouts versus user cancellation, and Scan-to-Task checks the 15MB size cap on-device before any upload starts.</p></div>
+            <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>Data requests go through a shared authenticated fetch wrapper with a distinct <code>AbortController</code> reason for timeouts versus user cancellation, and Scan-to-Task checks the 15MB size cap on-device before any upload starts.</p></div>
             <div class="challenge-step"><span class="challenge-step-label">Result</span><p>Failures surface a specific, actionable message instead of a generic network error, and oversized files never leave the device.</p></div>
           </div>
         </div>
