@@ -162,16 +162,13 @@
         <p class="architecture-intro" style="margin-top:0;">FriendChise Mobile is a separate native client built on the same backend, organisation model, permissions, and business rules as the web application. The mobile layer focuses on native interaction and smaller-screen workflows without duplicating core application logic.</p>
 
         <h3 class="subsection-title">Shared Backend</h3>
-        <p>The mobile app is a different client, not a separate product backend. It consumes the same core application rules and organisation-scoped data as the web application, while presenting those workflows in a form better suited to frontline mobile use.</p>
-        <ul class="role-bullets">
-          <li>Mobile and web share the same organisations, users, tasks, procedures, and business rules</li>
-          <li>The mobile app does not implement a separate version of the core product logic</li>
-          <li>Differences are mainly in presentation, interaction, and native capabilities</li>
-        </ul>
+        <p>FriendChise Mobile uses the same organisation model, permissions, business logic and data layer as the web application. The mobile client differs mainly in authentication, presentation and native device capabilities.</p>
+        <div class="req-flow-figure">
+          <img src="../pictures/mobile-architect.svg" alt="FriendChise Mobile architecture showing the mobile app connecting through the FriendChise API into shared business logic and data access." class="req-flow-image expandable" data-lightbox-caption="Mobile App &rarr; FriendChise API &rarr; Shared Business Logic &rarr; Data Access." loading="lazy" decoding="async">
+        </div>
 
         <h3 class="subsection-title arch-section-divider">Authentication</h3>
         <p>Web sessions and mobile requests reach the backend differently but resolve to the same place. The web client uses session-based authentication, while mobile uses a bearer token issued after OAuth. Both resolve to the same backend user, membership, and organisation context, so the same permissions and business rules apply regardless of which client made the request.</p>
-        <p class="mini-flow"><strong>Mobile OAuth</strong> &rarr; <strong>Bearer token</strong> &rarr; <strong>Shared backend authorization context</strong></p>
 
         <h3 class="subsection-title arch-section-divider">Client State &amp; Data</h3>
         <p>Server data is fetched and cached through a query layer, so screens request only the data they need rather than loading the entire product state up front. Local component state handles interactions specific to a screen, and the session is persisted securely on-device between launches. When data goes stale or the app reconnects, the affected screens refetch rather than trusting an old snapshot.</p>
@@ -186,27 +183,18 @@
         </ul>
 
         <h3 class="subsection-title arch-section-divider">Scan-to-Task Pipeline</h3>
-        <p>The strongest mobile-specific workflow turns a photo into structured FriendChise data instead of an unstructured attachment.</p>
-        <div class="arch-flow">
-          <div class="arch-flow-step">Capture<span>Camera · Library · Document</span></div>
-          <div class="arch-flow-arrow">&rarr;</div>
-          <div class="arch-flow-step">Normalise<span>Validate · Convert format</span></div>
-          <div class="arch-flow-arrow">&rarr;</div>
-          <div class="arch-flow-step">Upload<span>Existing storage pipeline</span></div>
-          <div class="arch-flow-arrow">&rarr;</div>
-          <div class="arch-flow-step">Process<span>Backend-assisted extraction</span></div>
-          <div class="arch-flow-arrow">&rarr;</div>
-          <div class="arch-flow-step">Structured Draft<span>Mapped to task fields</span></div>
-          <div class="arch-flow-arrow">&rarr;</div>
-          <div class="arch-flow-step">Review &amp; Edit<span>User confirms before saving</span></div>
+        <div class="req-flow-figure">
+          <img src="pictures/Task-scan-flow.svg" alt="FriendChise Mobile scan-to-task flow showing the request moving from capture through processing into a structured task draft." class="req-flow-image expandable" data-lightbox-caption="Scan-to-Task flow: capture, normalise, upload, process, draft, review." loading="lazy" decoding="async">
         </div>
-        <div class="arch-model-list arch-model-list--vertical">
-          <div class="arch-model-item"><strong>Capture</strong><p>The user provides a photo from the camera, photo library, or a document file.</p></div>
-          <div class="arch-model-item"><strong>Normalise</strong><p>The file's type and size are validated, and unsupported formats are converted before upload.</p></div>
-          <div class="arch-model-item"><strong>Upload</strong><p>The normalised file is sent through the existing FriendChise backend and storage pipeline.</p></div>
-          <div class="arch-model-item"><strong>Process</strong><p>Backend-assisted processing extracts the useful task information from the image.</p></div>
-          <div class="arch-model-item"><strong>Structured Draft</strong><p>The extracted result is mapped into FriendChise task fields rather than left as unstructured text.</p></div>
-          <div class="arch-model-item"><strong>Review &amp; Edit</strong><p>The user reviews and edits the generated draft before it becomes normal application data.</p></div>
+        <h4 class="scan-workflow-title">Scan-to-Task Workflow</h4>
+        <div class="scan-workflow-list">
+          <div class="challenge-step"><span class="challenge-step-label">Capture</span><p>The user provides a photo from the camera, photo library, or a document file.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Normalise</span><p>Validate file type and size, and convert unsupported formats before upload.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Upload</span><p>Send the prepared file to Supabase Storage through the existing FriendChise backend.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">AI Processing</span><p>Send the uploaded content through the AI-assisted processing pipeline to extract and structure task information.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Structured Draft</span><p>Map the AI result into FriendChise task fields rather than leaving it as unstructured text.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Review &amp; Edit</span><p>Run the required checks, then allow the user to review and edit the generated task before publishing.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Task List</span><p>Once confirmed, save the task so it becomes available in the normal FriendChise task list.</p></div>
         </div>
       </div>
     </section>
