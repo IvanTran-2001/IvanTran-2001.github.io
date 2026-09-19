@@ -201,6 +201,61 @@
       padding: 0;
     }
 
+    .featured-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .featured-card-logo-link.brand-mark,
+    .entry-logo-link.brand-mark {
+      flex: 0 0 auto;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+    }
+
+    .featured-card-logo-link:focus-visible,
+    .entry-logo-link:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .featured-card-header-copy {
+      min-width: 0;
+    }
+
+    .featured-card-header-copy h3,
+    .featured-card-header-copy h4 {
+      margin-bottom: 4px;
+    }
+
+    .featured-card-header--compact {
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .featured-card-header--compact .featured-card-header-copy h3 {
+      font-size: 1.18rem;
+      line-height: 1.2;
+      margin-bottom: 2px;
+    }
+
+    .featured-card-header--compact .entry-meta {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .featured-card-meta {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--ink-tertiary);
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
     .browser-frame { border: 1px solid var(--hairline-strong); border-radius: var(--radius-md); background: #ffffff; overflow: hidden; box-shadow: var(--shadow-card); }
     .browser-frame-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border-bottom: 1px solid var(--hairline); background: var(--surface-tint); }
     .browser-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--hairline-strong); display: inline-block; }
@@ -315,6 +370,7 @@
     }
 
     .phone-frame-sm { border: 1px solid var(--hairline-strong); border-radius: var(--radius-md); max-width: 220px; margin: 0 auto; overflow: hidden; box-shadow: var(--shadow-card); }
+    .phone-frame-sm picture,
     .phone-frame-sm img { display: block; width: 100%; height: auto; }
 
     .secondary-copy h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -336,7 +392,7 @@
 
     .work-row-editorial {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
       gap: 28px;
       align-items: center;
       border: 1px solid var(--hairline);
@@ -352,12 +408,40 @@
 
     .work-row-media { display: flex; }
     .work-row-image { width: 100%; max-height: 260px; border-radius: var(--radius-sm); object-fit: cover; object-position: center; display: block; }
-    .qa-wolf-image { clip-path: inset(0 15% 0 0 round 16px); }
+    .work-row-image--portrait {
+      width: min(100%, 320px);
+      max-height: none;
+      margin-inline: auto;
+    }
 
-    .work-row-copy { display: flex; flex-direction: column; gap: 10px; }
+    #project-qa-wolf {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    }
+
+    #project-qa-wolf .qa-wolf-image {
+      width: min(100%, 300px);
+      max-height: none;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      margin-inline: auto;
+      border-radius: 16px;
+    }
+
+    .work-row-copy { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
     .work-row-copy h4 { font-size: 1.05rem; font-weight: 700; line-height: 1.3; color: var(--ink); }
     .work-row-meta { font-size: 0.77rem; color: var(--ink-tertiary); letter-spacing: 0.04em; text-transform: uppercase; }
     .work-row-points { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+    .qa-wolf-copy .featured-card-header-copy h3 {
+      white-space: nowrap;
+    }
+
+    .qa-wolf-copy .featured-card-header-copy {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
     .work-row-points li { font-size: 0.85rem; color: var(--ink-secondary); line-height: 1.5; padding-left: 14px; position: relative; }
     .work-row-points li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
     .qa-wolf-copy { gap: 8px; }
@@ -396,14 +480,10 @@
       align-items: start;
     }
     .entry-logo {
-      width: 52px;
-      height: 52px;
+      width: 100%;
+      height: 100%;
       flex-shrink: 0;
-      border-radius: 14px;
       object-fit: cover;
-      border: 1px solid var(--hairline);
-      box-shadow: var(--shadow-card);
-      background: #ffffff;
     }
     .entry-content {
       min-width: 0;
@@ -672,7 +752,7 @@
       .flagship-copy, .secondary-copy { padding: 0; }
       .flagship-copy h3 { font-size: 1.4em; }
       .flagship-value { max-width: none; }
-      .phone-frame-sm { max-width: 200px; }
+      .phone-frame-sm { width: 100%; max-width: none; }
       .secondary-copy p { max-width: none; }
 
       .flagship-signals { padding: 14px 0; }
@@ -684,6 +764,22 @@
       .work-row-editorial--reverse .work-row-media { order: 1; }
       .work-row-editorial--reverse .work-row-copy { order: 2; }
       .work-row-image { max-height: 200px; }
+      .work-row-image--portrait {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 16 / 9;
+        max-height: none;
+      }
+
+      #project-qa-wolf .qa-wolf-image {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 16 / 9;
+        max-height: none;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 16px;
+      }
 
       .about-content { grid-template-columns: 1fr; gap: 16px; }
       .about-text, .about-image { grid-column: auto; grid-row: auto; }
@@ -713,11 +809,23 @@
       .flagship-cta-secondary { display: flex; gap: 10px; }
       .flagship-cta-secondary .cta-btn:not(.icon) { flex: 1 1 auto; justify-content: center; }
 
+      #project-qa-wolf {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      #project-qa-wolf .work-row-media,
+      #project-qa-wolf .work-row-copy {
+        order: initial;
+      }
+
+        .featured-card-header { gap: 10px; margin-bottom: 10px; }
+
       .compact-row { flex-direction: column; gap: 8px; }
       .compact-row-links { padding-top: 0; }
 
       .entry-row { grid-template-columns: 40px minmax(0, 1fr); column-gap: 10px; }
-      .entry-logo { width: 40px; height: 40px; border-radius: 10px; }
+      .entry-logo-link.brand-mark, .featured-card-logo-link.brand-mark { width: 40px; height: 40px; border-radius: 10px; }
       .oss-card-actions { gap: 8px; }
       .oss-card-actions > .cta-btn.sm,
       .oss-card-actions > .oss-card-toggle { flex: 1 1 auto; justify-content: center; }
@@ -788,8 +896,15 @@
         <img src="projects/pictures/friendchise/GIFS-V2/demo.gif" alt="FriendChise organisation dashboard" class="expandable" loading="lazy" decoding="async">
       </div>
       <div class="flagship-copy">
-        <div class="flagship-kicker"><span>Featured Project</span></div>
-        <h3>FriendChise</h3>
+        <div class="featured-card-header featured-card-header--compact">
+          <a href="https://friendchise.app/" class="featured-card-logo-link cta-btn brand-mark" target="_blank" rel="noopener noreferrer" aria-label="Open FriendChise website">
+            <img src="projects/pictures/friendchise/MINI-LOGO.png" alt="FriendChise logo" class="entry-logo" loading="lazy" decoding="async">
+          </a>
+          <div class="featured-card-header-copy">
+            <h3>FriendChise</h3>
+            <div class="entry-meta">Featured Project</div>
+          </div>
+        </div>
         <p class="flagship-value">A frontline operations platform that makes day to day work easier by centralising tasks, procedures and scheduling, reducing onboarding friction and turning staff knowledge into reusable processes.</p>
         <div class="flagship-proof"><span class="proof-dot"></span> Production pilot, live daily at Walker&rsquo;s Doughnuts</div>
         <div class="flagship-signals">
@@ -810,11 +925,21 @@
     <!-- FriendChise Mobile: secondary -->
     <div id="project-friendchise-mobile" class="secondary-feature animate-on-scroll">
       <div class="phone-frame-sm">
-        <img src="projects/pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task workflow: capture, generated draft, review" class="expandable">
+        <picture>
+          <source media="(max-width: 768px)" srcset="projects/pictures/friendchise-mobile-placement.png">
+          <img src="projects/pictures/friendchise/mobile/scan-to-task.gif" alt="FriendChise Mobile Scan-to-Task workflow: capture, generated draft, review" class="expandable">
+        </picture>
       </div>
       <div class="secondary-copy">
-        <div class="flagship-kicker"><span>Live on App Store</span></div>
-        <h3>FriendChise Mobile</h3>
+        <div class="featured-card-header featured-card-header--compact">
+          <a href="https://friendchise.app/" class="featured-card-logo-link cta-btn brand-mark" target="_blank" rel="noopener noreferrer" aria-label="Open FriendChise website">
+            <img src="projects/pictures/friendchise/MINI-LOGO.png" alt="FriendChise logo" class="entry-logo" loading="lazy" decoding="async">
+          </a>
+          <div class="featured-card-header-copy">
+            <h3>FriendChise Mobile</h3>
+            <div class="entry-meta">Live on App Store</div>
+          </div>
+        </div>
         <p>A mobile companion to FriendChise for everyday frontline use in the doughnut kitchen. Staff can access tasks and operational information on the floor, with AI-assisted document capture that converts photos and PDFs into structured, editable task drafts.</p>
         <ul class="tight-list">
           <li>Built with React Native and Expo for day to day frontline use</li>
@@ -834,14 +959,22 @@
     <div class="work-row-list">
       <div id="project-echt" class="work-row-editorial animate-on-scroll">
         <div class="work-row-media">
-          <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image expandable" style="border-radius: 16px;" loading="lazy" decoding="async">
+          <img src="projects/pictures/warehouse-echt.png" alt="ECHT warehouse workflow" class="work-row-image work-row-image--portrait expandable" style="border-radius: 16px;" loading="lazy" decoding="async">
         </div>
         <div class="work-row-copy">
-          <div class="flagship-kicker kicker-meta"><span>Data Logic · Technical Specification</span></div>
-          <h3>ECHT Warehouse: Process Engineering</h3>
+          <div class="featured-card-header">
+            <a href="https://echt.com.au/" class="entry-logo-link cta-btn brand-mark" target="_blank" rel="noopener noreferrer" aria-label="Open ECHT website">
+              <img src="pictures/echt-square-logo.png" alt="ECHT logo" class="entry-logo" loading="lazy" decoding="async">
+            </a>
+            <div class="featured-card-header-copy">
+              <h3>ECHT Warehouse: Process Engineering</h3>
+              <div class="featured-card-meta">Data Logic · Technical Specification</div>
+            </div>
+          </div>
           <ul class="work-row-points">
-            <li>Analysed three WMS data tables and defined the field relationships, calculation logic and filtering rules needed to consolidate them into one operational view.</li>
-            <li>Authored the vendor technical specification and later diagnosed a live stale-data defect when calculated replenishment values failed to refresh correctly.</li>
+            <li>Redesigned a fragmented warehouse workflow by consolidating multiple WMS reports into one operational view, one week before the Christmas peak.</li>
+            <li>Defined the data relationships, calculation rules, and implementation requirements for the vendor developer.</li>
+            <li>Later diagnosed a live data-refresh issue after deployment.</li>
           </ul>
           <div class="work-row-impact-block">
             <div class="work-row-impact-label">Estimated impact</div>
@@ -864,6 +997,7 @@
             <a href="projects/echt-warehouse.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> View Project</a>
             <div class="flagship-cta-secondary">
               <a href="projects/report.pdf" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Technical Report</a>
+              <a href="https://echt.com.au/" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Website</a>
             </div>
           </div>
         </div>
@@ -873,8 +1007,15 @@
           <img src="projects/pictures/QAWolf.png" alt="QA Wolf assessment" class="work-row-image qa-wolf-image expandable" loading="lazy" decoding="async">
         </div>
         <div class="work-row-copy qa-wolf-copy">
-          <div class="flagship-kicker qa-wolf-kicker kicker-meta"><span>Node.js · Playwright · Test Automation</span></div>
-          <h3>QA Wolf Technical Assessment</h3>
+          <div class="featured-card-header">
+            <a href="https://www.qawolf.com/" class="entry-logo-link cta-btn brand-mark" target="_blank" rel="noopener noreferrer" aria-label="Open QA Wolf website">
+              <img src="pictures/QA-Wolf-Logo.png" alt="QA Wolf logo" class="entry-logo" loading="lazy" decoding="async">
+            </a>
+            <div class="featured-card-header-copy">
+              <h3>QA Wolf Technical Assessment</h3>
+              <div class="featured-card-meta">Node.js · Playwright · Test Automation</div>
+            </div>
+          </div>
           <ul class="work-row-points">
             <li>Selected for QA Wolf’s paid final-stage assessment, joining ~15 finalists and receiving A$220 for the technical evaluation.</li>
             <li>Built deterministic validation for Hacker News sort order across paginated content.</li>
@@ -884,6 +1025,7 @@
             <a href="projects/QA-Wolf-Take-Home.html" class="cta-btn primary"><i class="fas fa-file-alt"></i> View Project</a>
             <div class="flagship-cta-secondary">
               <a href="https://github.com/IvanTran-2001/qa-wolf-hacker-news-validator" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+              <a href="https://www.qawolf.com/" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Website</a>
             </div>
           </div>
         </div>
@@ -899,7 +1041,9 @@
     <div class="surface-panel">
       <div class="experience-grid">
         <div class="experience-card entry-row animate-on-scroll">
-          <img src="pictures/Mercor-square-logo.png" alt="Mercor logo" class="entry-logo" loading="lazy" decoding="async">
+          <a href="https://www.mercor.com/" class="entry-logo-link cta-btn brand-mark" target="_blank" rel="noopener noreferrer" aria-label="Open Mercor website">
+            <img src="pictures/Mercor-square-logo.png" alt="Mercor logo" class="entry-logo" loading="lazy" decoding="async">
+          </a>
           <div class="entry-content">
             <h4>Mercor</h4>
             <p class="entry-meta">AI Quality / Evaluation Contributor</p>
@@ -909,10 +1053,13 @@
               <li>Completed Mercor&rsquo;s introductory course on AI agents and agent workflows, with a publicly verifiable credential.</li>
             </ul>
             <a href="https://work.mercor.com/learn/verify/MRC-2026-UP55M2HU" class="cta-btn sm entry-cta" target="_blank" rel="noopener noreferrer"><i class="fas fa-certificate" aria-hidden="true"></i> Verify Credential</a>
+            <a href="https://www.mercor.com/" class="cta-btn sm entry-cta" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Website</a>
           </div>
         </div>
         <div class="experience-card entry-row animate-on-scroll">
-          <img src="pictures/echt-square-logo.png" alt="ECHT logo" class="entry-logo" loading="lazy" decoding="async">
+          <a href="https://echt.com.au/" class="entry-logo-link cta-btn brand-mark" target="_blank" rel="noopener noreferrer" aria-label="Open ECHT website">
+            <img src="pictures/echt-square-logo.png" alt="ECHT logo" class="entry-logo" loading="lazy" decoding="async">
+          </a>
           <div class="entry-content">
             <h4>ECHT</h4>
             <p class="entry-meta">DATA LOGIC · PROCESS REDESIGN · TECHNICAL SPECIFICATION</p>
@@ -922,6 +1069,7 @@
               <li>Redesigned the workflow from two operators to one, with an estimated 60&ndash;80% faster retrieval and ~40% fewer errors.</li>
             </ul>
             <a href="projects/echt-warehouse.html" class="cta-btn sm entry-cta">Case Study</a>
+            <a href="https://echt.com.au/" class="cta-btn sm entry-cta" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Website</a>
           </div>
         </div>
       </div>
@@ -936,13 +1084,16 @@
     <div class="surface-panel">
       <div class="oss-grid">
         <div class="oss-card entry-row animate-on-scroll">
-          <img src="pictures/devtasks-square-logo.png" alt="DevTasks logo" class="entry-logo" loading="lazy" decoding="async">
+          <a href="https://dev-tasks-beta.vercel.app/" class="entry-logo-link cta-btn brand-mark" target="_blank" rel="noopener noreferrer" aria-label="Open DevTasks website">
+            <img src="pictures/devtasks-square-logo.png" alt="DevTasks logo" class="entry-logo" loading="lazy" decoding="async">
+          </a>
           <div class="entry-content">
             <h4>DevTasks</h4>
             <p class="entry-meta">2 merged PRs</p>
             <p class="entry-desc">A minimalist engineering command center for developer workflows.</p>
             <div class="oss-card-actions">
               <a href="https://github.com/shamilahmdt/devtasks" target="_blank" rel="noopener noreferrer" class="cta-btn sm"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+              <a href="https://dev-tasks-beta.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-btn sm"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Website</a>
               <button type="button" class="cta-btn sm oss-card-toggle" data-oss-toggle="devtasks" aria-expanded="true" aria-controls="devtasks-contrib">What I contributed <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
             </div>
             <div id="devtasks-contrib" class="oss-contrib-table">

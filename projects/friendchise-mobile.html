@@ -43,7 +43,7 @@
           <ul class="sections-menu">
             <li><a href="#engineering">Engineering Challenges</a></li>
             <li><a href="#stack">Stack</a></li>
-            <li><a href="#role">My Contribution</a></li>
+            <li><a href="#role">My Role</a></li>
           </ul>
         </details>
       </li>
@@ -57,7 +57,7 @@
       <li><a href="#engineering">Engineering Challenges</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#impact">Impact</a></li>
-      <li><a href="#role">My Contribution</a></li>
+      <li><a href="#role">My Role</a></li>
     </ul>
     </details>
     <div class="navbar-socials">
@@ -82,7 +82,7 @@
       <div class="project-intro-actions">
         <a href="https://apps.apple.com/au/app/friendchise/id6797785868" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-app-store-ios" aria-hidden="true"></i> App Store</a>
         <a href="https://github.com/IvanTran-2001/friendchise-mobile-app" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-        <a href="friendchise.html" class="cta-btn sm"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> View FriendChise Web</a>
+        <a href="friendchise.html" class="cta-btn sm"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Web</a>
       </div>
     </section>
     <hr class="section-divider">
@@ -159,12 +159,12 @@
       <h2 class="section-title">Architecture</h2>
       <div class="content-section">
         <h3 class="subsection-title" style="margin-top:0;">System Overview</h3>
-        <p class="architecture-intro" style="margin-top:0;">FriendChise Mobile is a separate native client built on the same backend, organisation model, permissions, and business rules as the web application. The mobile layer focuses on native interaction and smaller-screen workflows without duplicating core application logic.</p>
+        <p class="architecture-intro" style="margin-top:0;">FriendChise Mobile is a separate native client focused on native interaction and smaller-screen workflows.</p>
 
         <h3 class="subsection-title">Shared Backend</h3>
-        <p>FriendChise Mobile uses the same organisation model, permissions, business logic and data layer as the web application. The mobile client differs mainly in authentication, presentation and native device capabilities.</p>
+        <p>FriendChise Mobile shares the same backend, permissions, business logic and data layer as the web application.</p>
         <div class="req-flow-figure">
-          <img src="../pictures/mobile-architect.svg" alt="FriendChise Mobile architecture showing the mobile app connecting through the FriendChise API into shared business logic and data access." class="req-flow-image expandable" data-lightbox-caption="Mobile App &rarr; FriendChise API &rarr; Shared Business Logic &rarr; Data Access." loading="lazy" decoding="async">
+          <img src="../pictures/mobile-architect.svg" alt="FriendChise Mobile architecture showing the mobile app connecting through the FriendChise API into shared business logic, data access, and the final task list." class="req-flow-image expandable" data-lightbox-caption="Mobile App &rarr; FriendChise API &rarr; Shared Business Logic &rarr; Data Access &rarr; Task List." loading="lazy" decoding="async">
         </div>
 
         <h3 class="subsection-title arch-section-divider">Authentication</h3>
@@ -184,25 +184,25 @@
 
         <h3 class="subsection-title arch-section-divider">Scan-to-Task Pipeline</h3>
         <div class="req-flow-figure">
-          <img src="pictures/Task-scan-flow.svg" alt="FriendChise Mobile scan-to-task flow showing the request moving from capture through processing into a structured task draft." class="req-flow-image expandable" data-lightbox-caption="Scan-to-Task flow: capture, normalise, upload, process, draft, review." loading="lazy" decoding="async">
+          <img src="pictures/Task-scan-flow.svg" alt="FriendChise Mobile scan-to-task flow showing the request moving from capture through processing into a structured task draft and task list." class="req-flow-image expandable" data-lightbox-caption="Scan-to-Task flow: capture, normalise, upload, AI processing, structured draft, review and edit, task list." loading="lazy" decoding="async">
         </div>
         <h4 class="scan-workflow-title">Scan-to-Task Workflow</h4>
-        <div class="scan-workflow-list">
-          <div class="challenge-step"><span class="challenge-step-label">Capture</span><p>The user provides a photo from the camera, photo library, or a document file.</p></div>
-          <div class="challenge-step"><span class="challenge-step-label">Normalise</span><p>Validate file type and size, and convert unsupported formats before upload.</p></div>
-          <div class="challenge-step"><span class="challenge-step-label">Upload</span><p>Send the prepared file to Supabase Storage through the existing FriendChise backend.</p></div>
-          <div class="challenge-step"><span class="challenge-step-label">AI Processing</span><p>Send the uploaded content through the AI-assisted processing pipeline to extract and structure task information.</p></div>
-          <div class="challenge-step"><span class="challenge-step-label">Structured Draft</span><p>Map the AI result into FriendChise task fields rather than leaving it as unstructured text.</p></div>
-          <div class="challenge-step"><span class="challenge-step-label">Review &amp; Edit</span><p>Run the required checks, then allow the user to review and edit the generated task before publishing.</p></div>
-          <div class="challenge-step"><span class="challenge-step-label">Task List</span><p>Once confirmed, save the task so it becomes available in the normal FriendChise task list.</p></div>
+        <div class="mobile-steps scan-workflow-list">
+          <div class="mobile-step"><strong>Capture</strong><p>The user provides a photo from the camera, photo library, or a document file.</p></div>
+          <div class="mobile-step"><strong>Normalise</strong><p>Validate file type and size, and convert unsupported formats before upload.</p></div>
+          <div class="mobile-step"><strong>Upload</strong><p>Send the prepared file to Supabase Storage through the existing FriendChise backend.</p></div>
+          <div class="mobile-step"><strong>AI Processing</strong><p>Send the uploaded content through the AI-assisted processing pipeline to extract and structure task information.</p></div>
+          <div class="mobile-step"><strong>Structured Draft</strong><p>Map the AI result into FriendChise task fields rather than leaving it as unstructured text.</p></div>
+          <div class="mobile-step"><strong>Review &amp; Edit</strong><p>Run the required checks, then allow the user to review and edit the generated task before publishing.</p></div>
+          <div class="mobile-step"><strong>Task List</strong><p>Once confirmed, save the task so it becomes available in the normal FriendChise task list.</p></div>
         </div>
       </div>
     </section>
 
     <section class="mobile-section" id="engineering">
-      <hr class="section-divider">
-      <h2 class="section-title">Engineering Challenges</h2>
-      <div class="content-section">
+      <hr class="section-divider" style="margin-top:0; margin-bottom: var(--space-4);">
+      <h2 class="section-title" style="margin-bottom: var(--space-4);">Engineering Challenges</h2>
+      <div class="content-section engineering-challenges">
         <div class="challenge-grid stack-gap-lg">
           <div class="challenge-card">
             <h3>OAuth handoff on a native app</h3>
@@ -236,7 +236,7 @@
       <hr class="section-divider">
       <h2 class="section-title">Technology Stack</h2>
       <div class="content-section">
-        <h3 class="subsection-title" style="margin-top:0;">Technical Stack</h3>
+        <h3 class="subsection-title" style="margin-top:0;">Core Technologies</h3>
         <div class="skills-groups">
           <div class="skill-group"><h5>Mobile</h5><p>React Native + Expo, Expo Router, TypeScript</p></div>
           <div class="skill-group"><h5>Authentication</h5><p>Sign in with Apple, Google &amp; LinkedIn OAuth, Expo SecureStore</p></div>
@@ -253,24 +253,36 @@
       <h2 class="section-title">Product Impact</h2>
       <div class="content-section">
         <h3 class="subsection-title" style="margin-top:0;">Production Usage</h3>
-        <p>The app started on a shared device at Walker's Doughnuts via TestFlight and is now live on the App Store. Task creation and Scan-to-Task moved off paper and photo message threads into a task list staff already recognize from the web platform, so the record of what got done stays in one place instead of split across a phone's camera roll and a chat thread.</p>
-        <p>Per-staff installs are rolling out now that the App Store listing is public, replacing the single shared device.</p>
+        <p>FriendChise Mobile started on a shared TestFlight device at Walker's Doughnuts and is now available through the App Store for individual staff installs. This gives staff direct access to the same operational information during a shift or when reviewing procedures and recipes outside the store.</p>
+
+        <hr class="section-divider">
+
+        <h3 class="subsection-title">Day-to-Day Impact</h3>
+        <div class="mobile-steps">
+          <div class="mobile-step"><strong>Direct app access</strong><p>Staff can open the app directly instead of launching a browser, finding the website, and navigating back to the workflow they need.</p></div>
+          <div class="mobile-step"><strong>Mobile-first layout</strong><p>Screens are designed specifically for smaller displays and frontline use rather than simply adapting the desktop interface.</p></div>
+          <div class="mobile-step"><strong>Native capture</strong><p>Staff can take a photo or choose an existing image using the device's native camera and picker, making Scan-to-Task quicker and more convenient.</p></div>
+          <div class="mobile-step"><strong>Resume where you left off</strong><p>Navigation state is preserved so reopening the app can return staff to the workflow they were previously using.</p></div>
+          <div class="mobile-step"><strong>Task lookup</strong><p>Feed-style task cards surface descriptions and useful details directly, reducing the need to repeatedly open separate detail pages.</p></div>
+          <div class="mobile-step"><strong>Recipe access</strong><p>Search and keyboard-aware interactions make it easier to find and read a recipe while working.</p></div>
+          <div class="mobile-step"><strong>Individual access</strong><p>Moving from one shared device to per-staff installs makes FriendChise available when staff need it, including outside a shift for reference or training.</p></div>
+        </div>
       </div>
     </section>
 
     <section class="mobile-section" id="role">
       <hr class="section-divider">
-      <h2 class="section-title">My Contribution</h2>
+      <h2 class="section-title">My Role</h2>
       <div class="content-section">
-        <h3 class="subsection-title" style="margin-top:0;">Ownership &amp; Responsibilities</h3>
-        <p>I designed and built FriendChise Mobile on my own, end to end:</p>
-        <ul>
-          <li>Product scope and screen design for a shift-worker audience, reusing FriendChise's existing data model</li>
-          <li>Expo Router navigation, screens, and the shared component library</li>
-          <li>OAuth login (Google, LinkedIn), demo login, and session persistence/expiry handling</li>
-          <li>Camera/library/document capture, HEIC normalization, and the Scan-to-Task API integration</li>
-          <li>Task list, task creation, and org-scoped tools screens wired to the shared FriendChise backend</li>
-          <li>TestFlight distribution through to a published App Store release</li>
+        <h3 class="subsection-title" style="margin-top:0;">Role &amp; Responsibilities</h3>
+        <p>I designed and implemented FriendChise Mobile, covering product decisions, mobile architecture, authentication, native integrations, and release.</p>
+        <ul class="role-bullets">
+          <li>Product scope and mobile UX for frontline staff, built around FriendChise's existing data model</li>
+          <li>Expo Router navigation, screen architecture, and reusable mobile components</li>
+          <li>OAuth authentication, demo access, secure session persistence, and expiry handling</li>
+          <li>Camera, photo library, and document capture, including HEIC normalization and Scan-to-Task integration</li>
+          <li>Task workflows and organisation-scoped tools connected to the shared FriendChise backend</li>
+          <li>TestFlight distribution, App Store submission, and production release</li>
         </ul>
       </div>
     </section>

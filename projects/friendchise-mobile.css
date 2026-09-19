@@ -121,6 +121,10 @@
   margin-bottom: 0;
 }
 
+.engineering-challenges {
+  padding-top: 0;
+}
+
 .workflow-grid,
 .feature-scan-grid,
 .roadmap-grid {
@@ -242,11 +246,6 @@
   line-height: 1.3;
   color: var(--ink);
   margin: 18px 0 12px;
-}
-
-.scan-workflow-list {
-  display: grid;
-  gap: 0;
 }
 
 .architecture-diagram.mobile-architecture {
@@ -514,6 +513,31 @@
   .mobile-hero .phone-shot {
     max-width: 260px;
   }
+
+  .mobile-title-row {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .mobile-title-row .project-intro-title {
+    font-size: clamp(1.85rem, 7vw, 2.25rem);
+    line-height: 1.02;
+    text-align: center;
+  }
+
+  .project-intro-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.25;
+  }
+
+  .project-intro-desc {
+    font-size: 0.82rem;
+  }
+
+  .project-intro-stack {
+    font-size: 0.74rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -537,6 +561,16 @@
 
   .hero-links {
     justify-content: center;
+  }
+
+  .project-intro-actions {
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .project-intro-actions .cta-btn {
+    padding: 7px 9px;
+    font-size: 0.7rem;
   }
 
   .phone-shot {

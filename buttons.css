@@ -90,10 +90,12 @@
   overflow: hidden;
 }
 
-.cta-btn.brand-mark .project-intro-logo, .button--brand-mark .project-intro-logo {
+.cta-btn.brand-mark .project-intro-logo, .button--brand-mark .project-intro-logo,
+.cta-btn.brand-mark .entry-logo, .button--brand-mark .entry-logo {
   width: 100%;
   height: 100%;
   margin: 0;
+  border-radius: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
