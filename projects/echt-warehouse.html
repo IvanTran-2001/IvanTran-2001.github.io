@@ -31,67 +31,72 @@
     <nav class="navbar navbar--long">
     <a href="../index.html" class="navbar-name" aria-label="Ivan Tran"><img src="../favicon.svg" alt="" aria-hidden="true"></a>
     <site-navbar-back href="../index.html#project-echt" label="Back to Portfolio" title="Back to Portfolio"></site-navbar-back>
+    <div class="navbar-socials">
+      <a href="report.pdf" target="_blank" rel="noopener noreferrer" aria-label="Technical Report" title="Technical Report"><i class="fas fa-file-alt" aria-hidden="true"></i></a>
+    </div>
     <ul class="navbar-links">
       <li><a href="#problem">Problem</a></li>
-      <li><a href="#solution">Solution</a></li>
+      <li><a href="#spec">Technical Design</a></li>
       <li><a href="#results">Results</a></li>
       <li>
         <details class="navbar-more">
-          <summary><span class="navbar-more-label">More</span></summary>
+          <summary><span class="navbar-more-label">More</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></summary>
           <ul class="sections-menu">
-            <li><a href="#docs">Docs</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#role">My Role</a></li>
+            <li><a href="#diagnosis">Diagnosis</a></li>
+            <li><a href="#proof">Proof</a></li>
           </ul>
         </details>
       </li>
     </ul>
     <details class="navbar-sections">
-      <summary><span class="navbar-more-label">Sections</span></summary>
+      <summary><span class="navbar-more-label">Sections</span> <i class="fas fa-chevron-down" aria-hidden="true"></i></summary>
       <ul class="sections-menu">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#role">My Role</a></li>
       <li><a href="#problem">Problem</a></li>
-      <li><a href="#solution">Solution</a></li>
+      <li><a href="#spec">Technical Design</a></li>
+      <li><a href="#diagnosis">Diagnosis</a></li>
+      <li><a href="#proof">Proof</a></li>
       <li><a href="#results">Results</a></li>
-      <li><a href="#docs">Docs</a></li>
     </ul>
     </details>
-    <div class="navbar-socials">
-      <a href="#docs" aria-label="Technical Report" title="Technical Report"><img src="pictures/warehouse-echt.png" alt="" aria-hidden="true" style="width:22px;height:22px;object-fit:cover;border-radius:7px;display:block;"></a>
-    </div>
   </nav>
 
   <!-- Title -->
   <section class="project-intro">
-    <img src="pictures/warehouse-echt.png" alt="Warehouse Management System" class="expandable" style="width:min(100%,260px);aspect-ratio:16/9;height:auto;display:block;margin:0 auto 14px;border:none;border-radius:24px;clip-path:inset(8% 4% 8% 4% round 24px);object-fit:cover;object-position:center center;">
-    <h1 class="project-intro-title">ECHT Warehouse</h1>
-    <p class="project-intro-subtitle">Process Engineering for a Fragmented WMS Workflow</p>
-    <p class="project-intro-desc">Consolidated three separate warehouse inventory reports into one operational view, cutting cross-referencing and enabling single-operator throughput ahead of the Christmas peak.</p>
-    <div class="project-intro-stack">Warehouse Operations · Process Redesign · WMS Consulting</div>
+    <div class="project-intro-header">
+      <a href="https://echt.com.au/" class="cta-btn brand-mark" target="_blank" rel="noopener noreferrer" aria-label="Open ECHT website" title="Open ECHT website">
+        <img src="../pictures/echt-square-logo.png" alt="ECHT logo" class="project-intro-logo">
+      </a>
+      <h1 class="project-intro-title">ECHT Warehouse</h1>
+    </div>
+    <p class="project-intro-subtitle">Redesigned WMS data logic with the WMS software developer</p>
+    <p class="project-intro-desc">Completed one week before the Christmas peak, reducing cross-referencing and allowing one operator to handle work that previously required two.</p>
+    <div class="project-intro-stack">Warehouse Operations · Data Logic · Process Redesign</div>
     <div class="project-intro-actions">
-      <a href="#docs" class="cta-btn primary"><i class="fas fa-file-alt"></i> Technical Report</a>
+      <a href="report.pdf" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Technical Report</a>
+      <a href="https://echt.com.au/" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Visit Website</a>
     </div>
   </section>
   <hr class="section-divider">
 
   <div class="container">
 
-    <!-- Stats -->
-    <div class="content-section">
-      <div class="stats-grid">
-        <div class="stat-card" style="text-align:center;"><div class="stat-number">3→1</div><div class="stat-label">Tables Consolidated</div></div>
-        <div class="stat-card" style="text-align:center;"><div class="stat-number">↓</div><div class="stat-label">Error Rate</div></div>
-        <div class="stat-card" style="text-align:center;"><div class="stat-number">↓</div><div class="stat-label">Onboarding Time</div></div>
-      </div>
-    </div>
-
-    <hr class="section-divider">
-
     <!-- Overview -->
     <section class="page-section" id="overview">
       <h3 class="section-heading">Overview</h3>
       <div class="content-section stack-gap">
-        <h3 class="subsection-title" style="margin-top:0;">Summary</h3>
-        <p>Identified an inefficiency on the warehouse floor and worked with a third-party WMS vendor to consolidate three fragmented inventory tables into a single intuitive view, reducing cognitive load and bridging the skill gap between experienced and new staff.</p>
-        <h3 class="subsection-title">My Role</h3>
-        <p>I acted as the operational subject-matter expert and liaison between ECHT management and the third-party WMS provider. I defined the required business logic, documented the solution, validated the live implementation and trained staff on the updated workflow.</p>
+        <h3 class="subsection-title" style="margin-top:0;">How the Project Started</h3>
+        <p>The project started after I heard repeated frustration about having to check three different WMS tables to confirm inventory information. Experienced staff knew which values to compare and where to look, but the process was difficult for newer staff to learn and easy to get wrong.</p>
+        <p>I translated that operational problem into a technical specification for the WMS software developer. I mapped how the three tables related, identified the fields and calculations needed from each, defined filtering and edge-case behaviour, and described how they should be combined into one reliable operational view.</p>
+        <h3 class="subsection-title">From Operational Problem to Technical Design</h3>
+        <ul class="role-bullets">
+          <li><strong>Understand the data:</strong> traced how fields across three WMS tables related and which values depended on one another.</li>
+          <li><strong>Define the logic:</strong> specified the calculations, filters and edge cases required for a reliable combined view.</li>
+          <li><strong>Translate requirements:</strong> turned warehouse staff needs into implementation requirements the WMS developer could build from.</li>
+        </ul>
       </div>
     </section>
 
@@ -101,12 +106,19 @@
     <section class="page-section" id="role">
       <h3 class="section-heading">My Role</h3>
       <div class="content-section stack-gap">
+        <div class="flagship-role">
+          <div class="flagship-role-title">Warehouse Systems Consultant</div>
+          <div class="flagship-role-meta">Mapped relational data requirements and turned operational needs into an implementable WMS solution</div>
+        </div>
+        <h3 class="subsection-title" style="margin-top:0;">Role Summary</h3>
+        <p>I translated staff and management needs into technical requirements, worked with the WMS software developer on implementation, and validated the finished workflow.</p>
         <h3 class="subsection-title" style="margin-top:0;">Contributions</h3>
-        <ul>
-          <li>Identified the inefficiency and pitched the consolidation to management and the WMS vendor (Thomax Technology)</li>
-          <li>Authored the full technical specification: calculation logic for <code>replenResidual</code>, multi-condition filtering rules, edge case handling (negative values become 0, positives are bolded), and an annotated example table, submitted directly to the vendor developer</li>
-          <li>Caught a live-data bug mid-day after go-live: <code>replenResidual</code> values were static snapshots not recalculating on BulkBinCode updates, then documented the root cause and escalated it for a dynamic fix</li>
-          <li>Trained staff on the new workflow with practical tips and best practices</li>
+        <ul class="role-bullets">
+          <li>Identified the workflow problem and proposed consolidating three WMS tables into one operational view.</li>
+          <li>Mapped the relationships between the tables and defined the calculations, filters and edge cases needed for the combined view.</li>
+          <li>Wrote the technical specification used by the WMS software developer to implement the solution.</li>
+          <li>Tested the live implementation and identified a data-refresh issue where calculated values were not updating correctly.</li>
+          <li>Helped staff understand and use the new workflow after release.</li>
         </ul>
       </div>
     </section>
@@ -117,137 +129,42 @@
     <section class="page-section" id="problem">
       <h3 class="section-heading">The Problem</h3>
       <div class="content-section">
-        <h3 class="subsection-title" style="margin-top:0;">Fragmented Warehouse Workflow</h3>
-        <p>The warehouse relied on <strong>three separate tables</strong> that staff had to cross-reference simultaneously:</p>
-        <ol>
-          <li>Inventory pallet contents (what items are where)</li>
-          <li>Collection status (items picked and ready)</li>
-          <li>Customer order tracking (item locations for the day)</li>
-        </ol>
-        <p>This forced staff to mentally consolidate data across three views, increasing cognitive load and error risk during high-volume operations.</p>
+        <h3 class="subsection-title" style="margin-top:0;">Translating Operational Needs</h3>
+        <p>Staff could describe the warehouse problem, but the software needed precise rules for what data mattered, how the fields related, what should be calculated, and what should appear in the final view.</p>
+
+        <h3 class="subsection-title">Understanding the Data Relationships</h3>
+        <p>I had to identify which fields across the three WMS tables affected replenishment accuracy and efficiency, how those values depended on one another, and which calculations, filters and edge cases were required for a reliable combined view.</p>
+
+        <h3 class="subsection-title">Delivering on Time</h3>
+        <p>The solution needed to be defined, implemented and checked within roughly one week before the Christmas peak. That made it important to keep the requirements clear, validate the calculations carefully, and make sure the new view was reliable before staff depended on it.</p>
       </div>
     </section>
 
     <hr class="section-divider">
 
-    <!-- Solution -->
-    <section class="page-section" id="solution">
-      <h3 class="section-heading">Solution</h3>
-      <div class="content-section">
-        <h3 class="subsection-title" style="margin-top:0;">Consolidated Operational View</h3>
-        <p>I proposed replacing the three-report workflow with one consolidated operational view, and worked with ECHT management and Thomax Technology to translate the process into clear technical requirements ahead of the vendor's 11 December 2023 deployment.</p>
-        <ul>
-          <li>Mapped variables and dependencies to understand the full data landscape</li>
-          <li>Identified essential vs. redundant fields to reduce cognitive load</li>
-          <li>Coordinated specification and vendor delivery across tight deadlines</li>
-        </ul>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- Technical Spec -->
+    <!-- Technical Design -->
     <section class="page-section" id="spec">
-      <h3 class="section-heading">Technical Spec</h3>
-      <div class="content-section">
-        <h3 class="subsection-title" style="margin-top:0;">Replenishment Logic</h3>
-        <p>The spec I authored and submitted to the vendor defined the logic for a new <code>replenResidual</code> column:</p>
-        <div class="outcome-card" style="font-family: monospace; font-size: 0.95em; line-height: 1.6;">
-          replenResidual = ReplenQuantity<br>
-          &minus; SUM(InventoryQuantity where BulkBinCode starts with &ldquo;SUP&rdquo; or equals &ldquo;TABLE&rdquo;)
+      <h3 class="section-heading">Technical Design</h3>
+      <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">Selecting the Relevant Data</h3>
+        <p>I reviewed the available WMS reports to determine which data was actually needed for replenishment. Some information overlapped across reports, so I narrowed the workflow down to three main tables and identified the fields required for the combined view.</p>
+
+        <h3 class="subsection-title">Defining the Combined View</h3>
+        <p>I mapped the relationships between those fields, defined new calculated values where the existing reports did not provide what staff needed, and specified which information should appear in the final operational view.</p>
+
+        <h3 class="subsection-title">Setting Clear Rules Before Implementation</h3>
+        <p>Before implementation, I documented the calculations, filtering behaviour, edge cases and expected outputs so the WMS software developer had clear rules to build and validate against.</p>
+        <p>For example, stock already moved into replenishment locations should reduce the remaining quantity shown to staff, and rows with nothing left to replenish should no longer appear in the view.</p>
+
+        <div class="soft-panel">
+          <h3 class="subsection-title" style="margin-top:0;">Want the implementation detail?</h3>
+          <p style="margin-bottom: 14px;">The full specification includes the calculations, filtering rules, edge cases, example data and post-deployment validation.</p>
+          <a href="report.pdf" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> View Technical Report</a>
         </div>
-        <h3 class="subsection-title">Display Rules</h3>
-        <ol>
-          <li>Calculate the residual.</li>
-          <li>Clamp negative values to zero.</li>
-          <li>Hide records where the final residual equals zero.</li>
-          <li>Bold positive values.</li>
-        </ol>
-        <h3 class="subsection-title">Annotated Example <small style="font-weight:400;color:#666;">(Search input: TRA-FA-19%)</small></h3>
-        <p style="color:#555;font-size:0.9em;margin-bottom:12px;">The table is horizontally scrollable on smaller screens. Codes use monospace formatting and the visible/hidden column shows the final display state after the residual rules are applied.</p>
-        <div style="overflow-x:auto;">
-          <table class="spec-example-table" style="width:100%;border-collapse:collapse;font-size:0.875em;">
-            <thead>
-              <tr style="background:#f5f5f5;">
-                <th>OldestOrder</th>
-                <th>ItemCode</th>
-                <th style="text-align:center;">ReplenQty</th>
-                <th>replenResidual</th>
-                <th>BulkBinCodes</th>
-                <th style="text-align:center;">Visible?</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>25/11/2023</td>
-                <td style="font-family:monospace;">OW/XXS</td>
-                <td style="text-align:center;">30</td>
-                <td>30 &minus; 0 = <strong>30</strong></td>
-                <td>TRA-FA-19: 100</td>
-                <td style="text-align:center;color:green;">&#10004; 30 &gt; 0</td>
-              </tr>
-              <tr style="background:#fafafa;">
-                <td>25/11/2023</td>
-                <td style="font-family:monospace;">OW/XS</td>
-                <td style="text-align:center;">30</td>
-                <td>30 &minus; 6 = <strong>24</strong></td>
-                <td>TABLE: 6, TRA-FA-19: 100</td>
-                <td style="text-align:center;color:green;">&#10004; 30 &gt; 6</td>
-              </tr>
-              <tr>
-                <td>26/11/2023</td>
-                <td style="font-family:monospace;">OW/S</td>
-                <td style="text-align:center;">30</td>
-                <td>30 &minus; 30 = 0</td>
-                <td>TABLE: 30, TRA-FA-19: 100</td>
-                <td style="text-align:center;color:#c00;">&#10008; 30 &ge; 30</td>
-              </tr>
-              <tr style="background:#fafafa;">
-                <td>27/11/2023</td>
-                <td style="font-family:monospace;">OW/M</td>
-                <td style="text-align:center;">30</td>
-                <td>30 &minus; 31 = 0 <small style="color:#888;">(clamped)</small></td>
-                <td>TABLE: 31, TRA-FA-19: 100</td>
-                <td style="text-align:center;color:#c00;">&#10008; 31 &ge; 30</td>
-              </tr>
-              <tr>
-                <td>28/11/2023</td>
-                <td style="font-family:monospace;">OW/L</td>
-                <td style="text-align:center;">30</td>
-                <td>30 &minus; 8 = <strong>22</strong></td>
-                <td>SUP-425: 8, TRA-FA-19: 100</td>
-                <td style="text-align:center;color:green;">&#10004; 30 &gt; 8</td>
-              </tr>
-              <tr style="background:#fafafa;">
-                <td>29/11/2023</td>
-                <td style="font-family:monospace;">OW/XL</td>
-                <td style="text-align:center;">30</td>
-                <td>30 &minus; (8+6) = <strong>16</strong></td>
-                <td>TABLE: 6, TRA-FA-19: 100, SUP-425: 8</td>
-                <td style="text-align:center;color:green;">&#10004; 30 &gt; 14</td>
-              </tr>
-              <tr>
-                <td>30/11/2023</td>
-                <td style="font-family:monospace;">OW/2XL</td>
-                <td style="text-align:center;">30</td>
-                <td>30 &minus; (23+7) = 0</td>
-                <td>SUP-865: 23, TRA-FA-19: 100, TABLE: 7</td>
-                <td style="text-align:center;color:#c00;">&#10008; 30 &ge; 30</td>
-              </tr>
-              <tr style="background:#fafafa;">
-                <td>1/12/2023</td>
-                <td style="font-family:monospace;">OW/3XL</td>
-                <td style="text-align:center;">30</td>
-                <td>30 &minus; (7+24) = 0 <small style="color:#888;">(clamped)</small></td>
-                <td>SUP-865: 7, TRA-FA-19: 100, TABLE: 24</td>
-                <td style="text-align:center;color:#c00;">&#10008; 31 &ge; 30</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="stack-gap" style="color: var(--ink-tertiary); font-size: 0.9em;">Submitted to the WMS vendor as part of support ticket <strong>THX-1373449</strong>. The vendor deployed the implementation on <strong>11 December 2023</strong> and requested verification of output accuracy, which is when the stale-data bug was caught.</p>
       </div>
     </section>
+
+    <hr class="section-divider">
 
     <!-- Deployment Defect -->
     <section class="page-section" id="diagnosis">
@@ -256,7 +173,35 @@
         <h3 class="subsection-title" style="margin-top:0;">Live Validation &amp; Defect Diagnosis</h3>
         <p>During validation, I found records showing replenishment quantities that should already have resolved to zero.</p>
         <p>I traced the behaviour to values being calculated as static snapshots rather than recalculating after inventory-location updates.</p>
-        <p>I documented the observed behaviour and likely root cause, then escalated it to the vendor for correction before the Christmas peak.</p>
+        <p>I documented the observed behaviour and likely root cause, then escalated it to the WMS software developer for correction before the Christmas peak.</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Proof -->
+    <section class="page-section" id="proof">
+      <h3 class="section-heading">Proof</h3>
+      <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">Implementation Record</h3>
+        <ul class="role-bullets">
+          <li><strong>Support ticket:</strong> THX-1373449</li>
+          <li><strong>Deployment:</strong> 11 December 2023</li>
+          <li><strong>Validation:</strong> live WMS output reviewed after deployment</li>
+        </ul>
+        <p style="color: var(--ink-tertiary); font-size: 0.88em; margin-top: 12px;">Additional verification is available on request, including direct correspondence from ECHT management.</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Operational Impact -->
+    <section class="page-section" id="impact">
+      <h3 class="section-heading">Operational Impact</h3>
+      <div class="content-section stack-gap">
+        <p>The combined view was used to make replenishment decisions, so stale or incorrect values could have immediate operational consequences. If stock was not replenished correctly, pickers and packers could arrive at an empty location, delaying orders and creating backlog for the following day.</p>
+        <p>Timing made this more important before Christmas. A mistake late in the week could carry into Monday because the warehouse did not operate over the weekend, increasing pressure on the busiest day and sometimes requiring additional casual labour to recover the backlog.</p>
+        <p>Reducing repeated cross-checking also freed experienced staff to spend more time on picking, packing, receiving inventory, and other warehouse work during the peak period.</p>
       </div>
     </section>
 
@@ -274,29 +219,24 @@
           <li><strong>Faster onboarding</strong>, simplified onboarding by reducing the number of reports and rules new staff needed to learn</li>
           <li><strong>Validation</strong>, identified a stale-data defect during live validation and escalated it before the Christmas peak</li>
         </ul>
-        <p class="stack-gap" style="color: var(--ink-tertiary); font-size: 0.95em;">Estimated operational outcomes included a 60&ndash;80% improvement in retrieval and stock-movement efficiency, approximately 50% faster training and roughly 40% fewer workflow errors.</p>
+        <h3 class="subsection-title" style="margin-top:0;">Estimated Outcomes</h3>
+        <ul class="role-bullets">
+          <li><strong>60&ndash;80% faster retrieval</strong>, improving how quickly staff could confirm inventory and stock movements.</li>
+          <li><strong>~50% faster onboarding</strong>, because new staff had fewer reports and rules to learn.</li>
+          <li><strong>~40% fewer errors</strong>, from reducing repeated cross-checking and inconsistent interpretation across views.</li>
+        </ul>
       </div>
     </section>
 
     <hr class="section-divider">
 
-    <!-- Technical Report -->
-    <section class="page-section" id="docs">
-      <h3 class="section-heading">Technical Report</h3>
-      <div class="content-section">
-        <h3 class="subsection-title" style="margin-top:0;">Implementation Specification</h3>
-        <p>Detailed technical analysis and recommendations provided to the WMS development team:</p>
-        <iframe src="report.pdf" style="width: 100%; height: 640px; max-height: 80vh; border: 1px solid var(--hairline); border-radius: var(--radius-sm); display: block;"></iframe>
-      </div>
-    </section>
-
-    <!-- Footer CTA -->
     <div class="footer-cta footer-cta--compact">
       <h2>Explore This Project</h2>
-      <p>Read the full technical specification or head back to the portfolio.</p>
+      <p>Read the technical report, visit the ECHT website, or return to the main portfolio.</p>
       <div class="button-group">
-        <a href="#docs" class="cta-btn primary"><i class="fas fa-file-alt"></i> Technical Report</a>
-        <a href="../index.html#project-echt" class="cta-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        <a href="report.pdf" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Technical Report</a>
+        <a href="https://echt.com.au/" class="cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Visit Website</a>
+        <a href="../index.html#project-echt" class="cta-btn sm"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
       </div>
     </div>
 

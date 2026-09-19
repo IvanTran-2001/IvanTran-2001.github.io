@@ -154,6 +154,60 @@ function openSectionByHash(hash) {
 (function () {
   var menus = document.querySelectorAll('.navbar-sections, .navbar-more');
   if (!menus.length) return;
+  var supportsHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  if (supportsHover) {
+    menus.forEach(function (menu) {
+      if (!menu.classList.contains('navbar-more')) return;
+
+      var summary = menu.querySelector('summary');
+      var closeTimer = null;
+
+      function openMenu() {
+        menu.setAttribute('open', '');
+      }
+
+      function cancelCloseTimer() {
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+      }
+
+      function scheduleClose() {
+        cancelCloseTimer();
+        closeTimer = setTimeout(function () {
+          menu.removeAttribute('open');
+        }, 90);
+      }
+
+      summary.addEventListener('mouseenter', function () {
+        cancelCloseTimer();
+        openMenu();
+      });
+
+      menu.addEventListener('mouseenter', function () {
+        cancelCloseTimer();
+        openMenu();
+      });
+
+      menu.addEventListener('mouseleave', scheduleClose);
+
+      summary.addEventListener('focus', openMenu);
+      menu.addEventListener('focusin', function () {
+        cancelCloseTimer();
+        openMenu();
+      });
+
+      menu.addEventListener('focusout', function () {
+        window.setTimeout(function () {
+          if (!menu.contains(document.activeElement)) {
+            menu.removeAttribute('open');
+          }
+        }, 0);
+      });
+    });
+  }
 
   menus.forEach(function (menu) {
     menu.addEventListener('click', function (e) {
