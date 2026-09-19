@@ -37,14 +37,14 @@
     <ul class="navbar-links">
       <li><a href="#problem">Problem</a></li>
       <li><a href="#spec">Technical Design</a></li>
-      <li><a href="#results">Results</a></li>
+      <li><a href="#impact-outcomes">Impact &amp; Outcomes</a></li>
       <li>
         <details class="navbar-more">
           <summary><span class="navbar-more-label">More</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></summary>
           <ul class="sections-menu">
             <li><a href="#overview">Overview</a></li>
             <li><a href="#role">My Role</a></li>
-            <li><a href="#diagnosis">Diagnosis</a></li>
+            <li><a href="#issues-encountered">Problem Solving</a></li>
             <li><a href="#proof">Proof</a></li>
           </ul>
         </details>
@@ -57,9 +57,9 @@
       <li><a href="#role">My Role</a></li>
       <li><a href="#problem">Problem</a></li>
       <li><a href="#spec">Technical Design</a></li>
-      <li><a href="#diagnosis">Diagnosis</a></li>
+      <li><a href="#issues-encountered">Problem Solving</a></li>
+      <li><a href="#impact-outcomes">Impact &amp; Outcomes</a></li>
       <li><a href="#proof">Proof</a></li>
-      <li><a href="#results">Results</a></li>
     </ul>
     </details>
   </nav>
@@ -142,6 +142,38 @@
 
     <hr class="section-divider">
 
+    <!-- Issues Encountered -->
+    <section class="page-section" id="issues-encountered">
+      <h3 class="section-heading">DEBUGGING &amp; PROBLEM SOLVING</h3>
+      <div class="content-section">
+        <h3 class="subsection-title" style="margin-top:0;">Missing Replenishment Items</h3>
+        <p>After the new report went live, some items that still needed to be replenished were present in the old report but missing from the new combined view.</p>
+
+        <h4 class="subsection-title" style="margin-top:18px; font-size:1em;">1. Contained the Issue</h4>
+        <p>I asked staff to stop relying on the new report and return to the existing report while the issue was investigated.</p>
+
+        <h4 class="subsection-title" style="margin-top:18px; font-size:1em;">2. Compared Expected vs. Actual Output</h4>
+        <p>I used the old report as the reference point and compared it against the new view, collecting rows that were missing or returning incorrect values.</p>
+
+        <h4 class="subsection-title" style="margin-top:18px; font-size:1em;">3. Escalated Early</h4>
+        <p>Once I confirmed the issue was repeatable, I contacted the WMS software developer immediately rather than waiting until I knew the exact cause.</p>
+
+        <h4 class="subsection-title" style="margin-top:18px; font-size:1em;">4. Investigated Possible Causes</h4>
+        <p>Without access to the underlying implementation, I considered several possibilities, including incorrect implementation of the specified logic, missing data inputs, or incorrect handling of calculated values.</p>
+
+        <h4 class="subsection-title" style="margin-top:18px; font-size:1em;">5. Looked for Patterns</h4>
+        <p>While waiting for a response, I compared affected and unaffected rows, looking for repeated values, unusual fields, or any common characteristic that could explain the failures.</p>
+
+        <h4 class="subsection-title" style="margin-top:18px; font-size:1em;">6. Found a Useful Clue</h4>
+        <p>The strongest pattern was that the missing rows shared the same date. I passed that observation to the software developer as a possible clue that the report was not recalculating correctly as the source data changed.</p>
+
+        <h4 class="subsection-title" style="margin-top:18px; font-size:1em;">7. Developer Confirmed the Issue</h4>
+        <p>The software developer used that information during their investigation and identified the implementation issue.</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
     <!-- Technical Design -->
     <section class="page-section" id="spec">
       <h3 class="section-heading">Technical Design</h3>
@@ -160,20 +192,41 @@
           <h3 class="subsection-title" style="margin-top:0;">Want the implementation detail?</h3>
           <p style="margin-bottom: 14px;">The full specification includes the calculations, filtering rules, edge cases, example data and post-deployment validation.</p>
           <a href="report.pdf" class="cta-btn primary" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> View Technical Report</a>
+          <p style="margin: 10px 0 0; font-size: 0.85em; color: var(--ink-tertiary);">Note: This report represents only part of the implementation documentation; additional project reports and follow-up communication were handled through ECHT management.</p>
         </div>
       </div>
     </section>
 
     <hr class="section-divider">
 
-    <!-- Deployment Defect -->
-    <section class="page-section" id="diagnosis">
-      <h3 class="section-heading">Deployment Defect and Diagnosis</h3>
-      <div class="content-section">
-        <h3 class="subsection-title" style="margin-top:0;">Live Validation &amp; Defect Diagnosis</h3>
-        <p>During validation, I found records showing replenishment quantities that should already have resolved to zero.</p>
-        <p>I traced the behaviour to values being calculated as static snapshots rather than recalculating after inventory-location updates.</p>
-        <p>I documented the observed behaviour and likely root cause, then escalated it to the WMS software developer for correction before the Christmas peak.</p>
+    <!-- Impact & Outcomes -->
+    <section class="page-section" id="impact-outcomes">
+      <h3 class="section-heading">IMPACT &amp; OUTCOMES</h3>
+      <div class="content-section stack-gap">
+        <h3 class="subsection-title" style="margin-top:0;">Goal</h3>
+        <p>The goal was to turn three separate WMS views into one reliable replenishment workflow, making customer-item retrieval faster and more accurate while reducing a process that typically required both a computer operator and forklift operator into something one person could coordinate.</p>
+
+        <h3 class="subsection-title">Why Accuracy Mattered</h3>
+        <p>Replenishment errors could leave pick locations empty, preventing pickers and packers from completing customer orders. Missed items created backlog for the following day, and mistakes late in the week could carry into Monday because the warehouse did not operate over the weekend.</p>
+        <p>During the Christmas peak, this could increase labour pressure, require additional casual staff, delay orders, and pull experienced staff away from other warehouse work.</p>
+
+        <h3 class="subsection-title">Operational Outcome</h3>
+        <ul class="role-bullets">
+          <li><strong>3 reports &rarr; 1 operational view</strong> &mdash; reduced the need to cross-check multiple WMS screens.</li>
+          <li><strong>Less manual checking</strong> &mdash; staff could make replenishment decisions from one place.</li>
+          <li><strong>One-person coordination</strong> &mdash; work previously split between computer and forklift workflows could be coordinated by one operator.</li>
+          <li><strong>More flexible staffing</strong> &mdash; experienced staff could spend more time on picking, packing, receiving inventory, and other peak-period work.</li>
+        </ul>
+
+        <h3 class="subsection-title">Estimated Outcomes</h3>
+        <ul class="role-bullets">
+          <li><strong>60&ndash;80% faster retrieval</strong> &mdash; less time spent confirming inventory across multiple reports.</li>
+          <li><strong>~50% faster onboarding</strong> &mdash; fewer reports and workflow rules for new staff to learn.</li>
+          <li><strong>~40% fewer errors</strong> &mdash; less repeated cross-checking and inconsistent interpretation between views.</li>
+        </ul>
+
+        <h3 class="subsection-title">What Happened After Launch</h3>
+        <p>The initial deployment exposed a stale-data issue that caused some required replenishment items to disappear from the new report. I helped contain the issue, compared the old and new outputs, identified a useful pattern in the affected rows, and passed that evidence to the WMS software developer for investigation and correction.</p>
       </div>
     </section>
 
@@ -190,41 +243,6 @@
           <li><strong>Validation:</strong> live WMS output reviewed after deployment</li>
         </ul>
         <p style="color: var(--ink-tertiary); font-size: 0.88em; margin-top: 12px;">Additional verification is available on request, including direct correspondence from ECHT management.</p>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- Operational Impact -->
-    <section class="page-section" id="impact">
-      <h3 class="section-heading">Operational Impact</h3>
-      <div class="content-section stack-gap">
-        <p>The combined view was used to make replenishment decisions, so stale or incorrect values could have immediate operational consequences. If stock was not replenished correctly, pickers and packers could arrive at an empty location, delaying orders and creating backlog for the following day.</p>
-        <p>Timing made this more important before Christmas. A mistake late in the week could carry into Monday because the warehouse did not operate over the weekend, increasing pressure on the busiest day and sometimes requiring additional casual labour to recover the backlog.</p>
-        <p>Reducing repeated cross-checking also freed experienced staff to spend more time on picking, packing, receiving inventory, and other warehouse work during the peak period.</p>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- Results -->
-    <section class="page-section" id="results">
-      <h3 class="section-heading">Results &amp; Impact</h3>
-      <div class="content-section stack-gap">
-        <p><strong>Primary impact:</strong> Enabled one operator to coordinate work that had previously required two separate workflows at nearly the same speed.</p>
-        <h3 class="subsection-title" style="margin-top:0;">What Changed</h3>
-        <ul>
-          <li><strong>Consolidated system</strong>, three fragmented WMS views into one operational report</li>
-          <li><strong>Fewer errors</strong>, reduced manual cross-referencing, duplicated movement and the risk of missed replenishment items</li>
-          <li><strong>Faster onboarding</strong>, simplified onboarding by reducing the number of reports and rules new staff needed to learn</li>
-          <li><strong>Validation</strong>, identified a stale-data defect during live validation and escalated it before the Christmas peak</li>
-        </ul>
-        <h3 class="subsection-title" style="margin-top:0;">Estimated Outcomes</h3>
-        <ul class="role-bullets">
-          <li><strong>60&ndash;80% faster retrieval</strong>, improving how quickly staff could confirm inventory and stock movements.</li>
-          <li><strong>~50% faster onboarding</strong>, because new staff had fewer reports and rules to learn.</li>
-          <li><strong>~40% fewer errors</strong>, from reducing repeated cross-checking and inconsistent interpretation across views.</li>
-        </ul>
       </div>
     </section>
 
