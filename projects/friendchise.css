@@ -291,6 +291,9 @@ blockquote p:last-child { margin-bottom: 0; }
 .challenge-grid { display: flex; flex-direction: column; gap: var(--space-6); }
 .challenge-card { padding: 0; }
 .challenge-card + .challenge-card { border-top: 1px solid var(--hairline); padding-top: var(--space-5); }
+.design-challenges { display: flex; flex-direction: column; gap: var(--space-6); }
+.design-challenges .challenge-card + .challenge-card { border-top: 0 !important; padding-top: 0 !important; }
+.engineering-challenges .challenge-card + .challenge-card { border-top: 0 !important; padding-top: 0 !important; }
 .challenge-card h3 { font-size: 1.08em; font-weight: 700; line-height: 1.3; margin-bottom: 14px; color: var(--ink); }
 .challenge-step { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 12px; align-items: start; margin-bottom: 12px; }
 .challenge-step:last-child { margin-bottom: 0; }

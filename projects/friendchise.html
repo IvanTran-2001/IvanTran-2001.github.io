@@ -33,7 +33,7 @@
     <site-navbar-back href="../index.html#project-friendchise" label="Back to Portfolio" title="Back to Portfolio"></site-navbar-back>
     <ul class="navbar-links">
       <li><a href="#overview">Overview</a></li>
-      <li><a href="#engineering">Challenges &amp; Lessons</a></li>
+      <li><a href="#engineering">Challenges</a></li>
       <li><a href="#architecture">Architecture</a></li>
       <li><a href="#impact">Impact</a></li>
       <li>
@@ -185,66 +185,49 @@
     <hr class="section-divider">
     <h2 class="section-title" id="engineering">CHALLENGES &amp; LESSONS</h2>
     <div class="content-section stack-gap">
-      <div>
-        <h3 class="subsection-title" style="margin-top:0;">1. Product &amp; Adoption Challenges</h3>
-        <h4 class="subsection-title" style="margin-top:0; font-size:1em;">The Challenge</h4>
-        <p>FriendChise depended on having recipes, procedures and workplace knowledge available digitally, but I initially underestimated how much effort it would take to manually convert an existing workplace's information into structured data. A business could already have hundreds of recipes, documents and procedures, and asking someone to enter them one by one created a major adoption barrier.</p>
-        <h4 class="subsection-title" style="margin-top:12px; font-size:1em;">What Changed</h4>
-        <p>This became much clearer after I built Scan-to-Task. A staff member could photograph or upload existing material and use AI to turn it into structured FriendChise data, reducing the amount of manual entry required. This also shifted my thinking toward more AI-assisted input, such as photo → task, photo → recipe, photo → conversion data and document → procedure.</p>
-        <h4 class="subsection-title" style="margin-top:12px; font-size:1em;">Lesson</h4>
-        <p>The product did not only need features that consumed structured data. It needed much better ways to create that data in the first place.</p>
+      <h3 class="subsection-title" style="margin-top:0; font-size:1.35em;">Design Challenges</h3>
+      <div class="design-challenges">
+      <div class="challenge-card">
+          <h3>Transition Difficulties</h3>
+        <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>A business may already have hundreds of paper documents, recipes and dense procedures. Manually converting all of that into structured digital data creates a major barrier to adopting the system.</p></div>
+        <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>I built an AI-assisted tool that can scan or upload existing documents and convert them into structured, presentable task data inside FriendChise.</p></div>
+        <div class="challenge-step"><span class="challenge-step-label">Result</span><p>This reduced the amount of manual data entry required and showed me that simplifying the transition into the system was just as important as building the features inside it.</p></div>
+      </div>
+
+      <div class="challenge-card">
+          <h3>Reducing Access Friction</h3>
+        <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>FriendChise was originally built as a web app, but frontline work happens in a fast paced environment where staff need information immediately. Even if the features worked well, opening a browser, finding the site, navigating back to the right place, or remembering where you left off added too much friction.</p></div>
+        <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>I realised the problem was not the functionality, but the form it was delivered in. A dedicated mobile app was better suited to everyday operational use because it gave staff direct access, preserved context, and separated work from their normal browser activity.</p></div>
+        <div class="challenge-step"><span class="challenge-step-label">Result</span><p>This led to FriendChise Mobile, where common workflows are faster to reach and better suited to use during an active shift.</p></div>
+      </div>
       </div>
 
       <hr style="border:0; border-top:1px solid var(--hairline); margin: 20px 0;">
 
-      <div>
-        <h3 class="subsection-title" style="margin-top:0;">2. Accessibility Was the Real Bottleneck</h3>
-        <h4 class="subsection-title" style="margin-top:0; font-size:1em;">The Challenge</h4>
-        <p>FriendChise Web could contain the right information and still fail at the moment it was needed. Looking up a recipe during a shift could require opening a browser, navigating back to FriendChise, selecting the organisation, finding the task area, searching, and opening the relevant item.</p>
-        <p>For an administrative workflow this was acceptable. For a frontline worker trying to find information quickly during a shift, it created too much friction.</p>
-        <h4 class="subsection-title" style="margin-top:12px; font-size:1em;">What Changed</h4>
-        <p>This became one of the main reasons I built FriendChise Mobile. The app provides direct access from the phone, remembers where the user left off, surfaces task information directly in a feed, and makes native camera access available for AI-assisted capture.</p>
-        <h4 class="subsection-title" style="margin-top:12px; font-size:1em;">Lesson</h4>
-        <p>Accessibility and interaction cost can matter more than the number of features a product has.</p>
-      </div>
-
-      <hr style="border:0; border-top:1px solid var(--hairline); margin: 20px 0;">
-
-      <div>
-        <h3 class="subsection-title" style="margin-top:0;">3. Engineering Challenges</h3>
-        <div class="challenge-grid">
-          <div class="challenge-card">
-            <h3>Franchise hierarchy vs. tenant isolation</h3>
-            <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>The platform needed to support both an independent single store and a franchise network, without one org ever seeing another's data by default.</p></div>
-            <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>A self-referencing <code>parentId</code> relation on <code>Organization</code> lets a parent connect multiple franchisees and share brand-level resources, while every query is still scoped by <code>orgId</code> rather than relying on the UI to hide things correctly.</p></div>
-            <div class="challenge-step"><span class="challenge-step-label">Result</span><p>One data model supports both a single independent location and a multi-location franchise, with tenant boundaries that don't depend on the interface behaving correctly.</p></div>
-          </div>
-          <div class="challenge-card">
-            <h3>Role-based access at org scale</h3>
-            <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>Owners, managers, and staff need different tools from the same system, and permission logic scattered across screens is exactly where multi-tenant bugs hide.</p></div>
-            <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>Permissions are modelled as org-scoped <code>Role</code> → <code>Permission</code> → <code>MemberRole</code> join tables, checked centrally in a shared <code>authz</code> layer rather than per-page.</p></div>
-            <div class="challenge-step"><span class="challenge-step-label">Result</span><p>Each role only sees the tools relevant to its job, and permission checks are covered directly by the largest slice of the test suite (151 server-action tests) instead of being trusted to the UI.</p></div>
-          </div>
+      <h3 class="subsection-title" style="margin-top:32px; font-size:1.35em;">Engineering Challenges</h3>
+      <div class="challenge-grid engineering-challenges">
+        <div class="challenge-card">
+          <h3>Franchise hierarchy vs. tenant isolation</h3>
+          <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>The platform needed to support both an independent single store and a franchise network, without one org ever seeing another's data by default.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>A self-referencing <code>parentId</code> relation on <code>Organization</code> lets a parent connect multiple franchisees and share brand-level resources, while every query is still scoped by <code>orgId</code> rather than relying on the UI to hide things correctly.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Result</span><p>One data model supports both a single independent location and a multi-location franchise, with tenant boundaries that don't depend on the interface behaving correctly.</p></div>
+        </div>
+        <div class="challenge-card">
+          <h3>Role-based access at org scale</h3>
+          <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>Owners, managers, and staff need different tools from the same system, and permission logic scattered across screens is exactly where multi-tenant bugs hide.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>Permissions are modelled as org-scoped <code>Role</code> → <code>Permission</code> → <code>MemberRole</code> join tables, checked centrally in a shared <code>authz</code> layer rather than per-page.</p></div>
+          <div class="challenge-step"><span class="challenge-step-label">Result</span><p>Each role only sees the tools relevant to its job, and permission checks are covered directly by the largest slice of the test suite (151 server-action tests) instead of being trusted to the UI.</p></div>
         </div>
       </div>
 
       <hr style="border:0; border-top:1px solid var(--hairline); margin: 20px 0;">
 
-      <div>
-        <h3 class="subsection-title" style="margin-top:0;">4. What I Would Do Differently</h3>
-        <h4 class="subsection-title" style="margin-top:0; font-size:1em;">Start smaller and validate earlier</h4>
-        <p>If I started FriendChise again, I would begin with the smallest high-frequency workflow, such as task and procedure lookup, and validate daily usage before expanding into broader scheduling and operational tooling.</p>
-
-        <h4 class="subsection-title" style="margin-top:12px; font-size:1em;">Build mobile earlier</h4>
-        <p>The product was intended largely for frontline staff, yet I initially invested heavily in the web experience. In hindsight, mobile better matches how staff actually access information during a shift.</p>
-
-        <h4 class="subsection-title" style="margin-top:12px; font-size:1em;">Prioritise acquiring useful data</h4>
-        <p>Many features depend on having structured operational knowledge available first. I would invest earlier in tools that make capturing this information easier, particularly AI-assisted photo and document ingestion.</p>
-
-        <h4 class="subsection-title" style="margin-top:12px; font-size:1em;">Refine after proving value</h4>
-        <p>I spent too much time polishing some features before knowing whether they would remain important. I would ship smaller versions sooner, observe real usage, and focus refinement on workflows that demonstrate repeated value.</p>
-
-        <p style="margin-top:16px;">If I started FriendChise again, I would build less initially and focus first on the workflows staff used most often. I would make the product mobile-first much earlier and invest sooner in AI-assisted tools that turn photos and documents into structured operational data. The biggest lesson was that building more functionality was not always the same as making the product more useful. Reducing friction, capturing data more easily and validating real usage mattered more.</p>
+      <h3 class="subsection-title" style="margin-top:32px; font-size:1.35em;">What I Learnt</h3>
+      <div class="challenge-card">
+          <h3>What I Would Do Differently</h3>
+        <div class="challenge-step"><span class="challenge-step-label">Problem</span><p>If I started FriendChise again, I would begin with the smallest high frequency workflow, such as task and procedure lookup, and validate daily usage before expanding into broader scheduling and operational tooling. The product was intended largely for frontline staff, yet I initially invested heavily in the web experience and too much time went into polishing features before I knew whether they would remain important.</p></div>
+        <div class="challenge-step"><span class="challenge-step-label">Decision</span><p>I would build less initially and focus first on the workflows staff used most often. I would make the product mobile first much earlier, invest sooner in AI supported tools that turn photos and documents into structured operational data, and ship smaller versions sooner so real usage could guide the next round of work.</p></div>
+        <div class="challenge-step"><span class="challenge-step-label">Result</span><p>The biggest lesson was that building more functionality was not always the same as making the product more useful. Reducing friction, capturing data more easily and validating real usage mattered more.</p></div>
       </div>
     </div>
 
