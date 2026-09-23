@@ -271,6 +271,16 @@ blockquote p:last-child { margin-bottom: 0; }
 .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; border-radius: var(--radius-md); overflow: hidden; }
 .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
+.qa-wolf-demo-section .qa-wolf-demo-video-wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.qa-wolf-demo-section .video-wrapper {
+  margin: 0 auto;
+}
+
 .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 8px; }
 .feature-card h3 { margin-bottom: 10px; font-size: 1em; font-weight: 700; color: var(--ink); }
 .feature-card p { color: var(--ink-secondary); font-size: 0.85em; line-height: 1.5; }
